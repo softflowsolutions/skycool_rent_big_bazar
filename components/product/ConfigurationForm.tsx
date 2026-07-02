@@ -177,7 +177,7 @@ Sent from: SkyCool Website`;
         <div className="grid grid-cols-2 gap-2">
           <a
             href={generateCallLink(SITE_CONFIG.phone)}
-            className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white rounded-xl px-4 py-3 font-bold text-sm shadow-md transition-all"
+            className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white rounded-xl px-4 py-3 font-bold text-sm shadow-md transition-all"
           >
             <Phone className="h-4 w-4" />
             Call Now

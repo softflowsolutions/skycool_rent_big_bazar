@@ -33,7 +33,7 @@ export function CTASection() {
             </Link>
             <a
               href={generateCallLink(SITE_CONFIG.phone)}
-              className="inline-flex items-center justify-center gap-2 bg-white/20 backdrop-blur text-white border-2 border-white/30 rounded-xl px-6 py-3.5 font-bold text-sm sm:text-base hover:bg-white/30 transition-colors"
+              className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white rounded-xl px-6 py-3.5 font-bold text-sm sm:text-base shadow-lg transition-all"
             >
               <Phone className="h-4 w-4" />
               Call Now

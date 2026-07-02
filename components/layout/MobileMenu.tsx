@@ -94,7 +94,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
               {/* Call Button */}
               <a
                 href={generateCallLink(SITE_CONFIG.phone)}
-                className="flex items-center justify-center gap-2 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-xl py-3 font-bold text-sm shadow-md hover:shadow-lg transition-all active:scale-95"
+                className="flex items-center justify-center gap-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-xl py-3 font-bold text-sm shadow-md hover:shadow-lg transition-all active:scale-95"
                 aria-label="Call SkyCool"
               >
                 <Phone className="h-4 w-4" />

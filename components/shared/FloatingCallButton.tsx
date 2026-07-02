@@ -19,12 +19,12 @@ export function FloatingCallButton() {
     <a
       href={generateCallLink(SITE_CONFIG.phone)}
       className={cn(
-        'fixed bottom-24 lg:bottom-6 right-4 z-30 flex items-center justify-center h-14 w-14 rounded-full bg-gradient-to-r from-orange-500 to-orange-600 text-white shadow-2xl hover:shadow-orange-500/50 hover:scale-110 transition-all duration-300',
+        'fixed bottom-24 lg:bottom-6 right-4 z-30 flex items-center justify-center h-14 w-14 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-2xl hover:shadow-blue-500/50 hover:scale-110 transition-all duration-300',
         show ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
       )}
       aria-label="Call SkyCool"
     >
-      <span className="absolute inset-0 rounded-full bg-orange-500 animate-ping opacity-25" />
+      <span className="absolute inset-0 rounded-full bg-blue-500 animate-ping opacity-25" />
       <Phone className="h-6 w-6 relative z-10" strokeWidth={2.5} />
     </a>
   );

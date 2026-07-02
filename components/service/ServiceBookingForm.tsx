@@ -36,7 +36,8 @@ export function ServiceBookingForm({ service }: ServiceBookingFormProps) {
     const newErrors: Record<string, string> = {};
     if (!form.name || form.name.length < 2) newErrors.name = 'Required';
     if (!validatePhone(form.phone)) newErrors.phone = 'Invalid phone';
-    if (!validateEmail(form.email)) newErrors.email = 'Invalid email';
+    // Email is OPTIONAL
+    if (form.email && !validateEmail(form.email)) newErrors.email = 'Invalid email';
     if (!form.address || form.address.length < 10) newErrors.address = 'Address too short';
     if (!form.date) newErrors.date = 'Select date';
     setErrors(newErrors);
@@ -142,7 +143,7 @@ Sent from: SkyCool Website`;
 
         <div>
           <label className="text-xs uppercase tracking-wider font-semibold text-gray-600 mb-1.5 block">
-            Email <span className="text-red-500">*</span>
+            Email <span className="text-gray-400 font-normal">(Optional)</span>
           </label>
           <div className="relative">
             <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 pointer-events-none" />

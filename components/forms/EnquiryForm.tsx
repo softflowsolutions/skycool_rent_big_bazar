@@ -11,6 +11,7 @@ import {
   Loader2,
   Package,
   Wrench,
+  Check,
 } from 'lucide-react';
 import { CITIES, DURATIONS } from '@/lib/constants';
 import { cn, validatePhone } from '@/lib/utils';
@@ -55,13 +56,14 @@ export function EnquiryForm({
 
   const taxonomy = useMemo(() => getEnquiryTaxonomy(), []);
 
-  const subCategoryOptions = useMemo(() => {
-    return Object.keys(taxonomy[form.category] || {});
+  const subCategoryOptions = useMemo<string[]>(() => {
+    if (!form.category) return [];
+    return Object.keys(taxonomy[form.category] ?? {});
   }, [taxonomy, form.category]);
 
-  const productOptions = useMemo(() => {
-    if (!form.subCategory) return [];
-    return taxonomy[form.category]?.[form.subCategory] || [];
+  const productOptions = useMemo<Array<{ value: string; label: string }>>(() => {
+    if (!form.category || !form.subCategory) return [];
+    return taxonomy[form.category]?.[form.subCategory] ?? [];
   }, [taxonomy, form.category, form.subCategory]);
 
   // Reset cascading fields when category changes
@@ -183,10 +185,10 @@ export function EnquiryForm({
             <label className="text-xs uppercase tracking-wider font-semibold text-gray-600 mb-2 block">
               What do you need?
             </label>
-            <div className="grid grid-cols-2 gap-2">
+            <div className="grid grid-cols-2 gap-2.5">
               {[
-                { value: 'rent' as const, label: 'Rent', sub: 'AC & Fridge on rent', Icon: Package, color: 'from-sky-500 to-blue-600' },
-                { value: 'service' as const, label: 'Service', sub: 'Repair & maintenance', Icon: Wrench, color: 'from-orange-500 to-red-600' },
+                { value: 'rent' as const, label: 'Rent', sub: 'AC & Fridge on rent', Icon: Package, color: 'from-sky-500 to-blue-600', activeBg: 'from-sky-500 to-blue-600' },
+                { value: 'service' as const, label: 'Service', sub: 'Repair & maintenance', Icon: Wrench, color: 'from-orange-500 to-red-600', activeBg: 'from-orange-500 to-red-600' },
               ].map((opt) => {
                 const active = form.category === opt.value;
                 return (
@@ -195,21 +197,28 @@ export function EnquiryForm({
                     key={opt.value}
                     onClick={() => update('category', opt.value)}
                     className={cn(
-                      'relative flex flex-col items-start gap-2 rounded-2xl p-3 sm:p-4 text-left border-2 transition-all',
+                      'relative flex flex-col items-start gap-2 rounded-2xl p-3 sm:p-4 text-left border-2 transition-all duration-200',
                       active
-                        ? 'border-transparent bg-gradient-to-br text-white shadow-cool'
-                        : 'border-gray-200 bg-white text-gray-700 hover:border-sky-300'
+                        ? cn('border-transparent bg-gradient-to-br text-white shadow-lg', opt.activeBg)
+                        : 'border-gray-300 bg-white text-gray-700 hover:border-gray-400 hover:bg-gray-50'
                     )}
+                    aria-pressed={active}
                   >
+                    {/* Check mark indicator on active card */}
+                    {active && (
+                      <div className="absolute top-2 right-2 h-5 w-5 rounded-full bg-white/30 flex items-center justify-center">
+                        <Check className="h-3 w-3 text-white" strokeWidth={3} />
+                      </div>
+                    )}
                     <div className={cn(
-                      'flex h-9 w-9 items-center justify-center rounded-xl',
-                      active ? 'bg-white/20' : `bg-gradient-to-br ${opt.color} text-white`
+                      'flex h-10 w-10 items-center justify-center rounded-xl transition-colors',
+                      active ? 'bg-white/25' : cn('bg-gradient-to-br text-white', opt.color)
                     )}>
-                      <opt.Icon className="h-4 w-4 text-white" />
+                      <opt.Icon className="h-5 w-5 text-white" />
                     </div>
                     <div>
                       <div className="font-display font-bold text-base">{opt.label}</div>
-                      <div className={cn('text-[11px]', active ? 'text-white/80' : 'text-gray-500')}>
+                      <div className={cn('text-[11px] mt-0.5', active ? 'text-white/85' : 'text-gray-500')}>
                         {opt.sub}
                       </div>
                     </div>
