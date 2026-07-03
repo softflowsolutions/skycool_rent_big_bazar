@@ -20,8 +20,6 @@ const categoryCards = [
     slug: 'ac',
     icon: Snowflake,
     description: 'Window AC, Split AC, Inverter AC, Portable AC',
-    color: 'from-sky-500 to-blue-600',
-    bgColor: 'from-sky-50 to-blue-50',
     count: PRODUCTS.filter((p) => p.category === 'ac').length,
   },
   {
@@ -29,8 +27,6 @@ const categoryCards = [
     slug: 'fridge',
     icon: Refrigerator,
     description: 'Single Door, Double Door, Side-by-Side Fridges',
-    color: 'from-cyan-500 to-teal-600',
-    bgColor: 'from-cyan-50 to-teal-50',
     count: PRODUCTS.filter((p) => p.category === 'fridge').length,
   },
   {
@@ -38,8 +34,6 @@ const categoryCards = [
     slug: 'combo',
     icon: Package,
     description: 'AC + Fridge bundles with extra savings',
-    color: 'from-orange-500 to-red-600',
-    bgColor: 'from-orange-50 to-red-50',
     count: PRODUCTS.filter((p) => p.subCategory === 'combo').length,
   },
 ];
@@ -49,12 +43,12 @@ export default function RentPage() {
 
   return (
     <>
-      <section className="bg-gradient-to-br from-sky-50 via-white to-blue-50">
+      <section className="bg-gray-50">
         <div className="container-app py-8 lg:py-12">
           <Breadcrumb items={[{ label: 'Rent' }]} />
           <div className="text-center max-w-3xl mx-auto">
             <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-3">
-              Rent <span className="text-gradient">AC & Fridge</span>
+              Rent AC & Fridge
             </h1>
             <p className="text-gray-600 text-sm sm:text-base lg:text-lg">
               Premium appliances on monthly rent. Zero deposit. Free delivery & installation.
@@ -75,10 +69,9 @@ export default function RentPage() {
               <Link
                 key={cat.slug}
                 href={`/rent/${cat.slug}`}
-                className={`group relative bg-gradient-to-br ${cat.bgColor} rounded-2xl p-6 border-2 border-white shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden`}
+                className={`group relative bg-white rounded-2xl p-6 border-2 border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden`}
               >
-                <div className={`absolute -top-12 -right-12 h-32 w-32 rounded-full bg-gradient-to-br ${cat.color} opacity-10 group-hover:scale-150 transition-transform duration-500`} />
-                <div className={`relative inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br ${cat.color} shadow-lg mb-4`}>
+                <div className={`relative inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gray-900 shadow-md mb-4`}>
                   <Icon className="h-7 w-7 text-white" strokeWidth={2} />
                 </div>
                 <h3 className="font-display font-bold text-xl text-gray-900 mb-1">

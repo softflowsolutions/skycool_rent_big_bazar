@@ -35,20 +35,20 @@ export function BottomNav() {
                     <Icon
                       className={cn(
                         'h-5 w-5 transition-colors',
-                        isActive ? 'text-sky-600' : 'text-gray-500'
+                        isActive ? 'text-gray-900' : 'text-gray-500'
                       )}
                       strokeWidth={isActive ? 2.5 : 2}
                     />
                     <span
                       className={cn(
                         'text-[10px] font-semibold transition-colors',
-                        isActive ? 'text-sky-600' : 'text-gray-500'
+                        isActive ? 'text-gray-900' : 'text-gray-500'
                       )}
                     >
                       {item.label}
                     </span>
                     {isActive && (
-                      <span className="absolute -top-0.5 left-1/2 -translate-x-1/2 h-1 w-8 rounded-b-full bg-gradient-to-r from-sky-500 to-blue-500" />
+                      <span className="absolute -top-0.5 left-1/2 -translate-x-1/2 h-1 w-8 rounded-b-full bg-gray-900" />
                     )}
                   </>
                 );

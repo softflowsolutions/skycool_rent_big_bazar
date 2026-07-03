@@ -16,20 +16,16 @@ export function Testimonials() {
   }, []);
 
   return (
-    <section className="bg-gradient-to-br from-sky-900 via-blue-900 to-cyan-900 text-white section-padding overflow-hidden relative">
-      <div className="absolute inset-0 opacity-10" style={{
-        backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-      }} />
-
-      <div className="container-app relative">
-        <div className="text-center mb-10 lg:mb-14">
-          <p className="text-sm font-semibold text-cyan-300 uppercase tracking-wider mb-2">
+    <section className="bg-gray-50 py-12 sm:py-16 lg:py-20">
+      <div className="container-app">
+        <div className="text-center mb-10 lg:mb-12">
+          <p className="text-xs font-medium uppercase tracking-widest text-red-600 mb-2">
             Testimonials
           </p>
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-3">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 tracking-tight">
             What Our Customers Say
           </h2>
-          <p className="text-sky-100 max-w-2xl mx-auto text-sm sm:text-base">
+          <p className="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base">
             Real reviews from real customers across India.
           </p>
         </div>
@@ -54,7 +50,7 @@ export function Testimonials() {
                 key={idx}
                 onClick={() => setCurrent(idx)}
                 className={`h-1.5 rounded-full transition-all ${
-                  idx === current ? 'w-8 bg-cyan-400' : 'w-1.5 bg-white/30'
+                  idx === current ? 'w-6 bg-gray-900' : 'w-1.5 bg-gray-300'
                 }`}
                 aria-label={`Go to testimonial ${idx + 1}`}
               />
@@ -75,26 +71,26 @@ export function Testimonials() {
 
 function TestimonialCard({ testimonial }: { testimonial: typeof TESTIMONIALS[0] }) {
   return (
-    <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all h-full">
-      <Quote className="h-8 w-8 text-cyan-400 mb-3" />
-      <div className="flex items-center gap-1 mb-3">
+    <div className="bg-white border border-gray-200 rounded-lg p-5 h-full">
+      <Quote className="h-6 w-6 text-gray-300 mb-2" />
+      <div className="flex items-center gap-1 mb-2">
         {Array.from({ length: testimonial.rating }).map((_, i) => (
           <Star key={i} className="h-4 w-4 fill-amber-400 text-amber-400" />
         ))}
       </div>
-      <p className="text-sm text-sky-50 leading-relaxed mb-4 line-clamp-4">
-        &ldquo;{testimonial.text}&rdquo;
+      <p className="text-sm text-gray-700 leading-relaxed mb-4 line-clamp-4">
+        "{testimonial.text}"
       </p>
-      <div className="flex items-center gap-3 pt-4 border-t border-white/10">
-        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-cool text-white font-bold text-sm">
+      <div className="flex items-center gap-3 pt-3 border-t border-gray-100">
+        <div className="flex h-9 w-9 items-center justify-center rounded-full bg-gray-900 text-white font-bold text-sm">
           {testimonial.name.charAt(0)}
         </div>
         <div className="flex-1 min-w-0">
-          <div className="text-sm font-semibold text-white truncate">
+          <div className="text-sm font-semibold text-gray-900 truncate">
             {testimonial.name}
           </div>
-          <div className="text-xs text-sky-200 truncate">
-            {testimonial.city} • {testimonial.product}
+          <div className="text-xs text-gray-500 truncate">
+            {testimonial.city} · {testimonial.product}
           </div>
         </div>
       </div>

@@ -52,7 +52,7 @@ export function CategoriesGrid() {
             className="group relative bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100"
           >
             {/* Image area */}
-            <div className="relative aspect-[16/10] bg-gradient-to-br from-sky-50 to-blue-50 overflow-hidden">
+            <div className="relative aspect-[16/10] bg-gray-100 overflow-hidden">
               <Image
                 src={cat.image}
                 alt={cat.title}
@@ -61,7 +61,6 @@ export function CategoriesGrid() {
                 className="object-cover group-hover:scale-105 transition-transform duration-500"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />
             </div>
 
             {/* Content area */}

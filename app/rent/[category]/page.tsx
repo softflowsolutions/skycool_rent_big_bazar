@@ -57,7 +57,7 @@ export default function CategoryPage({ params }: PageProps) {
 
   return (
     <>
-      <section className="bg-gradient-to-br from-sky-50 via-white to-blue-50">
+      <section className="bg-gray-50">
         <div className="container-app py-8 lg:py-12">
           <Breadcrumb items={[{ label: 'Rent', href: '/rent' }, { label: capitalize(category) }]} />
           <div className="max-w-3xl">

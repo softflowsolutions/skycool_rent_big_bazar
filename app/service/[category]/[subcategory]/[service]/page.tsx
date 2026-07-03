@@ -56,7 +56,7 @@ Sent from: SkyCool Website`;
   return (
     <>
       <ServiceJsonLd service={service} />
-      <section className="bg-gradient-to-br from-sky-50 via-white to-blue-50">
+      <section className="bg-gray-50">
         <div className="container-app py-6 lg:py-8">
           <Breadcrumb
             items={[
@@ -71,7 +71,7 @@ Sent from: SkyCool Website`;
 
       <section className="container-app py-6 lg:py-10">
         <div className="grid lg:grid-cols-2 gap-6 lg:gap-12">
-          <div className="relative aspect-[4/3] lg:aspect-square rounded-2xl overflow-hidden shadow-lg bg-gradient-to-br from-sky-50 to-blue-50">
+          <div className="relative aspect-[4/3] lg:aspect-square rounded-2xl overflow-hidden shadow-lg bg-gray-100">
             <Image
               src={service.images[0]}
               alt={service.name}
@@ -127,7 +127,7 @@ Sent from: SkyCool Website`;
               </div>
             </div>
 
-            <div className="bg-gradient-cool rounded-2xl p-5 text-white">
+            <div className="bg-gray-900 rounded-2xl p-5 text-white">
               <div className="flex items-baseline gap-2 mb-2">
                 <span className="text-xs opacity-90">Starting at</span>
               </div>
@@ -150,7 +150,7 @@ Sent from: SkyCool Website`;
                 </a>
                 <a
                   href={generateCallLink(SITE_CONFIG.phone)}
-                  className="flex-1 inline-flex items-center justify-center gap-2 bg-white/20 backdrop-blur text-white border-2 border-white/30 rounded-xl px-4 py-3 font-bold text-sm hover:bg-white/30 transition-colors"
+                  className="flex-1 inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl px-4 py-3 font-bold text-sm transition-colors"
                 >
                   <Phone className="h-4 w-4" />
                   Call Now

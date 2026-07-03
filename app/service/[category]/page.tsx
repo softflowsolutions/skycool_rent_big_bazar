@@ -29,12 +29,12 @@ export default function ServiceCategoryPage({ params }: PageProps) {
 
   return (
     <>
-      <section className="bg-gradient-to-br from-sky-50 via-white to-blue-50">
+      <section className="bg-gray-50">
         <div className="container-app py-8 lg:py-12">
           <Breadcrumb items={[{ label: 'Service', href: '/service' }, { label: capitalize(params.category) }]} />
           <div className="max-w-3xl">
             <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-3">
-              {capitalize(params.category)} <span className="text-gradient">Services</span>
+              {capitalize(params.category)} Services
             </h1>
             <p className="text-gray-600 text-sm sm:text-base lg:text-lg">
               {services.length} services • Starting from{' '}

@@ -18,7 +18,7 @@ export function ProductGallery({ images, name }: ProductGalleryProps) {
 
   return (
     <div className="space-y-3">
-      <div className="relative aspect-[4/3] bg-gradient-to-br from-sky-50 to-blue-50 rounded-2xl overflow-hidden shadow-lg group">
+      <div className="relative aspect-[4/3] bg-white rounded-lg overflow-hidden border border-gray-200 group">
         <Image
           src={images[current]}
           alt={`${name} - Image ${current + 1}`}
@@ -63,14 +63,14 @@ export function ProductGallery({ images, name }: ProductGalleryProps) {
       </div>
 
       {images.length > 1 && (
-        <div className="flex gap-2 overflow-x-auto scrollbar-hide">
+        <div className="flex gap-2 overflow-x-auto scrollbar-hide border-gray-200">
           {images.map((img, idx) => (
             <button
               key={idx}
               onClick={() => setCurrent(idx)}
               className={cn(
                 'relative flex-shrink-0 w-20 h-20 rounded-xl overflow-hidden border-2 transition-all',
-                idx === current ? 'border-sky-500 shadow-md' : 'border-transparent opacity-60 hover:opacity-100'
+                idx === current ? 'border-gray-900' : 'border-transparent opacity-60 hover:opacity-100'
               )}
             >
               <Image

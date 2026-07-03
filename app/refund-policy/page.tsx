@@ -47,11 +47,11 @@ const policies = [
 export default function RefundPolicyPage() {
   return (
     <>
-      <section className="bg-gradient-to-br from-sky-50 via-white to-blue-50">
+      <section className="bg-gray-50">
         <div className="container-app py-8">
           <Breadcrumb items={[{ label: 'Cancellation & Refund Policy' }]} />
           <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-3">
-            Cancellation & <span className="text-gradient">Refund</span> Policy
+            Cancellation & Refund Policy
           </h1>
           <p className="text-sm text-gray-500">
             Last updated: {new Date().toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' })}
@@ -67,7 +67,7 @@ export default function RefundPolicyPage() {
               className="bg-white rounded-2xl shadow-md border border-gray-100 p-5 sm:p-8"
             >
               <h2 className="font-display text-xl sm:text-2xl font-extrabold text-gray-900 mb-4 flex items-center gap-2">
-                <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-cool text-white text-sm">
+                <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gray-900 text-white text-sm">
                   {idx + 1}
                 </span>
                 {policy.title}
@@ -86,23 +86,23 @@ export default function RefundPolicyPage() {
             </div>
           ))}
 
-          <div className="bg-gradient-cool text-white rounded-2xl p-6 sm:p-8 shadow-lg">
+          <div className="bg-gray-900 text-white rounded-2xl p-6 sm:p-8 shadow-lg">
             <h2 className="font-display text-xl sm:text-2xl font-extrabold mb-2">
               Need Help with Refund?
             </h2>
-            <p className="text-sky-100 text-sm mb-4">
+            <p className="text-gray-300 text-sm mb-4">
               Contact our support team. We process refunds within 24 hours of approval.
             </p>
             <div className="flex flex-col sm:flex-row gap-2">
               <a
                 href={`tel:${SITE_CONFIG.phone.replace(/\s/g, '')}`}
-                className="inline-flex items-center justify-center gap-2 bg-white text-sky-600 rounded-xl px-5 py-2.5 font-semibold hover:bg-sky-50 transition-colors"
+                className="inline-flex items-center justify-center gap-2 bg-white text-gray-900 rounded-xl px-5 py-2.5 font-semibold hover:bg-gray-100 transition-colors"
               >
                 📞 {SITE_CONFIG.phone}
               </a>
               <a
                 href={`mailto:${SITE_CONFIG.email}`}
-                className="inline-flex items-center justify-center gap-2 bg-white/20 backdrop-blur text-white border border-white/30 rounded-xl px-5 py-2.5 font-semibold hover:bg-white/30 transition-colors"
+                className="inline-flex items-center justify-center gap-2 bg-gray-800 text-white border border-gray-700 rounded-xl px-5 py-2.5 font-semibold hover:bg-gray-700 transition-colors"
               >
                 ✉️ {SITE_CONFIG.email}
               </a>

@@ -76,7 +76,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
                   key={item.href}
                   href={item.href}
                   onClick={onClose}
-                  className="flex items-center justify-between rounded-xl px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-sky-50 hover:text-sky-600 transition-colors"
+                  className="flex items-center justify-between rounded-xl px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50 hover:text-gray-900 transition-colors"
                 >
                   <span>{item.label}</span>
                   <ChevronRight className="h-4 w-4" />
@@ -94,7 +94,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
               {/* Call Button */}
               <a
                 href={generateCallLink(SITE_CONFIG.phone)}
-                className="flex items-center justify-center gap-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-xl py-3 font-bold text-sm shadow-md hover:shadow-lg transition-all active:scale-95"
+                className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl py-3 font-bold text-sm transition-colors active:scale-95"
                 aria-label="Call SkyCool"
               >
                 <Phone className="h-4 w-4" />
@@ -108,7 +108,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
                 )}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-xl py-3 font-bold text-sm shadow-md hover:shadow-lg transition-all active:scale-95"
+                className="flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white rounded-xl py-3 font-bold text-sm transition-colors active:scale-95"
                 aria-label="Chat on WhatsApp"
               >
                 <MessageCircle className="h-4 w-4" />
@@ -116,16 +116,16 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
               </a>
             </div>
             {/* Email + Address info */}
-            <div className="space-y-2 bg-sky-50 rounded-2xl p-4">
+            <div className="space-y-2 bg-gray-50 rounded-2xl p-4">
               <a
                 href={`mailto:${SITE_CONFIG.email}`}
-                className="flex items-center gap-3 text-sm font-medium text-gray-700 hover:text-sky-600 transition-colors"
+                className="flex items-center gap-3 text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors"
               >
-                <Mail className="h-4 w-4 text-sky-600" />
+                <Mail className="h-4 w-4 text-gray-500" />
                 {SITE_CONFIG.email}
               </a>
               <div className="flex items-start gap-3 text-sm font-medium text-gray-700">
-                <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0 text-sky-600" />
+                <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0 text-gray-500" />
                 <span className="text-xs">{SITE_CONFIG.address}</span>
               </div>
             </div>
@@ -147,7 +147,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
                   key={item.href}
                   href={item.href}
                   onClick={onClose}
-                  className="text-xs px-3 py-2 rounded-lg bg-gray-50 hover:bg-sky-50 hover:text-sky-600 text-gray-700 font-medium text-center transition-colors"
+                  className="text-xs px-3 py-2 rounded-lg bg-gray-50 hover:bg-gray-100 hover:text-gray-900 text-gray-700 font-medium text-center transition-colors"
                 >
                   {item.label}
                 </Link>

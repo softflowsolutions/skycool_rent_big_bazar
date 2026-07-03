@@ -168,7 +168,7 @@ export function EnquiryForm({
         noValidate
       >
         <div className="text-center mb-6">
-          <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-cool mb-3">
+          <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gray-900 mb-3">
             <Send className="h-7 w-7 text-white" />
           </div>
           <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 mb-1.5">
@@ -187,8 +187,8 @@ export function EnquiryForm({
             </label>
             <div className="grid grid-cols-2 gap-2.5">
               {[
-                { value: 'rent' as const, label: 'Rent', sub: 'AC & Fridge on rent', Icon: Package, color: 'from-sky-500 to-blue-600', activeBg: 'from-sky-500 to-blue-600' },
-                { value: 'service' as const, label: 'Service', sub: 'Repair & maintenance', Icon: Wrench, color: 'from-orange-500 to-red-600', activeBg: 'from-orange-500 to-red-600' },
+                { value: 'rent' as const, label: 'Rent', sub: 'AC & Fridge on rent', Icon: Package, color: 'bg-gray-900', activeBg: 'bg-gray-900' },
+                { value: 'service' as const, label: 'Service', sub: 'Repair & maintenance', Icon: Wrench, color: 'bg-gray-900', activeBg: 'bg-gray-900' },
               ].map((opt) => {
                 const active = form.category === opt.value;
                 return (
@@ -199,7 +199,7 @@ export function EnquiryForm({
                     className={cn(
                       'relative flex flex-col items-start gap-2 rounded-2xl p-3 sm:p-4 text-left border-2 transition-all duration-200',
                       active
-                        ? cn('border-transparent bg-gradient-to-br text-white shadow-lg', opt.activeBg)
+                        ? cn('border-transparent text-white shadow-lg', opt.activeBg)
                         : 'border-gray-300 bg-white text-gray-700 hover:border-gray-400 hover:bg-gray-50'
                     )}
                     aria-pressed={active}
@@ -212,7 +212,7 @@ export function EnquiryForm({
                     )}
                     <div className={cn(
                       'flex h-10 w-10 items-center justify-center rounded-xl transition-colors',
-                      active ? 'bg-white/25' : cn('bg-gradient-to-br text-white', opt.color)
+                      active ? 'bg-white/25' : cn('text-white', opt.color)
                     )}>
                       <opt.Icon className="h-5 w-5 text-white" />
                     </div>
@@ -386,8 +386,8 @@ export function EnquiryForm({
                       className={cn(
                         'px-3 py-2.5 rounded-xl text-sm font-semibold transition-all border-2',
                         form.duration === d.value.toString()
-                          ? 'bg-gradient-cool text-white border-transparent shadow-md'
-                          : 'bg-white text-gray-700 border-gray-200 hover:border-sky-300'
+                          ? 'bg-gray-900 text-white border-transparent'
+                          : 'bg-white text-gray-700 border-gray-200 hover:border-gray-400'
                       )}
                     >
                       {d.label}

@@ -5,8 +5,8 @@
  * Edit this file to control which promotional banners appear in the
  * homepage `<BannerCarousel />` component.
  *
- * Each banner renders full-width with a background image, a gradient
- * overlay (Tailwind classes), an optional badge, a title, subtitle and
+ * Each banner renders full-width with a background image, a plain dark
+ * overlay for legibility, an optional badge, a title, subtitle and
  * a CTA link.
  *
  * HOW TO EDIT
@@ -19,9 +19,8 @@
  * 3. `ctaText` is rendered as the call-to-action button label.
  *    `ctaLink` should be an internal Next.js route starting with `/`.
  * 4. `badge` is optional — leave it out (or set to undefined) to hide it.
- * 5. `gradient` is a string of Tailwind utility classes used to colorize
- *    the overlay (e.g. `'from-orange-500/80 via-orange-600/60 to-red-600/80'`).
- *    Keep it tasteful — the overlay should still let the image breathe.
+ * 5. The overlay is a fixed `bg-black/40` for legibility — kept solid
+ *    per project design (no gradient effects).
  *
  * Tips
  * ----
@@ -47,7 +46,7 @@ export interface Banner {
   ctaLink: string;
   /** Optional badge above the title (e.g. "Limited Time"). */
   badge?: string;
-  /** Optional Tailwind gradient overlay classes. */
+  /** Optional overlay — kept as plain dark for solid colors only. */
   gradient?: string;
 }
 
@@ -68,7 +67,7 @@ export const BANNERS: Banner[] = [
     ctaText: 'Rent Now',
     ctaLink: '/rent',
     badge: 'Limited Time',
-    gradient: 'from-orange-500/85 via-orange-600/65 to-red-600/80',
+    gradient: 'bg-black/40',
   },
   {
     id: 'zero-deposit',
@@ -80,7 +79,7 @@ export const BANNERS: Banner[] = [
     ctaText: 'Explore Rentals',
     ctaLink: '/rent',
     badge: 'New',
-    gradient: 'from-sky-500/85 via-sky-600/60 to-blue-700/80',
+    gradient: 'bg-black/40',
   },
   {
     id: 'ac-service-299',
@@ -92,7 +91,7 @@ export const BANNERS: Banner[] = [
     ctaText: 'Book Service',
     ctaLink: '/service',
     badge: 'Top Rated',
-    gradient: 'from-emerald-500/85 via-teal-600/60 to-cyan-700/80',
+    gradient: 'bg-black/40',
   },
   {
     id: 'ac-fridge-combos',
@@ -104,7 +103,7 @@ export const BANNERS: Banner[] = [
     ctaText: 'View Combos',
     ctaLink: '/rent/combo',
     badge: 'Save Big',
-    gradient: 'from-amber-500/85 via-orange-600/65 to-red-600/80',
+    gradient: 'bg-black/40',
   },
   {
     id: 'amc-plans',
@@ -116,6 +115,6 @@ export const BANNERS: Banner[] = [
     ctaText: 'See AMC Plans',
     ctaLink: '/service/ac/amc',
     badge: 'Best Value',
-    gradient: 'from-indigo-600/85 via-violet-600/65 to-purple-700/80',
+    gradient: 'bg-black/40',
   },
 ];

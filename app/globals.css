@@ -20,7 +20,7 @@
   }
 
   body {
-    @apply bg-gradient-to-br from-sky-50 via-white to-blue-50 text-gray-900 antialiased;
+    @apply bg-white text-gray-900 antialiased;
     font-feature-settings: 'rlig' 1, 'calt' 1;
     overflow-x: hidden;
   }
@@ -81,17 +81,12 @@
     @apply bg-sky-900/80 backdrop-blur-lg border border-sky-700/40;
   }
 
-  /* Gradient text */
+  /* Gradient text — removed (gradient flattened site-wide) */
   .text-gradient {
-    @apply bg-gradient-to-r from-sky-500 via-blue-500 to-cyan-500 bg-clip-text text-transparent;
+    @apply text-gray-900;
   }
 
-  /* Cool gradient backgrounds */
-  .bg-cool-gradient {
-    background: linear-gradient(135deg, #0ea5e9 0%, #3b82f6 50%, #06b6d4 100%);
-    background-size: 200% 200%;
-    animation: gradientX 8s ease infinite;
-  }
+  /* Cool gradient backgrounds — removed (gradient flattened site-wide) */
 
   /* Card hover effects */
   .card-hover {
@@ -127,7 +122,7 @@
   }
 
   .btn-primary {
-    @apply btn bg-gradient-to-r from-sky-500 to-blue-600 text-white hover:from-sky-600 hover:to-blue-700 hover:shadow-cool focus:ring-sky-500 px-5 py-2.5 sm:px-6 sm:py-3;
+    @apply btn bg-gray-900 text-white hover:bg-gray-800 focus:ring-gray-900 px-5 py-2.5 sm:px-6 sm:py-3;
   }
 
   .btn-secondary {
@@ -135,11 +130,11 @@
   }
 
   .btn-accent {
-    @apply btn bg-gradient-to-r from-blue-500 to-blue-600 text-white hover:from-blue-600 hover:to-blue-700 hover:shadow-lg focus:ring-blue-500 px-5 py-2.5 sm:px-6 sm:py-3;
+    @apply btn bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500 px-5 py-2.5 sm:px-6 sm:py-3;
   }
 
   .btn-whatsapp {
-    @apply btn bg-gradient-to-r from-green-500 to-green-600 text-white hover:from-green-600 hover:to-green-700 hover:shadow-lg focus:ring-green-500 px-5 py-2.5 sm:px-6 sm:py-3;
+    @apply btn bg-green-600 text-white hover:bg-green-700 focus:ring-green-500 px-5 py-2.5 sm:px-6 sm:py-3;
   }
 
   .btn-ghost {
@@ -147,7 +142,7 @@
   }
 
   .btn-red {
-    @apply btn bg-gradient-to-r from-red-500 to-red-600 text-white hover:from-red-600 hover:to-red-700 hover:shadow-lg focus:ring-red-500 px-5 py-2.5 sm:px-6 sm:py-3;
+    @apply btn bg-red-600 text-white hover:bg-red-700 focus:ring-red-500 px-5 py-2.5 sm:px-6 sm:py-3;
   }
 
   /* Input base */

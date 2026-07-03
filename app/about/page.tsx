@@ -22,32 +22,28 @@ const values = [
     icon: Heart,
     title: 'Customer First',
     description: 'Every decision we make starts with our customers. Their comfort is our priority.',
-    color: 'from-pink-500 to-rose-600',
   },
   {
     icon: Target,
     title: 'Quality Always',
     description: 'We never compromise on quality. Every appliance is tested and verified before delivery.',
-    color: 'from-sky-500 to-blue-600',
   },
   {
     icon: TrendingUp,
     title: 'Continuous Innovation',
     description: 'We constantly improve our services to bring you the best rental experience in India.',
-    color: 'from-orange-500 to-red-600',
   },
   {
     icon: Award,
     title: 'Trust & Transparency',
     description: 'No hidden charges, no surprise fees. What you see is what you pay.',
-    color: 'from-amber-500 to-orange-600',
   },
 ];
 
 export default function AboutPage() {
   return (
     <>
-      <section className="bg-gradient-to-br from-sky-50 via-white to-blue-50">
+      <section className="bg-gray-50">
         <div className="container-app py-8 lg:py-12">
           <Breadcrumb items={[{ label: 'About Us' }]} />
           <div className="max-w-3xl">
@@ -55,7 +51,7 @@ export default function AboutPage() {
               Our Story
             </p>
             <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-4">
-              Making <span className="text-gradient">Cool Comfort</span> Affordable for Every Indian
+              Making Cool Comfort Affordable for Every Indian
             </h1>
             <p className="text-gray-600 text-sm sm:text-base lg:text-lg leading-relaxed">
               Founded in {SITE_CONFIG.establishedYear}, {SITE_CONFIG.name} started with a simple mission:
@@ -75,7 +71,7 @@ export default function AboutPage() {
                 key={s.label}
                 className="bg-white rounded-2xl p-5 sm:p-6 text-center shadow-md hover:shadow-xl transition-all"
               >
-                <div className="inline-flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-2xl bg-gradient-cool mb-3 shadow-md">
+                <div className="inline-flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-2xl bg-gray-900 mb-3 shadow-md">
                   <Icon className="h-6 w-6 sm:h-7 sm:w-7 text-white" />
                 </div>
                 <div className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 mb-0.5">
@@ -116,7 +112,6 @@ export default function AboutPage() {
           </div>
 
           <div className="relative">
-            <div className="absolute -inset-4 bg-gradient-cool rounded-3xl blur-2xl opacity-20" />
             <div className="relative grid grid-cols-2 gap-3">
               {values.slice(0, 4).map((v, idx) => {
                 const Icon = v.icon;
@@ -125,7 +120,7 @@ export default function AboutPage() {
                     key={idx}
                     className="bg-white rounded-2xl p-4 shadow-md hover:shadow-xl transition-all"
                   >
-                    <div className={`inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br ${v.color} mb-2 shadow-md`}>
+                    <div className={`inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gray-900 mb-2 shadow-md`}>
                       <Icon className="h-5 w-5 text-white" />
                     </div>
                     <h3 className="font-display font-bold text-sm text-gray-900 mb-1">{v.title}</h3>
@@ -138,10 +133,10 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-gradient-to-br from-sky-900 via-blue-900 to-cyan-900 text-white section-padding">
+      <section className="bg-gray-900 text-white section-padding">
         <div className="container-app">
           <div className="text-center mb-10 lg:mb-14">
-            <p className="text-sm font-semibold text-cyan-300 uppercase tracking-wider mb-2">
+            <p className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-2">
               Our Values
             </p>
             <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold">
@@ -157,11 +152,11 @@ export default function AboutPage() {
                   key={idx}
                   className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all"
                 >
-                  <div className={`inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br ${v.color} mb-3 shadow-lg`}>
+                  <div className={`inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 mb-3 shadow-lg`}>
                     <Icon className="h-6 w-6 text-white" />
                   </div>
                   <h3 className="font-display font-bold text-lg mb-2">{v.title}</h3>
-                  <p className="text-sm text-sky-100 leading-relaxed">{v.description}</p>
+                  <p className="text-sm text-gray-300 leading-relaxed">{v.description}</p>
                 </div>
               );
             })}
@@ -180,7 +175,7 @@ export default function AboutPage() {
         </div>
 
         <div className="relative max-w-3xl mx-auto">
-          <div className="absolute left-4 sm:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-sky-300 via-blue-300 to-cyan-300" />
+          <div className="absolute left-4 sm:left-1/2 top-0 bottom-0 w-0.5 bg-gray-200" />
           {[
             { year: '2020', title: 'Founded', desc: 'Started with 5 ACs in Delhi NCR' },
             { year: '2021', title: 'Expansion', desc: 'Crossed 1,000 customers and expanded to 5 cities' },
@@ -193,7 +188,7 @@ export default function AboutPage() {
                 idx % 2 === 0 ? 'sm:flex-row' : 'sm:flex-row-reverse'
               }`}
             >
-              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-cool shadow-md flex items-center justify-center text-white text-xs font-bold relative z-10">
+              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gray-900 shadow-md flex items-center justify-center text-white text-xs font-bold relative z-10">
                 ✓
               </div>
               <div

@@ -60,9 +60,8 @@ export function SearchBar() {
     <section className="container-app -mt-4 lg:-mt-8 relative z-20 mb-8 lg:mb-12">
       <div ref={ref} className="relative max-w-3xl mx-auto">
         <div className="relative">
-          <div className="absolute inset-0 bg-gradient-cool rounded-2xl blur-xl opacity-20" />
-          <div className="relative bg-white rounded-2xl shadow-xl border border-sky-100 p-1.5 flex items-center gap-2">
-            <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-cool flex-shrink-0">
+          <div className="relative bg-white rounded-2xl shadow-xl border border-gray-200 p-1.5 flex items-center gap-2">
+            <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gray-900 flex-shrink-0">
               <Search className="h-5 w-5 text-white" />
             </div>
             <input

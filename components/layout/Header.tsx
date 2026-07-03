@@ -52,15 +52,15 @@ export function Header() {
               className="flex items-center gap-2 group"
               aria-label={`${SITE_CONFIG.name} home`}
             >
-              <div className="relative flex h-10 w-10 lg:h-12 lg:w-12 items-center justify-center rounded-xl bg-gradient-cool shadow-cool group-hover:scale-110 transition-transform">
+              <div className="relative flex h-10 w-10 lg:h-12 lg:w-12 items-center justify-center rounded-xl bg-gray-900 group-hover:scale-110 transition-transform">
                 <Snowflake className="h-5 w-5 lg:h-6 lg:w-6 text-white" strokeWidth={2.5} />
                 <span className="absolute -top-1 -right-1 flex h-3 w-3">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-orange-400 opacity-75" />
-                  <span className="relative inline-flex h-3 w-3 rounded-full bg-orange-500" />
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-gray-700 opacity-75" />
+                  <span className="relative inline-flex h-3 w-3 rounded-full bg-gray-900" />
                 </span>
               </div>
               <div className="hidden sm:block">
-                <div className="font-display text-lg lg:text-xl font-bold text-gradient">
+                <div className="font-display text-lg lg:text-xl font-bold text-gray-900">
                   SkyCool
                 </div>
                 <div className="text-[10px] lg:text-xs font-medium text-gray-500 -mt-1">
@@ -86,7 +86,7 @@ export function Header() {
                   >
                     {link.label}
                     {isActive && (
-                      <span className="absolute bottom-0 left-1/2 h-1 w-6 -translate-x-1/2 rounded-full bg-gradient-to-r from-sky-500 to-blue-500" />
+                      <span className="absolute bottom-0 left-1/2 h-1 w-6 -translate-x-1/2 rounded-full bg-gray-900" />
                     )}
                   </Link>
                 );
@@ -97,7 +97,7 @@ export function Header() {
             <div className="hidden lg:flex items-center gap-3">
               <a
                 href={generateCallLink(SITE_CONFIG.phone)}
-                className="btn-primary text-sm"
+                className="inline-flex items-center gap-2 bg-gray-900 hover:bg-gray-800 text-white rounded-md px-4 py-2 text-sm font-semibold transition-colors"
                 aria-label="Call SkyCool"
               >
                 <Phone className="h-4 w-4" />
@@ -108,7 +108,7 @@ export function Header() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden flex items-center justify-center h-10 w-10 rounded-xl bg-sky-50 text-sky-600 hover:bg-sky-100 transition-colors"
+              className="lg:hidden flex items-center justify-center h-10 w-10 rounded-xl bg-gray-100 text-gray-900 hover:bg-gray-200 transition-colors"
               aria-label="Toggle menu"
               aria-expanded={isOpen}
             >
@@ -141,10 +141,10 @@ export function Header() {
         >
           <div className="flex h-16 items-center justify-between px-6 border-b border-gray-100">
             <div className="flex items-center gap-2">
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-cool">
+              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gray-900">
                 <Snowflake className="h-5 w-5 text-white" strokeWidth={2.5} />
               </div>
-              <span className="font-display font-bold text-gradient">SkyCool</span>
+              <span className="font-display font-bold text-gray-900">SkyCool</span>
             </div>
             <button
               onClick={() => setIsOpen(false)}
@@ -166,7 +166,7 @@ export function Header() {
                     className={cn(
                       'flex items-center justify-between rounded-xl px-4 py-3 text-base font-semibold transition-all',
                       isActive
-                        ? 'bg-gradient-cool text-white shadow-cool'
+                        ? 'bg-gray-900 text-white'
                         : 'text-gray-700 hover:bg-sky-50 hover:text-sky-600'
                     )}
                   >
@@ -184,7 +184,7 @@ export function Header() {
               <div className="space-y-2">
                 <a
                   href={generateCallLink(SITE_CONFIG.phone)}
-                  className="flex items-center justify-center gap-2 w-full bg-gradient-cool text-white rounded-xl py-3 font-semibold shadow-cool"
+                  className="flex items-center justify-center gap-2 w-full bg-gray-900 text-white rounded-xl py-3 font-semibold"
                 >
                   <Phone className="h-4 w-4" />
                   Call: {SITE_CONFIG.phone.replace('+91', '+91 ')}

@@ -114,11 +114,11 @@ Order history is retained for 7 years for tax and legal purposes.`,
 export default function PrivacyPage() {
   return (
     <>
-      <section className="bg-gradient-to-br from-sky-50 via-white to-blue-50">
+      <section className="bg-gray-50">
         <div className="container-app py-8">
           <Breadcrumb items={[{ label: 'Privacy Policy' }]} />
           <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-3">
-            Privacy <span className="text-gradient">Policy</span>
+            Privacy Policy
           </h1>
           <p className="text-sm text-gray-500">
             Last updated: {new Date().toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' })}

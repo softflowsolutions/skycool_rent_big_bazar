@@ -218,8 +218,8 @@ export function PWAInstallModal() {
           animation: 'pwaModalIn 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
         }}
       >
-        {/* Gradient header */}
-        <div className="relative bg-gradient-to-br from-sky-500 via-blue-600 to-indigo-700 px-6 pt-8 pb-14 text-white">
+        {/* Solid header */}
+        <div className="relative bg-gray-900 px-6 pt-8 pb-14 text-white">
           <button
             ref={closeButtonRef}
             onClick={close}
@@ -271,7 +271,7 @@ export function PWAInstallModal() {
                 className={cn(
                   'flex-1 inline-flex items-center justify-center gap-2 rounded-xl px-4 py-3 font-semibold text-sm transition',
                   installable
-                    ? 'bg-gradient-to-r from-sky-500 to-blue-600 text-white hover:from-sky-600 hover:to-blue-700 shadow-cool'
+                    ? 'bg-gray-900 text-white hover:bg-gray-800'
                     : 'bg-gray-200 text-gray-500 cursor-not-allowed'
                 )}
               >

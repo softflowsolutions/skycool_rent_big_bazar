@@ -24,7 +24,7 @@ export function WhatsAppButton({
 
   const variants = {
     primary:
-      'bg-gradient-to-r from-green-500 to-green-600 text-white hover:from-green-600 hover:to-green-700 hover:shadow-lg shadow-green-500/30',
+      'bg-green-600 text-white hover:bg-green-700 hover:shadow-lg',
     outline:
       'bg-white text-green-600 border-2 border-green-500 hover:bg-green-50',
     compact:

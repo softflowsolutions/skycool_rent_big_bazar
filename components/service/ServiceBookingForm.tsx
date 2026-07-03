@@ -94,7 +94,7 @@ Sent from: SkyCool Website`;
       className="max-w-3xl mx-auto bg-white rounded-2xl shadow-lg border border-gray-100 p-5 sm:p-8"
     >
       <div className="text-center mb-6">
-        <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-cool mb-3">
+        <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gray-900 mb-3">
           <Calendar className="h-7 w-7 text-white" />
         </div>
         <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 mb-1.5">
@@ -236,7 +236,7 @@ Sent from: SkyCool Website`;
         </div>
 
         <div className="sm:col-span-2">
-          <div className="bg-gradient-cool text-white rounded-xl p-4 mb-3">
+          <div className="bg-gray-900 text-white rounded-xl p-4 mb-3">
             <div className="flex justify-between items-center">
               <span className="text-sm font-semibold">Estimated Cost</span>
               <span className="text-xl font-extrabold">{formatPrice(service.startingPrice)}+</span>

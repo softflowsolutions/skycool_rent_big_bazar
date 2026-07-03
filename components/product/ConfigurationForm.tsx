@@ -84,8 +84,8 @@ Sent from: SkyCool Website`;
                 className={cn(
                   'px-3 py-2.5 rounded-xl text-sm font-semibold transition-all border-2',
                   duration === d.value
-                    ? 'bg-gradient-cool text-white border-transparent shadow-cool'
-                    : 'bg-white text-gray-700 border-gray-200 hover:border-sky-300'
+                    ? 'bg-gray-900 text-white border-transparent'
+                    : 'bg-white text-gray-700 border-gray-200 hover:border-gray-400'
                 )}
               >
                 {d.label}
@@ -150,7 +150,7 @@ Sent from: SkyCool Website`;
       </div>
 
       {/* Price Summary */}
-      <div className="bg-gradient-cool rounded-2xl p-4 sm:p-5 text-white">
+      <div className="bg-gray-900 rounded-2xl p-4 sm:p-5 text-white">
         <div className="flex justify-between items-baseline mb-2">
           <span className="text-sm opacity-90">Total for {duration} {duration === 1 ? 'month' : 'months'}</span>
           <span className="font-display text-2xl sm:text-3xl font-extrabold">{formatPrice(total)}</span>
@@ -169,7 +169,7 @@ Sent from: SkyCool Website`;
       <div className="space-y-2.5">
         <button
           onClick={handleWhatsApp}
-          className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white rounded-xl px-6 py-3.5 font-bold text-base shadow-lg shadow-green-500/30 transition-all active:scale-[0.98]"
+          className="w-full inline-flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white rounded-xl px-6 py-3.5 font-bold text-base shadow-md transition-all active:scale-[0.98]"
         >
           <MessageCircle className="h-5 w-5" />
           Order on WhatsApp
@@ -177,7 +177,7 @@ Sent from: SkyCool Website`;
         <div className="grid grid-cols-2 gap-2">
           <a
             href={generateCallLink(SITE_CONFIG.phone)}
-            className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white rounded-xl px-4 py-3 font-bold text-sm shadow-md transition-all"
+            className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl px-4 py-3 font-bold text-sm shadow-md transition-all"
           >
             <Phone className="h-4 w-4" />
             Call Now

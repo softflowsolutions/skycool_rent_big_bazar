@@ -57,7 +57,7 @@ export default function ProductDetailPage({ params }: PageProps) {
   return (
     <>
       <ProductJsonLd product={product} />
-      <section className="bg-gradient-to-br from-sky-50 via-white to-blue-50">
+      <section className="bg-gray-50">
         <div className="container-app py-6 lg:py-8">
           <Breadcrumb
             items={[

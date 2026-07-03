@@ -3,13 +3,13 @@ import { Home, Search, ArrowLeft } from 'lucide-react';
 
 export default function NotFound() {
   return (
-    <section className="min-h-[70vh] flex items-center justify-center px-4 py-12 bg-gradient-to-br from-sky-50 via-white to-blue-50">
+    <section className="min-h-[70vh] flex items-center justify-center px-4 py-12 bg-gray-50">
       <div className="text-center max-w-md">
-        <div className="inline-flex h-20 w-20 sm:h-24 sm:w-24 items-center justify-center rounded-3xl bg-gradient-cool shadow-cool mb-6 animate-pulse-soft">
+        <div className="inline-flex h-20 w-20 sm:h-24 sm:w-24 items-center justify-center rounded-3xl bg-gray-900 mb-6">
           <span className="text-3xl sm:text-4xl">❄️</span>
         </div>
 
-        <h1 className="font-display text-6xl sm:text-8xl font-extrabold text-gradient mb-2">
+        <h1 className="font-display text-6xl sm:text-8xl font-extrabold text-gray-900 mb-2">
           404
         </h1>
         <h2 className="font-display text-2xl sm:text-3xl font-bold text-gray-900 mb-3">

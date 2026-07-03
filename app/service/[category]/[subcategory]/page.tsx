@@ -47,7 +47,7 @@ export default function ServiceSubCategoryPage({ params }: PageProps) {
 
   return (
     <>
-      <section className="bg-gradient-to-br from-sky-50 via-white to-blue-50">
+      <section className="bg-gray-50">
         <div className="container-app py-8 lg:py-12">
           <Breadcrumb
             items={[
@@ -57,7 +57,7 @@ export default function ServiceSubCategoryPage({ params }: PageProps) {
             ]}
           />
           <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900">
-            {subName} <span className="text-gradient">Services</span>
+            {subName} Services
           </h1>
         </div>
       </section>

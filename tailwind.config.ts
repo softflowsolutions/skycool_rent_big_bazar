@@ -71,7 +71,7 @@ const config: Config = {
         shimmer: 'shimmer 2s linear infinite',
         'pulse-soft': 'pulseSoft 2s ease-in-out infinite',
         float: 'float 3s ease-in-out infinite',
-        'gradient-x': 'gradientX 8s ease infinite',
+        'gradient-x': 'gradientX 8s ease infinite', /* kept for safety; no component uses it now */
       },
       keyframes: {
         fadeIn: {

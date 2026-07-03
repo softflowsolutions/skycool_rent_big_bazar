@@ -23,7 +23,7 @@ export function PopularServices({ services }: PopularServicesProps) {
   };
 
   return (
-    <section className="bg-gradient-to-br from-sky-50 via-white to-cyan-50 section-padding">
+    <section className="bg-gray-50 section-padding">
       <div className="container-app">
         <div className="flex items-end justify-between mb-6 lg:mb-8 gap-4">
           <div>
