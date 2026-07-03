@@ -1,45 +1,38 @@
 import Link from 'next/link';
-import { Snowflake, Refrigerator, Package, Wrench, ArrowRight } from 'lucide-react';
+import Image from 'next/image';
+import { ArrowRight } from 'lucide-react';
 
 const categories = [
   {
     title: 'AC Rentals',
     subtitle: 'Window, Split, Inverter & Portable',
-    icon: Snowflake,
+    image: 'https://images.unsplash.com/photo-1631545806609-cad1d7c5d4cd?w=600&q=80',
     href: '/rent/ac',
-    color: 'from-sky-500 to-blue-600',
-    bgColor: 'from-sky-50 to-blue-50',
   },
   {
     title: 'Fridge Rentals',
     subtitle: 'Single, Double & Side-by-Side',
-    icon: Refrigerator,
+    image: 'https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?w=600&q=80',
     href: '/rent/fridge',
-    color: 'from-cyan-500 to-teal-600',
-    bgColor: 'from-cyan-50 to-teal-50',
   },
   {
     title: 'Combo Deals',
     subtitle: 'AC + Fridge bundles — Save ₹500/mo',
-    icon: Package,
+    image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80',
     href: '/rent/combo',
-    color: 'from-orange-500 to-pink-500',
-    bgColor: 'from-orange-50 to-pink-50',
   },
   {
     title: 'AC Service',
     subtitle: 'Repair, Installation, Gas Refill',
-    icon: Wrench,
+    image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=600&q=80',
     href: '/service/ac',
-    color: 'from-indigo-500 to-purple-600',
-    bgColor: 'from-indigo-50 to-purple-50',
   },
 ];
 
 export function CategoriesGrid() {
   return (
     <section className="container-app section-padding">
-      <div className="text-center mb-8 lg:mb-12">
+      <div className="text-center mb-8 lg:mb-10">
         <p className="text-sm font-semibold text-sky-600 uppercase tracking-wider mb-2">
           Explore Our Services
         </p>
@@ -51,35 +44,41 @@ export function CategoriesGrid() {
         </p>
       </div>
 
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
-        {categories.map((cat) => {
-          const Icon = cat.icon;
-          return (
-            <Link
-              key={cat.href}
-              href={cat.href}
-              className={`group relative bg-gradient-to-br ${cat.bgColor} rounded-2xl p-4 sm:p-6 border-2 border-white shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden`}
-            >
-              <div className={`absolute -top-12 -right-12 h-32 w-32 rounded-full bg-gradient-to-br ${cat.color} opacity-10 group-hover:scale-150 transition-transform duration-500`} />
+      <div className="grid grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-5 max-w-4xl mx-auto">
+        {categories.map((cat) => (
+          <Link
+            key={cat.href}
+            href={cat.href}
+            className="group relative bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100"
+          >
+            {/* Image area */}
+            <div className="relative aspect-[16/10] bg-gradient-to-br from-sky-50 to-blue-50 overflow-hidden">
+              <Image
+                src={cat.image}
+                alt={cat.title}
+                fill
+                sizes="(max-width: 1024px) 50vw, 33vw"
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />
+            </div>
 
-              <div className={`relative inline-flex h-12 w-12 sm:h-16 sm:w-16 items-center justify-center rounded-2xl bg-gradient-to-br ${cat.color} shadow-lg mb-3 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300`}>
-                <Icon className="h-6 w-6 sm:h-8 sm:w-8 text-white" strokeWidth={2} />
-              </div>
-
-              <h3 className="font-display font-bold text-base sm:text-lg lg:text-xl text-gray-900 mb-1">
+            {/* Content area */}
+            <div className="p-4 sm:p-5">
+              <h3 className="font-display font-bold text-lg sm:text-xl text-gray-900 mb-1 group-hover:text-sky-600 transition-colors">
                 {cat.title}
               </h3>
-              <p className="text-xs sm:text-sm text-gray-600 mb-3 line-clamp-2">
+              <p className="text-xs sm:text-sm text-gray-500 mb-3 line-clamp-1">
                 {cat.subtitle}
               </p>
-
               <div className="flex items-center gap-1 text-xs sm:text-sm font-semibold text-sky-600 group-hover:gap-2 transition-all">
                 <span>Explore</span>
                 <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
               </div>
-            </Link>
-          );
-        })}
+            </div>
+          </Link>
+        ))}
       </div>
     </section>
   );

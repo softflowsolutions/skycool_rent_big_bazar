@@ -1,8 +1,7 @@
 # RentoMojo Mobile Web UI - Design System & Style Guide
 
 ## Table of Contents
-1. [Overview](#overview)
-2. [Brand Identity](#brand-identity)
+
 3. [Color Palette](#color-palette)
 4. [Typography](#typography)
 5. [Layout & Grid System](#layout--grid-system)
@@ -16,15 +15,6 @@
 13. [Responsive Behavior](#responsive-behavior)
 14. [Accessibility Considerations](#accessibility-considerations)
 
----
-
-## Overview
-
-**Platform:** Mobile Web (mWeb) - RentoMojo  
-**Domain:** rentomojo.com  
-**Primary Market:** India (Pune focus in screenshots)  
-**Business Model:** Furniture & Appliance Rental (Subscription/Rental Economy)  
-**Device Context:** Mobile-first, touch-optimized, single-column layout  
 **Overall Aesthetic:** Clean, modern, trustworthy, warm, approachable with a premium-yet-accessible feel. Heavy use of lifestyle photography, rounded corners, and ample whitespace.
 
 ---

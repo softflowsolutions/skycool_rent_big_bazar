@@ -22,11 +22,11 @@ export default function HomePage() {
       <HeroBanner />
       <SearchBar />
       <BannerCarousel />
-      <Stats />
       <CategoriesGrid />
       <PopularProducts products={popularProducts} />
       <PopularServices services={popularServices} />
       <HowItWorks />
+      <Stats />
       <Testimonials />
       <WhyChooseUs />
       <AppComingSoon />
