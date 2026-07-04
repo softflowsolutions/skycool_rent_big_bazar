@@ -1074,9 +1074,9 @@ export function getEnquiryTaxonomy(): EnquiryTaxonomy {
   const rentProductMap: Record<string, Set<string>> = {};
 
   for (const p of PRODUCTS) {
-    if (!rentSubMap[p.category]) rentSubMap[p.category] = new Set();
-    rentSubMap[p.category].add(p.subCategory);
-    const key = `${p.category}__${p.subCategory}`;
+    const sub = p.subCategory;
+    if (!rentSubMap[sub]) rentSubMap[sub] = new Set();
+    const key = sub;
     if (!rentProductMap[key]) rentProductMap[key] = new Set();
     rentProductMap[key].add(p.name);
   }
@@ -1085,9 +1085,9 @@ export function getEnquiryTaxonomy(): EnquiryTaxonomy {
   const serviceProductMap: Record<string, Set<string>> = {};
 
   for (const s of SERVICES) {
-    if (!serviceSubMap[s.category]) serviceSubMap[s.category] = new Set();
-    serviceSubMap[s.category].add(s.subCategory);
-    const key = `${s.category}__${s.subCategory}`;
+    const sub = s.subCategory;
+    if (!serviceSubMap[sub]) serviceSubMap[sub] = new Set();
+    const key = sub;
     if (!serviceProductMap[key]) serviceProductMap[key] = new Set();
     serviceProductMap[key].add(s.name);
   }
@@ -1096,17 +1096,12 @@ export function getEnquiryTaxonomy(): EnquiryTaxonomy {
     subMap: Record<string, Set<string>>,
     productMap: Record<string, Set<string>>
   ): EnquirySubTaxonomy => {
-    const result: Record<string, Record<string, EnquiryOption[]>> = {};
-    for (const cat of Object.keys(subMap)) {
-      const inner: Record<string, EnquiryOption[]> = {};
-      for (const sub of subMap[cat]) {
-        const key = `${cat}__${sub}`;
-        inner[sub] = Array.from(productMap[key] || []).map((name) => ({
-          value: name,
-          label: name,
-        }));
-      }
-      result[cat] = inner;
+    const result: Record<string, EnquiryOption[]> = {};
+    for (const sub of Object.keys(subMap)) {
+      result[sub] = Array.from(productMap[sub] || []).map((name) => ({
+        value: name,
+        label: name,
+      }));
     }
     return result as unknown as EnquirySubTaxonomy;
   };

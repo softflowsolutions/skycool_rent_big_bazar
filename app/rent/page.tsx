@@ -1,7 +1,8 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Snowflake, Refrigerator, Package, ArrowRight } from 'lucide-react';
 import { Breadcrumb } from '@/components/shared/Breadcrumb';
-import { PRODUCTS } from '@/lib/data';
+import { PRODUCTS, CATEGORIES } from '@/lib/data';
 import { ProductCard } from '@/components/shared/ProductCard';
 import type { Metadata } from 'next';
 
@@ -14,31 +15,8 @@ export const metadata: Metadata = {
   },
 };
 
-const categoryCards = [
-  {
-    title: 'AC Rentals',
-    slug: 'ac',
-    icon: Snowflake,
-    description: 'Window AC, Split AC, Inverter AC, Portable AC',
-    count: PRODUCTS.filter((p) => p.category === 'ac').length,
-  },
-  {
-    title: 'Fridge Rentals',
-    slug: 'fridge',
-    icon: Refrigerator,
-    description: 'Single Door, Double Door, Side-by-Side Fridges',
-    count: PRODUCTS.filter((p) => p.category === 'fridge').length,
-  },
-  {
-    title: 'Combo Deals',
-    slug: 'combo',
-    icon: Package,
-    description: 'AC + Fridge bundles with extra savings',
-    count: PRODUCTS.filter((p) => p.subCategory === 'combo').length,
-  },
-];
-
 export default function RentPage() {
+  const rentCategories = CATEGORIES.filter((c) => c.parent === 'rent');
   const featured = PRODUCTS.slice(0, 4);
 
   return (
@@ -63,32 +41,36 @@ export default function RentPage() {
           Browse Categories
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 lg:gap-6 mb-12">
-          {categoryCards.map((cat) => {
-            const Icon = cat.icon;
-            return (
-              <Link
-                key={cat.slug}
-                href={`/rent/${cat.slug}`}
-                className={`group relative bg-white rounded-2xl p-6 border-2 border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden`}
-              >
-                <div className={`relative inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gray-900 shadow-md mb-4`}>
-                  <Icon className="h-7 w-7 text-white" strokeWidth={2} />
+          {rentCategories.map((cat) => (
+            <Link
+              key={cat.id}
+              href={`/rent/${cat.slug}`}
+              className="group relative bg-white rounded-2xl overflow-hidden border-2 border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+            >
+              <div className="relative h-44 sm:h-48 bg-gray-100">
+                <Image
+                  src={cat.image || '/placeholder.svg'}
+                  alt={cat.name}
+                  fill
+                  sizes="(max-width: 640px) 100vw, 33vw"
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5">
+                  <h3 className="font-display font-bold text-lg sm:text-xl text-white mb-0.5">{cat.name}</h3>
+                  <p className="text-xs text-white/85">{cat.description}</p>
                 </div>
-                <h3 className="font-display font-bold text-xl text-gray-900 mb-1">
-                  {cat.title}
-                </h3>
-                <p className="text-sm text-gray-600 mb-3">{cat.description}</p>
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-semibold text-sky-700 bg-white px-2.5 py-1 rounded-full">
-                    {cat.count} products
-                  </span>
-                  <span className="text-sm font-semibold text-sky-600 group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
-                    Explore <ArrowRight className="h-4 w-4" />
-                  </span>
-                </div>
-              </Link>
-            );
-          })}
+              </div>
+              <div className="p-4 flex items-center justify-between">
+                <span className="text-xs font-semibold bg-sky-50 text-sky-700 px-2.5 py-1 rounded-full">
+                  {PRODUCTS.filter((p) => p.category === cat.slug || p.subCategory === cat.slug).length} products
+                </span>
+                <span className="text-sm font-semibold text-sky-600 group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
+                  Explore <ArrowRight className="h-4 w-4" />
+                </span>
+              </div>
+            </Link>
+          ))}
         </div>
 
         <div className="flex items-end justify-between mb-6">

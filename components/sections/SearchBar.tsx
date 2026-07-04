@@ -57,7 +57,7 @@ export function SearchBar() {
   }, []);
 
   return (
-    <section className="container-app -mt-4 lg:-mt-8 relative z-20 mb-8 lg:mb-12">
+    <section className="container-app py-6 lg:py-8 relative z-20 -mb-4 lg:-mb-6">
       <div ref={ref} className="relative max-w-3xl mx-auto">
         <div className="relative">
           <div className="relative bg-white rounded-2xl shadow-xl border border-gray-200 p-1.5 flex items-center gap-2">

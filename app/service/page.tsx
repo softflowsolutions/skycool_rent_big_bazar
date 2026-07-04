@@ -1,9 +1,9 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Wrench, ArrowRight, Clock, Shield, Star } from 'lucide-react';
 import { Breadcrumb } from '@/components/shared/Breadcrumb';
 import { ServiceCard } from '@/components/shared/ServiceCard';
-import { SERVICES } from '@/lib/data';
-import { formatPrice } from '@/lib/utils';
+import { SERVICES, CATEGORIES } from '@/lib/data';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -13,23 +13,8 @@ export const metadata: Metadata = {
   alternates: { canonical: '/service' },
 };
 
-const serviceTypes = [
-  {
-    title: 'AC Service',
-    slug: 'ac',
-    description: 'Repair, Installation, Gas Refill, Deep Cleaning, AMC',
-    icon: '❄️',
-  },
-  {
-    title: 'Fridge Service',
-    slug: 'fridge',
-    description: 'Repair, Gas Refill, Deep Cleaning',
-    icon: '🧊',
-  },
-];
-
 export default function ServicePage() {
-  const featured = SERVICES.slice(0, 6);
+  const serviceCategories = CATEGORIES.filter((c) => c.parent === 'service');
 
   return (
     <>
@@ -57,18 +42,30 @@ export default function ServicePage() {
           Choose Service Type
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6 mb-12">
-          {serviceTypes.map((s) => (
+          {serviceCategories.map((cat) => (
             <Link
-              key={s.slug}
-              href={`/service/${s.slug}`}
-              className={`group relative bg-white rounded-2xl p-6 sm:p-8 border-2 border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden`}
+              key={cat.id}
+              href={`/service/${cat.slug}`}
+              className="group relative bg-white rounded-2xl overflow-hidden border-2 border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
             >
-              <div className="text-5xl mb-3">{s.icon}</div>
-              <h3 className="font-display font-bold text-2xl text-gray-900 mb-2">{s.title}</h3>
-              <p className="text-sm text-gray-600 mb-4">{s.description}</p>
-              <div className="flex items-center gap-1 text-sm font-semibold text-sky-600 group-hover:gap-2 transition-all">
-                <span>View Services</span>
-                <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              <div className="relative h-48 sm:h-56 bg-gray-100">
+                <Image
+                  src={cat.image || '/placeholder.svg'}
+                  alt={cat.name}
+                  fill
+                  sizes="(max-width: 640px) 100vw, 50vw"
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6">
+                  <h3 className="font-display font-bold text-xl sm:text-2xl text-white mb-1">{cat.name}</h3>
+                  <p className="text-sm text-white/90">{cat.description}</p>
+                </div>
+              </div>
+              <div className="p-4 flex items-center justify-between">
+                <span className="text-sm font-semibold text-sky-600 group-hover:gap-2 transition-all inline-flex items-center gap-1">
+                  View Services <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </span>
               </div>
             </Link>
           ))}
@@ -87,7 +84,7 @@ export default function ServicePage() {
           </Link>
         </div>
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5">
-          {featured.map((s) => (
+          {SERVICES.slice(0, 6).map((s) => (
             <ServiceCard key={s.id} service={s} />
           ))}
         </div>

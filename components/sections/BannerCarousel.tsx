@@ -18,7 +18,7 @@ export function BannerCarousel() {
   }, []);
 
   return (
-    <section className="container-app pt-6 lg:pt-8">
+    <section className="container-app">
       <div className="relative h-[220px] sm:h-[280px] lg:h-[340px] rounded-lg overflow-hidden border border-gray-200">
         {BANNERS.map((b, idx) => (
           <div

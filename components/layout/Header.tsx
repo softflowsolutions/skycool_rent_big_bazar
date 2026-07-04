@@ -194,7 +194,7 @@ export function Header() {
 
             <div className="mt-6 pt-6 border-t border-gray-100">
               <p className="text-xs uppercase tracking-wide text-gray-500 mb-3 font-semibold">
-                Our Cities
+                Cities We Serve
               </p>
               <div className="flex flex-wrap gap-1.5">
                 {SITE_CONFIG.cities.slice(0, 9).map((city) => (

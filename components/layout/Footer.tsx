@@ -9,7 +9,6 @@ import {
   Twitter,
   Youtube,
   Linkedin,
-  Send,
   Shield,
   Truck,
   Headphones,
@@ -83,26 +82,6 @@ export function Footer() {
               Affordable monthly rentals starting at ₹599/month with free delivery
               and installation across 15+ cities.
             </p>
-
-            {/* Newsletter */}
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 border border-white/10">
-              <h3 className="font-semibold mb-2 text-sm">Get ₹200 Off Your First Rental</h3>
-              <form className="flex gap-2">
-                <input
-                  type="email"
-                  placeholder="Your email"
-                  className="flex-1 rounded-lg bg-white/10 border border-white/20 px-3 py-2 text-sm text-white placeholder:text-gray-400 focus:outline-none focus:border-white"
-                  required
-                />
-                <button
-                  type="submit"
-                  className="rounded-lg bg-white text-gray-900 hover:bg-gray-100 px-4 py-2 text-sm font-semibold transition-colors flex items-center gap-1"
-                  aria-label="Subscribe"
-                >
-                  <Send className="h-4 w-4" />
-                </button>
-              </form>
-            </div>
           </div>
 
           {/* Quick Links */}
@@ -226,7 +205,7 @@ export function Footer() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-xs text-gray-400 text-center md:text-left">
               © {new Date().getFullYear()} {SITE_CONFIG.name}. All rights reserved.
-              Made with 💙 in India.
+              Developed by Softflow Solutions.
             </p>
             <div className="flex items-center gap-2 flex-wrap justify-center">
               <span className="text-xs text-gray-400 mr-2">We accept:</span>

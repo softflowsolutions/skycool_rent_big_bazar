@@ -19,9 +19,9 @@ export default function HomePage() {
 
   return (
     <>
-      <HeroBanner />
       <SearchBar />
       <BannerCarousel />
+      <HeroBanner />
       <CategoriesGrid />
       <PopularProducts products={popularProducts} />
       <PopularServices services={popularServices} />

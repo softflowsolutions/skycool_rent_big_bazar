@@ -52,8 +52,8 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="container-app section-padding">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 lg:gap-6 mb-12">
+      <section className="container-app py-8 lg:py-16">
+        <div className="grid gap-6 sm:gap-8 mb-8 sm:mb-12 sm:grid-cols-3">
           {contactMethods.map((m) => {
             const Icon = m.icon;
             const isExternal = m.href.startsWith('http');
@@ -63,9 +63,9 @@ export default function ContactPage() {
                 href={m.href}
                 target={isExternal ? '_blank' : undefined}
                 rel={isExternal ? 'noopener noreferrer' : undefined}
-                className={`group relative bg-white rounded-2xl p-5 sm:p-6 border-2 border-gray-100 shadow-md hover:shadow-xl transition-all hover:-translate-y-1 overflow-hidden`}
+                className="group relative bg-white rounded-2xl p-6 sm:p-6 border-2 border-gray-100 shadow-md hover:shadow-xl transition-all hover:-translate-y-1 overflow-hidden"
               >
-                <div className={`relative inline-flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-2xl bg-gray-900 shadow-md mb-3`}>
+                <div className="relative inline-flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-2xl bg-gray-900 shadow-md mb-3">
                   <Icon className="h-6 w-6 sm:h-7 sm:w-7 text-white" />
                 </div>
                 <h3 className="font-display font-bold text-lg text-gray-900 mb-1">{m.title}</h3>
@@ -76,15 +76,15 @@ export default function ContactPage() {
           })}
         </div>
 
-        <div className="grid lg:grid-cols-5 gap-6">
-          <div className="lg:col-span-3">
+        <div className="grid lg:grid-cols-5 gap-6 lg:gap-10">
+          <div className="lg:col-span-3 order-2 lg:order-1">
             <EnquiryForm />
           </div>
 
-          <div className="lg:col-span-2 space-y-4">
+          <div className="lg:col-span-2 space-y-5 lg:space-y-6 order-1 lg:order-2">
             <div className="bg-gray-900 text-white rounded-2xl p-6 shadow-lg">
               <h3 className="font-display font-bold text-xl mb-4 flex items-center gap-2">
-                <MapPin className="h-5 w-5" />
+                <MapPin className="h-5 w-5 shrink-0" />
                 Visit Us
               </h3>
               <p className="text-sm text-gray-300 leading-relaxed mb-4">
@@ -92,7 +92,7 @@ export default function ContactPage() {
               </p>
               <div className="space-y-2 text-sm">
                 <div className="flex items-start gap-2">
-                  <Clock className="h-4 w-4 mt-0.5 flex-shrink-0" />
+                  <Clock className="h-4 w-4 mt-0.5 shrink-0" />
                   <div>
                     <div className="font-semibold">Working Hours</div>
                     <div className="text-gray-300 text-xs">{SITE_CONFIG.workingHours}</div>
