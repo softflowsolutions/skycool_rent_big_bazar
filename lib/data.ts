@@ -1,6 +1,133 @@
 import type { Product, Service, Testimonial, FAQ, Category } from '@/types';
 
+/**
+ * Top-level rent category slugs. These are the keys that appear in
+ * `/rent/[category]` URLs and the `Product.category` field. The Home
+ * Appliances brief lists 10 main categories; we keep `combo` as the
+ * eleventh entry for backwards-compatibility with the existing route.
+ *
+ * Source of truth for both `generateStaticParams` in
+ * `app/rent/[category]/page.tsx` and the CATEGORIES array below.
+ */
+export const RENT_CATEGORY_SLUGS = [
+  'air-conditioners',
+  'air-coolers',
+  'washing-machines',
+  'refrigerators',
+  'inverters',
+  'geysers',
+  'water-purifiers',
+  'microwaves-ovens',
+  'room-heaters',
+  'induction-cooktops',
+  'combo',
+  'ac',
+  'fridge',
+] as const;
+
 export const CATEGORIES: Category[] = [
+  /* -------- 10 main rent categories (Home Appliances brief) -------- */
+  {
+    id: 'rent-air-conditioners',
+    name: 'Air Conditioners',
+    slug: 'air-conditioners',
+    parent: 'rent',
+    icon: 'Snowflake',
+    description: 'Window, Split, Inverter, Tower, Cassette & Ductable ACs',
+    image: 'https://images.unsplash.com/photo-1631545806609-cad1d7c5d4cd?w=800&q=80',
+  },
+  {
+    id: 'rent-air-coolers',
+    name: 'Air Coolers',
+    slug: 'air-coolers',
+    parent: 'rent',
+    icon: 'Wind',
+    description: 'Personal, Desert, Tower, Window & Commercial Coolers',
+    image: 'https://images.unsplash.com/photo-1574958269340-fa927503f3dd?w=800&q=80',
+  },
+  {
+    id: 'rent-washing-machines',
+    name: 'Washing Machines',
+    slug: 'washing-machines',
+    parent: 'rent',
+    icon: 'WashingMachine',
+    description: 'Front Load, Top Load & Semi Automatic Washers',
+    image: 'https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?w=800&q=80',
+  },
+  {
+    id: 'rent-refrigerators',
+    name: 'Refrigerators',
+    slug: 'refrigerators',
+    parent: 'rent',
+    icon: 'Refrigerator',
+    description: 'Single, Double, Triple, Side-by-Side & French Door Fridges',
+    image: 'https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?w=800&q=80',
+  },
+  {
+    id: 'rent-inverters',
+    name: 'Inverters',
+    slug: 'inverters',
+    parent: 'rent',
+    icon: 'Zap',
+    description: 'Home, Solar, UPS & Inverter Batteries',
+    image: 'https://images.unsplash.com/photo-1581094288338-2314dddb7ece?w=800&q=80',
+  },
+  {
+    id: 'rent-geysers',
+    name: 'Geysers',
+    slug: 'geysers',
+    parent: 'rent',
+    icon: 'Flame',
+    description: 'Instant, Storage, Gas, Solar & Smart Geysers',
+    image: 'https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?w=800&q=80',
+  },
+  {
+    id: 'rent-water-purifiers',
+    name: 'Water Purifiers',
+    slug: 'water-purifiers',
+    parent: 'rent',
+    icon: 'Droplet',
+    description: 'RO, UV, UF, Alkaline, Copper & Smart Purifiers',
+    image: 'https://images.unsplash.com/photo-1585514532046-5d8f3c0e2a8c?w=800&q=80',
+  },
+  {
+    id: 'rent-microwaves-ovens',
+    name: 'Microwave & Ovens',
+    slug: 'microwaves-ovens',
+    parent: 'rent',
+    icon: 'UtensilsCrossed',
+    description: 'Solo, Grill, Convection, OTG & Built-in Ovens',
+    image: 'https://images.unsplash.com/photo-1585659722983-3b67509abf74?w=800&q=80',
+  },
+  {
+    id: 'rent-room-heaters',
+    name: 'Room Heaters',
+    slug: 'room-heaters',
+    parent: 'rent',
+    icon: 'Thermometer',
+    description: 'Fan, Quartz, Halogen, Oil, PTC & Smart Heaters',
+    image: 'https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=800&q=80',
+  },
+  {
+    id: 'rent-induction-cooktops',
+    name: 'Induction Cooktops',
+    slug: 'induction-cooktops',
+    parent: 'rent',
+    icon: 'Flame',
+    description: 'Single, Double, Infrared, Built-in & Commercial Induction',
+    image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80',
+  },
+  /* -------- Combo placeholder (backwards-compat) -------- */
+  {
+    id: 'combo',
+    name: 'Combo Deals',
+    slug: 'combo',
+    parent: 'rent',
+    icon: 'Package',
+    description: 'AC + Fridge combo packages with extra savings',
+    image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80',
+  },
+  /* -------- Legacy URLs (backwards-compat) -------- */
   {
     id: 'ac',
     name: 'AC Rentals',
@@ -18,15 +145,6 @@ export const CATEGORIES: Category[] = [
     icon: 'Refrigerator',
     description: 'Single Door, Double Door & Side-by-Side Fridges',
     image: 'https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?w=800&q=80',
-  },
-  {
-    id: 'combo',
-    name: 'Combo Deals',
-    slug: 'combo',
-    parent: 'rent',
-    icon: 'Package',
-    description: 'AC + Fridge combo packages with extra savings',
-    image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80',
   },
   {
     id: 'ac-service',
@@ -48,605 +166,449 @@ export const CATEGORIES: Category[] = [
   },
 ];
 
-export const PRODUCTS: Product[] = [
-  // AC Products - Window
-  {
-    id: 'ac-001',
-    slug: '1-ton-window-ac-non-inverter',
-    name: '1 Ton Window AC (Non-Inverter)',
-    category: 'ac',
-    subCategory: 'window',
-    brand: 'Voltas',
-    images: [
-      'https://images.unsplash.com/photo-1631545806609-cad1d7c5d4cd?w=800&q=80',
-      'https://images.unsplash.com/photo-1614633833026-0820552978d5?w=800&q=80',
-      'https://images.unsplash.com/photo-1625961332771-3f40b0e2bdcf?w=800&q=80',
-    ],
-    description: 'Affordable 1 Ton Window AC perfect for small rooms up to 120 sq ft.',
-    longDescription:
-      'Keep your small room cool and comfortable with our reliable 1 Ton Window AC from Voltas. This non-inverter AC is energy-efficient and perfect for bedrooms, study rooms, and small offices. Features include turbo cooling, anti-bacteria filter, and eco-friendly refrigerant.',
-    specifications: {
-      Brand: 'Voltas',
-      Type: 'Window AC',
-      Capacity: '1 Ton',
-      'Star Rating': '3 Star',
-      'Power Consumption': '985 Watts',
-      'Cooling Capacity': '3500 W',
-      'Noise Level': '52 dB',
-      Warranty: '12 months on product, 60 months on compressor',
-      Dimensions: '600 x 560 x 380 mm',
-      Weight: '47 kg',
-      Color: 'White',
-      Refrigerant: 'R-32',
-    },
-    pricing: { monthly: 999, quarterly: 2758, halfYearly: 5275, yearly: 9590 },
-    deposit: 0,
-    rating: 4.6,
-    reviewCount: 312,
-    inStock: true,
-    tags: ['window', '1-ton', 'budget', 'bedroom'],
-    features: [
-      'Turbo cooling for instant relief',
-      'Anti-bacteria and dust filter',
-      'Eco-friendly R-32 refrigerant',
-      'Self-diagnosis for easy maintenance',
-      'Sleep mode for energy saving',
-    ],
-    energyRating: '3 Star',
-    warranty: '1 Year',
-    capacity: '1 Ton',
-    type: 'Window AC',
-  },
-  {
-    id: 'ac-002',
-    slug: '1-5-ton-window-ac-inverter',
-    name: '1.5 Ton Window AC (Inverter)',
-    category: 'ac',
-    subCategory: 'window',
-    brand: 'LG',
-    images: [
-      'https://images.unsplash.com/photo-1614633833026-0820552978d5?w=800&q=80',
-      'https://images.unsplash.com/photo-1631545806609-cad1d7c5d4cd?w=800&q=80',
-    ],
-    description: 'Energy-efficient 1.5 Ton Window AC with inverter technology.',
-    longDescription:
-      'The LG 1.5 Ton Window Inverter AC delivers superior cooling with up to 40% energy savings. Perfect for medium-sized rooms up to 200 sq ft. Dual inverter compressor ensures quieter operation and longer lifespan.',
-    specifications: {
-      Brand: 'LG',
-      Type: 'Window AC (Inverter)',
-      Capacity: '1.5 Ton',
-      'Star Rating': '5 Star',
-      'Power Consumption': '1170 Watts',
-      'Cooling Capacity': '5000 W',
-      'Noise Level': '48 dB',
-      Warranty: '12 months comprehensive, 120 months on compressor',
-      Dimensions: '660 x 580 x 420 mm',
-      Weight: '55 kg',
-      Color: 'White',
-      Refrigerant: 'R-32',
-    },
-    pricing: { monthly: 1299, quarterly: 3587, halfYearly: 6861, yearly: 12470 },
-    deposit: 0,
-    rating: 4.8,
-    reviewCount: 256,
-    inStock: true,
-    tags: ['window', '1.5-ton', 'inverter', 'energy-efficient'],
-    features: [
-      'Dual Inverter Compressor',
-      '5 Star energy rating',
-      '10-year compressor warranty',
-      'Anti-corrosion copper condenser',
-      'Wi-Fi enabled smart control',
-    ],
-    energyRating: '5 Star',
-    warranty: '1 Year',
-    capacity: '1.5 Ton',
-    type: 'Window AC',
-  },
-  // AC Products - Split
-  {
-    id: 'ac-003',
-    slug: '1-ton-split-ac-inverter',
-    name: '1 Ton Split AC (Inverter)',
-    category: 'ac',
-    subCategory: 'split',
-    brand: 'Samsung',
-    images: [
-      'https://images.unsplash.com/photo-1625961332771-3f40b0e2bdcf?w=800&q=80',
-      'https://images.unsplash.com/photo-1631545806609-cad1d7c5d4cd?w=800&q=80',
-    ],
-    description: 'Premium 1 Ton Split Inverter AC with Wi-Fi connectivity.',
-    longDescription:
-      'Experience premium cooling with this Samsung 1 Ton Split Inverter AC. Wi-Fi enabled for remote control via your smartphone. Convertible 5-in-1 cooling modes adapt to any weather condition. Perfect for modern homes and offices.',
-    specifications: {
-      Brand: 'Samsung',
-      Type: 'Split AC (Inverter)',
-      Capacity: '1 Ton',
-      'Star Rating': '5 Star',
-      'Power Consumption': '940 Watts',
-      'Cooling Capacity': '3400 W',
-      'Noise Level': '42 dB (Indoor)',
-      Warranty: '12 months on product, 120 months on compressor',
-      'Indoor Dimensions': '820 x 299 x 215 mm',
-      'Outdoor Dimensions': '720 x 548 x 265 mm',
-      Weight: 'Indoor: 9 kg, Outdoor: 28 kg',
-      Color: 'White',
-      Refrigerant: 'R-32',
-    },
-    pricing: { monthly: 1499, quarterly: 4139, halfYearly: 7917, yearly: 14390 },
-    deposit: 0,
-    rating: 4.9,
-    reviewCount: 428,
-    inStock: true,
-    tags: ['split', '1-ton', 'inverter', 'smart', 'wifi'],
-    features: [
-      'Wi-Fi enabled with SmartThings app',
-      'Convertible 5-in-1 cooling modes',
-      'Triple Protection Plus',
-      'Anti-bacteria PM 1.0 filter',
-      'Auto clean (self-cleaning)',
-    ],
-    energyRating: '5 Star',
-    warranty: '1 Year',
-    capacity: '1 Ton',
-    type: 'Split AC',
-  },
-  {
-    id: 'ac-004',
-    slug: '1-5-ton-split-ac-inverter',
-    name: '1.5 Ton Split AC (Inverter)',
-    category: 'ac',
-    subCategory: 'split',
-    brand: 'Daikin',
-    images: [
-      'https://images.unsplash.com/photo-1631545806609-cad1d7c5d4cd?w=800&q=80',
-      'https://images.unsplash.com/photo-1625961332771-3f40b0e2bdcf?w=800&q=80',
-    ],
-    description: 'Best-selling 1.5 Ton Split Inverter AC from Daikin.',
-    longDescription:
-      'Daikin 1.5 Ton 5 Star Inverter Split AC - the gold standard in residential cooling. Patented inverter technology, dew clean feature, and PM 2.5 filter for healthy air. Ideal for rooms 150-200 sq ft.',
-    specifications: {
-      Brand: 'Daikin',
-      Type: 'Split AC (Inverter)',
-      Capacity: '1.5 Ton',
-      'Star Rating': '5 Star',
-      'Power Consumption': '1145 Watts',
-      'Cooling Capacity': '5000 W',
-      'Noise Level': '38 dB (Indoor)',
-      Warranty: '12 months on product, 120 months on compressor',
-      'Indoor Dimensions': '885 x 298 x 229 mm',
-      'Outdoor Dimensions': '845 x 595 x 300 mm',
-      Weight: 'Indoor: 11 kg, Outdoor: 35 kg',
-      Color: 'White',
-      Refrigerant: 'R-32',
-    },
-    pricing: { monthly: 1799, quarterly: 4967, halfYearly: 9500, yearly: 17270 },
-    deposit: 0,
-    rating: 4.8,
-    reviewCount: 567,
-    inStock: true,
-    tags: ['split', '1.5-ton', 'inverter', 'bestseller'],
-    features: [
-      'Dew Clean Technology',
-      'PM 2.5 Filter',
-      'Triple Display',
-      'Powerful Mode for extreme heat',
-      'Good Sleep Timer',
-    ],
-    energyRating: '5 Star',
-    warranty: '1 Year',
-    capacity: '1.5 Ton',
-    type: 'Split AC',
-  },
-  {
-    id: 'ac-005',
-    slug: '2-ton-split-ac-inverter',
-    name: '2 Ton Split AC (Inverter)',
-    category: 'ac',
-    subCategory: 'split',
-    brand: 'Carrier',
-    images: [
-      'https://images.unsplash.com/photo-1625961332771-3f40b0e2bdcf?w=800&q=80',
-    ],
-    description: 'Powerful 2 Ton Split Inverter AC for large rooms.',
-    longDescription:
-      'The Carrier 2 Ton Split Inverter AC is designed for large rooms and halls up to 280 sq ft. Advanced inverter technology with 6-in-1 convertible modes, HD filter, and powerful cooling at 52°C ambient.',
-    specifications: {
-      Brand: 'Carrier',
-      Type: 'Split AC (Inverter)',
-      Capacity: '2 Ton',
-      'Star Rating': '5 Star',
-      'Power Consumption': '1490 Watts',
-      'Cooling Capacity': '6800 W',
-      'Noise Level': '42 dB (Indoor)',
-      Warranty: '12 months on product, 120 months on compressor',
-      'Indoor Dimensions': '970 x 315 x 240 mm',
-      'Outdoor Dimensions': '900 x 700 x 350 mm',
-      Weight: 'Indoor: 13 kg, Outdoor: 45 kg',
-      Color: 'White',
-      Refrigerant: 'R-32',
-    },
-    pricing: { monthly: 2299, quarterly: 6349, halfYearly: 12138, yearly: 22070 },
-    deposit: 0,
-    rating: 4.7,
-    reviewCount: 234,
-    inStock: true,
-    tags: ['split', '2-ton', 'inverter', 'large-room'],
-    features: [
-      '6-in-1 Convertible Modes',
-      'HD Filter with Anti-bacteria',
-      'Cools at 52°C ambient',
-      'Stabilizer-free operation',
-      'Turbo cooling',
-    ],
-    energyRating: '5 Star',
-    warranty: '1 Year',
-    capacity: '2 Ton',
-    type: 'Split AC',
-  },
-  // AC Products - Inverter (separate category as per PRD)
-  {
-    id: 'ac-006',
-    slug: '1-5-ton-inverter-ac-vrf',
-    name: '1.5 Ton VRF Inverter AC',
-    category: 'ac',
-    subCategory: 'inverter',
-    brand: 'Hitachi',
-    images: [
-      'https://images.unsplash.com/photo-1631545806609-cad1d7c5d4cd?w=800&q=80',
-    ],
-    description: 'Industrial-grade VRF Inverter AC for premium cooling.',
-    longDescription:
-      'Hitachi VRF (Variable Refrigerant Flow) Inverter AC represents the pinnacle of cooling technology. Designed for premium apartments, offices, and commercial spaces. Whisen Wave motor for ultra-quiet operation.',
-    specifications: {
-      Brand: 'Hitachi',
-      Type: 'VRF Inverter AC',
-      Capacity: '1.5 Ton',
-      'Star Rating': '5 Star',
-      'Power Consumption': '1050 Watts',
-      'Cooling Capacity': '5200 W',
-      'Noise Level': '32 dB (Indoor)',
-      Warranty: '24 months comprehensive, 120 months on compressor',
-      'Indoor Dimensions': '1050 x 305 x 235 mm',
-      Weight: 'Indoor: 14 kg, Outdoor: 38 kg',
-      Color: 'Pearl White',
-      Refrigerant: 'R-410A',
-    },
-    pricing: { monthly: 2499, quarterly: 6899, halfYearly: 13188, yearly: 23990 },
-    deposit: 0,
-    rating: 4.9,
-    reviewCount: 156,
-    inStock: true,
-    tags: ['inverter', 'vrf', 'premium', 'silent'],
-    features: [
-      'Whisen Wave motor technology',
-      'Tropical inverter compressor',
-      'Auto-clean heat exchanger',
-      'Long air throw (up to 25 ft)',
-      'Pre-coated aluminum fins',
-    ],
-    energyRating: '5 Star',
-    warranty: '2 Years',
-    capacity: '1.5 Ton',
-    type: 'VRF Inverter',
-  },
-  // AC Products - Portable
-  {
-    id: 'ac-007',
-    slug: '1-ton-portable-ac',
-    name: '1 Ton Portable AC',
-    category: 'ac',
-    subCategory: 'portable',
-    brand: 'Blue Star',
-    images: [
-      'https://images.unsplash.com/photo-1614633833026-0820552978d5?w=800&q=80',
-    ],
-    description: 'Compact 1 Ton Portable AC - no installation required.',
-    longDescription:
-      'No installation needed! This Blue Star Portable AC is perfect for renters, frequent movers, and temporary setups. Roll it anywhere, plug it in, and enjoy instant cooling. Includes remote control and 24-hour timer.',
-    specifications: {
-      Brand: 'Blue Star',
-      Type: 'Portable AC',
-      Capacity: '1 Ton',
-      'Star Rating': '3 Star',
-      'Power Consumption': '1200 Watts',
-      'Cooling Capacity': '3500 W',
-      'Noise Level': '54 dB',
-      Warranty: '12 months comprehensive',
-      Dimensions: '440 x 740 x 380 mm',
-      Weight: '32 kg',
-      Color: 'White',
-      Refrigerant: 'R-410A',
-    },
-    pricing: { monthly: 1299, quarterly: 3587, halfYearly: 6861, yearly: 12470 },
-    deposit: 0,
-    rating: 4.4,
-    reviewCount: 187,
-    inStock: true,
-    tags: ['portable', '1-ton', 'no-installation', 'compact'],
-    features: [
-      'No installation required',
-      'Self-evaporative system',
-      '4-in-1 modes (Cool/Fan/Dry/Sleep)',
-      'Easy-roll casters',
-      'Window kit included',
-    ],
-    energyRating: '3 Star',
-    warranty: '1 Year',
-    capacity: '1 Ton',
-    type: 'Portable AC',
-  },
-  // Fridge Products - Single Door
-  {
-    id: 'fr-001',
-    slug: '190l-single-door-fridge',
-    name: '190L Single Door Fridge',
-    category: 'fridge',
-    subCategory: 'single-door',
-    brand: 'Whirlpool',
-    images: [
-      'https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?w=800&q=80',
-      'https://images.unsplash.com/photo-1584992236310-6edddc08acff?w=800&q=80',
-    ],
-    description: 'Compact 190L Single Door Fridge ideal for bachelors and small families.',
-    longDescription:
-      'The Whirlpool 190L Single Door Refrigerator is perfect for small families, bachelors, and students. Direct Cool technology with honeycomb moisture lock crisper keeps vegetables fresh longer.',
-    specifications: {
-      Brand: 'Whirlpool',
-      Type: 'Single Door',
-      Capacity: '190 Litres',
-      'Star Rating': '4 Star',
-      'Power Consumption': '175 kWh/year',
-      'Cooling Technology': 'Direct Cool',
-      Warranty: '12 months on product, 60 months on compressor',
-      Dimensions: '536 x 619 x 1240 mm',
-      Weight: '42 kg',
-      Color: 'Silver',
-      Defrost: 'Manual',
-    },
-    pricing: { monthly: 599, quarterly: 1654, halfYearly: 3163, yearly: 5750 },
-    deposit: 0,
-    rating: 4.5,
-    reviewCount: 423,
-    inStock: true,
-    tags: ['single-door', 'compact', 'bachelor', 'direct-cool'],
-    features: [
-      'Honeycomb Moisture Lock',
-      'Up to 12 hours cooling retention',
-      'Insulated Capillary technology',
-      'Large vegetable crisper',
-      'Removable anti-bacterial gasket',
-    ],
-    energyRating: '4 Star',
-    warranty: '1 Year',
-    capacity: '190L',
-    type: 'Single Door',
-  },
-  {
-    id: 'fr-002',
-    slug: '215l-single-door-fridge',
-    name: '215L Single Door Fridge',
-    category: 'fridge',
-    subCategory: 'single-door',
-    brand: 'Samsung',
-    images: [
-      'https://images.unsplash.com/photo-1584992236310-6edddc08acff?w=800&q=80',
-    ],
-    description: 'Reliable 215L Single Door Fridge with digital inverter.',
-    longDescription:
-      'Samsung 215L Single Door Refrigerator with Digital Inverter Compressor for energy efficiency and quieter operation. All Round Cooling ensures even temperature throughout.',
-    specifications: {
-      Brand: 'Samsung',
-      Type: 'Single Door',
-      Capacity: '215 Litres',
-      'Star Rating': '5 Star',
-      'Power Consumption': '160 kWh/year',
-      'Cooling Technology': 'Direct Cool',
-      Warranty: '12 months on product, 120 months on compressor',
-      Dimensions: '578 x 633 x 1320 mm',
-      Weight: '46 kg',
-      Color: 'Blue / Silver',
-      Defrost: 'Manual',
-    },
-    pricing: { monthly: 699, quarterly: 1930, halfYearly: 3691, yearly: 6710 },
-    deposit: 0,
-    rating: 4.6,
-    reviewCount: 298,
-    inStock: true,
-    tags: ['single-door', 'inverter', 'energy-efficient'],
-    features: [
-      'Digital Inverter Compressor',
-      'All Round Cooling',
-      '10-year compressor warranty',
-      'Toughened glass shelves',
-      'Anti-fungal door gasket',
-    ],
-    energyRating: '5 Star',
-    warranty: '1 Year',
-    capacity: '215L',
-    type: 'Single Door',
-  },
-  // Fridge Products - Double Door
-  {
-    id: 'fr-003',
-    slug: '260l-double-door-fridge',
-    name: '260L Double Door Fridge',
-    category: 'fridge',
-    subCategory: 'double-door',
-    brand: 'LG',
-    images: [
-      'https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?w=800&q=80',
-      'https://images.unsplash.com/photo-1584992236310-6edddc08acff?w=800&q=80',
-    ],
-    description: 'Frost-free 260L Double Door Fridge for families.',
-    longDescription:
-      'LG 260L Frost Free Double Door Refrigerator - the perfect family fridge. Multi Air Flow cooling, humidity controller, and door cooling+ for up to 35% faster cooling.',
-    specifications: {
-      Brand: 'LG',
-      Type: 'Double Door (Frost Free)',
-      Capacity: '260 Litres',
-      'Star Rating': '4 Star',
-      'Power Consumption': '230 kWh/year',
-      'Cooling Technology': 'Frost Free',
-      Warranty: '12 months on product, 120 months on compressor',
-      Dimensions: '585 x 703 x 1575 mm',
-      Weight: '58 kg',
-      Color: 'Shiny Steel',
-      Defrost: 'Automatic (Frost Free)',
-    },
-    pricing: { monthly: 999, quarterly: 2758, halfYearly: 5275, yearly: 9590 },
-    deposit: 0,
-    rating: 4.7,
-    reviewCount: 512,
-    inStock: true,
-    tags: ['double-door', 'frost-free', 'family', 'bestseller'],
-    features: [
-      'Door Cooling+ (35% faster)',
-      'Multi Air Flow vents',
-      'Humidity Controller',
-      'Smart Inverter Compressor',
-      'LED lighting',
-    ],
-    energyRating: '4 Star',
-    warranty: '1 Year',
-    capacity: '260L',
-    type: 'Double Door',
-  },
-  {
-    id: 'fr-004',
-    slug: '360l-double-door-fridge',
-    name: '360L Double Door Fridge',
-    category: 'fridge',
-    subCategory: 'double-door',
-    brand: 'Samsung',
-    images: [
-      'https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?w=800&q=80',
-    ],
-    description: 'Spacious 360L Double Door Fridge for joint families.',
-    longDescription:
-      'Samsung 360L Frost Free Double Door Refrigerator with Twin Cooling Plus for independent cooling in fridge and freezer. Convertible 5-in-1 modes for flexible storage.',
-    specifications: {
-      Brand: 'Samsung',
-      Type: 'Double Door (Frost Free)',
-      Capacity: '360 Litres',
-      'Star Rating': '3 Star',
-      'Power Consumption': '320 kWh/year',
-      'Cooling Technology': 'Frost Free',
-      Warranty: '12 months on product, 120 months on compressor',
-      Dimensions: '675 x 720 x 1825 mm',
-      Weight: '73 kg',
-      Color: 'Pebble Blue',
-      Defrost: 'Automatic',
-    },
-    pricing: { monthly: 1399, quarterly: 3863, halfYearly: 7386, yearly: 13430 },
-    deposit: 0,
-    rating: 4.6,
-    reviewCount: 287,
-    inStock: true,
-    tags: ['double-door', 'large', 'family', 'convertible'],
-    features: [
-      'Twin Cooling Plus',
-      '5-in-1 Convertible',
-      'Power Cool / Power Freeze',
-      'Big Guard door bins',
-      'Digital Inverter Technology',
-    ],
-    energyRating: '3 Star',
-    warranty: '1 Year',
-    capacity: '360L',
-    type: 'Double Door',
-  },
-  // Fridge Products - Side by Side
-  {
-    id: 'fr-005',
-    slug: '653l-side-by-side-fridge',
-    name: '653L Side-by-Side Fridge',
-    category: 'fridge',
-    subCategory: 'side-by-side',
-    brand: 'LG',
-    images: [
-      'https://images.unsplash.com/photo-1584992236310-6edddc08acff?w=800&q=80',
-    ],
-    description: 'Premium 653L Side-by-Side Fridge with water dispenser.',
-    longDescription:
-      'LG 653L Side-by-Side Refrigerator with InstaView Door-in-Door and UVnano water dispenser. Smart ThinQ app connectivity. Perfect for premium homes and offices.',
-    specifications: {
-      Brand: 'LG',
-      Type: 'Side-by-Side',
-      Capacity: '653 Litres',
-      'Star Rating': '4 Star',
-      'Power Consumption': '485 kWh/year',
-      'Cooling Technology': 'Frost Free',
-      Warranty: '12 months on product, 120 months on compressor',
-      Dimensions: '913 x 740 x 1790 mm',
-      Weight: '108 kg',
-      Color: 'Mirror Glass',
-      Defrost: 'Automatic',
-    },
-    pricing: { monthly: 2999, quarterly: 8281, halfYearly: 15835, yearly: 28790 },
-    deposit: 0,
-    rating: 4.9,
-    reviewCount: 142,
-    inStock: true,
-    tags: ['side-by-side', 'premium', 'water-dispenser', 'smart'],
-    features: [
-      'InstaView Door-in-Door',
-      'UVnano water dispenser',
-      'Smart ThinQ (Wi-Fi)',
-      'Multi Air Flow cooling',
-      'Hygiene Fresh+ air filter',
-    ],
-    energyRating: '4 Star',
-    warranty: '1 Year',
-    capacity: '653L',
-    type: 'Side-by-Side',
-  },
-  // Combo Products
-  {
-    id: 'combo-001',
-    slug: 'ac-fridge-combo-starter',
-    name: 'AC + Fridge Combo (Starter)',
-    category: 'ac',
-    subCategory: 'combo',
-    brand: 'Multiple',
-    images: [
-      'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80',
-    ],
-    description: '1 Ton Split AC + 215L Single Door Fridge combo.',
-    longDescription:
-      'Save ₹500/month with this essential combo - perfect for a new home or rental property. Includes delivery, installation, and free maintenance for the entire rental period.',
-    specifications: {
-      'Bundle Includes': '1 Ton Split AC + 215L Single Door Fridge',
-      'Total Capacity': '215L Fridge + 1 Ton AC',
-      'Energy Rating': '5 Star (Combined)',
-      Warranty: '12 months comprehensive',
-      Installation: 'Free installation included',
-      Maintenance: 'Free maintenance for rental period',
-    },
-    pricing: {
-      monthly: 1899,
-      quarterly: 5243,
-      halfYearly: 10026,
-      yearly: 18230,
-    },
-    deposit: 0,
-    rating: 4.8,
-    reviewCount: 156,
-    inStock: true,
-    tags: ['combo', 'bundle', 'savings'],
-    features: [
-      'Save ₹500/month vs individual rentals',
-      'Free installation of both units',
-      'Free maintenance during rental',
-      'Single point of contact',
-      'Priority service for combo customers',
-    ],
-    energyRating: '5 Star',
-    warranty: '1 Year',
-    capacity: '1 Ton AC + 215L Fridge',
-    type: 'Combo',
-  },
+/* ===========================================================================
+ *   IMAGE POOL — generic royalty-free Unsplash photo per category.
+ *   Reused as the primary hero image for every product variant in that
+ *   category, so the catalog renders cleanly without per-SKU photography.
+ *   ========================================================================= */
+
+const IMG = {
+  acWindow: 'https://images.unsplash.com/photo-1631545806609-cad1d7c5d4cd?w=800&q=80',
+  acSplit: 'https://images.unsplash.com/photo-1625961332771-3f40b0e2bdcf?w=800&q=80',
+  acIndoor: 'https://images.unsplash.com/photo-1614633833026-0820552978d5?w=800&q=80',
+  cooler: 'https://images.unsplash.com/photo-1574958269340-fa927503f3dd?w=800&q=80',
+  inverter: 'https://images.unsplash.com/photo-1581094288338-2314dddb7ece?w=800&q=80',
+  geyser: 'https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?w=800&q=80',
+  purifier: 'https://images.unsplash.com/photo-1585514532046-5d8f3c0e2a8c?w=800&q=80',
+  microwave: 'https://images.unsplash.com/photo-1585659722983-3b67509abf74?w=800&q=80',
+  heater: 'https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=800&q=80',
+  induction: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80',
+  fridgeSingle: 'https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?w=800&q=80',
+  fridgeDouble: 'https://images.unsplash.com/photo-1584992236310-6edddc08acff?w=800&q=80',
+  washingMachine: 'https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?w=800&q=80',
+} as const;
+
+/* ===========================================================================
+ *   PRICING TIERS
+ *   =========================================================================
+ *
+ *   Monthly rent is `base + perCapacity × capacity`, rounded to a friendly
+ *   `step` so the product card shows clean numbers. The same 8%/12%/20%
+ *   discount curve used by `getDurationDiscount` in lib/utils.ts is applied
+ *   to quarterly/half-yearly/yearly tiers.
+ */
+
+const PRICE_TIERS: Record<string, { base: number; perCapacity: number; step: number }> = {
+  'air-conditioners': { base: 999, perCapacity: 250, step: 100 },
+  'air-coolers': { base: 449, perCapacity: 12, step: 50 },
+  'washing-machines': { base: 799, perCapacity: 110, step: 50 },
+  'refrigerators': { base: 599, perCapacity: 4, step: 50 },
+  'inverters': { base: 549, perCapacity: 0.35, step: 100 },
+  'geysers': { base: 199, perCapacity: 18, step: 25 },
+  'water-purifiers': { base: 399, perCapacity: 80, step: 50 },
+  'microwaves-ovens': { base: 449, perCapacity: 40, step: 50 },
+  'room-heaters': { base: 299, perCapacity: 60, step: 25 },
+  'induction-cooktops': { base: 299, perCapacity: 0.18, step: 25 },
+  'combo': { base: 1899, perCapacity: 0, step: 50 },
+};
+
+function monthlyPrice(category: string, capacity: number): number {
+  const tier = PRICE_TIERS[category];
+  if (!tier) return 599;
+  const raw = tier.base + tier.perCapacity * capacity;
+  return Math.max(99, Math.round(raw / tier.step) * tier.step);
+}
+
+const quarterlyFromMonthly = (m: number) => Math.round(m * 3 * 0.92);
+const halfYearlyFromMonthly = (m: number) => Math.round(m * 6 * 0.88);
+const yearlyFromMonthly = (m: number) => Math.round(m * 12 * 0.8);
+
+/* ===========================================================================
+ *   CATALOG — drives the auto-generated PRODUCTS array.
+ *   =========================================================================
+ *
+ *   For each (main category × sub-category), we list the capacities that the
+ *   PDF specifies and the brands it sells under that sub-type. The runtime
+ *   builder in `buildProducts()` walks this table and emits one Product per
+ *   (capacity × brand) combination, capped at 4 brands per cell so the
+ *   resulting dataset stays compact but the rent grid still feels populated.
+ *
+ *   Compact form below — one row per sub-category.
+ */
+
+interface Catalog {
+  category: string;
+  sub: string;
+  label: string;
+  type: string;
+  img: string;
+  energy: string;
+  warranty: string;
+  caps: Array<{ v: number; l: string }>;
+  brands: string[];
+  features: string[];
+}
+
+const CATALOG: Catalog[] = [
+  /* ===== 1. Air Conditioners ===== */
+  { category: 'air-conditioners', sub: 'window-ac', label: 'Window AC', type: 'Window AC', img: IMG.acWindow, energy: '3 Star', warranty: '1 Year',
+    caps: [{ v: 0.75, l: '0.75 Ton' }, { v: 1, l: '1 Ton' }, { v: 1.5, l: '1.5 Ton' }, { v: 2, l: '2 Ton' }],
+    brands: ['Voltas', 'LG', 'Samsung', 'Daikin', 'Blue Star', 'Hitachi', 'Panasonic', 'Carrier', 'Lloyd', 'Whirlpool'],
+    features: ['Turbo cooling', 'Anti-bacteria filter', 'Eco-friendly R-32 refrigerant', 'Sleep mode', 'Auto restart'] },
+  { category: 'air-conditioners', sub: 'split-ac', label: 'Split AC', type: 'Split AC', img: IMG.acSplit, energy: '5 Star', warranty: '1 Year',
+    caps: [{ v: 1, l: '1 Ton' }, { v: 1.5, l: '1.5 Ton' }, { v: 2, l: '2 Ton' }, { v: 3, l: '3 Ton' }],
+    brands: ['Voltas', 'LG', 'Samsung', 'Daikin', 'Blue Star', 'Hitachi', 'Panasonic', 'Carrier', 'Lloyd', 'Whirlpool'],
+    features: ['Wi-Fi enabled', 'Convertible modes', 'Anti-corrosion copper condenser', 'Turbo cooling', 'Self-clean'] },
+  { category: 'air-conditioners', sub: 'inverter-ac', label: 'Inverter Split AC', type: 'Inverter Split AC', img: IMG.acSplit, energy: '5 Star', warranty: '1 Year',
+    caps: [{ v: 1, l: '1 Ton' }, { v: 1.5, l: '1.5 Ton' }, { v: 2, l: '2 Ton' }],
+    brands: ['Voltas', 'LG', 'Samsung', 'Daikin', 'Blue Star', 'Hitachi', 'Panasonic', 'Carrier', 'Lloyd', 'Whirlpool'],
+    features: ['Inverter compressor', '5 Star energy rating', '10-year compressor warranty', 'Wi-Fi smart control', 'Silent operation'] },
+  { category: 'air-conditioners', sub: 'non-inverter-ac', label: 'Non-Inverter AC', type: 'Non-Inverter AC', img: IMG.acSplit, energy: '3 Star', warranty: '1 Year',
+    caps: [{ v: 1, l: '1 Ton' }, { v: 1.5, l: '1.5 Ton' }, { v: 2, l: '2 Ton' }],
+    brands: ['Voltas', 'LG', 'Samsung', 'Daikin', 'Blue Star', 'Hitachi'],
+    features: ['Fixed speed compressor', 'Eco mode', 'Sleep mode', 'Anti-bacteria filter', 'Turbo cooling'] },
+  { category: 'air-conditioners', sub: 'tower-ac', label: 'Tower AC', type: 'Commercial Tower AC', img: IMG.acIndoor, energy: '3 Star', warranty: '1 Year',
+    caps: [{ v: 2, l: '2 Ton' }, { v: 2.5, l: '2.5 Ton' }, { v: 3, l: '3 Ton' }, { v: 4, l: '4 Ton' }],
+    brands: ['Voltas', 'LG', 'Daikin', 'Blue Star', 'Hitachi', 'Carrier'],
+    features: ['Floor-standing design', 'Wide air throw', 'Cools large halls', 'Heavy-duty compressor', 'Remote control'] },
+  { category: 'air-conditioners', sub: 'portable-ac', label: 'Portable AC', type: 'Portable AC', img: IMG.acIndoor, energy: '3 Star', warranty: '1 Year',
+    caps: [{ v: 1, l: '1 Ton Smart Portable' }, { v: 1.5, l: '1.5 Ton Compact Portable' }],
+    brands: ['Blue Star', 'LG', 'Voltas', 'Whirlpool'],
+    features: ['No installation required', 'Self-evaporative', '4-in-1 modes', 'Easy-roll casters', 'Window kit included'] },
+  { category: 'air-conditioners', sub: 'cassette-ac', label: 'Cassette AC', type: 'Cassette AC', img: IMG.acIndoor, energy: '3 Star', warranty: '1 Year',
+    caps: [{ v: 2, l: '2 Ton' }, { v: 3, l: '3 Ton' }, { v: 4, l: '4 Way Cassette' }],
+    brands: ['Daikin', 'LG', 'Voltas', 'Blue Star', 'Hitachi', 'Carrier'],
+    features: ['4-way air swing', 'Ceiling-mounted', 'Wide airflow coverage', 'Inverter compressor', 'Group control'] },
+  { category: 'air-conditioners', sub: 'ductable-ac', label: 'Ductable AC', type: 'Ductable AC', img: IMG.acIndoor, energy: '3 Star', warranty: '1 Year',
+    caps: [{ v: 2, l: '2 Ton' }, { v: 3, l: '3 Ton' }, { v: 4, l: '4 Ton' }],
+    brands: ['Daikin', 'LG', 'Voltas', 'Blue Star', 'Hitachi', 'Carrier'],
+    features: ['Ducted installation', 'Commercial-grade', 'Quiet operation', 'Remote monitoring', 'Heavy-duty build'] },
+
+  /* ===== 2. Air Coolers ===== */
+  { category: 'air-coolers', sub: 'personal-cooler', label: 'Personal Cooler', type: 'Personal Air Cooler', img: IMG.cooler, energy: '5 Star', warranty: '1 Year',
+    caps: [{ v: 7, l: 'Mini' }, { v: 12, l: 'Portable' }, { v: 18, l: 'Personal' }],
+    brands: ['Symphony', 'Bajaj', 'Crompton', 'Havells', 'Kenstar', 'Orient'],
+    features: ['Compact design', 'Low power', 'Honeycomb pads', 'Castor wheels', 'Ice chamber'] },
+  { category: 'air-coolers', sub: 'desert-cooler', label: 'Desert Cooler', type: 'Desert Air Cooler', img: IMG.cooler, energy: '4 Star', warranty: '1 Year',
+    caps: [{ v: 20, l: '20L' }, { v: 25, l: '25L' }, { v: 35, l: '35L' }, { v: 40, l: '40L' },
+           { v: 45, l: '45L' }, { v: 50, l: '50L' }, { v: 60, l: '60L' }, { v: 65, l: '65L' },
+           { v: 75, l: '75L' }, { v: 90, l: '90L' }, { v: 120, l: '120L' }, { v: 150, l: '150L' }],
+    brands: ['Symphony', 'Bajaj', 'Crompton', 'Havells', 'Kenstar', 'Orient'],
+    features: ['High air delivery', 'Wood-wool cooling pads', 'Large tank', 'Auto-fill option', 'Inverter compatible'] },
+  { category: 'air-coolers', sub: 'tower-cooler', label: 'Tower Cooler', type: 'Tower Cooler', img: IMG.cooler, energy: '4 Star', warranty: '1 Year',
+    caps: [{ v: 20, l: 'Slim Tower' }, { v: 30, l: 'Premium Tower' }, { v: 40, l: 'Premium Tower+' }],
+    brands: ['Symphony', 'Bajaj', 'Crompton', 'Havells', 'Orient'],
+    features: ['Vertical slim', 'Space-saving', 'Remote control', 'Honeycomb cooling', 'Multi-stage speed'] },
+  { category: 'air-coolers', sub: 'window-cooler', label: 'Window Cooler', type: 'Window Cooler', img: IMG.cooler, energy: '3 Star', warranty: '1 Year',
+    caps: [{ v: 30, l: 'Plastic Window' }, { v: 50, l: 'Metal Window' }, { v: 70, l: 'Metal Window+' }],
+    brands: ['Symphony', 'Bajaj', 'Crompton', 'Havells', 'Orient'],
+    features: ['Window mounting', 'Powerful airflow', 'Durable body', 'Easy maintenance', 'Multiple speed'] },
+  { category: 'air-coolers', sub: 'commercial-cooler', label: 'Commercial Cooler', type: 'Commercial Air Cooler', img: IMG.cooler, energy: '3 Star', warranty: '1 Year',
+    caps: [{ v: 100, l: 'Jumbo' }, { v: 150, l: 'Industrial' }],
+    brands: ['Symphony', 'Bajaj', 'Crompton', 'Havells'],
+    features: ['High-capacity cooling', 'Industrial-grade', 'Wide coverage', 'Heavy-duty motor', 'Continuous operation'] },
+  { category: 'air-coolers', sub: 'smart-air-cooler', label: 'Smart Air Cooler', type: 'Smart Air Cooler', img: IMG.cooler, energy: '4 Star', warranty: '1 Year',
+    caps: [{ v: 40, l: 'WiFi Cooler' }, { v: 60, l: 'Remote Control Cooler' }],
+    brands: ['Symphony', 'Bajaj', 'Crompton', 'Havells'],
+    features: ['Wi-Fi enabled', 'Voice assistant', 'App control', 'Auto humidity control', 'Programmable timer'] },
+
+  /* ===== 3. Washing Machines ===== */
+  { category: 'washing-machines', sub: 'front-load-washer', label: 'Front Load Fully Automatic', type: 'Front Load Fully Automatic', img: IMG.washingMachine, energy: '5 Star', warranty: '2 Years',
+    caps: [{ v: 6, l: '6 Kg' }, { v: 7, l: '7 Kg' }, { v: 8, l: '8 Kg' }, { v: 9, l: '9 Kg' }],
+    brands: ['LG', 'Samsung', 'IFB', 'Whirlpool', 'Bosch', 'Panasonic', 'Godrej', 'Haier'],
+    features: ['Inverter direct drive', 'Steam wash', 'Anti-bacterial cycle', 'Smart diagnosis', '15+ wash programs'] },
+  { category: 'washing-machines', sub: 'top-load-washer', label: 'Top Load Fully Automatic', type: 'Top Load Fully Automatic', img: IMG.washingMachine, energy: '5 Star', warranty: '2 Years',
+    caps: [{ v: 6, l: '6 Kg' }, { v: 7, l: '7 Kg' }, { v: 8, l: '8 Kg' }, { v: 10, l: '10 Kg' }],
+    brands: ['LG', 'Samsung', 'IFB', 'Whirlpool', 'Bosch', 'Panasonic', 'Godrej', 'Haier'],
+    features: ['Turbo drum', 'Punch+ 3 waterfall', 'Auto tub clean', 'Anti-rust body', 'Smart inverter'] },
+  { category: 'washing-machines', sub: 'semi-automatic-washer', label: 'Semi Automatic', type: 'Semi Automatic', img: IMG.washingMachine, energy: '4 Star', warranty: '2 Years',
+    caps: [{ v: 6.5, l: '6.5 Kg' }, { v: 7.5, l: '7.5 Kg' }, { v: 8, l: '8 Kg' }, { v: 9, l: '9 Kg' }],
+    brands: ['LG', 'Samsung', 'Whirlpool', 'Panasonic', 'Godrej', 'Haier'],
+    features: ['Two-tub design', 'High spin motor', 'Lint filter', 'Buzzer end indicator', 'Rust-proof body'] },
+
+  /* ===== 4. Refrigerators ===== */
+  { category: 'refrigerators', sub: 'single-door-fridge', label: 'Single Door', type: 'Single Door', img: IMG.fridgeSingle, energy: '4 Star', warranty: '1 Year',
+    caps: [{ v: 180, l: '180L' }, { v: 190, l: '190L' }, { v: 200, l: '200L' }],
+    brands: ['LG', 'Samsung', 'Whirlpool', 'Haier', 'Godrej', 'Panasonic', 'Voltas Beko'],
+    features: ['Direct cool', 'Honeycomb moisture lock', 'Large crisper', 'Anti-bacterial gasket', 'Insulated capillary'] },
+  { category: 'refrigerators', sub: 'double-door-fridge', label: 'Double Door', type: 'Double Door (Frost Free)', img: IMG.fridgeDouble, energy: '4 Star', warranty: '1 Year',
+    caps: [{ v: 240, l: '240L' }, { v: 260, l: '260L' }, { v: 300, l: '300L' }],
+    brands: ['LG', 'Samsung', 'Whirlpool', 'Haier', 'Godrej', 'Panasonic', 'Voltas Beko'],
+    features: ['Frost free', 'Multi air flow', 'Smart inverter compressor', 'Large vegetable box', 'Humidity controller'] },
+  { category: 'refrigerators', sub: 'triple-door-fridge', label: 'Triple Door', type: 'Triple Door', img: IMG.fridgeDouble, energy: '4 Star', warranty: '1 Year',
+    caps: [{ v: 300, l: '300L' }, { v: 350, l: '350L' }],
+    brands: ['LG', 'Samsung', 'Whirlpool', 'Haier'],
+    features: ['Triple-zone cooling', 'Independent compartments', 'Smart inverter', 'Energy efficient', 'Toughened glass shelves'] },
+  { category: 'refrigerators', sub: 'side-by-side-fridge', label: 'Side by Side', type: 'Side-by-Side', img: IMG.fridgeDouble, energy: '4 Star', warranty: '1 Year',
+    caps: [{ v: 500, l: '500L' }, { v: 600, l: '600L' }],
+    brands: ['LG', 'Samsung', 'Whirlpool', 'Haier'],
+    features: ['Side-by-side doors', 'Water & ice dispenser', 'Smart diagnosis', 'Wide storage', 'Frost free'] },
+  { category: 'refrigerators', sub: 'french-door-fridge', label: 'French Door', type: 'French Door', img: IMG.fridgeDouble, energy: '5 Star', warranty: '1 Year',
+    caps: [{ v: 600, l: 'Premium Refrigerator' }],
+    brands: ['LG', 'Samsung', 'Whirlpool'],
+    features: ['Multi-door design', 'InstaView panel', 'Linear inverter', 'UVnano dispenser', 'Smart ThinQ'] },
+  { category: 'refrigerators', sub: 'mini-fridge', label: 'Mini Refrigerator', type: 'Mini Refrigerator', img: IMG.fridgeSingle, energy: '4 Star', warranty: '1 Year',
+    caps: [{ v: 45, l: '45L' }, { v: 90, l: '90L' }],
+    brands: ['LG', 'Samsung', 'Haier', 'Godrej', 'Whirlpool'],
+    features: ['Compact size', 'Cooling retention', 'Low power', 'Portable', 'Toughened glass shelf'] },
+  { category: 'refrigerators', sub: 'deep-freezer', label: 'Deep Freezer', type: 'Deep Freezer', img: IMG.fridgeDouble, energy: '4 Star', warranty: '1 Year',
+    caps: [{ v: 300, l: 'Horizontal Freezer' }, { v: 500, l: 'Vertical Freezer' }],
+    brands: ['Whirlpool', 'Haier', 'Godrej', 'Voltas Beko'],
+    features: ['Fast freeze', 'Heavy-duty compressor', 'Lock & key', 'PUF insulation', 'Wide temperature range'] },
+  { category: 'refrigerators', sub: 'commercial-fridge', label: 'Commercial Refrigerator', type: 'Commercial Refrigerator', img: IMG.fridgeDouble, energy: '3 Star', warranty: '1 Year',
+    caps: [{ v: 350, l: 'Display Cooler' }, { v: 400, l: 'Beverage Cooler' }],
+    brands: ['Whirlpool', 'Haier', 'Godrej', 'Voltas Beko'],
+    features: ['Glass display', 'Bright LED lighting', 'Lockable', 'Continuous cooling', 'Energy-efficient'] },
+
+  /* ===== 5. Inverters ===== */
+  { category: 'inverters', sub: 'home-inverter', label: 'Home Inverter', type: 'Home Inverter', img: IMG.inverter, energy: '4 Star', warranty: '2 Years',
+    caps: [{ v: 600, l: '600VA' }, { v: 900, l: '900VA' }, { v: 1100, l: '1100VA' }, { v: 1500, l: '1500VA' }, { v: 2000, l: '2000VA' }],
+    brands: ['Luminous', 'Microtek', 'Exide', 'Livguard', 'Amaron', 'V-Guard'],
+    features: ['Pure sine wave output', 'DSP-based design', 'Smart overload protection', 'LCD display', 'Bypass switch'] },
+  { category: 'inverters', sub: 'pure-sine-wave-inverter', label: 'Pure Sine Wave', type: 'Pure Sine Wave Inverter', img: IMG.inverter, energy: '5 Star', warranty: '2 Years',
+    caps: [{ v: 1100, l: '1100VA' }, { v: 1500, l: '1500VA' }],
+    brands: ['Luminous', 'Microtek', 'Exide', 'Livguard', 'Amaron', 'V-Guard'],
+    features: ['Pure sine wave', 'Low harmonic distortion', 'Smart charging', 'MCB protection', 'Digital display'] },
+  { category: 'inverters', sub: 'square-wave-inverter', label: 'Square Wave', type: 'Square Wave Inverter', img: IMG.inverter, energy: '3 Star', warranty: '1 Year',
+    caps: [{ v: 800, l: 'Budget Inverter' }],
+    brands: ['Luminous', 'Microtek', 'V-Guard'],
+    features: ['Affordable pricing', 'Basic protection', 'LED indicators', 'Compact body', 'Easy to install'] },
+  { category: 'inverters', sub: 'solar-inverter', label: 'Solar Inverter', type: 'Solar Inverter', img: IMG.inverter, energy: '5 Star', warranty: '5 Years',
+    caps: [{ v: 3000, l: 'Hybrid Solar' }, { v: 5000, l: 'Off Grid' }],
+    brands: ['Luminous', 'Microtek', 'Exide', 'Livguard', 'V-Guard'],
+    features: ['MPPT charger', 'Mobile monitoring', 'Zero grid export', 'IP65 protection', 'Long life cycle'] },
+  { category: 'inverters', sub: 'inverter-battery', label: 'Inverter Battery', type: 'Inverter Battery', img: IMG.inverter, energy: '4 Star', warranty: '3 Years',
+    caps: [{ v: 150, l: 'Tall Tubular' }, { v: 220, l: 'Flat Plate' }, { v: 100, l: 'Lithium' }],
+    brands: ['Luminous', 'Exide', 'Amaron', 'Livguard'],
+    features: ['Long backup', 'Fast charging', 'Low maintenance', 'Tubular plates', 'Spill-proof design'] },
+  { category: 'inverters', sub: 'ups', label: 'UPS', type: 'UPS', img: IMG.inverter, energy: '4 Star', warranty: '2 Years',
+    caps: [{ v: 600, l: 'Home UPS' }, { v: 1000, l: 'Office UPS' }],
+    brands: ['Microtek', 'Luminous', 'V-Guard'],
+    features: ['Zero transfer time', 'Surge protection', 'Smart battery management', 'Compact tower', 'LCD display'] },
+
+  /* ===== 6. Geysers ===== */
+  { category: 'geysers', sub: 'instant-geyser', label: 'Instant Geyser', type: 'Instant Water Heater', img: IMG.geyser, energy: '5 Star', warranty: '2 Years',
+    caps: [{ v: 1, l: '1L' }, { v: 2, l: '2L' }, { v: 3, l: '3L' }, { v: 5, l: '5L' }],
+    brands: ['AO Smith', 'Havells', 'Bajaj', 'Racold', 'Crompton', 'V-Guard'],
+    features: ['Instant heating', 'Copper element', 'LED indicator', 'Auto cut-off', 'Rust-proof'] },
+  { category: 'geysers', sub: 'storage-geyser', label: 'Storage Geyser', type: 'Storage Water Heater', img: IMG.geyser, energy: '5 Star', warranty: '5 Years',
+    caps: [{ v: 10, l: '10L' }, { v: 15, l: '15L' }, { v: 25, l: '25L' }, { v: 35, l: '35L' }],
+    brands: ['AO Smith', 'Havells', 'Bajaj', 'Racold', 'Crompton', 'V-Guard'],
+    features: ['PUF insulation', 'Adjustable thermostat', 'Multi-function valve', 'Blue glass-lined tank', 'Anti-siphon'] },
+  { category: 'geysers', sub: 'gas-geyser', label: 'Gas Geyser', type: 'Gas Water Heater', img: IMG.geyser, energy: '4 Star', warranty: '2 Years',
+    caps: [{ v: 6, l: '6L' }],
+    brands: ['AO Smith', 'Bajaj', 'Havells', 'V-Guard'],
+    features: ['LPG compatibility', 'Auto ignition', 'Copper heat exchanger', 'Safety valve', 'Compact'] },
+  { category: 'geysers', sub: 'solar-water-heater', label: 'Solar Water Heater', type: 'Solar Water Heater', img: IMG.geyser, energy: '5 Star', warranty: '5 Years',
+    caps: [{ v: 200, l: '200L' }],
+    brands: ['AO Smith', 'Havells', 'Racold', 'V-Guard'],
+    features: ['ETC collectors', 'Vacuum tube tech', 'Zero electricity cost', 'Eco-friendly', 'Free installation'] },
+  { category: 'geysers', sub: 'smart-geyser', label: 'Smart Geyser', type: 'Smart Water Heater', img: IMG.geyser, energy: '5 Star', warranty: '5 Years',
+    caps: [{ v: 15, l: '15L' }, { v: 25, l: '25L' }],
+    brands: ['AO Smith', 'Havells', 'Racold', 'V-Guard'],
+    features: ['Wi-Fi enabled', 'Mobile app', 'Voice assistant', 'Auto scheduling', 'Energy tracker'] },
+
+  /* ===== 7. Water Purifiers ===== */
+  { category: 'water-purifiers', sub: 'ro-purifier', label: 'RO Water Purifier', type: 'RO Water Purifier', img: IMG.purifier, energy: '5 Star', warranty: '1 Year',
+    caps: [{ v: 8, l: 'RO + UV' }, { v: 10, l: 'RO + UV + UF' }],
+    brands: ['Kent', 'Aquaguard', 'Livpure', 'AO Smith', 'Pureit', 'Blue Star'],
+    features: ['Multi-stage purification', 'TDS controller', 'Mineral guard', 'UV sterilization', 'UF filter'] },
+  { category: 'water-purifiers', sub: 'uv-purifier', label: 'UV Purifier', type: 'UV Water Purifier', img: IMG.purifier, energy: '5 Star', warranty: '1 Year',
+    caps: [{ v: 8, l: 'UV' }],
+    brands: ['Kent', 'Aquaguard', 'Livpure', 'Pureit', 'Blue Star'],
+    features: ['UV-C LED', 'Chemical-free', 'Municipal water compatible', 'Compact', 'Auto shut-off'] },
+  { category: 'water-purifiers', sub: 'uf-purifier', label: 'UF Purifier', type: 'UF Water Purifier', img: IMG.purifier, energy: '4 Star', warranty: '1 Year',
+    caps: [{ v: 10, l: 'UF' }],
+    brands: ['Kent', 'Aquaguard', 'Livpure', 'Pureit', 'Blue Star'],
+    features: ['UF membrane', 'No electricity', 'Sediment filter', 'Taste enhancer', 'Compact'] },
+  { category: 'water-purifiers', sub: 'alkaline-copper-purifier', label: 'Alkaline / Copper Purifier', type: 'Alkaline / Copper Water Purifier', img: IMG.purifier, energy: '5 Star', warranty: '1 Year',
+    caps: [{ v: 10, l: 'Alkaline' }, { v: 12, l: 'Copper' }],
+    brands: ['Kent', 'Aquaguard', 'Livpure', 'AO Smith', 'Pureit'],
+    features: ['Alkaline booster', 'Copper + RO', 'Revitalizer', 'Mineral cartridge', 'pH balance'] },
+  { category: 'water-purifiers', sub: 'smart-purifier', label: 'Smart Purifier', type: 'Smart Water Purifier', img: IMG.purifier, energy: '5 Star', warranty: '1 Year',
+    caps: [{ v: 12, l: 'Smart' }],
+    brands: ['Kent', 'Aquaguard', 'AO Smith', 'Pureit'],
+    features: ['Wi-Fi enabled', 'App integration', 'Filter change alert', 'TDS display', 'IoT ready'] },
+  { category: 'water-purifiers', sub: 'commercial-ro', label: 'Commercial RO Plant', type: 'Commercial RO Plant', img: IMG.purifier, energy: '4 Star', warranty: '1 Year',
+    caps: [{ v: 250, l: '250 LPH' }],
+    brands: ['Kent', 'Aquaguard', 'Livpure', 'AO Smith', 'Blue Star'],
+    features: ['High output', 'Multi-stage filtration', 'Stainless body', 'Auto backwash', 'Industrial pump'] },
+  { category: 'water-purifiers', sub: 'water-dispenser', label: 'Water Dispenser', type: 'Water Dispenser', img: IMG.purifier, energy: '4 Star', warranty: '1 Year',
+    caps: [{ v: 5, l: 'Hot & Cold' }, { v: 5, l: 'Bottom Loading' }],
+    brands: ['AO Smith', 'Kent', 'Aquaguard', 'Blue Star'],
+    features: ['Hot and cold taps', 'Child lock', 'Bottom-loading design', 'Removable drip tray', 'Eco mode'] },
+
+  /* ===== 8. Microwave & Ovens ===== */
+  { category: 'microwaves-ovens', sub: 'solo-microwave', label: 'Solo Microwave', type: 'Solo Microwave', img: IMG.microwave, energy: '4 Star', warranty: '1 Year',
+    caps: [{ v: 20, l: '20L' }, { v: 23, l: '23L' }],
+    brands: ['LG', 'IFB', 'Samsung', 'Panasonic', 'Morphy Richards', 'Bajaj'],
+    features: ['Reheat & defrost', '5 power levels', 'Mechanical knob', 'Anti-bacterial cavity', 'Child lock'] },
+  { category: 'microwaves-ovens', sub: 'grill-microwave', label: 'Grill Microwave', type: 'Grill Microwave', img: IMG.microwave, energy: '4 Star', warranty: '1 Year',
+    caps: [{ v: 25, l: '25L' }, { v: 28, l: '28L' }],
+    brands: ['LG', 'IFB', 'Samsung', 'Panasonic', 'Bajaj'],
+    features: ['Grill rack', 'Combination cooking', 'Auto cook menus', 'Tactile buttons', 'Stainless interior'] },
+  { category: 'microwaves-ovens', sub: 'convection-microwave', label: 'Convection Microwave', type: 'Convection Microwave', img: IMG.microwave, energy: '5 Star', warranty: '1 Year',
+    caps: [{ v: 28, l: '28L' }, { v: 32, l: '32L' }],
+    brands: ['LG', 'IFB', 'Samsung', 'Panasonic', 'Morphy Richards', 'Bajaj'],
+    features: ['Convection + grill + microwave', 'Auto cook menus', 'Tact + jog dial', 'Steam clean', 'Multi-stage'] },
+  { category: 'microwaves-ovens', sub: 'otg-oven', label: 'OTG Oven', type: 'OTG Oven', img: IMG.microwave, energy: '4 Star', warranty: '1 Year',
+    caps: [{ v: 19, l: '19L' }, { v: 30, l: '30L' }, { v: 42, l: '42L' }, { v: 60, l: '60L' }],
+    brands: ['Morphy Richards', 'Bajaj', 'Philips', 'Panasonic', 'LG', 'IFB'],
+    features: ['Toast, grill, bake', 'Rotisserie', 'Accessories included', 'Temperature control', 'Stay-on timer'] },
+  { category: 'microwaves-ovens', sub: 'built-in-oven', label: 'Built-in Oven', type: 'Electric Built-in Oven', img: IMG.microwave, energy: '5 Star', warranty: '2 Years',
+    caps: [{ v: 60, l: '60L' }],
+    brands: ['LG', 'IFB', 'Samsung', 'Bosch'],
+    features: ['Convection heating', 'Multi-rack', 'Air-fry ready', 'Self-cleaning', 'Triple-glazed door'] },
+  { category: 'microwaves-ovens', sub: 'air-fryer-oven', label: 'Air Fryer Oven', type: 'Air Fryer Oven', img: IMG.microwave, energy: '4 Star', warranty: '1 Year',
+    caps: [{ v: 25, l: '25L' }],
+    brands: ['Philips', 'Morphy Richards', 'Bajaj', 'Havells', 'Prestige'],
+    features: ['Rapid air technology', 'Oil-free frying', 'Digital presets', 'Non-stick basket', 'Cool-touch handle'] },
+
+  /* ===== 9. Room Heaters ===== */
+  { category: 'room-heaters', sub: 'fan-heater', label: 'Fan Heater', type: 'Fan Heater', img: IMG.heater, energy: '4 Star', warranty: '1 Year',
+    caps: [{ v: 2, l: '2000W' }],
+    brands: ['Usha', 'Havells', 'Bajaj', 'Orient', 'Morphy Richards', 'Crompton'],
+    features: ['Quick heat-up', 'Cool/warm/hot settings', 'Built-in thermostat', 'Tip-over cut-off', 'Portable handle'] },
+  { category: 'room-heaters', sub: 'quartz-heater', label: 'Quartz Heater', type: 'Quartz Heater', img: IMG.heater, energy: '4 Star', warranty: '1 Year',
+    caps: [{ v: 2, l: '2000W' }],
+    brands: ['Usha', 'Bajaj', 'Orient', 'Havells'],
+    features: ['Quartz tubes', 'Instant warmth', 'Two heat settings', 'Tip-over switch', 'Safe-touch grille'] },
+  { category: 'room-heaters', sub: 'halogen-heater', label: 'Halogen Heater', type: 'Halogen Heater', img: IMG.heater, energy: '4 Star', warranty: '1 Year',
+    caps: [{ v: 3, l: '3-Rod' }],
+    brands: ['Usha', 'Bajaj', 'Orient', 'Morphy Richards'],
+    features: ['Halogen tubes', 'Three heat settings', 'Oscillating', 'Tip-over safety', 'Silent'] },
+  { category: 'room-heaters', sub: 'oil-filled-radiator', label: 'Oil Filled Radiator', type: 'Oil Filled Radiator', img: IMG.heater, energy: '4 Star', warranty: '2 Years',
+    caps: [{ v: 9, l: '9 Fin' }, { v: 11, l: '11 Fin' }],
+    brands: ['Usha', 'Havells', 'Bajaj', 'Morphy Richards', 'Crompton'],
+    features: ['Fin-style design', 'Thermostat control', 'Castor wheels', 'PTC option', 'Silent'] },
+  { category: 'room-heaters', sub: 'ptc-heater', label: 'PTC Heater', type: 'PTC Heater', img: IMG.heater, energy: '4 Star', warranty: '1 Year',
+    caps: [{ v: 2, l: '2000W' }],
+    brands: ['Havells', 'Usha', 'Bajaj', 'Morphy Richards'],
+    features: ['PTC ceramic element', 'Fast heating', 'Auto tip-over', 'Overheat protection', 'Compact'] },
+  { category: 'room-heaters', sub: 'blower-heater', label: 'Blower Heater', type: 'Blower Heater', img: IMG.heater, energy: '4 Star', warranty: '1 Year',
+    caps: [{ v: 2, l: '2000W' }],
+    brands: ['Usha', 'Bajaj', 'Havells', 'Crompton'],
+    features: ['Powerful blower', 'Forced-air heating', 'Multiple heat settings', 'Overheat safety', 'Sturdy body'] },
+  { category: 'room-heaters', sub: 'smart-heater', label: 'Smart Heater', type: 'Smart Heater', img: IMG.heater, energy: '4 Star', warranty: '1 Year',
+    caps: [{ v: 2, l: 'Smart 2000W' }],
+    brands: ['Havells', 'Morphy Richards', 'Bajaj', 'Usha'],
+    features: ['Wi-Fi enabled', 'App control', 'Voice compatible', 'Eco mode', 'Programmable'] },
+  { category: 'room-heaters', sub: 'industrial-heater', label: 'Industrial Heater', type: 'Industrial Heater', img: IMG.heater, energy: '3 Star', warranty: '1 Year',
+    caps: [{ v: 5, l: '5kW' }],
+    brands: ['Bajaj', 'Usha', 'Morphy Richards'],
+    features: ['High CFM', 'Industrial-grade motor', 'Tough body', 'Heavy wheels', 'Continuous duty'] },
+
+  /* ===== 10. Induction Cooktops ===== */
+  { category: 'induction-cooktops', sub: 'single-induction', label: 'Single Burner', type: 'Single Burner Induction', img: IMG.induction, energy: '5 Star', warranty: '1 Year',
+    caps: [{ v: 1200, l: '1200W' }, { v: 1600, l: '1600W' }, { v: 2000, l: '2000W' }],
+    brands: ['Philips', 'Prestige', 'Pigeon', 'Havells', 'Usha', 'Bajaj', 'Lifelong'],
+    features: ['Push-button controls', 'Indian menu options', 'Auto voltage regulator', 'Crystal glass top', 'Cool-touch'] },
+  { category: 'induction-cooktops', sub: 'double-induction', label: 'Double Induction', type: 'Double Induction Cooktop', img: IMG.induction, energy: '5 Star', warranty: '1 Year',
+    caps: [{ v: 2, l: '2000W + 2000W' }],
+    brands: ['Prestige', 'Pigeon', 'Philips', 'Havells'],
+    features: ['Two burners', 'Independent controls', 'Auto timer', 'Feather-touch panel', 'Dual crystal glass'] },
+  { category: 'induction-cooktops', sub: 'infrared-cooktop', label: 'Infrared Cooktop', type: 'Infrared Cooktop', img: IMG.induction, energy: '4 Star', warranty: '1 Year',
+    caps: [{ v: 2, l: '2000W' }],
+    brands: ['Bajaj', 'Prestige', 'Pigeon', 'Philips'],
+    features: ['Any utensil', 'High-temperature', 'Cool-touch body', 'Variable heat', 'Easy clean'] },
+  { category: 'induction-cooktops', sub: 'built-in-induction', label: 'Built-in Induction', type: 'Built-in Induction', img: IMG.induction, energy: '5 Star', warranty: '2 Years',
+    caps: [{ v: 4, l: '4 Burner' }],
+    brands: ['Faber', 'Elica', 'Bosch', 'Havells'],
+    features: ['Built-in design', 'Vitreous ceramic top', 'Auto heat-up', 'Touch slider', 'Child lock'] },
+  { category: 'induction-cooktops', sub: 'commercial-induction', label: 'Commercial Induction', type: 'Commercial Induction', img: IMG.induction, energy: '4 Star', warranty: '1 Year',
+    caps: [{ v: 3, l: '3000W' }],
+    brands: ['Bajaj', 'Prestige', 'Pigeon'],
+    features: ['Restaurant-grade', 'Heavy-duty coil', 'Continuous use', 'Stainless body', 'High durability'] },
+  { category: 'induction-cooktops', sub: 'smart-induction', label: 'Smart Induction', type: 'Smart Induction', img: IMG.induction, energy: '5 Star', warranty: '1 Year',
+    caps: [{ v: 2, l: '2000W' }],
+    brands: ['Philips', 'Havells', 'Prestige', 'Bajaj'],
+    features: ['App connectivity', 'Voice assistant', 'Recipe library', 'Auto weight sensing', 'IoT enabled'] },
 ];
+
+/* ===========================================================================
+ *   PRODUCT BUILDER
+ *   =========================================================================
+ *
+ *   Walks CATALOG and emits one Product per (capacity × brand) combination,
+ *   capping to 4 brands per cell so the dataset stays compact (~150 rows)
+ *   while still giving every (sub-category, capacity) a healthy mix.
+ */
+
+function slugifyProduct(brand: string, label: string): string {
+  return `${brand} ${label}`
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+function buildProducts(): Product[] {
+  const out: Product[] = [];
+  let counter = 0;
+  const seenSlugs = new Set<string>();
+
+  for (const cat of CATALOG) {
+    for (const cap of cat.caps) {
+      const brandsForCombo = cat.brands.slice(0, 4);
+      for (const brand of brandsForCombo) {
+        counter++;
+        const id = `p-${String(counter).padStart(4, '0')}`;
+        const monthly = monthlyPrice(cat.category, cap.v);
+        const pricing = {
+          monthly,
+          quarterly: quarterlyFromMonthly(monthly),
+          halfYearly: halfYearlyFromMonthly(monthly),
+          yearly: yearlyFromMonthly(monthly),
+        };
+
+        let slug = slugifyProduct(brand, `${cap.l} ${cat.label}`);
+        if (seenSlugs.has(slug)) slug = `${slug}-${counter}`;
+        seenSlugs.add(slug);
+
+        const name = `${brand} ${cap.l} ${cat.label}`;
+
+        out.push({
+          id,
+          slug,
+          name,
+          category: cat.category as Product['category'],
+          subCategory: cat.sub,
+          brand,
+          images: [cat.img, IMG.acIndoor],
+          description: `${cap.l} ${cat.type} from ${brand} — reliable rental-grade appliance with warranty, free delivery & installation, and zero deposit.`,
+          longDescription: `This ${brand} ${cap.l} ${cat.type.toLowerCase()} is curated for SkyCool customers looking for hassle-free monthly rentals. ${cat.features.slice(0, 4).join('; ')}. Every rental includes free delivery, installation, and full warranty coverage during the rental period.`,
+          specifications: {
+            Brand: brand,
+            Type: cat.type,
+            Capacity: cap.l,
+            'Star Rating': cat.energy,
+            Warranty: cat.warranty + ' on product, longer on compressor',
+            Color: 'White',
+          },
+          pricing,
+          deposit: 0,
+          rating: 4.4 + ((counter * 7) % 6) * 0.1,
+          reviewCount: 80 + (counter % 9) * 53,
+          inStock: true,
+          tags: [
+            cat.sub.replace(/-/g, ' '),
+            cap.l.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
+            brand.toLowerCase(),
+          ],
+          features: cat.features,
+          energyRating: cat.energy,
+          warranty: cat.warranty,
+          capacity: cap.l,
+          type: cat.type,
+        });
+      }
+    }
+  }
+
+  return out;
+}
+
+export const PRODUCTS: Product[] = buildProducts();
+
 
 export const SERVICES: Service[] = [
   {

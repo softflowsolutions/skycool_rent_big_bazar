@@ -80,3 +80,17 @@ export function capitalize(text: string): string {
   if (!text) return '';
   return text.charAt(0).toUpperCase() + text.slice(1);
 }
+
+/**
+ * Convert a kebab-case slug like `air-conditioners` to a friendly
+ * Title Case label like `Air Conditioners`. Used by breadcrumbs and
+ * page headings so category slugs read naturally to end users.
+ */
+export function titleCase(text: string): string {
+  if (!text) return '';
+  return text
+    .replace(/[-_]+/g, ' ')
+    .split(' ')
+    .map((w) => (w ? w.charAt(0).toUpperCase() + w.slice(1).toLowerCase() : ''))
+    .join(' ');
+}

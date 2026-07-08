@@ -10,7 +10,7 @@ import { RelatedProducts } from '@/components/product/RelatedProducts';
 import { EnquiryForm } from '@/components/forms/EnquiryForm';
 import { ProductJsonLd } from '@/components/seo/JsonLd';
 import { PRODUCTS, getProductBySlug, getRelatedProducts } from '@/lib/data';
-import { capitalize } from '@/lib/utils';
+import { titleCase } from '@/lib/utils';
 import type { Metadata } from 'next';
 
 interface PageProps {
@@ -52,7 +52,7 @@ export default function ProductDetailPage({ params }: PageProps) {
 
   const related = getRelatedProducts(product.id);
 
-  const subName = capitalize(product.subCategory.replace(/-/g, ' '));
+  const subName = titleCase(product.subCategory);
 
   return (
     <>
@@ -62,7 +62,7 @@ export default function ProductDetailPage({ params }: PageProps) {
           <Breadcrumb
             items={[
               { label: 'Rent', href: '/rent' },
-              { label: capitalize(product.category), href: `/rent/${product.category}` },
+              { label: titleCase(product.category), href: `/rent/${product.category}` },
               { label: subName, href: `/rent/${product.category}/${product.subCategory}` },
               { label: product.name },
             ]}

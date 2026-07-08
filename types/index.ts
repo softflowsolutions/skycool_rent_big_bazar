@@ -2,7 +2,7 @@ export interface Product {
   id: string;
   slug: string;
   name: string;
-  category: 'ac' | 'fridge';
+  category: ProductCategory;
   subCategory: string;
   brand: string;
   images: string[];
@@ -26,6 +26,29 @@ export interface Product {
   capacity: string;
   type: string;
 }
+
+/**
+ * Top-level rent category slug. The Home Appliances brief lists 10 main
+ * categories plus a `combo` placeholder; legacy `'ac' | 'fridge'` are kept
+ * so the older `/rent/ac` and `/rent/fridge` URLs continue to render.
+ *
+ * `Service.category` deliberately does NOT use this union — services are
+ * only ever grouped under `'ac'` (cool/heat) or `'fridge'` (cold storage).
+ */
+export type ProductCategory =
+  | 'air-conditioners'
+  | 'air-coolers'
+  | 'washing-machines'
+  | 'refrigerators'
+  | 'inverters'
+  | 'geysers'
+  | 'water-purifiers'
+  | 'microwaves-ovens'
+  | 'room-heaters'
+  | 'induction-cooktops'
+  | 'combo'
+  | 'ac'
+  | 'fridge';
 
 export interface Service {
   id: string;

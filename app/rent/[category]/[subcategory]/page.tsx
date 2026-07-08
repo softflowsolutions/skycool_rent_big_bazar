@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation';
 import { Breadcrumb } from '@/components/shared/Breadcrumb';
 import { ProductCard } from '@/components/shared/ProductCard';
 import { PRODUCTS } from '@/lib/data';
-import { capitalize, formatPrice } from '@/lib/utils';
+import { titleCase } from '@/lib/utils';
 import type { Metadata } from 'next';
 
 interface PageProps {
@@ -27,9 +27,9 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const subName = params.subcategory.replace(/-/g, ' ');
+  const subName = titleCase(params.subcategory);
   return {
-    title: `Rent ${capitalize(subName)} in India | SkyCool Solutions`,
+    title: `Rent ${subName} in India | SkyCool Solutions`,
     description: `Browse ${subName} rentals starting at affordable monthly prices. Free delivery & installation.`,
   };
 }
@@ -44,7 +44,7 @@ export default function SubCategoryPage({ params }: PageProps) {
   }
 
   const minPrice = Math.min(...products.map((p) => p.pricing.monthly));
-  const subName = capitalize(params.subcategory.replace(/-/g, ' '));
+  const subName = titleCase(params.subcategory);
 
   return (
     <>
@@ -53,7 +53,7 @@ export default function SubCategoryPage({ params }: PageProps) {
           <Breadcrumb
             items={[
               { label: 'Rent', href: '/rent' },
-              { label: capitalize(params.category), href: `/rent/${params.category}` },
+              { label: titleCase(params.category), href: `/rent/${params.category}` },
               { label: subName },
             ]}
           />
