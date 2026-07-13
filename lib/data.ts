@@ -976,6 +976,29 @@ export const POPULAR_CITIES = [
   'Pune',
 ];
 
+/**
+ * Legacy category URL aliases. The marketing site has historically used
+ * short slugs (`/rent/ac`, `/rent/fridge`) and the new catalog uses the
+ * full Home Appliances slugs (`/rent/air-conditioners`, `/rent/refrigerators`).
+ * To keep every existing URL working without redirect plumbing, we translate
+ * the legacy slug to the canonical one before matching products.
+ *
+ * Anything not in this map is returned unchanged, so the function is safe
+ * to call with the new slugs too — it just becomes a no-op.
+ */
+export const LEGACY_CATEGORY_MAP: Record<string, string> = {
+  ac: 'air-conditioners',
+  fridge: 'refrigerators',
+};
+
+/**
+ * Resolve a category slug from a URL into the canonical product category.
+ * Returns the input unchanged if it isn't a known legacy alias.
+ */
+export function resolveCategorySlug(slug: string): string {
+  return LEGACY_CATEGORY_MAP[slug] || slug;
+}
+
 export function getProductBySlug(slug: string): Product | undefined {
   return PRODUCTS.find((p) => p.slug === slug);
 }
@@ -985,7 +1008,10 @@ export function getServiceBySlug(slug: string): Service | undefined {
 }
 
 export function getProductsByCategory(category: string): Product[] {
-  return PRODUCTS.filter((p) => p.category === category || p.subCategory === category);
+  const resolved = resolveCategorySlug(category);
+  return PRODUCTS.filter(
+    (p) => p.category === resolved || p.subCategory === resolved
+  );
 }
 
 export function getProductsBySubCategory(subCategory: string): Product[] {

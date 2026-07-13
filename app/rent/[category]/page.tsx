@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import { ArrowRight } from 'lucide-react';
 import { Breadcrumb } from '@/components/shared/Breadcrumb';
 import { ProductCard } from '@/components/shared/ProductCard';
-import { PRODUCTS, RENT_CATEGORY_SLUGS } from '@/lib/data';
+import { PRODUCTS, RENT_CATEGORY_SLUGS, resolveCategorySlug } from '@/lib/data';
 import { capitalize, formatPrice, titleCase } from '@/lib/utils';
 import type { Metadata } from 'next';
 
@@ -132,8 +132,13 @@ const subCategoryMap: Record<string, Array<{ name: string; slug: string; descrip
 
 export default function CategoryPage({ params }: PageProps) {
   const category = params.category;
+  // Legacy URLs like `/rent/ac` arrive with category === 'ac'. Translate
+  // to the canonical product category before filtering, so the existing
+  // URL structure keeps working without redirects.
+  const canonicalCategory = resolveCategorySlug(category);
+
   const products = PRODUCTS.filter(
-    (p) => p.category === category || p.subCategory === category
+    (p) => p.category === canonicalCategory || p.subCategory === canonicalCategory
   );
 
   if (products.length === 0 && !subCategoryMap[category]) {
@@ -143,7 +148,7 @@ export default function CategoryPage({ params }: PageProps) {
   const subCategories = subCategoryMap[category] || [];
   const minPrice = products.length > 0 ? Math.min(...products.map((p) => p.pricing.monthly)) : 0;
   const maxPrice = products.length > 0 ? Math.max(...products.map((p) => p.pricing.monthly)) : 0;
-  const friendlyName = titleCase(category);
+  const friendlyName = titleCase(canonicalCategory);
 
   return (
     <>

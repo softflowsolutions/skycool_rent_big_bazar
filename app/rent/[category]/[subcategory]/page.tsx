@@ -1,8 +1,8 @@
 import { notFound } from 'next/navigation';
 import { Breadcrumb } from '@/components/shared/Breadcrumb';
 import { ProductCard } from '@/components/shared/ProductCard';
-import { PRODUCTS } from '@/lib/data';
-import { titleCase } from '@/lib/utils';
+import { PRODUCTS, resolveCategorySlug, LEGACY_CATEGORY_MAP } from '@/lib/data';
+import { formatPrice, titleCase } from '@/lib/utils';
 import type { Metadata } from 'next';
 
 interface PageProps {
@@ -11,18 +11,19 @@ interface PageProps {
 
 export async function generateStaticParams() {
   const params: Array<{ category: string; subcategory: string }> = [];
-  const subCats = new Set<string>();
-  PRODUCTS.forEach((p) => {
-    if (p.subCategory && p.category) {
-      subCats.add(p.subCategory);
+
+  // Walk every product and emit the canonical (category, subcategory) pair,
+  // plus every legacy alias that maps to the same product so the legacy
+  // URLs continue to render statically.
+  for (const p of PRODUCTS) {
+    if (!p.subCategory || !p.category) continue;
+    params.push({ category: p.category, subcategory: p.subCategory });
+    for (const [legacy, canonical] of Object.entries(LEGACY_CATEGORY_MAP)) {
+      if (canonical === p.category) {
+        params.push({ category: legacy, subcategory: p.subCategory });
+      }
     }
-  });
-  subCats.forEach((sub) => {
-    const product = PRODUCTS.find((p) => p.subCategory === sub);
-    if (product) {
-      params.push({ category: product.category, subcategory: sub });
-    }
-  });
+  }
   return params;
 }
 
@@ -35,8 +36,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export default function SubCategoryPage({ params }: PageProps) {
+  // Legacy URLs like `/rent/ac/window-ac` arrive with category === 'ac'.
+  // Translate them to the canonical product category before filtering,
+  // so the existing URL structure keeps working without redirects.
+  const canonicalCategory = resolveCategorySlug(params.category);
+
   const products = PRODUCTS.filter(
-    (p) => p.subCategory === params.subcategory && p.category === params.category
+    (p) => p.subCategory === params.subcategory && p.category === canonicalCategory
   );
 
   if (products.length === 0) {
@@ -45,6 +51,7 @@ export default function SubCategoryPage({ params }: PageProps) {
 
   const minPrice = Math.min(...products.map((p) => p.pricing.monthly));
   const subName = titleCase(params.subcategory);
+  const displayCategory = titleCase(canonicalCategory);
 
   return (
     <>
@@ -53,7 +60,7 @@ export default function SubCategoryPage({ params }: PageProps) {
           <Breadcrumb
             items={[
               { label: 'Rent', href: '/rent' },
-              { label: titleCase(params.category), href: `/rent/${params.category}` },
+              { label: displayCategory, href: `/rent/${canonicalCategory}` },
               { label: subName },
             ]}
           />
