@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import { Breadcrumb } from '@/components/shared/Breadcrumb';
 import { ServiceCard } from '@/components/shared/ServiceCard';
-import { SERVICES } from '@/lib/data';
+import { SERVICES, resolveServiceCategorySlug } from '@/lib/data';
 import { capitalize, formatPrice } from '@/lib/utils';
 import type { Metadata } from 'next';
 
@@ -9,19 +9,45 @@ interface PageProps {
   params: { category: string };
 }
 
+/**
+ * Statically generate every service category slug — the 10 Home Appliances
+ * categories plus the two legacy aliases (`ac`, `fridge`). This mirrors the
+ * Rent page so every appliance tile on /service has a working landing page.
+ */
 export async function generateStaticParams() {
-  return [{ category: 'ac' }, { category: 'fridge' }];
+  return [
+    { category: 'air-conditioners' },
+    { category: 'air-coolers' },
+    { category: 'washing-machines' },
+    { category: 'refrigerators' },
+    { category: 'inverters' },
+    { category: 'geysers' },
+    { category: 'water-purifiers' },
+    { category: 'microwaves-ovens' },
+    { category: 'room-heaters' },
+    { category: 'induction-cooktops' },
+    // Legacy aliases kept so older links keep resolving.
+    { category: 'ac' },
+    { category: 'fridge' },
+  ];
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const resolved = resolveServiceCategorySlug(params.category);
   return {
-    title: `${capitalize(params.category)} Service in India | SkyCool Solutions`,
-    description: `Professional ${params.category} service - repair, installation, gas refill, cleaning. Same-day service available.`,
+    title: `${capitalize(resolved)} Service in India | SkyCool Solutions`,
+    description: `Professional ${resolved.replace(/-/g, ' ')} service - repair, installation, gas refill, cleaning. Same-day service available.`,
   };
 }
 
 export default function ServiceCategoryPage({ params }: PageProps) {
-  const services = SERVICES.filter((s) => s.category === params.category);
+  // Resolve both the URL slug AND the service's stored category so legacy
+  // URLs (`/service/ac`, `/service/fridge`) and canonical URLs
+  // (`/service/air-conditioners`) match the same services.
+  const target = resolveServiceCategorySlug(params.category);
+  const services = SERVICES.filter(
+    (s) => resolveServiceCategorySlug(s.category) === target
+  );
 
   if (services.length === 0) notFound();
 

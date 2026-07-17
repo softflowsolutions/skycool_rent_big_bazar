@@ -7,14 +7,20 @@ import { SERVICES, CATEGORIES } from '@/lib/data';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'AC & Fridge Service — Repair, Installation, AMC | SkyCool Solutions',
+  title: 'Appliance Service — Repair, Installation, AMC | SkyCool Solutions',
   description:
-    'Professional AC and Fridge service in India. Repair, installation, gas refill, deep cleaning, and AMC plans. Same-day service available.',
+    'Professional repair, installation and maintenance for ACs, Fridges, Washing Machines, Air Coolers, TVs, Geysers & more home appliances across India. Same-day service available.',
   alternates: { canonical: '/service' },
 };
 
 export default function ServicePage() {
-  const serviceCategories = CATEGORIES.filter((c) => c.parent === 'service');
+  // Display every main rent category as a service category. This mirrors the
+  // Rent page catalog so customers can request service for the same appliance
+  // they rent (e.g. /rent/air-conditioners → /service/air-conditioners).
+  // The legacy `combo` placeholder is excluded — it's a bundle, not a service.
+  const serviceCategories = CATEGORIES.filter(
+    (c) => c.parent === 'rent' && c.slug !== 'combo'
+  );
 
   return (
     <>
@@ -27,11 +33,12 @@ export default function ServicePage() {
               <span className="text-xs font-semibold text-gray-700">Expert Technicians</span>
             </div>
             <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-3">
-              AC & Fridge Services
+              Appliance Services
             </h1>
             <p className="text-gray-600 text-sm sm:text-base lg:text-lg">
-              Professional repair, installation, and maintenance by certified technicians.
-              Same-day service available across India.
+              Professional repair, installation, and maintenance by certified technicians
+              for ACs, Fridges, Washing Machines, Air Coolers, TVs, Geysers &amp; more
+              home appliances. Same-day service available across India.
             </p>
           </div>
         </div>
@@ -39,7 +46,7 @@ export default function ServicePage() {
 
       <section className="container-app section-padding">
         <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 mb-6">
-          Choose Service Type
+          Choose Appliance
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6 mb-12">
           {serviceCategories.map((cat) => (
@@ -76,7 +83,7 @@ export default function ServicePage() {
             Popular Services
           </h2>
           <Link
-            href="/service/ac"
+            href="/service/air-conditioners"
             className="text-sm font-semibold text-sky-600 hover:text-sky-700 inline-flex items-center gap-1"
           >
             View All

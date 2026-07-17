@@ -6,19 +6,19 @@ const categories = [
   {
     title: 'AC Rentals',
     subtitle: 'Window, Split, Inverter & Portable',
-    image: 'https://images.unsplash.com/photo-1631545806609-cad1d7c5d4cd?w=600&q=80',
+    image: '/images/products/split1.5.png',
     href: '/rent/ac',
   },
   {
     title: 'Fridge Rentals',
     subtitle: 'Single, Double & Side-by-Side',
-    image: 'https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?w=600&q=80',
+    image: '/images/products/dubbledoor.png',
     href: '/rent/fridge',
   },
   {
     title: 'Combo Deals',
     subtitle: 'AC + Fridge bundles — Save ₹500/mo',
-    image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80',
+    image: '/images/products/induction.png',
     href: '/rent/combo',
   },
   {

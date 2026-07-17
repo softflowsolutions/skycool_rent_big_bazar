@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   Snowflake,
   Mail,
@@ -69,8 +70,14 @@ export function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-4">
             <Link href="/" className="flex items-center gap-2 mb-4">
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white">
-                <Snowflake className="h-6 w-6 text-sky-600" strokeWidth={2.5} />
+              <div className="relative h-12 w-12 bg-white rounded-xl overflow-hidden">
+                <Image
+                  src="/images/logo/logo1.png"
+                  alt="SkyCool Solutions"
+                  fill
+                  sizes="48px"
+                  className="object-contain p-1"
+                />
               </div>
               <div>
                 <div className="font-display text-xl font-bold">SkyCool</div>

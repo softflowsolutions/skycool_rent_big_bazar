@@ -50,11 +50,30 @@ export type ProductCategory =
   | 'ac'
   | 'fridge';
 
+/**
+ * Slugs accepted on `/service/[category]`. The new appliance URLs use the
+ * full Home Appliances slugs (`air-conditioners`, `refrigerators`, etc.).
+ * Legacy `'ac'` and `'fridge'` are kept so older links keep resolving.
+ */
+export type ServiceCategorySlug =
+  | 'air-conditioners'
+  | 'air-coolers'
+  | 'washing-machines'
+  | 'refrigerators'
+  | 'inverters'
+  | 'geysers'
+  | 'water-purifiers'
+  | 'microwaves-ovens'
+  | 'room-heaters'
+  | 'induction-cooktops'
+  | 'ac'
+  | 'fridge';
+
 export interface Service {
   id: string;
   slug: string;
   name: string;
-  category: 'ac' | 'fridge';
+  category: ServiceCategorySlug;
   subCategory: string;
   description: string;
   longDescription: string;

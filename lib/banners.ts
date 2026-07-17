@@ -59,8 +59,7 @@ export const BANNER_AUTOPLAY_MS = 4500;
 export const BANNERS: Banner[] = [
   {
     id: 'summer-sale-2026',
-    image:
-      'https://images.unsplash.com/photo-1631545806609-cad1d7c5d4cd?w=1920&q=80',
+    image: '/images/products/split1.5.png',
     title: 'Summer Sale 2026',
     subtitle:
       'Cool your home for less. Get up to 30% off on AC rentals this summer. Free delivery & installation.',
@@ -71,8 +70,7 @@ export const BANNERS: Banner[] = [
   },
   {
     id: 'zero-deposit',
-    image:
-      'https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?w=1920&q=80',
+    image: '/images/products/dubbledoor.png',
     title: 'Zero Deposit Rentals',
     subtitle:
       'Premium ACs and Fridges with zero security deposit. Quality assured, ready to use — just plug and play.',
@@ -95,8 +93,7 @@ export const BANNERS: Banner[] = [
   },
   {
     id: 'ac-fridge-combos',
-    image:
-      'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1920&q=80',
+    image: '/images/products/induction.png',
     title: 'AC + Fridge Combos',
     subtitle:
       'Bundle AC and Fridge rentals and save ₹500/month on your monthly bill. Limited combo offers this month.',
@@ -107,8 +104,7 @@ export const BANNERS: Banner[] = [
   },
   {
     id: 'amc-plans',
-    image:
-      'https://images.unsplash.com/photo-1625961332771-3f40b0e2bdcf?w=1920&q=80',
+    image: '/images/products/split1.5.png',
     title: 'Annual Maintenance Plans',
     subtitle:
       'Year-round AC care starting at ₹1,999. Free visits, priority support and zero labour charges.',

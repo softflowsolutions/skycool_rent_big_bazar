@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { Menu, X, Phone, Snowflake } from 'lucide-react';
@@ -52,12 +53,15 @@ export function Header() {
               className="flex items-center gap-2 group"
               aria-label={`${SITE_CONFIG.name} home`}
             >
-              <div className="relative flex h-10 w-10 lg:h-12 lg:w-12 items-center justify-center rounded-xl bg-gray-900 group-hover:scale-110 transition-transform">
-                <Snowflake className="h-5 w-5 lg:h-6 lg:w-6 text-white" strokeWidth={2.5} />
-                <span className="absolute -top-1 -right-1 flex h-3 w-3">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-gray-700 opacity-75" />
-                  <span className="relative inline-flex h-3 w-3 rounded-full bg-gray-900" />
-                </span>
+              <div className="relative h-10 w-10 lg:h-12 lg:w-12 group-hover:scale-110 transition-transform">
+                <Image
+                  src="/images/logo/logo1.png"
+                  alt="SkyCool Solutions"
+                  fill
+                  sizes="48px"
+                  className="object-contain"
+                  priority
+                />
               </div>
               <div className="hidden sm:block">
                 <div className="font-display text-lg lg:text-xl font-bold text-gray-900">
@@ -141,8 +145,14 @@ export function Header() {
         >
           <div className="flex h-16 items-center justify-between px-6 border-b border-gray-100">
             <div className="flex items-center gap-2">
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gray-900">
-                <Snowflake className="h-5 w-5 text-white" strokeWidth={2.5} />
+              <div className="relative h-9 w-9">
+                <Image
+                  src="/images/logo/logo1.png"
+                  alt="SkyCool Solutions"
+                  fill
+                  sizes="36px"
+                  className="object-contain"
+                />
               </div>
               <span className="font-display font-bold text-gray-900">SkyCool</span>
             </div>
