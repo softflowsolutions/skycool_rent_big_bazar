@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { Breadcrumb } from '@/components/shared/Breadcrumb';
 import { ServiceCard } from '@/components/shared/ServiceCard';
-import { SERVICES } from '@/lib/data';
+import { SERVICES, resolveServiceCategorySlug } from '@/lib/data';
 import { capitalize } from '@/lib/utils';
 import type { Metadata } from 'next';
 
@@ -11,19 +11,24 @@ interface PageProps {
   params: { category: string; subcategory: string };
 }
 
+/**
+ * Generate `(category, subcategory)` pairs from every service. We dedupe on
+ * the *resolved* category so legacy slugs (`ac`, `fridge`) emit pairs that
+ * match their canonical counterparts as well — `/service/ac/repair` and
+ * `/service/air-conditioners/repair` both resolve to the same data.
+ */
 export async function generateStaticParams() {
   const params: Array<{ category: string; subcategory: string }> = [];
-  const subCats = new Set<string>();
+  const seen = new Set<string>();
   SERVICES.forEach((s) => {
-    if (s.subCategory && s.category) {
-      subCats.add(s.subCategory);
-    }
-  });
-  subCats.forEach((sub) => {
-    const service = SERVICES.find((s) => s.subCategory === sub);
-    if (service) {
-      params.push({ category: service.category, subcategory: sub });
-    }
+    if (!s.subCategory || !s.category) return;
+    const resolved = resolveServiceCategorySlug(s.category);
+    [s.category, resolved].forEach((cat) => {
+      const key = `${cat}::${s.subCategory}`;
+      if (seen.has(key)) return;
+      seen.add(key);
+      params.push({ category: cat, subcategory: s.subCategory });
+    });
   });
   return params;
 }
@@ -37,8 +42,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export default function ServiceSubCategoryPage({ params }: PageProps) {
+  // Resolve the legacy alias on both sides of the filter so `/service/ac/repair`
+  // and `/service/air-conditioners/repair` both show the same list.
+  const target = resolveServiceCategorySlug(params.category);
   const services = SERVICES.filter(
-    (s) => s.subCategory === params.subcategory && s.category === params.category
+    (s) =>
+      s.subCategory === params.subcategory &&
+      resolveServiceCategorySlug(s.category) === target
   );
 
   if (services.length === 0) notFound();
@@ -52,7 +62,7 @@ export default function ServiceSubCategoryPage({ params }: PageProps) {
           <Breadcrumb
             items={[
               { label: 'Service', href: '/service' },
-              { label: capitalize(params.category), href: `/service/${params.category}` },
+              { label: capitalize(target), href: `/service/${params.category}` },
               { label: subName },
             ]}
           />

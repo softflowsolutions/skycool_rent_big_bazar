@@ -4,7 +4,7 @@ import { Clock, Shield, Star, CheckCircle2, MessageCircle, Phone } from 'lucide-
 import { Breadcrumb } from '@/components/shared/Breadcrumb';
 import { ServiceBookingForm } from '@/components/service/ServiceBookingForm';
 import { ServiceJsonLd } from '@/components/seo/JsonLd';
-import { SERVICES, getServiceBySlug } from '@/lib/data';
+import { SERVICES, getServiceBySlug, resolveServiceCategorySlug } from '@/lib/data';
 import { capitalize, formatPrice, generateCallLink, generateWhatsAppLink } from '@/lib/utils';
 import { SITE_CONFIG } from '@/lib/constants';
 import type { Metadata } from 'next';
@@ -13,12 +13,24 @@ interface PageProps {
   params: { category: string; subcategory: string; service: string };
 }
 
+/**
+ * Emit every (category, subcategory, service) combination. We emit both the
+ * service's canonical category AND its legacy alias (e.g. `ac`) so older
+ * URLs keep resolving statically.
+ */
 export async function generateStaticParams() {
-  return SERVICES.map((s) => ({
-    category: s.category,
-    subcategory: s.subCategory,
-    service: s.slug,
-  }));
+  const params: Array<{ category: string; subcategory: string; service: string }> = [];
+  const seen = new Set<string>();
+  SERVICES.forEach((s) => {
+    const resolved = resolveServiceCategorySlug(s.category);
+    [s.category, resolved].forEach((cat) => {
+      const key = `${cat}::${s.subCategory}::${s.slug}`;
+      if (seen.has(key)) return;
+      seen.add(key);
+      params.push({ category: cat, subcategory: s.subCategory, service: s.slug });
+    });
+  });
+  return params;
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {

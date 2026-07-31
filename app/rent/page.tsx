@@ -27,10 +27,11 @@ export default function RentPage() {
           <Breadcrumb items={[{ label: 'Rent' }]} />
           <div className="text-center max-w-3xl mx-auto">
             <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-3">
-              Rent AC & Fridge
+              Rent Appliances
             </h1>
             <p className="text-gray-600 text-sm sm:text-base lg:text-lg">
-              Premium appliances on monthly rent. Zero deposit. Free delivery & installation.
+              Rent ACs, Fridges, Washing Machines, Geysers &amp; more home appliances on
+              affordable monthly plans. Zero deposit, free delivery &amp; installation.
               Starting at ₹599/month.
             </p>
           </div>

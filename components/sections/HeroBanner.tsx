@@ -4,7 +4,7 @@ import { Phone, MessageCircle, Snowflake, ArrowRight, Check, Wrench } from 'luci
 import { SITE_CONFIG } from '@/lib/constants';
 import { generateCallLink, generateWhatsAppLink } from '@/lib/utils';
 
-const HERO_IMAGE = 'https://images.unsplash.com/photo-1631545806609-cad1d7c5d4cd?w=1200&q=80';
+const HERO_IMAGE = '/images/products/split1.5.png';
 
 export function HeroBanner() {
   return (
