@@ -1,12 +1,9 @@
 import { Breadcrumb } from '@/components/shared/Breadcrumb';
 import { SITE_CONFIG } from '@/lib/constants';
+import { SEO } from '@/lib/seo';
 import type { Metadata } from 'next';
 
-export const metadata: Metadata = {
-  title: 'Terms & Conditions — SkyCool Solutions',
-  description: 'Terms and conditions governing the use of SkyCool Solutions services.',
-  alternates: { canonical: '/terms' },
-};
+export const metadata = SEO.terms;
 
 const sections = [
   {

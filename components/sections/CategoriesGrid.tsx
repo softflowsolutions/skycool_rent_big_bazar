@@ -16,15 +16,15 @@ const categories = [
     href: '/rent/fridge',
   },
   {
-    title: 'Combo Deals',
-    subtitle: 'AC + Fridge bundles — Save ₹500/mo',
-    image: '/images/products/induction.png',
-    href: '/rent/combo',
+    title: 'Washing Machine Rentals',
+    subtitle: 'Front, Top Load & Semi-Automatic',
+    image: '/images/products/front%20load%20washingmachine.png',
+    href: '/rent/washing-machines',
   },
   {
     title: 'AC Service',
     subtitle: 'Repair, Installation, Gas Refill',
-    image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=600&q=80',
+    image: '/images/products/split1.png',
     href: '/service/ac',
   },
 ];
@@ -44,7 +44,7 @@ export function CategoriesGrid() {
         </p>
       </div>
 
-      <div className="grid grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-5 max-w-4xl mx-auto">
+      <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 max-w-5xl mx-auto">
         {categories.map((cat) => (
           <Link
             key={cat.href}

@@ -54,7 +54,7 @@ export function ServiceBookingForm({ service }: ServiceBookingFormProps) {
     await new Promise((r) => setTimeout(r, 1000));
     setLoading(false);
 
-    const message = `Hi SkyCool! 🛠️
+    const message = `Hi AC on Rent Near Me! 🛠️
 
 SERVICE BOOKING
 
@@ -70,10 +70,10 @@ SERVICE BOOKING
 Please confirm appointment.
 
 ---
-Sent from: SkyCool Website`;
+Sent from: AC on Rent Near Me website`;
 
     window.open(generateWhatsAppLink(message, SITE_CONFIG.whatsapp), '_blank');
-    success('Booking request sent!', 'We will confirm your appointment via WhatsApp/call.');
+    success('Booking request sent!', 'Our team will contact you soon to confirm your appointment.');
     setForm({
       name: '',
       phone: '',

@@ -11,6 +11,8 @@ import { EnquiryForm } from '@/components/forms/EnquiryForm';
 import { ProductJsonLd } from '@/components/seo/JsonLd';
 import { PRODUCTS, getProductBySlug, getRelatedProducts } from '@/lib/data';
 import { titleCase } from '@/lib/utils';
+import { productSeo } from '@/lib/seo';
+import { SITE_CONFIG } from '@/lib/constants';
 import type { Metadata } from 'next';
 
 interface PageProps {
@@ -29,15 +31,19 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const product = getProductBySlug(params.product);
   if (!product) return { title: 'Product Not Found' };
 
+  const base = productSeo({
+    name: product.name,
+    brand: product.brand,
+    category: product.category,
+    capacity: product.capacity,
+  });
   return {
-    title: `${product.name} | Rent at ₹${product.pricing.monthly}/month`,
-    description: `Rent ${product.name} starting at ₹${product.pricing.monthly}/month. Free delivery & installation. ${product.brand} ${product.specifications['Star Rating'] || ''} ${product.capacity}.`,
+    ...base,
     alternates: {
-      canonical: `/rent/${params.category}/${params.subcategory}/${params.product}`,
+      canonical: `${SITE_CONFIG.url}/rent/${params.category}/${params.subcategory}/${params.product}`,
     },
     openGraph: {
-      title: `${product.name} | SkyCool Solutions`,
-      description: `Rent at ₹${product.pricing.monthly}/month`,
+      ...(base.openGraph ?? {}),
       images: [{ url: product.images[0], width: 800, height: 600 }],
     },
   };
@@ -71,19 +77,24 @@ export default function ProductDetailPage({ params }: PageProps) {
       </section>
 
       <section className="container-app py-6 lg:py-10">
-        <div className="grid lg:grid-cols-2 gap-6 lg:gap-12">
+        <div className="grid lg:grid-cols-12 gap-6 lg:gap-10">
           {/* Left - Gallery */}
-          <div>
-            <ProductGallery images={product.images} name={product.name} />
+          <div className="lg:col-span-5">
+            <div className="lg:sticky lg:top-24">
+              <ProductGallery images={product.images} name={product.name} />
+            </div>
           </div>
 
-          {/* Right - Info + Config */}
-          <div className="space-y-5 lg:space-y-6">
+          {/* Right - Info + Pricing */}
+          <div className="lg:col-span-7 space-y-5 lg:space-y-6">
             <ProductInfo product={product} />
             <PricingCard product={product} />
-            <ConfigurationForm product={product} />
           </div>
         </div>
+      </section>
+
+      <section className="container-app py-4 lg:py-8">
+        <ConfigurationForm product={product} />
       </section>
 
       <section className="container-app py-8">
@@ -101,6 +112,7 @@ export default function ProductDetailPage({ params }: PageProps) {
           defaultSubCategory={product.subCategory}
           defaultProduct={product.name}
           defaultParentCategory={product.category}
+          hideCategory
         />
       </section>
 

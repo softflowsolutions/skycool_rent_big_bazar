@@ -190,7 +190,7 @@ export function PWAInstallModal() {
 
   return (
     <div
-      className="fixed inset-0 z-[80] flex items-end sm:items-center justify-center px-4 py-6 sm:p-6"
+      className="fixed inset-0 z-[80] flex items-end sm:items-center justify-center px-3 py-4 sm:p-6"
       role="dialog"
       aria-modal="true"
       aria-labelledby="pwa-modal-title"
@@ -207,19 +207,16 @@ export function PWAInstallModal() {
       <div
         ref={dialogRef}
         className={cn(
-          'relative w-full max-w-md overflow-hidden rounded-3xl bg-white shadow-2xl',
+          'relative w-full max-w-md overflow-hidden rounded-2xl sm:rounded-3xl bg-white shadow-2xl',
           'transition-all duration-300 ease-out',
           'opacity-100 translate-y-0 scale-100'
         )}
         style={{
-          // Smooth entrance: scale + fade + slide-up. Using inline
-          // transition strings because we can't easily reach
-          // @keyframes from Tailwind without `safelist` rules.
           animation: 'pwaModalIn 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
         }}
       >
         {/* Solid header */}
-        <div className="relative bg-gray-900 px-6 pt-8 pb-14 text-white">
+        <div className="relative bg-gray-900 px-5 sm:px-6 pt-5 sm:pt-8 pb-12 sm:pb-14 text-white">
           <button
             ref={closeButtonRef}
             onClick={close}
@@ -229,17 +226,17 @@ export function PWAInstallModal() {
             <X className="h-4 w-4" />
           </button>
 
-          <div className="flex items-center gap-3">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/15 ring-1 ring-white/30 backdrop-blur">
-              <Smartphone className="h-6 w-6" />
+          <div className="flex items-center gap-3 pr-10">
+            <div className="flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center rounded-2xl bg-white/15 ring-1 ring-white/30 backdrop-blur shrink-0">
+              <Smartphone className="h-5 w-5 sm:h-6 sm:w-6" />
             </div>
-            <div>
-              <p className="text-xs uppercase tracking-widest text-white/80 font-semibold">
-                SkyCool App
+            <div className="min-w-0">
+              <p className="text-[10px] sm:text-xs uppercase tracking-widest text-white/80 font-semibold">
+                AC on Rent Near Me
               </p>
               <h2
                 id="pwa-modal-title"
-                className="font-display text-xl font-bold leading-tight"
+                className="font-display text-lg sm:text-xl font-bold leading-tight"
               >
                 Install on your phone
               </h2>
@@ -248,23 +245,23 @@ export function PWAInstallModal() {
         </div>
 
         {/* Body */}
-        <div className="px-6 -mt-6">
-          <div className="rounded-2xl bg-white p-5 shadow-lg ring-1 ring-gray-100">
+        <div className="px-4 sm:px-6 -mt-7">
+          <div className="rounded-2xl bg-white p-4 sm:p-5 shadow-lg ring-1 ring-gray-100">
             <p
               id="pwa-modal-desc"
-              className="text-sm text-gray-600 leading-relaxed"
+              className="text-[13px] sm:text-sm text-gray-600 leading-relaxed"
             >
               Get instant access to AC &amp; Fridge rentals — no app store
               needed. Works offline once installed.
             </p>
 
-            <ul className="mt-4 space-y-2.5">
-              <Benefit icon={<Wifi className="h-4 w-4" />} text="Works offline" />
-              <Benefit icon={<Zap className="h-4 w-4" />} text="Instant access from your home screen" />
-              <Benefit icon={<Download className="h-4 w-4" />} text="No app store needed — installs in seconds" />
+            <ul className="mt-4 space-y-2">
+              <Benefit icon={<Wifi className="h-3.5 w-3.5" />} text="Works offline" />
+              <Benefit icon={<Zap className="h-3.5 w-3.5" />} text="Instant access from your home screen" />
+              <Benefit icon={<Download className="h-3.5 w-3.5" />} text="No app store needed — installs in seconds" />
             </ul>
 
-            <div className="mt-6 flex flex-col sm:flex-row gap-2">
+            <div className="mt-5 flex flex-col sm:flex-row gap-2">
               <button
                 onClick={handleInstall}
                 disabled={!installable}
@@ -272,7 +269,7 @@ export function PWAInstallModal() {
                   'flex-1 inline-flex items-center justify-center gap-2 rounded-xl px-4 py-3 font-semibold text-sm transition',
                   installable
                     ? 'bg-gray-900 text-white hover:bg-gray-800'
-                    : 'bg-gray-200 text-gray-500 cursor-not-allowed'
+                    : 'bg-gray-100 text-gray-500 cursor-not-allowed border border-gray-200'
                 )}
               >
                 <Download className="h-4 w-4" />

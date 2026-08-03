@@ -7,6 +7,7 @@ import { ServiceJsonLd } from '@/components/seo/JsonLd';
 import { SERVICES, getServiceBySlug, resolveServiceCategorySlug } from '@/lib/data';
 import { capitalize, formatPrice, generateCallLink, generateWhatsAppLink } from '@/lib/utils';
 import { SITE_CONFIG } from '@/lib/constants';
+import { serviceSeo } from '@/lib/seo';
 import type { Metadata } from 'next';
 
 interface PageProps {
@@ -37,11 +38,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const service = getServiceBySlug(params.service);
   if (!service) return { title: 'Service Not Found' };
 
+  const base = serviceSeo({
+    name: service.name,
+    category: service.category,
+    description: `${service.description} Starting at ₹${service.startingPrice}. Same-day service available in Pune and across India.`,
+    price: service.startingPrice,
+  });
   return {
-    title: `${service.name} — Starting at ₹${service.startingPrice} | SkyCool Solutions`,
-    description: `${service.description} Starting at ₹${service.startingPrice}. Same-day service available.`,
+    ...base,
     alternates: {
-      canonical: `/service/${params.category}/${params.subcategory}/${params.service}`,
+      canonical: `${SITE_CONFIG.url}/service/${params.category}/${params.subcategory}/${params.service}`,
     },
   };
 }
@@ -52,7 +58,7 @@ export default function ServiceDetailPage({ params }: PageProps) {
   if (!service) notFound();
 
   const subName = capitalize(service.subCategory.replace(/-/g, ' '));
-  const message = `Hi SkyCool! 🛠️
+  const message = `Hi AC on Rent Near Me! 🛠️
 
 I'd like to book the following service:
 
@@ -63,7 +69,7 @@ I'd like to book the following service:
 Please share availability and pricing.
 
 ---
-Sent from: SkyCool Website`;
+Sent from: AC on Rent Near Me website`;
 
   return (
     <>

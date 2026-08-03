@@ -17,11 +17,10 @@ export function OrganizationJsonLd() {
       areaServed: 'IN',
     },
     sameAs: [
-      SITE_CONFIG.socials.instagram,
-      SITE_CONFIG.socials.facebook,
-      SITE_CONFIG.socials.twitter,
       SITE_CONFIG.socials.youtube,
       SITE_CONFIG.socials.linkedin,
+      SITE_CONFIG.socials.justdial,
+      SITE_CONFIG.socials.googleMaps,
     ],
     address: {
       '@type': 'PostalAddress',

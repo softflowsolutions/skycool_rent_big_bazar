@@ -34,7 +34,7 @@ export const CATEGORIES: Category[] = [
     parent: 'rent',
     icon: 'Snowflake',
     description: 'Window, Split, Inverter, Tower, Cassette & Ductable ACs',
-    image: '/images/logo/logo3.png',
+    image: '/images/products/split1.5.png',
   },
   {
     id: 'rent-air-coolers',
@@ -43,7 +43,7 @@ export const CATEGORIES: Category[] = [
     parent: 'rent',
     icon: 'Wind',
     description: 'Personal, Desert, Tower, Window & Commercial Coolers',
-    image: '/images/logo/logo2.png',
+    image: '/images/newproductimages/ac-cooler-appliance.jpeg',
   },
   {
     id: 'rent-washing-machines',
@@ -52,7 +52,7 @@ export const CATEGORIES: Category[] = [
     parent: 'rent',
     icon: 'WashingMachine',
     description: 'Front Load, Top Load & Semi Automatic Washers',
-    image: '/images/logo/logo4.png',
+    image: '/images/newproductimages/washing-machine.jpeg',
   },
   {
     id: 'rent-refrigerators',
@@ -61,7 +61,7 @@ export const CATEGORIES: Category[] = [
     parent: 'rent',
     icon: 'Refrigerator',
     description: 'Single, Double, Triple, Side-by-Side & French Door Fridges',
-    image: '/images/logo/logo4.png',
+    image: '/images/products/dubbledoor.png',
   },
   {
     id: 'rent-inverters',
@@ -70,7 +70,7 @@ export const CATEGORIES: Category[] = [
     parent: 'rent',
     icon: 'Zap',
     description: 'Home, Solar, UPS & Inverter Batteries',
-    image: '/images/logo/logo4.png',
+    image: '/images/newproductimages/inverter-appliance.jpeg',
   },
   {
     id: 'rent-geysers',
@@ -79,7 +79,7 @@ export const CATEGORIES: Category[] = [
     parent: 'rent',
     icon: 'Flame',
     description: 'Instant, Storage, Gas, Solar & Smart Geysers',
-    image: '/images/logo/logo4.png',
+    image: '/images/newproductimages/geysers-appliance.jpeg',
   },
   {
     id: 'rent-water-purifiers',
@@ -88,7 +88,7 @@ export const CATEGORIES: Category[] = [
     parent: 'rent',
     icon: 'Droplet',
     description: 'RO, UV, UF, Alkaline, Copper & Smart Purifiers',
-    image: '/images/logo/logo4.png',
+    image: '/images/newproductimages/waterpurifier-appliance.jpeg',
   },
   {
     id: 'rent-microwaves-ovens',
@@ -97,7 +97,7 @@ export const CATEGORIES: Category[] = [
     parent: 'rent',
     icon: 'UtensilsCrossed',
     description: 'Solo, Grill, Convection, OTG & Built-in Ovens',
-    image: '/images/logo/logo4.png',
+    image: '/images/newproductimages/microwave-appliance.jpeg',
   },
   {
     id: 'rent-room-heaters',
@@ -106,7 +106,7 @@ export const CATEGORIES: Category[] = [
     parent: 'rent',
     icon: 'Thermometer',
     description: 'Fan, Quartz, Halogen, Oil, PTC & Smart Heaters',
-    image: '/images/logo/logo4.png',
+    image: '/images/newproductimages/room-heater-appliance.png',
   },
   {
     id: 'rent-induction-cooktops',
@@ -115,7 +115,7 @@ export const CATEGORIES: Category[] = [
     parent: 'rent',
     icon: 'Flame',
     description: 'Single, Double, Infrared, Built-in & Commercial Induction',
-    image: '/images/logo/logo4.png',
+    image: '/images/newproductimages/induction%20cooktop.jpeg',
   },
   /* -------- Combo placeholder (backwards-compat) -------- */
   {
@@ -144,7 +144,7 @@ export const CATEGORIES: Category[] = [
     parent: 'rent',
     icon: 'Refrigerator',
     description: 'Single Door, Double Door & Side-by-Side Fridges',
-    image: '/images/logo/logo4.png',
+    image: '/images/products/dubbledoor.png',
   },
   {
     id: 'ac-service',
@@ -153,7 +153,7 @@ export const CATEGORIES: Category[] = [
     parent: 'service',
     icon: 'Wrench',
     description: 'AC repair, installation, gas refill, deep cleaning',
-    image: '/images/logo/logo3.png',
+    image: '/images/newproductimages/ac-repair.jpeg',
   },
   {
     id: 'fridge-service',
@@ -162,7 +162,7 @@ export const CATEGORIES: Category[] = [
     parent: 'service',
     icon: 'Wrench',
     description: 'Fridge repair, gas refill, deep cleaning',
-    image: '/images/logo/logo4.png',
+    image: '/images/products/dubbledoor.png',
   },
 ];
 
@@ -187,35 +187,35 @@ const IMG = {
   acNonInverter: '/images/products/split1.png',
   acTower: '/images/products/tower%202%20ton.png',
   acPortable: '/images/products/Portable%20AC%201%20tone.png',
-  acCassette: '/images/products/tower%202%20ton.png',
-  acDuctable: '/images/products/tower%202%20ton.png',
+  acCassette: '/images/newproductimages/casstte-ac.jpeg',
+  acDuctable: '/images/newproductimages/ductable-ac.jpeg',
   acFallback: '/images/products/split1.png',
-  /* ===== Cooler (no cooler PNG — falls back to split AC as closest sibling) ===== */
-  cooler: '/images/products/split1.5.png',
+  /* ===== Cooler — use the appliance image from newproductimages ===== */
+  cooler: '/images/newproductimages/ac-cooler-appliance.jpeg',
   /* ===== Washing Machines ===== */
-  washingFront: '/images/products/front%20load%20washingmachine.png',
-  washingTop: '/images/products/topload%20washing%20machine.png',
-  washingSemi: '/images/products/semi%20automatic%20washing%20machine.png',
-  /* ===== Refrigerators ===== */
+  washingFront: '/images/newproductimages/washing-machine.jpeg',
+  washingTop: '/images/newproductimages/washing-machine.jpeg',
+  washingSemi: '/images/newproductimages/washing-machine.jpeg',
+  /* ===== Refrigerators — kept unchanged (user-asked exclusion) ===== */
   fridgeSingle: '/images/products/singledoor.png',
   fridgeDouble: '/images/products/dubbledoor.png',
   fridgeTriple: '/images/products/3door.png',
   fridgeSideBySide: '/images/products/sidebysidedoor.png',
   fridgeFrench: '/images/products/frenchdoor.png',
   /* ===== Inverters ===== */
-  inverter: '/images/products/homeinvetor.png',
-  inverterPortable: '/images/products/portableinvertor.png',
+  inverter: '/images/newproductimages/inverter-appliance.jpeg',
+  inverterPortable: '/images/newproductimages/inverter-appliance.jpeg',
   /* ===== Geysers ===== */
-  geyser: '/images/products/instantgyzer.png',
-  geyserStorage: '/images/products/storagegyzer.png',
-  /* ===== Water Purifiers (single PNG for all sub-types) ===== */
-  purifier: '/images/products/waterpurifier.png',
-  /* ===== Microwave & Ovens (single PNG for all sub-types) ===== */
-  microwave: '/images/products/oven.png',
-  /* ===== Room Heaters (single PNG for all sub-types) ===== */
-  heater: '/images/products/roomheater.png',
-  /* ===== Induction Cooktops (single PNG for all sub-types) ===== */
-  induction: '/images/products/induction.png',
+  geyser: '/images/newproductimages/geysers-appliance.jpeg',
+  geyserStorage: '/images/newproductimages/geysers-appliance.jpeg',
+  /* ===== Water Purifiers ===== */
+  purifier: '/images/newproductimages/waterpurifier-appliance.jpeg',
+  /* ===== Microwave & Ovens ===== */
+  microwave: '/images/newproductimages/microwave-appliance.jpeg',
+  /* ===== Room Heaters ===== */
+  heater: '/images/newproductimages/room-heater-appliance.png',
+  /* ===== Induction Cooktops ===== */
+  induction: '/images/newproductimages/induction%20cooktop.jpeg',
 } as const;
 
 /* ===========================================================================
@@ -608,7 +608,7 @@ function buildProducts(): Product[] {
           brand,
           images: [cat.img, cat.img2],
           description: `${cap.l} ${cat.type} from ${brand} — reliable rental-grade appliance with warranty, free delivery & installation, and zero deposit.`,
-          longDescription: `This ${brand} ${cap.l} ${cat.type.toLowerCase()} is curated for SkyCool customers looking for hassle-free monthly rentals. ${cat.features.slice(0, 4).join('; ')}. Every rental includes free delivery, installation, and full warranty coverage during the rental period.`,
+          longDescription: `This ${brand} ${cap.l} ${cat.type.toLowerCase()} is curated for AC on Rent Near Me customers looking for hassle-free monthly rentals. ${cat.features.slice(0, 4).join('; ')}. Every rental includes free delivery, installation, and full warranty coverage during the rental period.`,
           specifications: {
             Brand: brand,
             Type: cat.type,
@@ -655,7 +655,7 @@ export const SERVICES: Service[] = [
       'Our certified technicians diagnose and fix all AC issues - cooling problems, water leakage, noise, electrical faults, and more. Service warranty included on all repairs.',
     startingPrice: 299,
     images: [
-      'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&q=80',
+      '/images/newproductimages/ac-repair.jpeg',
     ],
     features: [
       'Same day service available',
@@ -680,7 +680,7 @@ export const SERVICES: Service[] = [
       'Complete AC installation service including wall mounting, copper piping (up to 3m), drainage setup, electrical connection, and gas pressure check. Old AC uninstallation also available.',
     startingPrice: 1499,
     images: [
-      'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&q=80',
+      '/images/newproductimages/ac-installation.jpeg',
     ],
     features: [
       'Up to 3m copper piping included',
@@ -705,7 +705,7 @@ export const SERVICES: Service[] = [
       'Restore your AC\'s cooling performance with our professional gas refill service. Includes comprehensive leak detection, pressure testing, and use of genuine refrigerants (R-22, R-32, R-410A).',
     startingPrice: 1499,
     images: [
-      'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&q=80',
+      '/images/newproductimages/ac-gas-refill.jpeg',
     ],
     features: [
       'Genuine refrigerant used',
@@ -730,7 +730,7 @@ export const SERVICES: Service[] = [
       'Restore cooling efficiency and improve air quality with our deep cleaning service. Includes complete disassembly, jet washing of coils, blower, and filters, plus anti-bacterial spray treatment.',
     startingPrice: 499,
     images: [
-      'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&q=80',
+      '/images/newproductimages/ac-deep-clean.jpeg',
     ],
     features: [
       'Complete disassembly',
@@ -755,7 +755,7 @@ export const SERVICES: Service[] = [
       'Get complete peace of mind with our Annual Maintenance Contract. Includes 4 scheduled services, unlimited breakdown calls, free gas top-up once a year, and priority service. Best value for AC owners.',
     startingPrice: 2499,
     images: [
-      'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&q=80',
+      '/images/newproductimages/ac-annual-maintainace.jpeg',
     ],
     features: [
       '4 scheduled services per year',
@@ -856,7 +856,7 @@ export const SERVICES: Service[] = [
     longDescription:
       'Our technicians diagnose and fix all air cooler issues — pump failure, motor issues, water leakage, cooling problems, and more. Service warranty included.',
     startingPrice: 249,
-    images: ['https://images.unsplash.com/photo-1574958269340-fa927503f3dd?w=800&q=80'],
+    images: ['/images/newproductimages/ac-cooler-appliance.jpeg'],
     features: [
       'Same day service available',
       'All brands serviced',
@@ -879,7 +879,7 @@ export const SERVICES: Service[] = [
     longDescription:
       "Restore your air cooler’s cooling efficiency with our deep cleaning service. Includes complete disassembly, pump cleaning, motor check, and pad replacement if needed.",
     startingPrice: 399,
-    images: ['https://images.unsplash.com/photo-1574958269340-fa927503f3dd?w=800&q=80'],
+    images: ['/images/newproductimages/ac-cooler-appliance.jpeg'],
     features: [
       'Complete pump descaling',
       'Cooling pad inspection',
@@ -904,7 +904,7 @@ export const SERVICES: Service[] = [
     longDescription:
       'Diagnosis and repair for all washing machine issues — drainage problems, spin failure, water leakage, electrical faults, and more. Front-load, top-load, and semi-automatic all serviced.',
     startingPrice: 349,
-    images: ['https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?w=800&q=80'],
+    images: ['/images/newproductimages/washing-machine.jpeg'],
     features: [
       'Same day service',
       'All brands & types',
@@ -927,7 +927,7 @@ export const SERVICES: Service[] = [
     longDescription:
       'Remove limescale, detergent residue, and bacteria from your washing machine drum, pipes, and filter. Improves wash quality and extends machine life.',
     startingPrice: 599,
-    images: ['https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?w=800&q=80'],
+    images: ['/images/newproductimages/washing-machine.jpeg'],
     features: [
       'Drum descaling',
       'Pipe flushing',
@@ -950,7 +950,7 @@ export const SERVICES: Service[] = [
     longDescription:
       'Complete installation service including water inlet connection, drainage setup, leveling, electrical connection, and test run.',
     startingPrice: 299,
-    images: ['https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?w=800&q=80'],
+    images: ['/images/newproductimages/washing-machine.jpeg'],
     features: [
       'Water inlet connection',
       'Drainage setup',
@@ -975,7 +975,7 @@ export const SERVICES: Service[] = [
     longDescription:
       'Complete diagnosis and repair of home and commercial inverters — including power issues, charging faults, display problems, and component failures.',
     startingPrice: 399,
-    images: ['https://images.unsplash.com/photo-1581094288338-2314dddb7ece?w=800&q=80'],
+    images: ['/images/newproductimages/inverter-appliance.jpeg'],
     features: [
       'All brands serviced',
       'Same day diagnostics',
@@ -998,7 +998,7 @@ export const SERVICES: Service[] = [
     longDescription:
       'Complete inverter installation including battery connection, wiring, safety checks, and configuration for optimal performance.',
     startingPrice: 499,
-    images: ['https://images.unsplash.com/photo-1581094288338-2314dddb7ece?w=800&q=80'],
+    images: ['/images/newproductimages/inverter-appliance.jpeg'],
     features: [
       'Battery installation',
       'Proper wiring',
@@ -1021,7 +1021,7 @@ export const SERVICES: Service[] = [
     longDescription:
       'Replace your old or weak inverter battery with a new one. Includes safe disposal of old battery, proper connections, water top-up for tubular batteries, and warranty registration.',
     startingPrice: 1499,
-    images: ['https://images.unsplash.com/photo-1581094288338-2314dddb7ece?w=800&q=80'],
+    images: ['/images/newproductimages/inverter-appliance.jpeg'],
     features: [
       'Old battery disposal',
       'New battery setup',
@@ -1046,7 +1046,7 @@ export const SERVICES: Service[] = [
     longDescription:
       'Complete repair service for instant, storage, gas, and solar geysers. Fixes heating issues, water leakage, thermostat problems, and electrical faults.',
     startingPrice: 299,
-    images: ['https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?w=800&q=80'],
+    images: ['/images/newproductimages/gyser%20repair.jpeg'],
     features: [
       'All geyser types',
       'Same day service',
@@ -1069,7 +1069,7 @@ export const SERVICES: Service[] = [
     longDescription:
       'Safe wall-mount installation with proper plumbing connections, electrical wiring, and pressure relief valve setup. Includes bracket fitting and water line connections.',
     startingPrice: 599,
-    images: ['https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?w=800&q=80'],
+    images: ['/images/newproductimages/geysers-appliance.jpeg'],
     features: [
       'Wall mounting',
       'Plumbing connections',
@@ -1092,7 +1092,7 @@ export const SERVICES: Service[] = [
     longDescription:
       'Professional descaling of storage geysers to remove mineral buildup, improve heating efficiency, and extend tank life. Includes anode rod check.',
     startingPrice: 449,
-    images: ['https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?w=800&q=80'],
+    images: ['/images/newproductimages/geysers-appliance.jpeg'],
     features: [
       'Tank descaling',
       'Anode rod inspection',
@@ -1117,7 +1117,7 @@ export const SERVICES: Service[] = [
     longDescription:
       'Genuine filter replacement for all water purifier brands — RO membrane, UV lamp, UF filter, sediment filter, carbon filter. Includes TDS check and sanitization.',
     startingPrice: 599,
-    images: ['https://images.unsplash.com/photo-1585514532046-5d8f3c0e2a8c?w=800&q=80'],
+    images: ['/images/newproductimages/waterpurifier-appliance.jpeg'],
     features: [
       'Genuine filters',
       'All brands & types',
@@ -1140,7 +1140,7 @@ export const SERVICES: Service[] = [
     longDescription:
       'Diagnosis and repair of common water purifier issues — no water output, leakage, low pressure, bad taste, electrical faults, pump failure.',
     startingPrice: 399,
-    images: ['https://images.unsplash.com/photo-1585514532046-5d8f3c0e2a8c?w=800&q=80'],
+    images: ['/images/newproductimages/waterpurifier-appliance.jpeg'],
     features: [
       'All brands serviced',
       'Same day diagnosis',
@@ -1163,7 +1163,7 @@ export const SERVICES: Service[] = [
     longDescription:
       'Complete installation including wall mounting, water inlet connection, drain setup, electrical connection, and first-time filter flush.',
     startingPrice: 499,
-    images: ['https://images.unsplash.com/photo-1585514532046-5d8f3c0e2a8c?w=800&q=80'],
+    images: ['/images/newproductimages/waterpurifier-appliance.jpeg'],
     features: [
       'Wall mounting',
       'Inlet/drain connection',
@@ -1188,7 +1188,7 @@ export const SERVICES: Service[] = [
     longDescription:
       'Complete repair for solo, grill, convection microwaves, OTGs, and built-in ovens. Fixes heating issues, sparking, turntable problems, electrical faults.',
     startingPrice: 349,
-    images: ['https://images.unsplash.com/photo-1585659722983-3b67509abf74?w=800&q=80'],
+    images: ['/images/newproductimages/microwave-appliance.jpeg'],
     features: [
       'All brands & types',
       'Same day repair',
@@ -1211,7 +1211,7 @@ export const SERVICES: Service[] = [
     longDescription:
       'Deep cleaning of microwave interior, cavity, turntable, vents, and filters. Removes grease, food residue, and odors for safe cooking.',
     startingPrice: 299,
-    images: ['https://images.unsplash.com/photo-1585659722983-3b67509abf74?w=800&q=80'],
+    images: ['/images/newproductimages/microwave-appliance.jpeg'],
     features: [
       'Interior degreasing',
       'Cavity sanitization',
@@ -1236,7 +1236,7 @@ export const SERVICES: Service[] = [
     longDescription:
       'Expert repair of all room heater types — fan heaters, quartz heaters, halogen heaters, oil-filled radiators, PTC heaters. Fixes heating element issues, thermostat problems, electrical faults.',
     startingPrice: 299,
-    images: ['https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=800&q=80'],
+    images: ['/images/newproductimages/room-heater-appliance.png'],
     features: [
       'All heater types',
       'Element replacement',
@@ -1259,7 +1259,7 @@ export const SERVICES: Service[] = [
     longDescription:
       'Complete pre-winter servicing including element check, thermostat calibration, safety switch testing, and deep cleaning. Get your heater winter-ready.',
     startingPrice: 399,
-    images: ['https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=800&q=80'],
+    images: ['/images/newproductimages/room-heater-appliance.png'],
     features: [
       'Element inspection',
       'Thermostat calibration',
@@ -1284,7 +1284,7 @@ export const SERVICES: Service[] = [
     longDescription:
       'Expert repair for all induction cooktop types — single burner, double burner, infrared, built-in. Fixes heating issues, touch panel problems, electrical faults.',
     startingPrice: 349,
-    images: ['https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80'],
+    images: ['/images/newproductimages/induction%20cooktop.jpeg'],
     features: [
       'All induction types',
       'Touch panel repair',
@@ -1307,7 +1307,7 @@ export const SERVICES: Service[] = [
     longDescription:
       'Complete servicing of induction cooktop — glass top polishing, fan cleaning, internal inspection, voltage check. Restores performance and extends life.',
     startingPrice: 299,
-    images: ['https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80'],
+    images: ['/images/newproductimages/induction%20cooktop.jpeg'],
     features: [
       'Glass top polishing',
       'Fan cleaning',
@@ -1328,7 +1328,7 @@ export const TESTIMONIALS: Testimonial[] = [
     name: 'Priya Sharma',
     city: 'Bangalore',
     rating: 5,
-    text: 'Rented a 1.5 Ton Split AC from SkyCool for 6 months during my Bangalore stint. Excellent service, no hassle, and the AC was in perfect condition. Pickup was seamless too!',
+    text: 'Rented a 1.5 Ton Split AC from AC on Rent Near Me for 6 months during my Bangalore stint. Excellent service, no hassle, and the AC was in perfect condition. Pickup was seamless too!',
     product: '1.5 Ton Split AC',
   },
   {
@@ -1336,7 +1336,7 @@ export const TESTIMONIALS: Testimonial[] = [
     name: 'Rohan Verma',
     city: 'Delhi',
     rating: 5,
-    text: 'As a student in Delhi, I can\'t afford to buy an AC. SkyCool\'s monthly rental is a lifesaver. Got my window AC delivered in 4 hours. Highly recommended for students!',
+    text: 'As a student in Delhi, I can\'t afford to buy an AC. AC on Rent Near Me\'s monthly rental is a lifesaver. Got my window AC delivered in 4 hours. Highly recommended for students!',
     product: '1 Ton Window AC',
   },
   {
@@ -1344,7 +1344,7 @@ export const TESTIMONIALS: Testimonial[] = [
     name: 'Mr. Ahmed Khan',
     city: 'Hyderabad',
     rating: 5,
-    text: 'I run a small restaurant and needed multiple fridges for a 3-month event. SkyCool offered flexible bulk pricing and the fridges were delivered on time. Professional team!',
+    text: 'I run a small restaurant and needed multiple fridges for a 3-month event. AC on Rent Near Me offered flexible bulk pricing and the fridges were delivered on time. Professional team!',
     product: '3x Double Door Fridges',
   },
   {
@@ -1352,7 +1352,7 @@ export const TESTIMONIALS: Testimonial[] = [
     name: 'Anjali Patel',
     city: 'Mumbai',
     rating: 5,
-    text: 'AC broke down during peak summer in Mumbai. Called SkyCool for emergency repair - technician arrived within 3 hours and fixed it on the spot. Great service!',
+    text: 'AC broke down during peak summer in Mumbai. Called AC on Rent Near Me for emergency repair - technician arrived within 3 hours and fixed it on the spot. Great service!',
     product: 'AC Repair Service',
   },
   {
@@ -1376,7 +1376,7 @@ export const TESTIMONIALS: Testimonial[] = [
     name: 'Arjun Mehta',
     city: 'Kolkata',
     rating: 5,
-    text: 'Was skeptical about renting appliances online, but SkyCool made it super easy. WhatsApp ordering is brilliant. The fridge works perfectly for my PG.',
+    text: 'Was skeptical about renting appliances online, but AC on Rent Near Me made it super easy. WhatsApp ordering is brilliant. The fridge works perfectly for my PG.',
     product: '190L Single Door Fridge',
   },
   {
@@ -1384,7 +1384,7 @@ export const TESTIMONIALS: Testimonial[] = [
     name: 'Meera Joshi',
     city: 'Ahmedabad',
     rating: 5,
-    text: 'My portable AC from SkyCool is amazing for my small studio. No installation needed - just plug and play. Perfect for renters who move frequently.',
+    text: 'My portable AC from AC on Rent Near Me is amazing for my small studio. No installation needed - just plug and play. Perfect for renters who move frequently.',
     product: '1 Ton Portable AC',
   },
 ];

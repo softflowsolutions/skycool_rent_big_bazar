@@ -2,13 +2,10 @@ import { Award, Users, Target, Heart, TrendingUp, Globe2 } from 'lucide-react';
 import { Breadcrumb } from '@/components/shared/Breadcrumb';
 import { CTASection } from '@/components/sections/CTASection';
 import { SITE_CONFIG } from '@/lib/constants';
+import { SEO } from '@/lib/seo';
 import type { Metadata } from 'next';
 
-export const metadata: Metadata = {
-  title: 'About Us — SkyCool Solutions',
-  description: `Learn about ${SITE_CONFIG.name} - India's most trusted AC & Fridge rental and service platform. Our mission, vision, and values.`,
-  alternates: { canonical: '/about' },
-};
+export const metadata = SEO.about;
 
 const stats = [
   { icon: Users, value: '50,000+', label: 'Happy Customers' },

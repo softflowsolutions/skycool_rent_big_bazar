@@ -4,7 +4,8 @@ import { ArrowRight } from 'lucide-react';
 import { Breadcrumb } from '@/components/shared/Breadcrumb';
 import { ServiceCard } from '@/components/shared/ServiceCard';
 import { SERVICES, resolveServiceCategorySlug } from '@/lib/data';
-import { capitalize } from '@/lib/utils';
+import { capitalize, titleCase } from '@/lib/utils';
+import { categorySeo } from '@/lib/seo';
 import type { Metadata } from 'next';
 
 interface PageProps {
@@ -34,11 +35,13 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const subName = params.subcategory.replace(/-/g, ' ');
-  return {
-    title: `${capitalize(subName)} Service in India | SkyCool Solutions`,
-    description: `Professional ${subName} service starting at affordable prices. Same-day service available.`,
-  };
+  const subName = titleCase(params.subcategory.replace(/-/g, ' '));
+  return categorySeo({
+    category: 'service',
+    slug: `${params.category}-${params.subcategory}`,
+    label: subName,
+    description: `Professional ${subName} service in Pune & across India starting at affordable prices. Same-day service, 90-day warranty, certified technicians.`,
+  });
 }
 
 export default function ServiceSubCategoryPage({ params }: PageProps) {
@@ -73,7 +76,7 @@ export default function ServiceSubCategoryPage({ params }: PageProps) {
       </section>
 
       <section className="container-app section-padding">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5">
           {services.map((s) => (
             <ServiceCard key={s.id} service={s} />
           ))}

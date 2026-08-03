@@ -3,24 +3,27 @@ import Image from 'next/image';
 import { Wrench, ArrowRight, Clock, Shield, Star } from 'lucide-react';
 import { Breadcrumb } from '@/components/shared/Breadcrumb';
 import { ServiceCard } from '@/components/shared/ServiceCard';
-import { SERVICES, CATEGORIES } from '@/lib/data';
-import type { Metadata } from 'next';
+import { SERVICES, CATEGORIES, resolveServiceCategorySlug } from '@/lib/data';
+import { SITE_CONFIG } from '@/lib/constants';
+import { SEO } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'Appliance Service — Repair, Installation, AMC | SkyCool Solutions',
-  description:
-    'Professional repair, installation and maintenance for ACs, Fridges, Washing Machines, Air Coolers, TVs, Geysers & more home appliances across India. Same-day service available.',
-  alternates: { canonical: '/service' },
-};
+export const metadata = SEO.service;
+
+// Service category tiles — each tile uses the SAME product image as the
+// corresponding /service/[slug] page so the tile visibly matches the
+// appliances it services (AC tile -> AC, fridge tile -> fridge, etc.).
+// Per the new spec we no longer use the first service image because
+// those are stock photos of technicians; use the appliance category image.
+const SERVICE_CATEGORIES = CATEGORIES.filter(
+  (c) =>
+    c.parent === 'rent' &&
+    c.slug !== 'combo' &&
+    c.slug !== 'ac' &&
+    c.slug !== 'fridge'
+).map((c) => ({ ...c, tileImage: c.image }));
 
 export default function ServicePage() {
-  // Display every main rent category as a service category. This mirrors the
-  // Rent page catalog so customers can request service for the same appliance
-  // they rent (e.g. /rent/air-conditioners → /service/air-conditioners).
-  // The legacy `combo` placeholder is excluded — it's a bundle, not a service.
-  const serviceCategories = CATEGORIES.filter(
-    (c) => c.parent === 'rent' && c.slug !== 'combo'
-  );
+  const featured = SERVICES.slice(0, 6);
 
   return (
     <>
@@ -33,12 +36,12 @@ export default function ServicePage() {
               <span className="text-xs font-semibold text-gray-700">Expert Technicians</span>
             </div>
             <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-3">
-              Appliance Services
+              AC &amp; Home Appliance Service Near You
             </h1>
             <p className="text-gray-600 text-sm sm:text-base lg:text-lg">
-              Professional repair, installation, and maintenance by certified technicians
-              for ACs, Fridges, Washing Machines, Air Coolers, TVs, Geysers &amp; more
-              home appliances. Same-day service available across India.
+              Same-day AC repair, installation, gas refill, deep cleaning, AMC, fridge
+              repair, washing-machine repair, geyser repair, water-purifier service and
+              more — across {SITE_CONFIG.areasServed.join(', ')}.
             </p>
           </div>
         </div>
@@ -48,29 +51,26 @@ export default function ServicePage() {
         <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 mb-6">
           Choose Appliance
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6 mb-12">
-          {serviceCategories.map((cat) => (
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-6 mb-12">
+          {SERVICE_CATEGORIES.map((cat) => (
             <Link
               key={cat.id}
               href={`/service/${cat.slug}`}
-              className="group relative bg-white rounded-2xl overflow-hidden border-2 border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+              className="group block bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
             >
-              <div className="relative h-48 sm:h-56 bg-gray-100">
+              <div className="relative h-40 sm:h-48 lg:h-56 bg-gray-50">
                 <Image
-                  src={cat.image || '/placeholder.svg'}
+                  src={cat.tileImage || '/placeholder.svg'}
                   alt={cat.name}
                   fill
-                  sizes="(max-width: 640px) 100vw, 50vw"
+                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 33vw"
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6">
-                  <h3 className="font-display font-bold text-xl sm:text-2xl text-white mb-1">{cat.name}</h3>
-                  <p className="text-sm text-white/90">{cat.description}</p>
-                </div>
               </div>
-              <div className="p-4 flex items-center justify-between">
-                <span className="text-sm font-semibold text-sky-600 group-hover:gap-2 transition-all inline-flex items-center gap-1">
+              <div className="p-3 sm:p-4">
+                <h3 className="font-display font-bold text-base sm:text-lg text-gray-900 mb-1">{cat.name}</h3>
+                <p className="text-xs sm:text-sm text-gray-500 mb-3 line-clamp-2">{cat.description}</p>
+                <span className="text-xs sm:text-sm font-semibold text-sky-600 group-hover:gap-2 transition-all inline-flex items-center gap-1">
                   View Services <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </span>
               </div>
@@ -91,7 +91,7 @@ export default function ServicePage() {
           </Link>
         </div>
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5">
-          {SERVICES.slice(0, 6).map((s) => (
+          {featured.map((s) => (
             <ServiceCard key={s.id} service={s} />
           ))}
         </div>

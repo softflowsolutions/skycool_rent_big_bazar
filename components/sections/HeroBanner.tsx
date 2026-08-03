@@ -58,7 +58,7 @@ export function HeroBanner() {
             <div className="flex gap-2 justify-center lg:hidden mt-6">
               <a
                 href={generateWhatsAppLink(
-                  `Hi SkyCool! I'd like to know more about your AC/Fridge rental services.`,
+                  `Hi AC on Rent Near Me! I'd like to know more about your AC rental services.`,
                   SITE_CONFIG.whatsapp
                 )}
                 target="_blank"

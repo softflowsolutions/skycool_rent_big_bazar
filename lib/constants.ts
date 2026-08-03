@@ -1,41 +1,33 @@
 export const SITE_CONFIG = {
-  name: 'SkyCool Solutions',
-  shortName: 'SkyCool',
-  tagline: 'Stay Cool, Pay Less',
+  name: 'AC on Rent Near Me',
+  shortName: 'AC on Rent Near Me',
+  tagline: 'AC on Rent Near Me — Affordable AC Rentals Across India',
   description:
-    'Rent AC and Fridge in India. Affordable monthly rentals starting at ₹599/month with free delivery and installation.',
-  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://skycool.in',
-  email: 'business@skycool.in',
-  adminEmail: 'admin@skycool.in',
-  phone: process.env.NEXT_PUBLIC_BUSINESS_PHONE || '+919876543210',
-  whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '919876543210',
-  address: '123 SkyCool Tower, Connaught Place, New Delhi - 110001',
+    'Rent ACs and home appliances in India — window, split, inverter, tower, cassette and ductable ACs on affordable monthly plans. Zero deposit, free delivery and installation.',
+  url: 'https://aconrentnearme.com',
+  email: 'support@aconrentnearme.com',
+  adminEmail: 'support@aconrentnearme.com',
+  // Single business contact number — used site-wide for both call & WhatsApp.
+  phone: '+918805131431',
+  whatsapp: '918805131431',
+  address: 'Mezbaan Bakery, Near Durrani Complex, Saibaba Nagar, Kondhwa, Pune, Maharashtra 411048',
   workingHours: 'Mon - Sun: 8:00 AM - 10:00 PM',
+  googleMaps: 'https://maps.app.goo.gl/3WzmMsVVvt83mQuv9?g_st=awb',
+  justdial: 'https://jsdl.in/RSL-UTD1785219025',
   establishedYear: 2020,
   customerCount: 50000,
-  cities: [
-    'Delhi NCR',
-    'Mumbai',
-    'Bangalore',
-    'Hyderabad',
-    'Chennai',
-    'Pune',
-    'Kolkata',
-    'Ahmedabad',
-    'Jaipur',
-    'Lucknow',
-    'Chandigarh',
-    'Indore',
-    'Nagpur',
-    'Kochi',
-    'Coimbatore',
-  ],
+  areasServed: ['Pune', 'Mumbai', 'Bangalore', 'Delhi NCR', 'Hyderabad', 'Chennai'],
+  cities: ['Pune'],
   socials: {
-    instagram: 'https://instagram.com/skycool',
-    facebook: 'https://facebook.com/skycool',
-    twitter: 'https://twitter.com/skycool',
-    youtube: 'https://youtube.com/skycool',
-    linkedin: 'https://linkedin.com/company/skycool',
+    youtube: 'https://youtube.com/@skycoolsolutionsltd?si=sra2S-mb_OrpWgen',
+    justdial: 'https://jsdl.in/RSL-UTD1785219025',
+    googleMaps: 'https://maps.app.goo.gl/3WzmMsVVvt83mQuv9?g_st=awb',
+    linkedin:
+      'https://www.linkedin.com/in/suhail-sayyed-5b43a1366?utm_source=share_via&utm_content=profile&utm_medium=member_android',
+  },
+  developer: {
+    name: 'Softflow Solutions',
+    url: 'https://www.softflowsolutions.com',
   },
 };
 
@@ -47,23 +39,7 @@ export const NAV_LINKS = [
   { label: 'Contact', href: '/contact' },
 ];
 
-export const CITIES = [
-  'Delhi NCR',
-  'Mumbai',
-  'Bangalore',
-  'Hyderabad',
-  'Chennai',
-  'Pune',
-  'Kolkata',
-  'Ahmedabad',
-  'Jaipur',
-  'Lucknow',
-  'Chandigarh',
-  'Indore',
-  'Nagpur',
-  'Kochi',
-  'Coimbatore',
-];
+export const CITIES = ['Pune'];
 
 export const DURATIONS = [
   { value: 1, label: '1 Month', savings: 0 },

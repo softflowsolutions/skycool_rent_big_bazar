@@ -24,6 +24,8 @@ interface EnquiryFormProps {
   defaultSubCategory?: string;
   defaultProduct?: string;
   defaultParentCategory?: string;
+  /** When true the category radio cards are hidden (caller already chose). */
+  hideCategory?: boolean;
 }
 
 const AUTO_DISMISS_MS = 5000;
@@ -33,6 +35,7 @@ export function EnquiryForm({
   defaultSubCategory = '',
   defaultProduct = '',
   defaultParentCategory = '',
+  hideCategory = false,
 }: EnquiryFormProps) {
   const { error: showError } = useToast();
   const [loading, setLoading] = useState(false);
@@ -180,53 +183,56 @@ export function EnquiryForm({
         </div>
 
         <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
-          {/* Category — Radio Cards */}
-          <div className="sm:col-span-2">
-            <label className="text-xs uppercase tracking-wider font-semibold text-gray-600 mb-2 block">
-              What do you need?
-            </label>
-            <div className="grid grid-cols-2 gap-2.5">
-              {[
-                { value: 'rent' as const, label: 'Rent', sub: 'AC & Fridge on rent', Icon: Package, color: 'bg-gray-900', activeBg: 'bg-gray-900' },
-                { value: 'service' as const, label: 'Service', sub: 'Repair & maintenance', Icon: Wrench, color: 'bg-gray-900', activeBg: 'bg-gray-900' },
-              ].map((opt) => {
-                const active = form.category === opt.value;
-                return (
-                  <button
-                    type="button"
-                    key={opt.value}
-                    onClick={() => update('category', opt.value)}
-                    className={cn(
-                      'relative flex flex-col items-start gap-2 rounded-2xl p-3 sm:p-4 text-left border-2 transition-all duration-200',
-                      active
-                        ? cn('border-transparent text-white shadow-lg', opt.activeBg)
-                        : 'border-gray-300 bg-white text-gray-700 hover:border-gray-400 hover:bg-gray-50'
-                    )}
-                    aria-pressed={active}
-                  >
-                    {/* Check mark indicator on active card */}
-                    {active && (
-                      <div className="absolute top-2 right-2 h-5 w-5 rounded-full bg-white/30 flex items-center justify-center">
-                        <Check className="h-3 w-3 text-white" strokeWidth={3} />
+          {/* Category — Radio Cards. Hidden when the caller locks the form to
+              a single category (e.g. rent product page): the choice is already
+              implied, so a redundant radio just wastes vertical space. */}
+          {!hideCategory && (
+            <div className="sm:col-span-2">
+              <label className="text-xs uppercase tracking-wider font-semibold text-gray-600 mb-2 block">
+                What do you need?
+              </label>
+              <div className="grid grid-cols-2 gap-2.5">
+                {[
+                  { value: 'rent' as const, label: 'Rent', sub: 'AC & Fridge on rent', Icon: Package, color: 'bg-gray-900', activeBg: 'bg-gray-900' },
+                  { value: 'service' as const, label: 'Service', sub: 'Repair & maintenance', Icon: Wrench, color: 'bg-gray-900', activeBg: 'bg-gray-900' },
+                ].map((opt) => {
+                  const active = form.category === opt.value;
+                  return (
+                    <button
+                      type="button"
+                      key={opt.value}
+                      onClick={() => update('category', opt.value)}
+                      className={cn(
+                        'relative flex flex-col items-start gap-2 rounded-2xl p-3 sm:p-4 text-left border-2 transition-all duration-200',
+                        active
+                          ? cn('border-transparent text-white shadow-lg', opt.activeBg)
+                          : 'border-gray-300 bg-white text-gray-700 hover:border-gray-400 hover:bg-gray-50'
+                      )}
+                      aria-pressed={active}
+                    >
+                      {active && (
+                        <div className="absolute top-2 right-2 h-5 w-5 rounded-full bg-white/30 flex items-center justify-center">
+                          <Check className="h-3 w-3 text-white" strokeWidth={3} />
+                        </div>
+                      )}
+                      <div className={cn(
+                        'flex h-10 w-10 items-center justify-center rounded-xl transition-colors',
+                        active ? 'bg-white/25' : cn('text-white', opt.color)
+                      )}>
+                        <opt.Icon className="h-5 w-5 text-white" />
                       </div>
-                    )}
-                    <div className={cn(
-                      'flex h-10 w-10 items-center justify-center rounded-xl transition-colors',
-                      active ? 'bg-white/25' : cn('text-white', opt.color)
-                    )}>
-                      <opt.Icon className="h-5 w-5 text-white" />
-                    </div>
-                    <div>
-                      <div className="font-display font-bold text-base">{opt.label}</div>
-                      <div className={cn('text-[11px] mt-0.5', active ? 'text-white/85' : 'text-gray-500')}>
-                        {opt.sub}
+                      <div>
+                        <div className="font-display font-bold text-base">{opt.label}</div>
+                        <div className={cn('text-[11px] mt-0.5', active ? 'text-white/85' : 'text-gray-500')}>
+                          {opt.sub}
+                        </div>
                       </div>
-                    </div>
-                  </button>
-                );
-              })}
+                    </button>
+                  );
+                })}
+              </div>
             </div>
-          </div>
+          )}
 
           {/* Sub-Category */}
           <div>
@@ -505,7 +511,7 @@ export function EnquiryForm({
               Enquiry sent successfully!
             </h2>
             <p className="text-sm text-gray-600 mb-6 leading-relaxed">
-              Our team will contact you within 24 hours.
+              Our team will contact you soon.
             </p>
             <button
               onClick={() => setShowSuccessModal(false)}

@@ -39,7 +39,7 @@ export function ConfigurationForm({ product }: ConfigurationFormProps) {
     { value: 12 as const, label: '12 Months' },
   ];
 
-  const whatsappMessage = `Hi SkyCool Team! 🧊
+  const whatsappMessage = `Hi AC on Rent Near Me Team! 🧊
 
 I want to rent the following:
 
@@ -55,7 +55,7 @@ I want to rent the following:
 Please confirm availability and share payment details.
 
 ---
-Sent from: SkyCool Website`;
+Sent from: AC on Rent Near Me website`;
 
   const handleWhatsApp = () => {
     if (!agreed) {

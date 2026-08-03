@@ -188,7 +188,7 @@ function buildEmailHtml({ data, receivedAt }: BuildEmailArgs): string {
         <table role="presentation" cellpadding="0" cellspacing="0" width="600" style="max-width:600px;width:100%;background:#ffffff;border-radius:16px;overflow:hidden;box-shadow:0 10px 30px rgba(2,132,199,0.08);">
           <tr>
             <td style="background:linear-gradient(135deg,#0ea5e9 0%,#2563eb 50%,#4f46e5 100%);padding:28px 32px;color:#ffffff;">
-              <p style="margin:0;font-size:12px;letter-spacing:2px;text-transform:uppercase;opacity:0.85;">SkyCool Solutions</p>
+              <p style="margin:0;font-size:12px;letter-spacing:2px;text-transform:uppercase;opacity:0.85;">AC on Rent Near Me</p>
               <h1 style="margin:6px 0 0;font-size:22px;line-height:1.3;font-weight:700;">New Enquiry Received</h1>
               <p style="margin:8px 0 0;font-size:14px;opacity:0.9;">${safe.category === 'rent' ? 'Rental' : 'Service'} request · ${safe.receivedAt}</p>
             </td>
@@ -222,7 +222,7 @@ function buildEmailHtml({ data, receivedAt }: BuildEmailArgs): string {
                     <a href="tel:+91${safe.phone}" style="display:inline-block;background:linear-gradient(135deg,#0ea5e9,#2563eb);color:#ffffff;text-decoration:none;font-weight:700;font-size:14px;padding:12px 22px;border-radius:12px;box-shadow:0 8px 18px rgba(14,165,233,0.35);">Call Customer</a>
                     ${
                       safe.email
-                        ? `&nbsp;<a href="mailto:${safe.email}?subject=Re:%20Your%20SkyCool%20Enquiry" style="display:inline-block;background:#f1f5f9;color:#0f172a;text-decoration:none;font-weight:600;font-size:14px;padding:12px 22px;border-radius:12px;border:1px solid #e2e8f0;">Email Customer</a>`
+                        ? `&nbsp;<a href="mailto:${safe.email}?subject=Re:%20Your%20Rental%20Enquiry" style="display:inline-block;background:#f1f5f9;color:#0f172a;text-decoration:none;font-weight:600;font-size:14px;padding:12px 22px;border-radius:12px;border:1px solid #e2e8f0;">Email Customer</a>`
                         : ''
                     }
                   </td>
@@ -232,7 +232,7 @@ function buildEmailHtml({ data, receivedAt }: BuildEmailArgs): string {
           </tr>
           <tr>
             <td style="background:#f8fafc;padding:18px 32px;text-align:center;border-top:1px solid #e2e8f0;">
-              <p style="margin:0;font-size:12px;color:#64748b;">Submitted via the SkyCool website enquiry form</p>
+              <p style="margin:0;font-size:12px;color:#64748b;">Submitted via the AC on Rent Near Me website enquiry form</p>
             </td>
           </tr>
         </table>
@@ -292,7 +292,9 @@ export async function POST(request: Request) {
     );
   }
 
-  const to = process.env.ENQUIRY_EMAIL;
+  // Accept either RESEND_TO_EMAIL (preferred, documented in README) or the
+  // legacy ENQUIRY_EMAIL so existing deployments keep working.
+  const to = process.env.RESEND_TO_EMAIL || process.env.ENQUIRY_EMAIL;
   if (!to) {
     return NextResponse.json(
       {
@@ -303,7 +305,11 @@ export async function POST(request: Request) {
     );
   }
 
-  const cc = process.env.ADMIN_EMAIL || undefined;
+  const from =
+    process.env.RESEND_FROM_EMAIL ||
+    "AC on Rent Near Me Enquiries <onboarding@resend.dev>";
+  const cc =
+    process.env.RESEND_CC_EMAIL || process.env.ADMIN_EMAIL || undefined;
   const replyTo =
     data.email && data.email.length > 0 ? data.email : undefined;
 
@@ -318,7 +324,7 @@ export async function POST(request: Request) {
   try {
     const resend = new Resend(apiKey);
     const sendPayload: Parameters<typeof resend.emails.send>[0] = {
-      from: 'SkyCool Enquiries <enquiries@skycool.in>',
+      from,
       to,
       subject,
       html,

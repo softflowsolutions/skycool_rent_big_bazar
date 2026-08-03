@@ -46,30 +46,24 @@ export function Header() {
         )}
       >
         <div className="container-app">
-          <div className="flex h-16 lg:h-20 items-center justify-between">
-            {/* Logo */}
+          <div className="flex h-20 lg:h-28 items-center justify-between gap-3">
+            {/* Logo — large enough that the embedded brand name is clearly
+                legible. The logo file already contains the wordmark so we
+                don't render the brand text separately. */}
             <Link
               href="/"
-              className="flex items-center gap-2 group"
+              className="flex items-center group"
               aria-label={`${SITE_CONFIG.name} home`}
             >
-              <div className="relative h-10 w-10 lg:h-12 lg:w-12 group-hover:scale-110 transition-transform">
+              <div className="relative h-14 w-32 sm:h-16 sm:w-40 lg:h-24 lg:w-56 group-hover:scale-105 transition-transform">
                 <Image
-                  src="/images/logo/logo1.png"
-                  alt="SkyCool Solutions"
+                  src="/images/logo/logo.png"
+                  alt={SITE_CONFIG.name}
                   fill
-                  sizes="48px"
+                  sizes="(max-width: 640px) 128px, (max-width: 1024px) 160px, 224px"
                   className="object-contain"
                   priority
                 />
-              </div>
-              <div className="hidden sm:block">
-                <div className="font-display text-lg lg:text-xl font-bold text-gray-900">
-                  SkyCool
-                </div>
-                <div className="text-[10px] lg:text-xs font-medium text-gray-500 -mt-1">
-                  Solutions
-                </div>
               </div>
             </Link>
 
@@ -102,7 +96,7 @@ export function Header() {
               <a
                 href={generateCallLink(SITE_CONFIG.phone)}
                 className="inline-flex items-center gap-2 bg-gray-900 hover:bg-gray-800 text-white rounded-md px-4 py-2 text-sm font-semibold transition-colors"
-                aria-label="Call SkyCool"
+                aria-label="Call AC on Rent Near Me"
               >
                 <Phone className="h-4 w-4" />
                 <span>Call Now</span>
@@ -147,14 +141,14 @@ export function Header() {
             <div className="flex items-center gap-2">
               <div className="relative h-9 w-9">
                 <Image
-                  src="/images/logo/logo1.png"
-                  alt="SkyCool Solutions"
+                  src="/images/logo/logo.png"
+                  alt="AC on Rent Near Me"
                   fill
                   sizes="36px"
                   className="object-contain"
                 />
               </div>
-              <span className="font-display font-bold text-gray-900">SkyCool</span>
+              <span className="font-display font-bold text-gray-900">AC on Rent</span>
             </div>
             <button
               onClick={() => setIsOpen(false)}
@@ -207,7 +201,7 @@ export function Header() {
                 Cities We Serve
               </p>
               <div className="flex flex-wrap gap-1.5">
-                {SITE_CONFIG.cities.slice(0, 9).map((city) => (
+                {['Pune'].map((city) => (
                   <span
                     key={city}
                     className="text-xs px-2 py-1 rounded-md bg-sky-50 text-sky-700 font-medium"
@@ -222,7 +216,7 @@ export function Header() {
       </div>
 
       {/* Spacer for fixed header */}
-      <div className="h-16 lg:h-20" />
+      <div className="h-20 lg:h-28" />
     </>
   );
 }

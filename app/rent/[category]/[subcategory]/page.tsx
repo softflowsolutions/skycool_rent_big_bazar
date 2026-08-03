@@ -3,6 +3,7 @@ import { Breadcrumb } from '@/components/shared/Breadcrumb';
 import { ProductCard } from '@/components/shared/ProductCard';
 import { PRODUCTS, resolveCategorySlug, LEGACY_CATEGORY_MAP } from '@/lib/data';
 import { formatPrice, titleCase } from '@/lib/utils';
+import { categorySeo } from '@/lib/seo';
 import type { Metadata } from 'next';
 
 interface PageProps {
@@ -12,9 +13,6 @@ interface PageProps {
 export async function generateStaticParams() {
   const params: Array<{ category: string; subcategory: string }> = [];
 
-  // Walk every product and emit the canonical (category, subcategory) pair,
-  // plus every legacy alias that maps to the same product so the legacy
-  // URLs continue to render statically.
   for (const p of PRODUCTS) {
     if (!p.subCategory || !p.category) continue;
     params.push({ category: p.category, subcategory: p.subCategory });
@@ -29,10 +27,12 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const subName = titleCase(params.subcategory);
-  return {
-    title: `Rent ${subName} in India | SkyCool Solutions`,
-    description: `Browse ${subName} rentals starting at affordable monthly prices. Free delivery & installation.`,
-  };
+  return categorySeo({
+    category: 'rent',
+    slug: `${params.category}-${params.subcategory}`,
+    label: subName,
+    description: `Rent ${subName} in Pune & across India on monthly plans. Zero deposit, free delivery & installation. Top brands, immediate dispatch.`,
+  });
 }
 
 export default function SubCategoryPage({ params }: PageProps) {

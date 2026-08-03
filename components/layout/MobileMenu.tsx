@@ -2,7 +2,16 @@
 
 import Link from 'next/link';
 import { useEffect } from 'react';
-import { X, Phone, Mail, MapPin, MessageCircle, ChevronRight } from 'lucide-react';
+import {
+  X,
+  Phone,
+  Mail,
+  MapPin,
+  MessageCircle,
+  ChevronRight,
+  Youtube,
+  Linkedin,
+} from 'lucide-react';
 import { SITE_CONFIG } from '@/lib/constants';
 import { cn, generateCallLink, generateWhatsAppLink } from '@/lib/utils';
 
@@ -95,7 +104,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
               <a
                 href={generateCallLink(SITE_CONFIG.phone)}
                 className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl py-3 font-bold text-sm transition-colors active:scale-95"
-                aria-label="Call SkyCool"
+                aria-label="Call AC on Rent Near Me"
               >
                 <Phone className="h-4 w-4" />
                 Call
@@ -103,7 +112,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
               {/* WhatsApp Button */}
               <a
                 href={generateWhatsAppLink(
-                  `Hi SkyCool! I'd like to know more about your AC/Fridge rental and service offerings.`,
+                  `Hi AC on Rent Near Me! I'd like to know more about your AC rental and service offerings.`,
                   SITE_CONFIG.whatsapp
                 )}
                 target="_blank"
@@ -131,6 +140,51 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
             </div>
           </div>
 
+          {/* Social — same set as desktop footer */}
+          <div className="mb-6">
+            <p className="text-xs uppercase tracking-wider text-gray-500 mb-3 font-semibold">
+              Connect With Us
+            </p>
+            <div className="flex flex-wrap gap-2">
+              <a
+                href={SITE_CONFIG.socials.youtube}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-10 w-10 items-center justify-center rounded-xl bg-white border border-gray-200 text-gray-700 hover:bg-red-500 hover:text-white hover:border-red-500 transition-colors"
+                aria-label="YouTube"
+              >
+                <Youtube className="h-4 w-4" />
+              </a>
+              <a
+                href={SITE_CONFIG.socials.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-10 w-10 items-center justify-center rounded-xl bg-white border border-gray-200 text-gray-700 hover:bg-blue-700 hover:text-white hover:border-blue-700 transition-colors"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="h-4 w-4" />
+              </a>
+              <a
+                href={SITE_CONFIG.justdial}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-10 w-10 items-center justify-center rounded-xl bg-white border border-gray-200 text-gray-700 hover:bg-yellow-500 hover:text-white hover:border-yellow-500 transition-colors font-extrabold text-[10px]"
+                aria-label="JustDial"
+              >
+                JD
+              </a>
+              <a
+                href={SITE_CONFIG.googleMaps}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-10 w-10 items-center justify-center rounded-xl bg-white border border-gray-200 text-gray-700 hover:bg-emerald-600 hover:text-white hover:border-emerald-600 transition-colors"
+                aria-label="Google Maps"
+              >
+                <MapPin className="h-4 w-4" />
+              </a>
+            </div>
+          </div>
+
           {/* Legal */}
           <div>
             <p className="text-xs uppercase tracking-wider text-gray-500 mb-3 font-semibold">
@@ -141,7 +195,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
                 { label: 'Terms', href: '/terms' },
                 { label: 'Privacy', href: '/privacy' },
                 { label: 'Refund', href: '/refund-policy' },
-                { label: 'Sitemap', href: '/sitemap.xml' },
+                { label: 'Shipping', href: '/terms#shipping' },
               ].map((item) => (
                 <Link
                   key={item.href}

@@ -1,45 +1,139 @@
 import { Breadcrumb } from '@/components/shared/Breadcrumb';
 import { SITE_CONFIG } from '@/lib/constants';
+import { SEO } from '@/lib/seo';
 import type { Metadata } from 'next';
 
-export const metadata: Metadata = {
-  title: 'Cancellation & Refund Policy — SkyCool Solutions',
-  description: 'Our cancellation and refund policy for rentals and services.',
-  alternates: { canonical: '/refund-policy' },
-};
+export const metadata = SEO.refund;
 
-const policies = [
+const sections: Array<{ title: string; body: string[] }> = [
   {
-    title: 'Order Cancellation',
-    items: [
-      { time: 'Within 24 hours of order (before delivery)', refund: '100% refund' },
-      { time: 'After delivery but within 7 days', refund: '50% of first month rent' },
-      { time: 'After 7 days of delivery', refund: 'No refund' },
-      { time: 'After using service', refund: 'No refund on completed service' },
+    title: '1. Order Modification',
+    body: [
+      'Customers may request modifications to their order up to one (1) day before the scheduled delivery date by contacting our Customer Support through Phone, WhatsApp, Live Chat, or Email.',
+      'Please note:',
+      '• Delivery date and time may change based on product availability and the requested modifications.',
+      '• Rental charges, security deposit, and other applicable charges will be recalculated according to the prevailing rates at the time the modification request is confirmed.',
+      '• The revised monthly rental amount will apply after successful confirmation of the modified order.',
     ],
   },
   {
-    title: 'Refund Process',
-    items: [
-      { time: 'Refund method', refund: 'Original payment method within 7-10 business days' },
-      { time: 'Processing time', refund: '3-5 business days after approval' },
-      { time: 'Refund confirmation', refund: 'Email + SMS notification' },
+    title: '2. Order Cancellation',
+    body: [
+      'Customers may cancel an order up to one (1) day before the scheduled delivery date without any cancellation charges.',
+      'Once the products have been delivered and accepted by the customer, the order cannot be cancelled.',
     ],
   },
   {
-    title: 'Service Cancellation',
-    items: [
-      { time: 'Before technician visit', refund: 'Full refund or reschedule' },
-      { time: 'After technician visit, before work starts', refund: 'Visit charge of ₹199 may apply' },
-      { time: 'After service is performed', refund: 'No refund, but warranty applies' },
+    title: '3. Product Acceptance at Delivery',
+    body: [
+      'All products delivered by AC on Rent Near Me undergo quality inspection before dispatch.',
+      'At the time of delivery, customers are requested to inspect the products carefully.',
+      'If a product is found to be defective, damaged during transit, non-functional, or different from the confirmed order, the customer should immediately inform the delivery team before installation or before the delivery personnel leave the premises.',
+      'Once the delivery has been successfully completed and acknowledged, product rejection at the time of delivery will no longer be accepted.',
+      'Customers are also advised to verify product dimensions before placing an order. Returns due to incorrect measurements or space constraints are not considered valid grounds for rejection.',
     ],
   },
   {
-    title: 'Security Deposit Refund',
-    items: [
-      { time: 'Within 7 days of appliance return', refund: 'Full refund (no deductions for normal wear)' },
-      { time: 'Damage beyond normal wear', refund: 'Repair/replacement cost deducted' },
-      { time: 'Refund processing', refund: '5-7 business days' },
+    title: '4. Rental Plans',
+    body: [
+      'AC on Rent Near Me offers flexible rental plans, including:',
+      '• 1 Month',
+      '• 3 Months',
+      '• 6 Months',
+      '• 12 Months',
+      'Customers are expected to complete the selected rental tenure.',
+    ],
+  },
+  {
+    title: '5. Early Subscription Closure & Cancellation',
+    body: [
+      'Customers may request closure of one or more rented products by informing AC on Rent Near Me at least 7 days before the preferred pickup date.',
+      'However, if the subscription is terminated before completion of the selected rental tenure:',
+      '• The rental agreement will be considered an early closure.',
+      '• Rental amounts already paid are strictly non-refundable.',
+      '• The customer shall not be entitled to any refund of prepaid rental charges for the remaining rental period.',
+      '• Any applicable early closure charges, if specified in the rental agreement, must be cleared before pickup.',
+      '• The refundable security deposit, after adjustment of outstanding dues, damages, relocation charges (if any), and other applicable charges, will be processed as per the Refund Policy.',
+    ],
+  },
+  {
+    title: '6. Relocation Policy',
+    body: [
+      'Customers must not relocate rented products without prior written approval from AC on Rent Near Me.',
+      'If relocation is required:',
+      '• Customers must inform us at least 14 days in advance.',
+      '• Relocation is subject to service availability at the new address.',
+      '• Transportation, dismantling, shifting, reinstallation, and service charges will be applicable.',
+      '• Charges will be calculated based on distance, product type, and installation requirements.',
+      'Unauthorized relocation may result in additional charges and may void warranty or service support.',
+    ],
+  },
+  {
+    title: '7. Installation & Reinstallation Charges',
+    body: [
+      'Standard installation is included only where specifically mentioned at the time of booking.',
+      'If installation is required due to relocation, reinstallation, or customer-requested shifting:',
+      '• Installation and technician visit charges will apply.',
+      '• Any additional accessories, piping, brackets, wiring, stands, or materials required during installation will be charged separately.',
+      '• Customers are responsible for providing a safe and suitable installation location.',
+    ],
+  },
+  {
+    title: '8. Product Care & Customer Responsibility',
+    body: [
+      'Customers are responsible for maintaining rented products in clean and good working condition throughout the rental period.',
+      'Products must be used only for their intended purpose and in accordance with the manufacturer’s instructions.',
+      'Customers shall not:',
+      '• Attempt unauthorized repairs.',
+      '• Modify or alter the product.',
+      '• Remove serial number labels.',
+      '• Sublet or transfer products without written approval from AC on Rent Near Me.',
+    ],
+  },
+  {
+    title: '9. Damage & Loss Policy',
+    body: [
+      'Customers are fully responsible for the safety and proper use of rented products during the rental period.',
+      'If any rented product suffers physical damage, accidental damage, water damage, fire damage, electrical damage caused by improper usage, missing accessories / remote controls / cables / parts, breakage due to mishandling, or unauthorized repairs / modifications, the customer shall be liable to pay the repair or replacement cost as determined by AC on Rent Near Me based on the prevailing market rates.',
+      'If a product is damaged beyond economical repair or is lost, stolen, or cannot be recovered, the customer shall be liable to pay the full replacement value of the product after adjustment of any available refundable security deposit.',
+      'The technical assessment conducted by AC on Rent Near Me’ service team shall be considered final.',
+    ],
+  },
+  {
+    title: '10. Security Deposit Refund',
+    body: [
+      'After the rented products are returned, they will undergo a quality inspection.',
+      'The refundable security deposit will be processed only after:',
+      '• Successful quality inspection.',
+      '• Clearance of all pending rental dues.',
+      '• Adjustment of repair, damage, relocation, installation, or any other applicable charges.',
+      'Refunds will generally be credited to the customer’s registered bank account within 7 working days after completion of inspection and settlement.',
+      'The bank account must belong to the customer who placed the order. Requests for refund to another account may require additional verification.',
+    ],
+  },
+  {
+    title: '11. Service Availability',
+    body: [
+      'Delivery, installation, relocation, repairs, and pickup services are subject to operational availability in the customer’s location.',
+      'AC on Rent Near Me reserves the right to reschedule services due to unforeseen circumstances such as weather conditions, transportation issues, public holidays, or operational constraints.',
+    ],
+  },
+  {
+    title: '12. Right to Refuse Service',
+    body: [
+      'AC on Rent Near Me reserves the right to refuse, suspend, or terminate any rental service in cases of:',
+      '• Fraudulent activity.',
+      '• Misrepresentation of customer information.',
+      '• Non-payment of dues.',
+      '• Repeated policy violations.',
+      '• Misuse or intentional damage to rented products.',
+    ],
+  },
+  {
+    title: '13. Changes to This Policy',
+    body: [
+      'AC on Rent Near Me reserves the right to modify or update these Terms & Conditions at any time without prior notice.',
+      'The latest version published on www.aconrentnearme.com shall always prevail.',
     ],
   },
 ];
@@ -48,65 +142,95 @@ export default function RefundPolicyPage() {
   return (
     <>
       <section className="bg-gray-50">
-        <div className="container-app py-8">
-          <Breadcrumb items={[{ label: 'Cancellation & Refund Policy' }]} />
-          <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-3">
-            Cancellation & Refund Policy
-          </h1>
-          <p className="text-sm text-gray-500">
-            Last updated: {new Date().toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' })}
-          </p>
+        <div className="container-app py-8 lg:py-12">
+          <Breadcrumb items={[{ label: 'Rental Terms, Cancellation & Refund Policy' }]} />
+          <div className="max-w-4xl">
+            <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-3">
+              Rental Terms, Cancellation &amp; Refund Policy
+            </h1>
+            <p className="text-sm text-gray-600 leading-relaxed">
+              Welcome to AC on Rent Near Me. By placing an order with us, you agree to the
+              following Rental Terms &amp; Conditions. These policies are designed to ensure a
+              transparent, fair, and hassle-free rental experience for all customers.
+            </p>
+            <p className="text-xs text-gray-500 mt-3">
+              Effective Date: July 20, 2026 · Last updated:{' '}
+              {new Date().toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' })}
+            </p>
+          </div>
         </div>
       </section>
 
       <section className="container-app py-8 lg:py-12">
-        <div className="max-w-4xl mx-auto space-y-6">
-          {policies.map((policy, idx) => (
+        <div className="max-w-4xl mx-auto space-y-5">
+          {sections.map((section, idx) => (
             <div
-              key={idx}
-              className="bg-white rounded-2xl shadow-md border border-gray-100 p-5 sm:p-8"
+              key={section.title}
+              className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 sm:p-7"
             >
-              <h2 className="font-display text-xl sm:text-2xl font-extrabold text-gray-900 mb-4 flex items-center gap-2">
-                <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gray-900 text-white text-sm">
+              <h2 className="font-display text-lg sm:text-xl font-extrabold text-gray-900 mb-3 flex items-start gap-3">
+                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-gray-900 text-white text-xs font-bold">
                   {idx + 1}
                 </span>
-                {policy.title}
+                <span>{section.title.replace(/^\d+\.\s*/, '')}</span>
               </h2>
-              <div className="space-y-3">
-                {policy.items.map((item, i) => (
-                  <div
+              <ul className="space-y-2 pl-2">
+                {section.body.map((line, i) => (
+                  <li
                     key={i}
-                    className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 py-2.5 border-b border-gray-100 last:border-0"
+                    className="text-sm text-gray-700 leading-relaxed"
                   >
-                    <span className="text-sm font-semibold text-gray-700">{item.time}</span>
-                    <span className="text-sm font-bold text-sky-600 sm:text-right">{item.refund}</span>
-                  </div>
+                    {line}
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
           ))}
 
+          {/* Contact card */}
           <div className="bg-gray-900 text-white rounded-2xl p-6 sm:p-8 shadow-lg">
             <h2 className="font-display text-xl sm:text-2xl font-extrabold mb-2">
-              Need Help with Refund?
+              Need Help?
             </h2>
             <p className="text-gray-300 text-sm mb-4">
-              Contact our support team. We process refunds within 24 hours of approval.
+              Reach out to the AC on Rent Near Me team. We respond across Phone, WhatsApp,
+              Live Chat and Email.
             </p>
-            <div className="flex flex-col sm:flex-row gap-2">
-              <a
-                href={`tel:${SITE_CONFIG.phone.replace(/\s/g, '')}`}
-                className="inline-flex items-center justify-center gap-2 bg-white text-gray-900 rounded-xl px-5 py-2.5 font-semibold hover:bg-gray-100 transition-colors"
-              >
-                📞 {SITE_CONFIG.phone}
-              </a>
-              <a
-                href={`mailto:${SITE_CONFIG.email}`}
-                className="inline-flex items-center justify-center gap-2 bg-gray-800 text-white border border-gray-700 rounded-xl px-5 py-2.5 font-semibold hover:bg-gray-700 transition-colors"
-              >
-                ✉️ {SITE_CONFIG.email}
-              </a>
+            <div className="space-y-2 text-sm">
+              <div className="flex items-center gap-2">
+                <span className="text-gray-400">🌐 Website:</span>
+                <a
+                  href="https://www.aconrentnearme.com"
+                  className="text-white hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  www.aconrentnearme.com
+                </a>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-gray-400">📞 Phone:</span>
+                <a
+                  href={`tel:${SITE_CONFIG.phone.replace(/\s/g, '')}`}
+                  className="text-white hover:underline"
+                >
+                  {SITE_CONFIG.phone}
+                </a>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-gray-400">✉️ Email:</span>
+                <a
+                  href={`mailto:${SITE_CONFIG.email}`}
+                  className="text-white hover:underline"
+                >
+                  {SITE_CONFIG.email}
+                </a>
+              </div>
             </div>
+            <p className="mt-4 text-xs text-gray-400 leading-relaxed">
+              Our team is committed to providing reliable products, timely service, and a
+              transparent rental experience for every customer.
+            </p>
           </div>
         </div>
       </section>

@@ -2,57 +2,34 @@
  * Homepage Promotional Banners
  * ============================
  *
- * Edit this file to control which promotional banners appear in the
- * homepage `<BannerCarousel />` component.
+ * The `<BannerCarousel />` now shows clean product photos with NO
+ * overlay text or CTA button — those would be baked into the source
+ * image, not rendered by the carousel. Pick images that already
+ * look clean on their own (the existing /images/products/ set works).
  *
- * Each banner renders full-width with a background image, a plain dark
- * overlay for legibility, an optional badge, a title, subtitle and
- * a CTA link.
- *
- * HOW TO EDIT
- * -----------
- * 1. Add, remove or reorder entries in `BANNERS`. The order here
- *    determines rotation order in the carousel.
- * 2. `image` should be an absolute URL (we currently use Unsplash photos
- *    for consistency with the rest of the site). Use the `?w=1920&q=80`
- *    query string for optimal Next.js image optimization.
- * 3. `ctaText` is rendered as the call-to-action button label.
- *    `ctaLink` should be an internal Next.js route starting with `/`.
- * 4. `badge` is optional — leave it out (or set to undefined) to hide it.
- * 5. The overlay is a fixed `bg-black/40` for legibility — kept solid
- *    per project design (no gradient effects).
- *
- * Tips
- * ----
- * - Keep titles punchy (under ~40 chars) so they don't wrap awkwardly
- *   on mobile.
- * - Subtitles work best at ~80–120 chars.
- * - Aim for 4–6 banners total; more can feel spammy and slows the
- *   network on first load.
+ * Title/subtitle/cta fields are kept here for future use (e.g. an
+ * overlay layer that you can toggle on with one prop change).
  */
 
 export interface Banner {
   /** Unique stable id used as React key. */
   id: string;
-  /** Background image URL. */
+  /** Background image URL — should be a clean product photo. */
   image: string;
-  /** Headline. */
-  title: string;
-  /** Supporting copy below the title. */
-  subtitle: string;
-  /** CTA button label. */
-  ctaText: string;
-  /** CTA button link (internal route like `/rent`). */
-  ctaLink: string;
-  /** Optional badge above the title (e.g. "Limited Time"). */
+  /** Headline — not currently rendered. Kept for future overlay toggle. */
+  title?: string;
+  /** Supporting copy — not currently rendered. */
+  subtitle?: string;
+  /** CTA button label — not currently rendered. */
+  ctaText?: string;
+  /** CTA button link — not currently rendered. */
+  ctaLink?: string;
+  /** Optional badge — not currently rendered. */
   badge?: string;
-  /** Optional overlay — kept as plain dark for solid colors only. */
-  gradient?: string;
 }
 
 /**
  * Autoplay interval (ms) for the banner carousel.
- * 4.5s gives readers enough time to absorb each slide without feeling slow.
  */
 export const BANNER_AUTOPLAY_MS = 4500;
 
@@ -62,55 +39,45 @@ export const BANNERS: Banner[] = [
     image: '/images/products/split1.5.png',
     title: 'Summer Sale 2026',
     subtitle:
-      'Cool your home for less. Get up to 30% off on AC rentals this summer. Free delivery & installation.',
+      'Cool your home for less. Get up to 30% off on AC rentals this summer.',
     ctaText: 'Rent Now',
     ctaLink: '/rent',
     badge: 'Limited Time',
-    gradient: 'bg-black/40',
   },
   {
     id: 'zero-deposit',
     image: '/images/products/dubbledoor.png',
     title: 'Zero Deposit Rentals',
-    subtitle:
-      'Premium ACs and Fridges with zero security deposit. Quality assured, ready to use — just plug and play.',
+    subtitle: 'Premium ACs and Fridges with zero security deposit.',
     ctaText: 'Explore Rentals',
     ctaLink: '/rent',
     badge: 'New',
-    gradient: 'bg-black/40',
   },
   {
     id: 'ac-service-299',
-    image:
-      'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1920&q=80',
+    image: '/images/products/split1.png',
     title: 'AC Service @ ₹299',
-    subtitle:
-      'Same-day AC repair by certified technicians. Deep cleaning, gas refill and full inspection — all in one visit.',
+    subtitle: 'Same-day AC repair by certified technicians.',
     ctaText: 'Book Service',
     ctaLink: '/service',
     badge: 'Top Rated',
-    gradient: 'bg-black/40',
   },
   {
     id: 'ac-fridge-combos',
-    image: '/images/products/induction.png',
+    image: '/images/products/singledoor.png',
     title: 'AC + Fridge Combos',
-    subtitle:
-      'Bundle AC and Fridge rentals and save ₹500/month on your monthly bill. Limited combo offers this month.',
+    subtitle: 'Bundle AC and Fridge rentals and save ₹500/month.',
     ctaText: 'View Combos',
     ctaLink: '/rent/combo',
     badge: 'Save Big',
-    gradient: 'bg-black/40',
   },
   {
     id: 'amc-plans',
-    image: '/images/products/split1.5.png',
+    image: '/images/products/windo1.5.png',
     title: 'Annual Maintenance Plans',
-    subtitle:
-      'Year-round AC care starting at ₹1,999. Free visits, priority support and zero labour charges.',
+    subtitle: 'Year-round AC care starting at ₹1,999.',
     ctaText: 'See AMC Plans',
     ctaLink: '/service/ac/amc',
     badge: 'Best Value',
-    gradient: 'bg-black/40',
   },
 ];
