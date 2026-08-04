@@ -75,7 +75,7 @@ export function resendConfig():
     to,
     from:
       process.env.RESEND_FROM_EMAIL ||
-      'AC on Rent Near Me Enquiries <onboarding@resend.dev>',
+      'Rent BigBazar Enquiries <onboarding@resend.dev>',
     cc: process.env.RESEND_CC_EMAIL || process.env.ADMIN_EMAIL || undefined,
   };
 }

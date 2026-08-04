@@ -44,7 +44,7 @@ export default function AboutPage() {
         <div className="container-app py-8 lg:py-12">
           <Breadcrumb items={[{ label: 'About Us' }]} />
           <div className="max-w-3xl">
-            <p className="text-sm font-semibold text-sky-600 uppercase tracking-wider mb-2">
+            <p className="text-sm font-semibold text-accent uppercase tracking-wider mb-2">
               Our Story
             </p>
             <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-4">
@@ -68,8 +68,8 @@ export default function AboutPage() {
                 key={s.label}
                 className="bg-white rounded-2xl p-5 sm:p-6 text-center shadow-md hover:shadow-xl transition-all"
               >
-                <div className="inline-flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-2xl bg-gray-900 mb-3 shadow-md">
-                  <Icon className="h-6 w-6 sm:h-7 sm:w-7 text-white" />
+                <div className="inline-flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-2xl bg-accent mb-3 shadow-md">
+                  <Icon className="h-6 w-6 sm:h-7 sm:w-7 text-brand" />
                 </div>
                 <div className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 mb-0.5">
                   {s.value}
@@ -84,7 +84,7 @@ export default function AboutPage() {
       <section className="container-app section-padding">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div>
-            <p className="text-sm font-semibold text-sky-600 uppercase tracking-wider mb-2">
+            <p className="text-sm font-semibold text-accent uppercase tracking-wider mb-2">
               Our Mission
             </p>
             <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4">
@@ -117,8 +117,8 @@ export default function AboutPage() {
                     key={idx}
                     className="bg-white rounded-2xl p-4 shadow-md hover:shadow-xl transition-all"
                   >
-                    <div className={`inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gray-900 mb-2 shadow-md`}>
-                      <Icon className="h-5 w-5 text-white" />
+                    <div className={`inline-flex h-10 w-10 items-center justify-center rounded-xl bg-accent mb-2 shadow-md`}>
+                      <Icon className="h-5 w-5 text-brand" />
                     </div>
                     <h3 className="font-display font-bold text-sm text-gray-900 mb-1">{v.title}</h3>
                     <p className="text-xs text-gray-600">{v.description}</p>
@@ -149,8 +149,8 @@ export default function AboutPage() {
                   key={idx}
                   className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all"
                 >
-                  <div className={`inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 mb-3 shadow-lg`}>
-                    <Icon className="h-6 w-6 text-white" />
+                  <div className={`inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-accent mb-3 shadow-lg`}>
+                    <Icon className="h-6 w-6 text-brand" />
                   </div>
                   <h3 className="font-display font-bold text-lg mb-2">{v.title}</h3>
                   <p className="text-sm text-gray-300 leading-relaxed">{v.description}</p>
@@ -185,7 +185,7 @@ export default function AboutPage() {
                 idx % 2 === 0 ? 'sm:flex-row' : 'sm:flex-row-reverse'
               }`}
             >
-              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gray-900 shadow-md flex items-center justify-center text-white text-xs font-bold relative z-10">
+              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-accent shadow-md flex items-center justify-center text-brand text-xs font-bold relative z-10">
                 ✓
               </div>
               <div
@@ -193,7 +193,7 @@ export default function AboutPage() {
                   idx % 2 === 0 ? 'sm:text-right' : 'sm:text-left'
                 }`}
               >
-                <div className="text-xs font-bold text-sky-600 mb-1">{m.year}</div>
+                <div className="text-xs font-bold text-accent mb-1">{m.year}</div>
                 <h3 className="font-display font-bold text-base sm:text-lg text-gray-900 mb-0.5">
                   {m.title}
                 </h3>

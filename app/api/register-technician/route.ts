@@ -67,7 +67,7 @@ function buildEmailHtml(d: Submission) {
       <table role="presentation" cellpadding="0" cellspacing="0" width="600" style="max-width:600px;width:100%;background:#ffffff;border-radius:16px;overflow:hidden;box-shadow:0 10px 30px rgba(2,132,199,0.08);">
         <tr>
           <td style="background:linear-gradient(135deg,#0ea5e9 0%,#2563eb 100%);padding:28px 32px;color:#ffffff;">
-            <p style="margin:0;font-size:12px;letter-spacing:2px;text-transform:uppercase;opacity:0.85;">AC on Rent Near Me</p>
+            <p style="margin:0;font-size:12px;letter-spacing:2px;text-transform:uppercase;opacity:0.85;">Rent BigBazar</p>
             <h1 style="margin:6px 0 0;font-size:22px;line-height:1.3;font-weight:700;">Technician Registration</h1>
             <p style="margin:8px 0 0;font-size:14px;opacity:0.9;">New applicant · ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata', dateStyle: 'medium', timeStyle: 'short' })}</p>
           </td>
@@ -100,7 +100,7 @@ function buildEmailHtml(d: Submission) {
         </tr>
         <tr>
           <td style="background:#f8fafc;padding:18px 32px;text-align:center;border-top:1px solid #e2e8f0;">
-            <p style="margin:0;font-size:12px;color:#64748b;">Submitted via the AC on Rent Near Me technician registration form</p>
+            <p style="margin:0;font-size:12px;color:#64748b;">Submitted via the Rent BigBazar technician registration form</p>
           </td>
         </tr>
       </table>

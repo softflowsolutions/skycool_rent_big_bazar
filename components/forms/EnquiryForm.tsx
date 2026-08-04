@@ -193,8 +193,8 @@ export function EnquiryForm({
               </label>
               <div className="grid grid-cols-2 gap-2.5">
                 {[
-                  { value: 'rent' as const, label: 'Rent', sub: 'AC & Fridge on rent', Icon: Package, color: 'bg-gray-900', activeBg: 'bg-gray-900' },
-                  { value: 'service' as const, label: 'Service', sub: 'Repair & maintenance', Icon: Wrench, color: 'bg-gray-900', activeBg: 'bg-gray-900' },
+                  { value: 'rent' as const, label: 'Rent', sub: 'AC & Fridge on rent', Icon: Package, color: 'bg-accent', activeBg: 'bg-accent' },
+                  { value: 'service' as const, label: 'Service', sub: 'Repair & maintenance', Icon: Wrench, color: 'bg-accent', activeBg: 'bg-accent' },
                 ].map((opt) => {
                   const active = form.category === opt.value;
                   return (
@@ -205,7 +205,7 @@ export function EnquiryForm({
                       className={cn(
                         'relative flex flex-col items-start gap-2 rounded-2xl p-3 sm:p-4 text-left border-2 transition-all duration-200',
                         active
-                          ? cn('border-transparent text-white shadow-lg', opt.activeBg)
+                          ? cn('border-transparent text-brand shadow-lg', opt.activeBg)
                           : 'border-gray-300 bg-white text-gray-700 hover:border-gray-400 hover:bg-gray-50'
                       )}
                       aria-pressed={active}
@@ -392,7 +392,7 @@ export function EnquiryForm({
                       className={cn(
                         'px-3 py-2.5 rounded-xl text-sm font-semibold transition-all border-2',
                         form.duration === d.value.toString()
-                          ? 'bg-gray-900 text-white border-transparent'
+                          ? 'bg-accent text-brand border-transparent'
                           : 'bg-white text-gray-700 border-gray-200 hover:border-gray-400'
                       )}
                     >

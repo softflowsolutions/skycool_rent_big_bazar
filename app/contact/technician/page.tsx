@@ -102,7 +102,7 @@ export default function TechnicianRegistrationPage() {
                 </a>
                 <a
                   href={generateWhatsAppLink(
-                    'Hi AC on Rent Near Me HR team, I am interested in the technician registration.',
+                    'Hi Rent BigBazar HR team, I am interested in the technician registration.',
                     SITE_CONFIG.whatsapp
                   )}
                   target="_blank"

@@ -8,19 +8,18 @@ import type { Config } from 'tailwindcss';
  *
  * The hex codes below are sampled from the brand logo at
  * `public/images/logo/logo.png`:
- *   BRAND     = logo "A" gradient mid-stop (#2563EB primary blue)
- *   HIGHLIGHT = logo gradient light-stop (#0EA5E9 sky blue)
- *   ACCENT    = orange CTA accent (#F97316)
- * Also exposed: `ink` (charcoal #374151) — taken from the logo wordmark
- * "R" and "aconrentnearme" text color.
+ *   BRAND     = logo "R" navy blue (#1B2A4E)
+ *   ACCENT    = logo "B" / shopping-cart orange (#F47B27)
+ *   HIGHLIGHT = lighter sky-blue accent derived from the logo (#3B82F6)
+ * Also exposed: `ink` (charcoal #2C3340) — taken from the logo wordmark.
  *
  * Tints/shades are auto-derived via Tailwind's color opacity utilities.
  * Components consume them via `bg-brand`, `text-accent`, `border-highlight`.
  */
-const BRAND = '#2563EB';      // logo "A" deep blue gradient stop
-const ACCENT = '#F97316';     // orange CTA accent
-const HIGHLIGHT = '#0EA5E9';  // logo sky-blue gradient stop
-const INK = '#374151';        // logo charcoal (R + wordmark text)
+const BRAND = '#1B2A4E';      // logo "R" navy blue
+const ACCENT = '#F47B27';     // logo "B" / cart orange
+const HIGHLIGHT = '#3B82F6';  // lighter accent blue
+const INK = '#2C3340';        // logo charcoal wordmark
 
 const config: Config = {
   content: [
@@ -32,45 +31,45 @@ const config: Config = {
       colors: {
         brand: {
           DEFAULT: BRAND,
-          dark: '#1D4ED8',
-          light: '#60A5FA',
-          50: '#EFF6FF',
-          100: '#DBEAFE',
+          dark: '#0F1B36',
+          light: '#3B82F6',
+          50: '#F0F3FA',
+          100: '#DCE2F0',
           500: BRAND,
-          600: '#1D4ED8',
-          700: '#1E40AF',
+          600: '#13213E',
+          700: '#0F1B36',
         },
         accent: {
           DEFAULT: ACCENT,
-          dark: '#EA580C',
-          50: '#FFF7ED',
-          100: '#FFEDD5',
-          600: '#EA580C',
+          dark: '#D9621A',
+          50: '#FFF4EA',
+          100: '#FFE4D1',
+          600: '#D9621A',
         },
         highlight: {
           DEFAULT: HIGHLIGHT,
-          dark: '#0284C7',
-          50: '#F0F9FF',
-          100: '#E0F2FE',
+          dark: '#2563EB',
+          50: '#EFF6FF',
+          100: '#DBEAFE',
           500: HIGHLIGHT,
-          600: '#0284C7',
+          600: '#2563EB',
         },
         // legacy aliases kept so existing component classes still resolve
-        primary: { DEFAULT: BRAND, dark: '#1D4ED8', light: '#60A5FA', 50: '#EFF6FF', 100: '#DBEAFE', 500: BRAND, 600: '#1D4ED8', 700: '#1D4ED8', 900: '#1E3A8A' },
-        // Charcoal from the logo wordmark "R" and "aconrentnearme" text.
+        primary: { DEFAULT: BRAND, dark: '#0F1B36', light: '#3B82F6', 50: '#F0F3FA', 100: '#DCE2F0', 500: BRAND, 600: '#13213E', 700: '#0F1B36', 900: '#0A142A' },
+        // Charcoal from the logo wordmark.
         ink: {
           DEFAULT: INK,
-          dark:   '#1F2937',
+          dark:   '#1A1F2A',
           light:  '#6B7280',
           50:     '#F9FAFB',
           100:    '#F3F4F6',
           500:    '#6B7280',
           700:    INK,
-          900:    '#1F2937',
+          900:    '#1A1F2A',
         },
-        secondary: { DEFAULT: HIGHLIGHT, dark: '#0284C7' },
-        sky: { 50: '#F0F9FF', 100: '#E0F2FE', 200: '#BAE6FD', 300: '#7DD3FC', 400: '#38BDF8', 500: HIGHLIGHT, 600: '#0284C7', 700: '#0369A1', 800: '#075985', 900: '#0C4A6E' },
-        cool: { 50: '#F0F9FF', 100: '#E0F2FE', 500: HIGHLIGHT, 600: '#0284C7', 700: '#0369A1', 900: '#0C4A6E' },
+        secondary: { DEFAULT: HIGHLIGHT, dark: '#2563EB' },
+        sky: { 50: '#EFF6FF', 100: '#DBEAFE', 200: '#BFDBFE', 300: '#93C5FD', 400: '#60A5FA', 500: HIGHLIGHT, 600: '#2563EB', 700: '#1D4ED8', 800: '#1E40AF', 900: '#1E3A8A' },
+        cool: { 50: '#EFF6FF', 100: '#DBEAFE', 500: HIGHLIGHT, 600: '#2563EB', 700: '#1D4ED8', 900: '#1E3A8A' },
       },
       fontFamily: {
         sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
@@ -81,8 +80,8 @@ const config: Config = {
         md: '0 4px 6px rgba(0,0,0,0.07)',
         lg: '0 10px 25px rgba(0,0,0,0.1)',
         xl: '0 20px 40px rgba(0,0,0,0.12)',
-        brand: '0 8px 20px rgba(37,99,235,0.3)',
-        accent: '0 8px 20px rgba(249,115,22,0.3)',
+        brand: '0 8px 20px rgba(27,42,78,0.3)',
+        accent: '0 8px 20px rgba(244,123,39,0.3)',
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-out',

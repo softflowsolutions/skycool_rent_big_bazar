@@ -103,8 +103,8 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
               {/* Call Button */}
               <a
                 href={generateCallLink(SITE_CONFIG.phone)}
-                className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl py-3 font-bold text-sm transition-colors active:scale-95"
-                aria-label="Call AC on Rent Near Me"
+                className="flex items-center justify-center gap-2 bg-accent hover:bg-accent-dark text-brand rounded-xl py-3 font-bold text-sm transition-colors active:scale-95"
+                aria-label={`Call ${SITE_CONFIG.name}`}
               >
                 <Phone className="h-4 w-4" />
                 Call
@@ -112,7 +112,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
               {/* WhatsApp Button */}
               <a
                 href={generateWhatsAppLink(
-                  `Hi AC on Rent Near Me! I'd like to know more about your AC rental and service offerings.`,
+                  `Hi ${SITE_CONFIG.name}! I'd like to know more about your rental and service offerings.`,
                   SITE_CONFIG.whatsapp
                 )}
                 target="_blank"

@@ -103,7 +103,7 @@ export default function VendorRegistrationPage() {
                 </a>
                 <a
                   href={generateWhatsAppLink(
-                    'Hi AC on Rent Near Me vendor team, I am interested in becoming a partner vendor.',
+                    'Hi Rent BigBazar vendor team, I am interested in becoming a partner vendor.',
                     SITE_CONFIG.whatsapp
                   )}
                   target="_blank"

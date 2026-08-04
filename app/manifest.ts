@@ -8,23 +8,22 @@ export default function manifest(): MetadataRoute.Manifest {
     description: SITE_CONFIG.description,
     start_url: '/',
     display: 'standalone',
-    background_color: '#0EA5E9',
-    theme_color: '#0EA5E9',
+    background_color: '#ffffff',
+    theme_color: '#1B2A4E',
     orientation: 'portrait',
     icons: [
-      // Next.js generates these PNGs from app/icon.tsx /
-      // app/apple-icon.tsx / app/favicon.tsx — they auto-route at
-      // /icon and /apple-icon so the SPA install icon stays consistent
-      // with the brand without bundling dozens of static files.
-      { src: '/icon', sizes: '72x72', type: 'image/png' },
-      { src: '/icon', sizes: '96x96', type: 'image/png' },
-      { src: '/icon', sizes: '128x128', type: 'image/png' },
-      { src: '/icon', sizes: '144x144', type: 'image/png' },
-      { src: '/icon', sizes: '152x152', type: 'image/png' },
-      { src: '/icon', sizes: '192x192', type: 'image/png', purpose: 'maskable' },
-      { src: '/icon', sizes: '384x384', type: 'image/png' },
-      { src: '/icon', sizes: '512x512', type: 'image/png', purpose: 'maskable' },
-      { src: '/apple-icon', sizes: '180x180', type: 'image/png' },
+      // Static white-bg logo icons — generated from
+      // public/images/logo/logo_with_white_bg.png at build-time
+      // so they remain consistent across installs and offline.
+      { src: '/icons/icon-72x72.png', sizes: '72x72', type: 'image/png' },
+      { src: '/icons/icon-96x96.png', sizes: '96x96', type: 'image/png' },
+      { src: '/icons/icon-128x128.png', sizes: '128x128', type: 'image/png' },
+      { src: '/icons/icon-144x144.png', sizes: '144x144', type: 'image/png' },
+      { src: '/icons/icon-152x152.png', sizes: '152x152', type: 'image/png' },
+      { src: '/icons/icon-192x192.png', sizes: '192x192', type: 'image/png', purpose: 'maskable' },
+      { src: '/icons/icon-384x384.png', sizes: '384x384', type: 'image/png' },
+      { src: '/icons/icon-512x512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' },
+      { src: '/apple-icon.png', sizes: '180x180', type: 'image/png' },
     ],
   };
 }

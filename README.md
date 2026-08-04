@@ -1,6 +1,6 @@
-# AC on Rent Near Me — Rental & Service Platform
+# Rent BigBazar — Rental & Service Platform
 
-A modern, mobile-first Next.js 14 web application for **AC on Rent Near Me** — India's AC on-rent & home-appliance-service business. PWA-ready, zero-backend (orders flow via WhatsApp & Call), Resend-backed enquiry form, and a full SEO stack.
+A modern, mobile-first Next.js 14 web application for **Rent BigBazar** — India's home-appliance-rental & service business. PWA-ready, zero-backend (orders flow via WhatsApp & Call), Resend-backed enquiry form, and a full SEO stack.
 
 This README is the **operations manual**. If you're changing the brand, prices, contact info, theme colors, images, or content — start here, then edit the file indicated in each section. Every change is one file away.
 
@@ -34,15 +34,15 @@ Visit `http://localhost:3000`.
 
 ```ts
 export const SITE_CONFIG = {
-  name:           'AC on Rent Near Me',                         // header + footer + meta
-  shortName:      'AC on Rent Near Me',                         // PWA manifest
-  tagline:        'AC on Rent Near Me — …',                     // meta title
+  name:           'Rent BigBazar',                              // header + footer + meta
+  shortName:      'Rent BigBazar',                              // PWA manifest
+  tagline:        'Rent BigBazar — Rent More, Save More',       // meta title
   description:    'Rent AC and home appliances in India …',   // meta description
-  url:            'https://aconrentnearme.com',                 // canonical + OG site URL
-  email:          'support@aconrentnearme.com',                 // contact, mailto links
-  adminEmail:     'support@aconrentnearme.com',                 // admin notifications
-  phone:          '+918805131431',                              // Call Now button, every contact
-  whatsapp:       '918805131431',                               // WhatsApp buttons (no `+`)
+  url:            'https://rentbigbazar.com',                   // canonical + OG site URL
+  email:          'support@rentbigbazar.com',                   // contact, mailto links
+  adminEmail:     'support@rentbigbazar.com',                   // admin notifications
+  phone:          '+918806241430',                              // Call Now button, every contact
+  whatsapp:       '918806241430',                               // WhatsApp buttons (no `+`)
   address:        'Mezbaan Bakery, Near Durrani Complex, …',    // footer + contact + mobile menu
   workingHours:   'Mon - Sun: 8:00 AM - 10:00 PM',
   googleMaps:     'https://maps.app.goo.gl/…?g_st=awb',
@@ -50,10 +50,10 @@ export const SITE_CONFIG = {
   areasServed:    ['Pune', 'Mumbai', 'Bangalore', 'Delhi NCR', 'Hyderabad', 'Chennai'],
   cities:         ['Pune'],
   socials: {
-    youtube:      'https://youtube.com/@skycoolsolutionsltd?…',
+    youtube:      'https://youtube.com/@rentbigbazar',
     justdial:     'https://jsdl.in/RSL-UTD1785219025',
     googleMaps:   'https://maps.app.goo.gl/…?g_st=awb',
-    linkedin:     'https://www.linkedin.com/in/suhail-sayyed-…',
+    linkedin:     'https://www.linkedin.com/company/rentbigbazar',
   },
   developer: {
     name: 'Softflow Solutions',
@@ -173,7 +173,7 @@ Default `<site>/og-image.jpg` (1200 × 630 JPEG, < 300 KB). Update the URL in `l
 
 ### Quick wins for ranking
 
-- Each page title: `<Page Title> — AC on Rent Near Me` (already in helpers).
+- Each page title: `<Page Title> — Rent BigBazar` (already in helpers).
 - Each page description: 140–160 chars, includes city + intent phrase.
 - Keywords: keep each page's `keywords` ≤ 15 phrases to avoid "keyword stuffing" penalties.
 - Every page links back to `/` via the header — automatically included.
@@ -315,8 +315,8 @@ These auto-generate `/icon` and `/apple-icon` at build time. To replace with a s
 **To verify after deployment:**
 
 ```
-https://aconrentnearme.com/sitemap.xml
-https://aconrentnearme.com/robots.txt
+https://rentbigbazar.com/sitemap.xml
+https://rentbigbazar.com/robots.txt
 ```
 
 Submit to Google Search Console and Bing Webmaster Tools once for ongoing discovery.
@@ -370,11 +370,11 @@ The enquiry form posts to `/api/send-enquiry` which calls **Resend**. Add to you
 
 ```bash
 RESEND_API_KEY=re_•••••••••••••••••••••••••    # https://resend.com/api-keys
-RESEND_FROM_EMAIL=enquiries@aconrentnearme.com  # must be a verified sender in Resend
-RESEND_TO_EMAIL=support@aconrentnearme.com       # where enquiries land
-NEXT_PUBLIC_SITE_URL=https://aconrentnearme.com  # canonical URL for OG / canonical tags
-NEXT_PUBLIC_BUSINESS_PHONE=+918805131431        # fallback phone (lib/constants.ts has the canonical value)
-NEXT_PUBLIC_WHATSAPP_NUMBER=918805131431
+RESEND_FROM_EMAIL=enquiries@rentbigbazar.com  # must be a verified sender in Resend
+RESEND_TO_EMAIL=support@rentbigbazar.com       # where enquiries land
+NEXT_PUBLIC_SITE_URL=https://rentbigbazar.com  # canonical URL for OG / canonical tags
+NEXT_PUBLIC_BUSINESS_PHONE=+918806241430        # fallback phone (lib/constants.ts has the canonical value)
+NEXT_PUBLIC_WHATSAPP_NUMBER=918806241430
 ```
 
 After submitting the form, the API returns a success envelope and the React client triggers the **`/components/forms/EnquiryForm.tsx`** success modal — animated banner with the text **"Our team will contact you soon."** The Resend email content is in `app/api/send-enquiry/route.ts` (HTML template). To preview it locally without sending, log the response from `/api/send-enquiry`.
@@ -388,7 +388,7 @@ After submitting the form, the API returns a success envelope and the React clie
 `components/layout/Header.tsx` — order on mobile:
 
 1. **Logo (left corner)** — small `Image` of `/images/logo/logo1.png`
-2. **Brand text (center)** — `text-brand` (the primary theme color), reads **"AC on Rent Near Me"**
+2. **Brand text (center)** — `text-brand` (the primary theme color), reads **"Rent BigBazar"**
 3. **Menu trigger (right)** — `MobileMenu` opens as a bottom drawer with full navigation, social icons (YouTube, LinkedIn, JustDial, Google Maps), address, call & WhatsApp buttons
 
 Desktop layout: logo + wordmark on the left, nav center, Call Now + WhatsApp buttons + mobile trigger on the right.

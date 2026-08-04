@@ -30,7 +30,7 @@ export function HeroBanner() {
             <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-6">
               <Link
                 href="/rent"
-                className="inline-flex items-center justify-center gap-2 bg-gray-900 hover:bg-gray-800 text-white rounded-lg px-6 py-3 font-semibold text-sm transition-colors"
+                className="inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent-dark text-brand rounded-lg px-6 py-3 font-bold text-sm transition-colors shadow-md hover:shadow-lg"
               >
                 <Snowflake className="h-4 w-4" />
                 Rent Now
@@ -58,7 +58,7 @@ export function HeroBanner() {
             <div className="flex gap-2 justify-center lg:hidden mt-6">
               <a
                 href={generateWhatsAppLink(
-                  `Hi AC on Rent Near Me! I'd like to know more about your AC rental services.`,
+                  `Hi Rent BigBazar! I'd like to know more about your AC rental services.`,
                   SITE_CONFIG.whatsapp
                 )}
                 target="_blank"
@@ -70,7 +70,7 @@ export function HeroBanner() {
               </a>
               <a
                 href={generateCallLink(SITE_CONFIG.phone)}
-                className="flex-1 max-w-[160px] inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg px-4 py-2.5 font-semibold text-sm"
+                className="flex-1 max-w-[160px] inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent-dark text-brand rounded-lg px-4 py-2.5 font-bold text-sm"
               >
                 <Phone className="h-4 w-4" />
                 Call Now

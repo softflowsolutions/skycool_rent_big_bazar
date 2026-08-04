@@ -9,7 +9,7 @@ const sections: Array<{ title: string; body: string[] }> = [
   {
     title: '1. Collection of Personal Information',
     body: [
-      'For availing the Services/Products from the Website or to contact AC on Rent Near Me, you may have to sign up by giving the following personal information such as email address, name, phone number, and address. Some of the information provided above is personally sensitive information (“Personal Information”) and is collected for verification of the identity of the user and to ensure due compliance.',
+      'For availing the Services/Products from the Website or to contact Rent BigBazar, you may have to sign up by giving the following personal information such as email address, name, phone number, and address. Some of the information provided above is personally sensitive information (“Personal Information”) and is collected for verification of the identity of the user and to ensure due compliance.',
       'We do use your contact information to send you offers based on your previous orders and your interests. In general, you can browse the Website without telling us who you are or revealing any Personal Information about yourself. Additionally, if you browse through this Website, our servers may automatically record information of a certain kind. Such information includes information such as the name of the domain and host from which you access the Internet; the Internet Protocol (IP) address of the computer you are using; the date and time of your access.',
       'We use this information to monitor the usage of our website and also whatever is necessary for our business. This information does not include Personal Information. If you choose to post messages on our message boards, chat rooms, or other message areas or leave feedback, we will collect the information you provide to us. We retain this information as necessary to resolve disputes, provide customer support, and troubleshoot problems as permitted by law. If you send us personal correspondence, such as emails or letters, or if other users or third parties send us correspondence about your activities or postings on the Website, we may collect such information into a file specific to you.',
     ],
@@ -35,8 +35,8 @@ const sections: Array<{ title: string; body: string[] }> = [
   {
     title: '5. Use of Personal Information',
     body: [
-      'AC on Rent Near Me collects and uses your Personal Information to provide you better customer experience and also in the administration of our business. We may use your Personal Information to administer this service, personalize the Website services for you, enable your access to and use of Website services, publish information about you on Website to keep you informed or update you on various products and services available from the Website, send you statements and invoices, collect payments from you, send you marketing communications, send you mails or contact you for various customer satisfaction surveys, market research, promotional activities or in connection with certain transactions, make communications necessary to notify you regarding various security, privacy, and administrative issues, respond to your queries, send you information that may be of interest to you, share this information with Services/Products made available through the Website, respond to any legitimate claim, conduct research and perform analysis in order to measure, maintain, protect, develop and improve our services.',
-      'AC on Rent Near Me has no operations in other countries and we do not transfer Personal Information to other countries. However, if the server space provider as a matter of backup or other general practices may transfer the server content between any of the countries in which the server provider operates or servers are located to enable the use of the information by this Privacy Policy, you agree to such cross-border transfers of Personal Information and the risk associated with it. Where the Website discloses your Personal Information to any third party for any purpose mentioned above, such third parties are obligated to use that Personal Information by the terms of this Privacy Policy. In addition to the disclosures reasonably necessary for the purposes identified above, the Website may disclose your Personal Information to the extent that it is required to do so by law, in connection with any legal proceedings or prospective legal proceedings, and to establish, exercise, or defend its legal rights.',
+      'Rent BigBazar collects and uses your Personal Information to provide you better customer experience and also in the administration of our business. We may use your Personal Information to administer this service, personalize the Website services for you, enable your access to and use of Website services, publish information about you on Website to keep you informed or update you on various products and services available from the Website, send you statements and invoices, collect payments from you, send you marketing communications, send you mails or contact you for various customer satisfaction surveys, market research, promotional activities or in connection with certain transactions, make communications necessary to notify you regarding various security, privacy, and administrative issues, respond to your queries, send you information that may be of interest to you, share this information with Services/Products made available through the Website, respond to any legitimate claim, conduct research and perform analysis in order to measure, maintain, protect, develop and improve our services.',
+      'Rent BigBazar has no operations in other countries and we do not transfer Personal Information to other countries. However, if the server space provider as a matter of backup or other general practices may transfer the server content between any of the countries in which the server provider operates or servers are located to enable the use of the information by this Privacy Policy, you agree to such cross-border transfers of Personal Information and the risk associated with it. Where the Website discloses your Personal Information to any third party for any purpose mentioned above, such third parties are obligated to use that Personal Information by the terms of this Privacy Policy. In addition to the disclosures reasonably necessary for the purposes identified above, the Website may disclose your Personal Information to the extent that it is required to do so by law, in connection with any legal proceedings or prospective legal proceedings, and to establish, exercise, or defend its legal rights.',
     ],
   },
   {
@@ -109,8 +109,8 @@ export default function PrivacyPage() {
               Privacy Policy
             </h1>
             <p className="text-sm text-gray-600 leading-relaxed">
-              We&rsquo;re AC on Rent Near Me (aconrentnearme.com), an online rental
-              service for your lifestyle needs. AC on Rent Near Me is a website owned and
+              We&rsquo;re Rent BigBazar (rentbigbazar.com), an online rental
+              service for your lifestyle needs. Rent BigBazar is a website owned and
               strongly committed to protecting your privacy and has taken all necessary and
               reasonable measures to protect your personal information and handle the same
               safely and responsibly.
@@ -152,19 +152,19 @@ export default function PrivacyPage() {
               Contact Us
             </h2>
             <p className="text-gray-300 text-sm mb-4">
-              Reach the AC on Rent Near Me privacy team with questions, opt-out requests or
+              Reach the Rent BigBazar privacy team with questions, opt-out requests or
               grievances.
             </p>
             <div className="space-y-2 text-sm">
               <div className="flex items-center gap-2">
                 <span className="text-gray-400">🌐 Website:</span>
                 <a
-                  href="https://www.aconrentnearme.com"
+                  href="https://www.rentbigbazar.com"
                   className="text-white hover:underline"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  www.aconrentnearme.com
+                  www.rentbigbazar.com
                 </a>
               </div>
               <div className="flex items-center gap-2">

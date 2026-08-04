@@ -58,7 +58,7 @@ export default function ServiceDetailPage({ params }: PageProps) {
   if (!service) notFound();
 
   const subName = capitalize(service.subCategory.replace(/-/g, ' '));
-  const message = `Hi AC on Rent Near Me! 🛠️
+  const message = `Hi Rent BigBazar! 🛠️
 
 I'd like to book the following service:
 
@@ -69,7 +69,7 @@ I'd like to book the following service:
 Please share availability and pricing.
 
 ---
-Sent from: AC on Rent Near Me website`;
+Sent from: Rent BigBazar website`;
 
   return (
     <>
@@ -168,7 +168,7 @@ Sent from: AC on Rent Near Me website`;
                 </a>
                 <a
                   href={generateCallLink(SITE_CONFIG.phone)}
-                  className="flex-1 inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl px-4 py-3 font-bold text-sm transition-colors"
+                  className="flex-1 inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent-dark text-brand rounded-xl px-4 py-3 font-bold text-sm transition-colors"
                 >
                   <Phone className="h-4 w-4" />
                   Call Now

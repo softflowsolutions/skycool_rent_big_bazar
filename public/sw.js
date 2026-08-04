@@ -28,7 +28,7 @@
 
 /* eslint-disable no-restricted-globals */
 
-const CACHE_VERSION = 'skycool-v1';
+const CACHE_VERSION = 'rentbigbazar-v1';
 const SHELL_CACHE = `${CACHE_VERSION}-shell`;
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const RUNTIME_CACHE = `${CACHE_VERSION}-runtime`;

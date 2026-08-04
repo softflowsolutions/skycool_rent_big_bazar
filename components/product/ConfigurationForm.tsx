@@ -39,7 +39,7 @@ export function ConfigurationForm({ product }: ConfigurationFormProps) {
     { value: 12 as const, label: '12 Months' },
   ];
 
-  const whatsappMessage = `Hi AC on Rent Near Me Team! 🧊
+  const whatsappMessage = `Hi Rent BigBazar Team! 🧊
 
 I want to rent the following:
 
@@ -55,7 +55,7 @@ I want to rent the following:
 Please confirm availability and share payment details.
 
 ---
-Sent from: AC on Rent Near Me website`;
+Sent from: Rent BigBazar website`;
 
   const handleWhatsApp = () => {
     if (!agreed) {
@@ -84,7 +84,7 @@ Sent from: AC on Rent Near Me website`;
                 className={cn(
                   'px-3 py-2.5 rounded-xl text-sm font-semibold transition-all border-2',
                   duration === d.value
-                    ? 'bg-gray-900 text-white border-transparent'
+                    ? 'bg-accent text-brand border-transparent'
                     : 'bg-white text-gray-700 border-gray-200 hover:border-gray-400'
                 )}
               >
@@ -177,7 +177,7 @@ Sent from: AC on Rent Near Me website`;
         <div className="grid grid-cols-2 gap-2">
           <a
             href={generateCallLink(SITE_CONFIG.phone)}
-            className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl px-4 py-3 font-bold text-sm shadow-md transition-all"
+            className="inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent-dark text-brand rounded-xl px-4 py-3 font-bold text-sm shadow-md transition-all"
           >
             <Phone className="h-4 w-4" />
             Call Now

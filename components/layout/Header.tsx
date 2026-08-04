@@ -95,8 +95,8 @@ export function Header() {
             <div className="hidden lg:flex items-center gap-3">
               <a
                 href={generateCallLink(SITE_CONFIG.phone)}
-                className="inline-flex items-center gap-2 bg-gray-900 hover:bg-gray-800 text-white rounded-md px-4 py-2 text-sm font-semibold transition-colors"
-                aria-label="Call AC on Rent Near Me"
+                className="inline-flex items-center gap-2 bg-accent hover:bg-accent-dark text-brand rounded-md px-4 py-2 text-sm font-bold transition-colors"
+                aria-label={`Call ${SITE_CONFIG.name}`}
               >
                 <Phone className="h-4 w-4" />
                 <span>Call Now</span>
@@ -142,13 +142,13 @@ export function Header() {
               <div className="relative h-9 w-9">
                 <Image
                   src="/images/logo/logo.png"
-                  alt="AC on Rent Near Me"
+                  alt={SITE_CONFIG.name}
                   fill
                   sizes="36px"
                   className="object-contain"
                 />
               </div>
-              <span className="font-display font-bold text-gray-900">AC on Rent</span>
+              <span className="font-display font-bold text-gray-900">{SITE_CONFIG.shortName}</span>
             </div>
             <button
               onClick={() => setIsOpen(false)}
@@ -188,7 +188,7 @@ export function Header() {
               <div className="space-y-2">
                 <a
                   href={generateCallLink(SITE_CONFIG.phone)}
-                  className="flex items-center justify-center gap-2 w-full bg-gray-900 text-white rounded-xl py-3 font-semibold"
+                  className="flex items-center justify-center gap-2 w-full bg-accent text-brand rounded-xl py-3 font-bold"
                 >
                   <Phone className="h-4 w-4" />
                   Call: {SITE_CONFIG.phone.replace('+91', '+91 ')}

@@ -26,7 +26,7 @@ const sections: Array<{ title: string; body: string[] }> = [
   {
     title: '3. Product Acceptance at Delivery',
     body: [
-      'All products delivered by AC on Rent Near Me undergo quality inspection before dispatch.',
+      'All products delivered by Rent BigBazar undergo quality inspection before dispatch.',
       'At the time of delivery, customers are requested to inspect the products carefully.',
       'If a product is found to be defective, damaged during transit, non-functional, or different from the confirmed order, the customer should immediately inform the delivery team before installation or before the delivery personnel leave the premises.',
       'Once the delivery has been successfully completed and acknowledged, product rejection at the time of delivery will no longer be accepted.',
@@ -36,7 +36,7 @@ const sections: Array<{ title: string; body: string[] }> = [
   {
     title: '4. Rental Plans',
     body: [
-      'AC on Rent Near Me offers flexible rental plans, including:',
+      'Rent BigBazar offers flexible rental plans, including:',
       '• 1 Month',
       '• 3 Months',
       '• 6 Months',
@@ -47,7 +47,7 @@ const sections: Array<{ title: string; body: string[] }> = [
   {
     title: '5. Early Subscription Closure & Cancellation',
     body: [
-      'Customers may request closure of one or more rented products by informing AC on Rent Near Me at least 7 days before the preferred pickup date.',
+      'Customers may request closure of one or more rented products by informing Rent BigBazar at least 7 days before the preferred pickup date.',
       'However, if the subscription is terminated before completion of the selected rental tenure:',
       '• The rental agreement will be considered an early closure.',
       '• Rental amounts already paid are strictly non-refundable.',
@@ -59,7 +59,7 @@ const sections: Array<{ title: string; body: string[] }> = [
   {
     title: '6. Relocation Policy',
     body: [
-      'Customers must not relocate rented products without prior written approval from AC on Rent Near Me.',
+      'Customers must not relocate rented products without prior written approval from Rent BigBazar.',
       'If relocation is required:',
       '• Customers must inform us at least 14 days in advance.',
       '• Relocation is subject to service availability at the new address.',
@@ -87,16 +87,16 @@ const sections: Array<{ title: string; body: string[] }> = [
       '• Attempt unauthorized repairs.',
       '• Modify or alter the product.',
       '• Remove serial number labels.',
-      '• Sublet or transfer products without written approval from AC on Rent Near Me.',
+      '• Sublet or transfer products without written approval from Rent BigBazar.',
     ],
   },
   {
     title: '9. Damage & Loss Policy',
     body: [
       'Customers are fully responsible for the safety and proper use of rented products during the rental period.',
-      'If any rented product suffers physical damage, accidental damage, water damage, fire damage, electrical damage caused by improper usage, missing accessories / remote controls / cables / parts, breakage due to mishandling, or unauthorized repairs / modifications, the customer shall be liable to pay the repair or replacement cost as determined by AC on Rent Near Me based on the prevailing market rates.',
+      'If any rented product suffers physical damage, accidental damage, water damage, fire damage, electrical damage caused by improper usage, missing accessories / remote controls / cables / parts, breakage due to mishandling, or unauthorized repairs / modifications, the customer shall be liable to pay the repair or replacement cost as determined by Rent BigBazar based on the prevailing market rates.',
       'If a product is damaged beyond economical repair or is lost, stolen, or cannot be recovered, the customer shall be liable to pay the full replacement value of the product after adjustment of any available refundable security deposit.',
-      'The technical assessment conducted by AC on Rent Near Me’ service team shall be considered final.',
+      'The technical assessment conducted by Rent BigBazar’ service team shall be considered final.',
     ],
   },
   {
@@ -115,13 +115,13 @@ const sections: Array<{ title: string; body: string[] }> = [
     title: '11. Service Availability',
     body: [
       'Delivery, installation, relocation, repairs, and pickup services are subject to operational availability in the customer’s location.',
-      'AC on Rent Near Me reserves the right to reschedule services due to unforeseen circumstances such as weather conditions, transportation issues, public holidays, or operational constraints.',
+      'Rent BigBazar reserves the right to reschedule services due to unforeseen circumstances such as weather conditions, transportation issues, public holidays, or operational constraints.',
     ],
   },
   {
     title: '12. Right to Refuse Service',
     body: [
-      'AC on Rent Near Me reserves the right to refuse, suspend, or terminate any rental service in cases of:',
+      'Rent BigBazar reserves the right to refuse, suspend, or terminate any rental service in cases of:',
       '• Fraudulent activity.',
       '• Misrepresentation of customer information.',
       '• Non-payment of dues.',
@@ -132,8 +132,8 @@ const sections: Array<{ title: string; body: string[] }> = [
   {
     title: '13. Changes to This Policy',
     body: [
-      'AC on Rent Near Me reserves the right to modify or update these Terms & Conditions at any time without prior notice.',
-      'The latest version published on www.aconrentnearme.com shall always prevail.',
+      'Rent BigBazar reserves the right to modify or update these Terms & Conditions at any time without prior notice.',
+      'The latest version published on www.rentbigbazar.com shall always prevail.',
     ],
   },
 ];
@@ -149,7 +149,7 @@ export default function RefundPolicyPage() {
               Rental Terms, Cancellation &amp; Refund Policy
             </h1>
             <p className="text-sm text-gray-600 leading-relaxed">
-              Welcome to AC on Rent Near Me. By placing an order with us, you agree to the
+              Welcome to Rent BigBazar. By placing an order with us, you agree to the
               following Rental Terms &amp; Conditions. These policies are designed to ensure a
               transparent, fair, and hassle-free rental experience for all customers.
             </p>
@@ -193,19 +193,19 @@ export default function RefundPolicyPage() {
               Need Help?
             </h2>
             <p className="text-gray-300 text-sm mb-4">
-              Reach out to the AC on Rent Near Me team. We respond across Phone, WhatsApp,
+              Reach out to the Rent BigBazar team. We respond across Phone, WhatsApp,
               Live Chat and Email.
             </p>
             <div className="space-y-2 text-sm">
               <div className="flex items-center gap-2">
                 <span className="text-gray-400">🌐 Website:</span>
                 <a
-                  href="https://www.aconrentnearme.com"
+                  href="https://www.rentbigbazar.com"
                   className="text-white hover:underline"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  www.aconrentnearme.com
+                  www.rentbigbazar.com
                 </a>
               </div>
               <div className="flex items-center gap-2">

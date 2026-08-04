@@ -122,15 +122,15 @@
   }
 
   .btn-primary {
-    @apply btn bg-gray-900 text-white hover:bg-gray-800 focus:ring-gray-900 px-5 py-2.5 sm:px-6 sm:py-3;
+    @apply btn bg-accent text-brand hover:bg-accent-dark hover:shadow-lg focus:ring-accent px-5 py-2.5 sm:px-6 sm:py-3;
   }
 
   .btn-secondary {
-    @apply btn bg-white text-sky-600 border-2 border-sky-500 hover:bg-sky-50 hover:shadow-md focus:ring-sky-500 px-5 py-2.5 sm:px-6 sm:py-3;
+    @apply btn bg-white text-brand border-2 border-brand hover:bg-brand-50 hover:shadow-md focus:ring-brand px-5 py-2.5 sm:px-6 sm:py-3;
   }
 
   .btn-accent {
-    @apply btn bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500 px-5 py-2.5 sm:px-6 sm:py-3;
+    @apply btn bg-accent text-brand hover:bg-accent-dark hover:shadow-lg focus:ring-accent px-5 py-2.5 sm:px-6 sm:py-3;
   }
 
   .btn-whatsapp {

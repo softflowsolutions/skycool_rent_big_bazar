@@ -24,14 +24,14 @@ export function CTASection() {
           </Link>
           <a
             href={generateCallLink(SITE_CONFIG.phone)}
-            className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md px-6 py-3 font-semibold text-sm transition-colors"
+            className="inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent-dark text-brand rounded-md px-6 py-3 font-bold text-sm transition-colors"
           >
             <Phone className="h-4 w-4" />
             Call Now
           </a>
           <a
             href={generateWhatsAppLink(
-              `Hi AC on Rent Near Me! I'd like to know more about your AC rental plans.`,
+              `Hi Rent BigBazar! I'd like to know more about your AC rental plans.`,
               SITE_CONFIG.whatsapp
             )}
             target="_blank"

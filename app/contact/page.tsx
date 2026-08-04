@@ -26,7 +26,7 @@ const contactMethods = [
     title: 'WhatsApp',
     value: SITE_CONFIG.phone,
     href: generateWhatsAppLink(
-      'Hi AC on Rent Near Me! I need help with AC rentals and service.',
+      'Hi Rent BigBazar! I need help with AC rentals and service.',
       SITE_CONFIG.whatsapp
     ),
     description: 'Chat with us for instant help',

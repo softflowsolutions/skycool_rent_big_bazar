@@ -34,7 +34,7 @@ export default function RentPage() {
             <p className="text-gray-600 text-sm sm:text-base lg:text-lg">
               Rent ACs, Fridges, Washing Machines, Geysers &amp; more home appliances on
               affordable monthly plans. Zero deposit, free delivery &amp; installation.
-              <strong> AC on Rent Near Me</strong> — starting at ₹599/month.
+              <strong> Rent BigBazar</strong> — starting at ₹599/month.
             </p>
           </div>
         </div>

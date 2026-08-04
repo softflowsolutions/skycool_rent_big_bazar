@@ -227,12 +227,12 @@ export function PWAInstallModal() {
           </button>
 
           <div className="flex items-center gap-3 pr-10">
-            <div className="flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center rounded-2xl bg-white/15 ring-1 ring-white/30 backdrop-blur shrink-0">
-              <Smartphone className="h-5 w-5 sm:h-6 sm:w-6" />
+            <div className="flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center rounded-2xl bg-accent ring-1 ring-accent-dark backdrop-blur shrink-0">
+              <Smartphone className="h-5 w-5 sm:h-6 sm:w-6 text-brand" />
             </div>
             <div className="min-w-0">
               <p className="text-[10px] sm:text-xs uppercase tracking-widest text-white/80 font-semibold">
-                AC on Rent Near Me
+                Rent BigBazar
               </p>
               <h2
                 id="pwa-modal-title"
@@ -266,9 +266,9 @@ export function PWAInstallModal() {
                 onClick={handleInstall}
                 disabled={!installable}
                 className={cn(
-                  'flex-1 inline-flex items-center justify-center gap-2 rounded-xl px-4 py-3 font-semibold text-sm transition',
+                  'flex-1 inline-flex items-center justify-center gap-2 rounded-xl px-4 py-3 font-bold text-sm transition',
                   installable
-                    ? 'bg-gray-900 text-white hover:bg-gray-800'
+                    ? 'bg-accent text-brand hover:bg-accent-dark shadow-md hover:shadow-lg'
                     : 'bg-gray-100 text-gray-500 cursor-not-allowed border border-gray-200'
                 )}
               >
@@ -277,7 +277,7 @@ export function PWAInstallModal() {
               </button>
               <button
                 onClick={close}
-                className="inline-flex items-center justify-center rounded-xl px-4 py-3 font-semibold text-sm text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-sky-500"
+                className="inline-flex items-center justify-center rounded-xl px-4 py-3 font-semibold text-sm text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-accent"
               >
                 Maybe Later
               </button>
@@ -305,7 +305,7 @@ function Benefit({
 }) {
   return (
     <li className="flex items-center gap-3 text-sm text-gray-700">
-      <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-sky-50 text-sky-600 ring-1 ring-sky-100">
+      <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-accent-50 text-brand ring-1 ring-accent-100">
         {icon}
       </span>
       <span className="font-medium">{text}</span>

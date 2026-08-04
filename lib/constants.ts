@@ -1,15 +1,15 @@
 export const SITE_CONFIG = {
-  name: 'AC on Rent Near Me',
-  shortName: 'AC on Rent Near Me',
-  tagline: 'AC on Rent Near Me — Affordable AC Rentals Across India',
+  name: 'Rent BigBazar',
+  shortName: 'Rent BigBazar',
+  tagline: 'Rent BigBazar — Rent More, Save More',
   description:
-    'Rent ACs and home appliances in India — window, split, inverter, tower, cassette and ductable ACs on affordable monthly plans. Zero deposit, free delivery and installation.',
-  url: 'https://aconrentnearme.com',
-  email: 'support@aconrentnearme.com',
-  adminEmail: 'support@aconrentnearme.com',
+    'Rent ACs and home appliances across India with Rent BigBazar. Window, split, inverter, tower, cassette and ductable ACs on affordable monthly plans. Zero deposit, free delivery and installation.',
+  url: 'https://rentbigbazar.com',
+  email: 'support@rentbigbazar.com',
+  adminEmail: 'support@rentbigbazar.com',
   // Single business contact number — used site-wide for both call & WhatsApp.
-  phone: '+918805131431',
-  whatsapp: '918805131431',
+  phone: '+918806241430',
+  whatsapp: '918806241430',
   address: 'Mezbaan Bakery, Near Durrani Complex, Saibaba Nagar, Kondhwa, Pune, Maharashtra 411048',
   workingHours: 'Mon - Sun: 8:00 AM - 10:00 PM',
   googleMaps: 'https://maps.app.goo.gl/3WzmMsVVvt83mQuv9?g_st=awb',
@@ -19,11 +19,11 @@ export const SITE_CONFIG = {
   areasServed: ['Pune', 'Mumbai', 'Bangalore', 'Delhi NCR', 'Hyderabad', 'Chennai'],
   cities: ['Pune'],
   socials: {
-    youtube: 'https://youtube.com/@skycoolsolutionsltd?si=sra2S-mb_OrpWgen',
+    youtube: 'https://youtube.com/@rentbigbazar',
     justdial: 'https://jsdl.in/RSL-UTD1785219025',
     googleMaps: 'https://maps.app.goo.gl/3WzmMsVVvt83mQuv9?g_st=awb',
     linkedin:
-      'https://www.linkedin.com/in/suhail-sayyed-5b43a1366?utm_source=share_via&utm_content=profile&utm_medium=member_android',
+      'https://www.linkedin.com/company/rentbigbazar',
   },
   developer: {
     name: 'Softflow Solutions',

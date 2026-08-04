@@ -95,7 +95,7 @@ const KW_CONTACT = [
 
 const KW_ABOUT = [
   'about AC on rent near me',
-  'AC on Rent Near Me company',
+  'Rent BigBazar company',
   'Pune AC rental service',
   'trusted AC rental brand',
 ];

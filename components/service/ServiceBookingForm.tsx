@@ -54,7 +54,7 @@ export function ServiceBookingForm({ service }: ServiceBookingFormProps) {
     await new Promise((r) => setTimeout(r, 1000));
     setLoading(false);
 
-    const message = `Hi AC on Rent Near Me! 🛠️
+    const message = `Hi Rent BigBazar! 🛠️
 
 SERVICE BOOKING
 
@@ -70,7 +70,7 @@ SERVICE BOOKING
 Please confirm appointment.
 
 ---
-Sent from: AC on Rent Near Me website`;
+Sent from: Rent BigBazar website`;
 
     window.open(generateWhatsAppLink(message, SITE_CONFIG.whatsapp), '_blank');
     success('Booking request sent!', 'Our team will contact you soon to confirm your appointment.');

@@ -42,7 +42,7 @@ export function WhyChooseUs() {
             Why Choose Us
           </p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 tracking-tight">
-            Why AC on Rent Near Me?
+            Why Rent BigBazar?
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base">
             We make cooling simple, affordable, and hassle-free.

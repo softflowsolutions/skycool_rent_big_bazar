@@ -608,7 +608,7 @@ function buildProducts(): Product[] {
           brand,
           images: [cat.img, cat.img2],
           description: `${cap.l} ${cat.type} from ${brand} — reliable rental-grade appliance with warranty, free delivery & installation, and zero deposit.`,
-          longDescription: `This ${brand} ${cap.l} ${cat.type.toLowerCase()} is curated for AC on Rent Near Me customers looking for hassle-free monthly rentals. ${cat.features.slice(0, 4).join('; ')}. Every rental includes free delivery, installation, and full warranty coverage during the rental period.`,
+          longDescription: `This ${brand} ${cap.l} ${cat.type.toLowerCase()} is curated for Rent BigBazar customers looking for hassle-free monthly rentals. ${cat.features.slice(0, 4).join('; ')}. Every rental includes free delivery, installation, and full warranty coverage during the rental period.`,
           specifications: {
             Brand: brand,
             Type: cat.type,
@@ -1328,7 +1328,7 @@ export const TESTIMONIALS: Testimonial[] = [
     name: 'Priya Sharma',
     city: 'Bangalore',
     rating: 5,
-    text: 'Rented a 1.5 Ton Split AC from AC on Rent Near Me for 6 months during my Bangalore stint. Excellent service, no hassle, and the AC was in perfect condition. Pickup was seamless too!',
+    text: 'Rented a 1.5 Ton Split AC from Rent BigBazar for 6 months during my Bangalore stint. Excellent service, no hassle, and the AC was in perfect condition. Pickup was seamless too!',
     product: '1.5 Ton Split AC',
   },
   {
@@ -1336,7 +1336,7 @@ export const TESTIMONIALS: Testimonial[] = [
     name: 'Rohan Verma',
     city: 'Delhi',
     rating: 5,
-    text: 'As a student in Delhi, I can\'t afford to buy an AC. AC on Rent Near Me\'s monthly rental is a lifesaver. Got my window AC delivered in 4 hours. Highly recommended for students!',
+    text: 'As a student in Delhi, I can\'t afford to buy an AC. Rent BigBazar\'s monthly rental is a lifesaver. Got my window AC delivered in 4 hours. Highly recommended for students!',
     product: '1 Ton Window AC',
   },
   {
@@ -1344,7 +1344,7 @@ export const TESTIMONIALS: Testimonial[] = [
     name: 'Mr. Ahmed Khan',
     city: 'Hyderabad',
     rating: 5,
-    text: 'I run a small restaurant and needed multiple fridges for a 3-month event. AC on Rent Near Me offered flexible bulk pricing and the fridges were delivered on time. Professional team!',
+    text: 'I run a small restaurant and needed multiple fridges for a 3-month event. Rent BigBazar offered flexible bulk pricing and the fridges were delivered on time. Professional team!',
     product: '3x Double Door Fridges',
   },
   {
@@ -1352,7 +1352,7 @@ export const TESTIMONIALS: Testimonial[] = [
     name: 'Anjali Patel',
     city: 'Mumbai',
     rating: 5,
-    text: 'AC broke down during peak summer in Mumbai. Called AC on Rent Near Me for emergency repair - technician arrived within 3 hours and fixed it on the spot. Great service!',
+    text: 'AC broke down during peak summer in Mumbai. Called Rent BigBazar for emergency repair - technician arrived within 3 hours and fixed it on the spot. Great service!',
     product: 'AC Repair Service',
   },
   {
@@ -1376,7 +1376,7 @@ export const TESTIMONIALS: Testimonial[] = [
     name: 'Arjun Mehta',
     city: 'Kolkata',
     rating: 5,
-    text: 'Was skeptical about renting appliances online, but AC on Rent Near Me made it super easy. WhatsApp ordering is brilliant. The fridge works perfectly for my PG.',
+    text: 'Was skeptical about renting appliances online, but Rent BigBazar made it super easy. WhatsApp ordering is brilliant. The fridge works perfectly for my PG.',
     product: '190L Single Door Fridge',
   },
   {
@@ -1384,7 +1384,7 @@ export const TESTIMONIALS: Testimonial[] = [
     name: 'Meera Joshi',
     city: 'Ahmedabad',
     rating: 5,
-    text: 'My portable AC from AC on Rent Near Me is amazing for my small studio. No installation needed - just plug and play. Perfect for renters who move frequently.',
+    text: 'My portable AC from Rent BigBazar is amazing for my small studio. No installation needed - just plug and play. Perfect for renters who move frequently.',
     product: '1 Ton Portable AC',
   },
 ];
