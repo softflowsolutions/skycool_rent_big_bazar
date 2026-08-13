@@ -199,6 +199,43 @@ Default `<site>/og-image.jpg` (1200 × 630 JPEG, < 300 KB). Update the URL in `l
 
 Replace images in `public/images/products/` (or `public/images/newproductimages/`). Both are whitelisted in `next.config.js`.
 
+### Gallery images (warehouse & products)
+
+The `/gallery` page is fully driven by a single config file — `lib/gallery.ts`.
+Every entry points to a real image file in `public/images/gallery/`. Add, swap,
+or remove images there without touching any component or page code.
+
+**To add a new gallery image:**
+
+1. Drop the JPEG into `public/images/gallery/` using a lowercase, dash-separated
+   filename (e.g. `warehouse-1.jpg`, `products-ac-row.jpg`). Recommended
+   **1200×900 (4:3)** JPEG, ≤ 200 KB.
+2. Open `lib/gallery.ts` and add an entry to `GALLERY_IMAGES`:
+   ```ts
+   {
+     src: '/images/gallery/warehouse-1.jpg',
+     alt: 'Rent BigBazar warehouse — AC units stacked and ready for dispatch',
+     category: 'Warehouse',
+     title: 'Main Warehouse — Pune',
+   }
+   ```
+   Field reference:
+   - `src` — path under `/public` (must start with `/`).
+   - `alt` — short, descriptive alt text for screen readers + SEO.
+   - `category` — one of `'Warehouse' | 'Products' | 'Team' | 'Service' | 'Events'`. Used as a chip on the card; `GALLERY_CATEGORIES` auto-derives from this so adding a new value updates the filter chips automatically.
+   - `title` — optional overlay title (omit to fall back to `alt`).
+3. Run `npm run build` — Next/Image generates optimal `srcset` variants on the fly.
+4. Refresh `/gallery` to verify ordering, alt text, and category chips.
+
+**To remove or replace an image:** delete the file from `public/images/gallery/`
+and remove the matching entry from `lib/gallery.ts`. Order in the file = order
+on the page.
+
+**Folder convention:** keep all gallery images under `public/images/gallery/`.
+Do not put gallery images under `products/` or `newproductimages/` — those
+buckets are referenced by the product catalog and mixing them will pull gallery
+shots into product cards.
+
 ### Service images
 
 `lib/data.ts` → `SERVICES` array. Each service has `images: ['…']` — change the first entry to update the cover image, add a second entry for the gallery. The AC service tile on `/service` also pulls from this.
@@ -403,6 +440,7 @@ Desktop layout: logo + wordmark on the left, nav center, Call Now + WhatsApp but
 | Theme palette (3 colors)                       | `tailwind.config.ts` → `BRAND`/`ACCENT`/`HIGHLIGHT`       |
 | All SEO content (titles, descriptions, kws)    | `lib/seo.ts`                                             |
 | Products, services, prices, testimonials, FAQs | `lib/data.ts`                                            |
+| Gallery page image registry                    | `lib/gallery.ts` + `public/images/gallery/`              |
 | Rent tile & sub-category image map             | `app/rent/[category]/page.tsx`                           |
 | Service tile image map                         | `app/service/page.tsx`                                   |
 | Enquiry form + success modal                   | `components/forms/EnquiryForm.tsx`                       |
@@ -419,7 +457,7 @@ Desktop layout: logo + wordmark on the left, nav center, Call Now + WhatsApp but
 - `/` Homepage (search, banner, categories, popular products & services, why-choose-us, testimonials, FAQ, CTA, etc.)
 - `/rent`, `/rent/[category]`, `/rent/[category]/[subcategory]`, `/rent/[category]/[subcategory]/[product]`
 - `/service`, `/service/[category]`, `/service/[category]/[subcategory]`, `/service/[category]/[subcategory]/[service]`
-- `/about`, `/contact`, `/terms`, `/privacy`, `/refund-policy`, `/not-found`
+- `/about`, `/contact`, `/terms`, `/privacy`, `/refund-policy`, `/gallery`, `/not-found`
 - `/sitemap.xml`, `/robots.txt`, `/manifest.json`
 
 ## ✅ Tech stack

@@ -8,8 +8,8 @@ const features = [
   },
   {
     icon: Truck,
-    title: 'Free Delivery & Installation',
-    description: 'Same-day delivery in metros. Free installation included.',
+    title: 'Pan-India Delivery',
+    description: 'Same-day delivery in metros. Charges applicable on installation.',
   },
   {
     icon: Shield,

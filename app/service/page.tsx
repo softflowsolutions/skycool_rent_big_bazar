@@ -114,8 +114,8 @@ export default function ServicePage() {
               <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10 mb-3">
                 <Shield className="h-7 w-7 text-white" />
               </div>
-              <h3 className="font-bold text-lg mb-2">90-Day Warranty</h3>
-              <p className="text-sm text-gray-300">All repairs come with 90-day service warranty.</p>
+              <h3 className="font-bold text-lg mb-2">30-Day Warranty</h3>
+              <p className="text-sm text-gray-300">All repairs come with 30-day service warranty.</p>
             </div>
             <div className="bg-white/10 backdrop-blur rounded-2xl p-6 border border-white/20 text-center">
               <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10 mb-3">

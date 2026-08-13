@@ -3,7 +3,7 @@ export const SITE_CONFIG = {
   shortName: 'Rent BigBazar',
   tagline: 'Rent BigBazar — Rent More, Save More',
   description:
-    'Rent ACs and home appliances across India with Rent BigBazar. Window, split, inverter, tower, cassette and ductable ACs on affordable monthly plans. Zero deposit, free delivery and installation.',
+    'Rent ACs and home appliances across India with Rent BigBazar. Window, split, inverter, tower, cassette and ductable ACs on affordable monthly plans. Zero deposit. Charges applicable on delivery and installation.',
   url: 'https://rentbigbazar.com',
   email: 'support@rentbigbazar.com',
   adminEmail: 'support@rentbigbazar.com',
@@ -35,6 +35,7 @@ export const NAV_LINKS = [
   { label: 'Home', href: '/' },
   { label: 'Rent', href: '/rent' },
   { label: 'Service', href: '/service' },
+  { label: 'Gallery', href: '/gallery' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ];

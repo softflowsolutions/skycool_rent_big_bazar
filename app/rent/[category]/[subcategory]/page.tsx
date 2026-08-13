@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     category: 'rent',
     slug: `${params.category}-${params.subcategory}`,
     label: subName,
-    description: `Rent ${subName} in Pune & across India on monthly plans. Zero deposit, free delivery & installation. Top brands, immediate dispatch.`,
+    description: `Rent ${subName} in Pune & across India on monthly plans. Zero deposit. Charges applicable on delivery & installation. Top brands, immediate dispatch.`,
   });
 }
 

@@ -43,7 +43,7 @@ export function Footer() {
                 <Shield className="h-5 w-5 text-sky-600" />
               </div>
               <div>
-                <div className="font-semibold text-sm text-gray-900">90-Day</div>
+                <div className="font-semibold text-sm text-gray-900">30-Day</div>
                 <div className="text-xs text-gray-500">Service Warranty</div>
               </div>
             </div>
@@ -80,8 +80,8 @@ export function Footer() {
             </Link>
             <p className="text-sm text-gray-600 mb-6 leading-relaxed">
               India&apos;s most trusted AC & Fridge rental and service platform.
-              Affordable monthly rentals starting at ₹599/month with free delivery
-              and installation across 15+ cities.
+              Affordable monthly rentals starting at ₹599/month. Charges
+              applicable on delivery & installation across 15+ cities.
             </p>
           </div>
 
@@ -97,6 +97,7 @@ export function Footer() {
                 { label: 'Combo Deals', href: '/rent/combo' },
                 { label: 'AC Service', href: '/service/ac' },
                 { label: 'Fridge Service', href: '/service/fridge' },
+                { label: 'Gallery', href: '/gallery' },
                 { label: 'About Us', href: '/about' },
                 { label: 'Contact', href: '/contact' },
               ].map((link) => (

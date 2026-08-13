@@ -42,8 +42,8 @@ Late payment may attract a penalty of ₹100 per day after the due date.`,
   },
   {
     title: '6. Delivery & Installation',
-    content: `• Free delivery within 15km of city center in metro cities
-• Free installation for AC units (up to 3 meters of copper piping)
+    content: `• Charges applicable on delivery within 15km of city center in metro cities
+• Charges applicable on installation for AC units (up to 3 meters of copper piping)
 • Delivery timeline: Same-day/Next-day in metros, 2-3 days in other cities
 • Customer must be present at the delivery address with valid ID proof`,
   },
@@ -68,7 +68,7 @@ ${SITE_CONFIG.name} is responsible for:
   },
   {
     title: '9. Service Warranty',
-    content: `• Repair services: 90-day warranty
+    content: `• Repair services: 30-day warranty
 • Installation: 1-year warranty on workmanship
 • Gas refill: 30-day cooling warranty
 • Warranty does not cover damage from misuse or external factors`,

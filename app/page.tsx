@@ -5,6 +5,7 @@ import { WhyChooseUs } from '@/components/sections/WhyChooseUs';
 import { PopularProducts } from '@/components/sections/PopularProducts';
 import { PopularServices } from '@/components/sections/PopularServices';
 import { HowItWorks } from '@/components/sections/HowItWorks';
+import { PartnerWithUs } from '@/components/sections/PartnerWithUs';
 import { Testimonials } from '@/components/sections/Testimonials';
 import { AppComingSoon } from '@/components/sections/AppComingSoon';
 import { Stats } from '@/components/sections/Stats';
@@ -27,6 +28,7 @@ export default function HomePage() {
       <PopularServices services={popularServices} />
       <HowItWorks />
       <Stats />
+      <PartnerWithUs />
       <Testimonials />
       <WhyChooseUs />
       <AppComingSoon />

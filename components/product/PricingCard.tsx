@@ -26,7 +26,7 @@ export function PricingCard({ product }: PricingCardProps) {
       <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-gray-600 mb-4 pb-4 border-b border-gray-200">
         <span className="flex items-center gap-1">
           <Truck className="h-3.5 w-3.5" />
-          Free Delivery
+          Delivery &amp; installation charges applicable
         </span>
         <span className="flex items-center gap-1">
           <Shield className="h-3.5 w-3.5" />

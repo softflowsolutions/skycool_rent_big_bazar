@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     category: 'rent',
     slug: params.category,
     label: titleCase(params.category),
-    description: `Rent ${titleCase(params.category)} in Pune and across India on monthly plans starting at ₹599/month with zero deposit, free delivery & installation.`,
+    description: `Rent ${titleCase(params.category)} in Pune and across India on monthly plans starting at ₹599/month with zero deposit. Charges applicable on delivery & installation.`,
   });
 }
 

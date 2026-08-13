@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     category: 'service',
     slug: `${params.category}-${params.subcategory}`,
     label: subName,
-    description: `Professional ${subName} service in Pune & across India starting at affordable prices. Same-day service, 90-day warranty, certified technicians.`,
+    description: `Professional ${subName} service in Pune & across India starting at affordable prices. Same-day service, 30-day warranty, certified technicians.`,
   });
 }
 

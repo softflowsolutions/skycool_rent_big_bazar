@@ -98,8 +98,8 @@ export default function AboutPage() {
               </p>
               <p>
                 That&apos;s why we started {SITE_CONFIG.name}. We believe everyone deserves comfort. Our
-                rental plans start at just ₹599/month — less than the cost of a dinner for two — and
-                include free delivery, installation, and maintenance.
+                rental plans start at just ₹599/month — less than the cost of a dinner for two — with
+                charges applicable on delivery, installation, and maintenance.
               </p>
               <p>
                 Whether you&apos;re a student in a PG, a young professional in a rented apartment, or a

@@ -42,6 +42,10 @@ export function ProductInfo({ product }: ProductInfoProps) {
         </div>
       </div>
 
+      <div className="mb-4 rounded-md border border-amber-200 bg-amber-50 px-3 py-2 text-xs sm:text-sm font-medium text-amber-800">
+        Installation and transportation charges applicable.
+      </div>
+
       <div>
         <h3 className="text-xs uppercase tracking-wider font-semibold text-gray-500 mb-2">
           Key Features

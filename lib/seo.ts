@@ -141,27 +141,27 @@ function og(title: string, description: string): NonNullable<PageSeo['openGraph'
 export const SEO: Record<string, PageSeo> = {
   home: {
     title: `${SITE_CONFIG.name} — Rent ACs Near You from ₹599/month`,
-    description: `${SITE_CONFIG.name} — India's most trusted AC rental platform. Rent window, split, inverter, tower, cassette and ductable ACs with zero deposit and free delivery & installation. Available across Pune, Mumbai, Bangalore, Delhi NCR, Hyderabad and Chennai.`,
+    description: `${SITE_CONFIG.name} — India's most trusted AC rental platform. Rent window, split, inverter, tower, cassette and ductable ACs with zero deposit. Charges applicable on delivery & installation. Available across Pune, Mumbai, Bangalore, Delhi NCR, Hyderabad and Chennai.`,
     keywords: KW_HOME,
     alternates: { canonical: SITE_CONFIG.url },
     openGraph: og(
       `${SITE_CONFIG.name} — Rent ACs Near You from ₹599/month`,
-      `Rent ACs near you with zero deposit and free delivery. Available across Pune, Mumbai, Bangalore, Delhi NCR, Hyderabad and Chennai.`,
+      `Rent ACs near you with zero deposit. Charges applicable on delivery. Available across Pune, Mumbai, Bangalore, Delhi NCR, Hyderabad and Chennai.`,
     ),
     twitter: {
       card: 'summary_large_image',
       title: `${SITE_CONFIG.name} — Rent ACs Near You`,
-      description: 'Rent ACs near you from ₹599/month. Zero deposit, free delivery.',
+      description: 'Rent ACs near you from ₹599/month. Zero deposit. Charges applicable on delivery.',
     },
   },
   rent: {
     title: `Rent AC, Fridge & Home Appliances in India — ${SITE_CONFIG.name}`,
-    description: `Rent AC, fridge, washing machine, cooler, geyser, water purifier, microwave & more home appliances across India. Window, split, inverter, tower, cassette and ductable ACs on flexible monthly plans starting at ₹599/month with zero deposit and free delivery.`,
+    description: `Rent AC, fridge, washing machine, cooler, geyser, water purifier, microwave & more home appliances across India. Window, split, inverter, tower, cassette and ductable ACs on flexible monthly plans starting at ₹599/month with zero deposit. Charges applicable on delivery & installation.`,
     keywords: KW_RENT,
     alternates: { canonical: `${SITE_CONFIG.url}/rent` },
     openGraph: og(
       `Rent AC, Fridge & Home Appliances — ${SITE_CONFIG.name}`,
-      'Rent ACs and home appliances with zero deposit, free delivery and installation.',
+      'Rent ACs and home appliances with zero deposit. Charges applicable on delivery & installation.',
     ),
   },
   service: {
@@ -212,6 +212,22 @@ export const SEO: Record<string, PageSeo> = {
     keywords: KW_REFUND,
     alternates: { canonical: `${SITE_CONFIG.url}/refund-policy` },
   },
+  gallery: {
+    title: `Gallery — Warehouse & Products | ${SITE_CONFIG.name}`,
+    description: `Browse real photos of ${SITE_CONFIG.name} warehouses, rental-ready inventory, and on-site service across India. See what we deliver before you order.`,
+    keywords: [
+      `${SITE_CONFIG.name} gallery`,
+      'Rent BigBazar warehouse photos',
+      'rental appliance inventory',
+      'AC on rent warehouse',
+      'fridge on rent inventory',
+    ],
+    alternates: { canonical: `${SITE_CONFIG.url}/gallery` },
+    openGraph: og(
+      `Gallery — ${SITE_CONFIG.name}`,
+      `Real warehouse and product photos from ${SITE_CONFIG.name}.`,
+    ),
+  },
 };
 
 /** Build a per-product page metadata block. */
@@ -236,7 +252,7 @@ export function productSeo(opts: {
     title: `${pretty} on Rent in Pune — ${SITE_CONFIG.name}`,
     description:
       description ??
-      `Rent ${pretty} on monthly plans with zero deposit, free delivery & installation. ${brand} ${category} rental in Pune and across India.`,
+      `Rent ${pretty} on monthly plans with zero deposit. Charges applicable on delivery & installation. ${brand} ${category} rental in Pune and across India.`,
     keywords: [...kwBase, ...local],
     openGraph: og(`${pretty} on Rent`, `${pretty} on Rent — ${SITE_CONFIG.name}`),
   };
@@ -262,7 +278,7 @@ export function serviceSeo(opts: {
     title: `${name} in Pune — ${SITE_CONFIG.name}`,
     description:
       description ??
-      `${name} — professional, same-day ${slug} service near you in Pune. Certified technicians, transparent pricing, 90-day warranty.`,
+      `${name} — professional, same-day ${slug} service near you in Pune. Certified technicians, transparent pricing, 30-day warranty.`,
     keywords: [...kwBase, ...local],
     openGraph: og(`${name} — ${SITE_CONFIG.name}`, `${name} in Pune starting at ₹${price ?? ''}`),
   };
@@ -291,7 +307,7 @@ export function categorySeo(opts: {
     title: `${label} ${titleSlug} in Pune — ${SITE_CONFIG.name}`,
     description:
       description ??
-      `${label} ${titleSlug.toLowerCase()} in Pune & across India. ${readable} on monthly plans with zero deposit, free delivery & installation. ${SITE_CONFIG.name}.`,
+      `${label} ${titleSlug.toLowerCase()} in Pune & across India. ${readable} on monthly plans with zero deposit. Charges applicable on delivery & installation. ${SITE_CONFIG.name}.`,
     keywords: [...baseKw, ...local],
     alternates: { canonical: `${SITE_CONFIG.url}${pathPrefix}/${slug}` },
     openGraph: og(`${label} ${titleSlug} — ${SITE_CONFIG.name}`, `${label} ${titleSlug.toLowerCase()} in Pune.`),

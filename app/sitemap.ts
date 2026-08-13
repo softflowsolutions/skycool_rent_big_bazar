@@ -25,6 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/terms`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
     { url: `${base}/privacy`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
     { url: `${base}/refund-policy`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
+    { url: `${base}/gallery`, lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
   ];
 
   const rentCategories: MetadataRoute.Sitemap = RENT_CATEGORY_SLUGS.map((cat) => ({

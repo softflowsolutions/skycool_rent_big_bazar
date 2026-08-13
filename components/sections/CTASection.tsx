@@ -11,7 +11,8 @@ export function CTASection() {
           Beat the Heat. Rent Today.
         </h2>
         <p className="text-gray-300 text-sm sm:text-base lg:text-lg mb-6 lg:mb-8 max-w-2xl mx-auto leading-relaxed">
-          Get your AC or Fridge delivered in 4 hours. Zero deposit, free installation, 24/7 support.
+          Get your AC or Fridge delivered in 4 hours. Zero deposit. Charges applicable on
+          installation. 24/7 support.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-3 justify-center">

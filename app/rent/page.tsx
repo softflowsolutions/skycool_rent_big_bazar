@@ -33,8 +33,9 @@ export default function RentPage() {
             </h1>
             <p className="text-gray-600 text-sm sm:text-base lg:text-lg">
               Rent ACs, Fridges, Washing Machines, Geysers &amp; more home appliances on
-              affordable monthly plans. Zero deposit, free delivery &amp; installation.
-              <strong> Rent BigBazar</strong> — starting at ₹599/month.
+              affordable monthly plans. Zero deposit. Charges applicable on
+              delivery &amp; installation. <strong> Rent BigBazar</strong> — starting
+              at ₹599/month.
             </p>
           </div>
         </div>
