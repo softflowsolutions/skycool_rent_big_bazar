@@ -19,6 +19,13 @@ export function ServiceCard({ service, className }: ServiceCardProps) {
     >
       {/* Image */}
       <div className="relative aspect-[4/3] bg-gray-50 overflow-hidden">
+        {service.comingSoon && (
+          <div className="absolute top-2 left-2 z-10">
+            <span className="bg-gray-900/80 backdrop-blur-sm text-white text-[10px] font-semibold tracking-wider uppercase px-2 py-0.5 rounded">
+              Coming Soon
+            </span>
+          </div>
+        )}
         <Image
           src={service.images[0]}
           alt={service.name}
@@ -37,16 +44,30 @@ export function ServiceCard({ service, className }: ServiceCardProps) {
         <p className="text-xs text-gray-500 mb-2 line-clamp-2 min-h-[2rem]">
           {service.description}
         </p>
-        <div className="flex items-baseline gap-1 mb-2">
-          <span className="text-base font-bold text-gray-900">₹{service.startingPrice}</span>
-          <span className="text-xs text-gray-500">onwards</span>
-        </div>
+        {service.comingSoon ? (
+          <div className="flex items-center gap-1.5 mb-2">
+            <span className="inline-block px-2 py-0.5 rounded text-xs font-bold bg-amber-100 text-amber-800 border border-amber-200">
+              Coming Soon
+            </span>
+          </div>
+        ) : (
+          <div className="flex items-baseline gap-1 mb-2">
+            <span className="text-base font-bold text-gray-900">₹{service.startingPrice}</span>
+            <span className="text-xs text-gray-500">onwards</span>
+          </div>
+        )}
         <div className="flex items-center justify-between text-xs">
           <span className="text-gray-500">{service.duration}</span>
-          <span className="inline-flex items-center gap-1 font-semibold text-gray-900 group-hover:text-red-600 transition-colors">
-            <Wrench className="h-3.5 w-3.5" />
-            Book
-          </span>
+          {service.comingSoon ? (
+            <span className="inline-flex items-center gap-1 font-medium text-gray-400 bg-gray-100 px-2 py-1 rounded cursor-not-allowed">
+              Coming Soon
+            </span>
+          ) : (
+            <span className="inline-flex items-center gap-1 font-semibold text-gray-900 group-hover:text-red-600 transition-colors">
+              <Wrench className="h-3.5 w-3.5" />
+              Book
+            </span>
+          )}
         </div>
       </div>
     </Link>

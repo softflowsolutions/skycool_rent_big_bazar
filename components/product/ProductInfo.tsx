@@ -43,7 +43,15 @@ export function ProductInfo({ product }: ProductInfoProps) {
       </div>
 
       <div className="mb-4 rounded-md border border-amber-200 bg-amber-50 px-3 py-2 text-xs sm:text-sm font-medium text-amber-800">
-        Installation and transportation charges applicable.
+        {product.comingSoon ? (
+          <span>Coming Soon · This product is currently not available for rental booking.</span>
+        ) : (
+          <>
+            {product.transportationNote || 'Transportation extra. Installation charges applicable.'}
+            {product.pricingNote ? ` · ${product.pricingNote}.` : ''}
+            {product.deposit > 0 ? ` Refundable security deposit: ₹${product.deposit}.` : ' Zero security deposit.'}
+          </>
+        )}
       </div>
 
       <div>

@@ -50,7 +50,7 @@ export function EnquiryForm({
     product: defaultProduct,
     parentCategory: defaultParentCategory,
     quantity: 1,
-    duration: '3',
+    duration: '4',
     message: '',
     city: CITIES[0],
   });
@@ -149,7 +149,7 @@ export function EnquiryForm({
         product: defaultProduct,
         parentCategory: defaultParentCategory,
         quantity: 1,
-        duration: '3',
+        duration: '4',
         message: '',
         city: CITIES[0],
       });

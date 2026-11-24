@@ -1,4 +1,4 @@
-import { Truck, Shield } from 'lucide-react';
+import { Truck, Shield, Clock, CheckCircle2, Sparkles } from 'lucide-react';
 import type { Product } from '@/types';
 import { formatPrice } from '@/lib/utils';
 
@@ -7,48 +7,129 @@ interface PricingCardProps {
 }
 
 export function PricingCard({ product }: PricingCardProps) {
-  const plans = [
-    { label: '1 Month', price: product.pricing.monthly, save: 0 },
-    { label: '3 Months', price: product.pricing.quarterly, save: 8 },
-    { label: '6 Months', price: product.pricing.halfYearly, save: 12 },
-    { label: '12 Months', price: product.pricing.yearly, save: 20 },
-  ];
+  if (product.comingSoon) {
+    return (
+      <div className="bg-gray-50 border border-gray-200 rounded-lg p-5 sm:p-6 text-center">
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-100 text-amber-800 mb-3">
+          <Clock className="h-3.5 w-3.5" />
+          Coming Soon
+        </div>
+        <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
+          Coming Soon
+        </h2>
+        <p className="text-sm text-gray-600 max-w-md mx-auto">
+          Rental plans and pricing for this product will be announced soon. This item is currently unavailable for booking.
+        </p>
+      </div>
+    );
+  }
+
+  const plans =
+    product.plans && product.plans.length > 0
+      ? product.plans
+      : [
+          { label: '1 Month', price: product.pricing.monthly, days: 30 },
+          { label: '3 Months', price: product.pricing.quarterly, days: 90 },
+          { label: '6 Months', price: product.pricing.halfYearly, days: 180 },
+          { label: '12 Months', price: product.pricing.yearly, days: 365 },
+        ];
+
+  const hasFourMonthPlan = plans.some((p) => p.days === 120);
+  const hasOneMonthPlan = plans.some((p) => p.days === 30);
+  const fourMonthPlan = plans.find((p) => p.days === 120);
+  const oneMonthPlan = plans.find((p) => p.days === 30);
+
+  const mainPrice = hasFourMonthPlan && !hasOneMonthPlan && fourMonthPlan
+    ? fourMonthPlan.price
+    : oneMonthPlan
+    ? oneMonthPlan.price
+    : product.pricing.monthly;
+
+  const mainPriceLabel = hasFourMonthPlan && !hasOneMonthPlan && fourMonthPlan
+    ? `/ 4 Months Package (≈ ${formatPrice(Math.round(fourMonthPlan.price / 4))}/mo)`
+    : '/month';
 
   return (
-    <div className="bg-white border border-gray-200 rounded-lg p-4 sm:p-5">
-      <div className="flex items-baseline gap-2 mb-1">
-        <span className="text-3xl sm:text-4xl font-bold text-gray-900">
-          {formatPrice(product.pricing.monthly)}
-        </span>
-        <span className="text-sm text-gray-500">/month</span>
-      </div>
+    <div className="bg-white border border-gray-200 rounded-lg p-4 sm:p-5 shadow-sm">
+      <div className="flex flex-wrap items-baseline justify-between gap-2 mb-2">
+        <div className="flex items-baseline gap-2">
+          <span className="text-3xl sm:text-4xl font-bold text-gray-900">
+            {formatPrice(mainPrice)}
+          </span>
+          <span className="text-sm text-gray-500 font-medium">
+            {mainPriceLabel}
+          </span>
+        </div>
 
-      <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-gray-600 mb-4 pb-4 border-b border-gray-200">
-        <span className="flex items-center gap-1">
-          <Truck className="h-3.5 w-3.5" />
-          Delivery &amp; installation charges applicable
-        </span>
-        <span className="flex items-center gap-1">
-          <Shield className="h-3.5 w-3.5" />
-          Zero Deposit
-        </span>
-      </div>
-
-      <div className="space-y-1.5">
-        {plans.map((plan, idx) => (
-          <div
-            key={idx}
-            className="flex items-center justify-between py-2 px-3 rounded-md hover:bg-gray-50 transition-colors"
-          >
-            <span className="text-sm font-medium text-gray-900">{plan.label}</span>
-            <div className="text-right">
-              <div className="text-sm font-bold text-gray-900">{formatPrice(plan.price)}</div>
-              {plan.save > 0 && (
-                <div className="text-[10px] font-semibold text-green-700">Save {plan.save}%</div>
-              )}
-            </div>
+        {product.dayPrice && (
+          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-semibold bg-sky-50 text-sky-800 border border-sky-200">
+            <Sparkles className="h-3.5 w-3.5 text-sky-600" />
+            <span>1-Day Rate:</span>
+            <span className="font-bold">{formatPrice(product.dayPrice)}</span>
+            <span className="text-sky-600 font-normal">{product.dayPriceUnit || 'per day'}</span>
           </div>
-        ))}
+        )}
+      </div>
+
+      <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-xs text-gray-600 mb-4 pb-4 border-b border-gray-200">
+        <span className="flex items-center gap-1 font-medium text-gray-700">
+          <Truck className="h-3.5 w-3.5 text-gray-500" />
+          {product.transportationNote || 'Transportation extra'}
+        </span>
+        {product.pricingNote && (
+          <span className="flex items-center gap-1 text-green-700 font-medium">
+            <CheckCircle2 className="h-3.5 w-3.5" />
+            {product.pricingNote}
+          </span>
+        )}
+        <span className="flex items-center gap-1">
+          <Shield className="h-3.5 w-3.5 text-gray-500" />
+          {product.deposit > 0
+            ? `${formatPrice(product.deposit)} Refundable Deposit`
+            : 'Zero Deposit'}
+        </span>
+      </div>
+
+      <div className="space-y-2">
+        <div className="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-1">
+          Available Rental Packages
+        </div>
+        {plans.map((plan, idx) => {
+          const months = plan.days >= 30 ? Math.round(plan.days / 30) : 0;
+          const effectiveMonthly = months > 0 ? Math.round(plan.price / months) : 0;
+          const baseline = product.pricing.monthly * (months || 1);
+          const save =
+            baseline > plan.price && months > 1
+              ? Math.round((1 - plan.price / baseline) * 100)
+              : 0;
+
+          return (
+            <div
+              key={idx}
+              className="flex items-center justify-between py-2 px-3 rounded-md border border-gray-100 hover:border-gray-300 hover:bg-gray-50 transition-colors"
+            >
+              <div>
+                <span className="text-sm font-semibold text-gray-900">{plan.label}</span>
+                {plan.days === 1 && (
+                  <span className="block text-[11px] text-sky-600 font-medium">
+                    Short-term / daily rate
+                  </span>
+                )}
+                {months > 1 && effectiveMonthly > 0 && (
+                  <span className="block text-[11px] text-gray-500">
+                    ≈ {formatPrice(effectiveMonthly)}/month
+                  </span>
+                )}
+              </div>
+              <div className="text-right">
+                <div className="text-sm font-bold text-gray-900">{formatPrice(plan.price)}</div>
+                {save > 0 && (
+                  <div className="text-[10px] font-semibold text-green-700">Save {save}%</div>
+                )}
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

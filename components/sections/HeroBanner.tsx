@@ -4,7 +4,7 @@ import { Phone, MessageCircle, Snowflake, ArrowRight, Check, Wrench } from 'luci
 import { SITE_CONFIG } from '@/lib/constants';
 import { generateCallLink, generateWhatsAppLink } from '@/lib/utils';
 
-const HERO_IMAGE = '/images/products/split1.5.png';
+const HERO_IMAGE = '/images/product_images_v2/AC/1.5%20ton%20split.png';
 
 export function HeroBanner() {
   return (
@@ -58,7 +58,7 @@ export function HeroBanner() {
             <div className="flex gap-2 justify-center lg:hidden mt-6">
               <a
                 href={generateWhatsAppLink(
-                  `Hi Rent BigBazar! I'd like to know more about your AC rental services.`,
+                  `Hi ${SITE_CONFIG.name}! I'd like to know more about your AC and appliance rental services on ${SITE_CONFIG.name}.`,
                   SITE_CONFIG.whatsapp
                 )}
                 target="_blank"

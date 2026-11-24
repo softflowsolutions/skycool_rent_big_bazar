@@ -107,13 +107,33 @@ export default function ProductDetailPage({ params }: PageProps) {
       </section>
 
       <section id="enquiry" className="container-app py-8 lg:py-12">
-        <EnquiryForm
-          defaultCategory="rent"
-          defaultSubCategory={product.subCategory}
-          defaultProduct={product.name}
-          defaultParentCategory={product.category}
-          hideCategory
-        />
+        {product.comingSoon ? (
+          <div className="bg-white rounded-2xl p-6 sm:p-10 border border-gray-200 text-center max-w-xl mx-auto shadow-sm">
+            <span className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-100 text-amber-800 mb-3">
+              Coming Soon
+            </span>
+            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
+              Enquiries for this Product are Closed
+            </h3>
+            <p className="text-sm text-gray-600 mb-5">
+              {product.name} is currently marked Coming Soon and cannot generate enquiries. Please explore our available Air Conditioner and Air Cooler rentals.
+            </p>
+            <a
+              href="/rent/air-conditioners"
+              className="inline-block bg-brand hover:bg-brand/90 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition shadow"
+            >
+              Explore Available AC Rentals
+            </a>
+          </div>
+        ) : (
+          <EnquiryForm
+            defaultCategory="rent"
+            defaultSubCategory={product.subCategory}
+            defaultProduct={product.name}
+            defaultParentCategory={product.category}
+            hideCategory
+          />
+        )}
       </section>
 
       <RelatedProducts products={related} />

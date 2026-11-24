@@ -56,12 +56,11 @@ export const POPULAR_PRODUCT_IDS: string[] = [
  * Hand-curated service IDs in display order.
  */
 export const POPULAR_SERVICE_IDS: string[] = [
-  'svc-001',
-  'svc-002',
-  'svc-004',
-  'svc-006',
-  'svc-003',
-  'svc-008',
+  'svc-001', // AC Repair
+  'svc-002', // AC Installation
+  'svc-003', // AC Gas Refill
+  'svc-ac-leakage', // AC Water Leakage
+  'svc-005', // AC AMC (1 Year)
 ];
 
 /**
@@ -77,7 +76,8 @@ export const FEATURED_PRICES: Record<string, number> = {};
 export function getFeaturedProducts(
   limit: number = POPULAR_PRODUCT_LIMIT
 ): Product[] {
-  const byId = new Map(PRODUCTS.map((p) => [p.id, p] as const));
+  const activeProducts = PRODUCTS.filter((p) => !p.comingSoon && p.inStock);
+  const byId = new Map(activeProducts.map((p) => [p.id, p] as const));
   const picked: Product[] = [];
   const pickedIds = new Set<string>();
 
@@ -93,7 +93,7 @@ export function getFeaturedProducts(
 
   // Phase 2: fill the rest with top-rated items we haven't shown yet.
   if (picked.length < limit) {
-    const sorted = [...PRODUCTS].sort(
+    const sorted = [...activeProducts].sort(
       (a, b) => b.rating * b.reviewCount - a.rating * a.reviewCount
     );
     for (const product of sorted) {
@@ -115,6 +115,7 @@ export function getFeaturedProducts(
 export function getFeaturedServices(
   limit: number = POPULAR_SERVICE_LIMIT
 ): Service[] {
+  const activeServices = SERVICES.filter((s) => !s.comingSoon);
   const byId = new Map(SERVICES.map((s) => [s.id, s] as const));
   const picked: Service[] = [];
   const pickedIds = new Set<string>();
@@ -129,7 +130,7 @@ export function getFeaturedServices(
   }
 
   if (picked.length < limit) {
-    const sorted = [...SERVICES].sort(
+    const sorted = [...activeServices].sort(
       (a, b) => b.rating * b.reviewCount - a.rating * a.reviewCount
     );
     for (const service of sorted) {

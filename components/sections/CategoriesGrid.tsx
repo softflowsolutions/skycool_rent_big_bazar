@@ -6,26 +6,32 @@ const categories = [
   {
     title: 'AC Rentals',
     subtitle: 'Window, Split, Inverter & Portable',
-    image: '/images/products/split1.5.png',
-    href: '/rent/ac',
+    image: '/images/product_images_v2/AC/1.5%20ton%20split.png',
+    href: '/rent/air-conditioners',
   },
   {
-    title: 'Fridge Rentals',
-    subtitle: 'Single, Double & Side-by-Side',
-    image: '/images/products/dubbledoor.png',
-    href: '/rent/fridge',
-  },
-  {
-    title: 'Washing Machine Rentals',
-    subtitle: 'Front, Top Load & Semi-Automatic',
-    image: '/images/products/front%20load%20washingmachine.png',
-    href: '/rent/washing-machines',
+    title: 'Air Cooler Rentals',
+    subtitle: 'Desert & Jumbo Commercial Coolers',
+    image: '/images/product_images_v2/cooler/80L.png',
+    href: '/rent/air-coolers',
   },
   {
     title: 'AC Service',
     subtitle: 'Repair, Installation, Gas Refill',
-    image: '/images/products/split1.png',
+    image: '/images/newproductimages/ac-repair.jpeg',
     href: '/service/ac',
+  },
+  {
+    title: 'Fridge Rentals',
+    subtitle: 'Coming Soon',
+    image: '/images/products/dubbledoor.png',
+    href: '/rent/refrigerators',
+  },
+  {
+    title: 'Washing Machine Rentals',
+    subtitle: 'Coming Soon',
+    image: '/images/products/front%20load%20washingmachine.png',
+    href: '/rent/washing-machines',
   },
 ];
 

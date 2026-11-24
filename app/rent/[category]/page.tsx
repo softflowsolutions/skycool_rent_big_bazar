@@ -36,22 +36,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 const subCategoryMap: Record<string, Array<{ name: string; slug: string; description: string; image: string }>> = {
   /* ===== 10 main PDF categories ===== */
   'air-conditioners': [
-    { name: 'Window AC', slug: 'window-ac', description: 'Affordable window ACs', image: '/images/products/windo1.5.png' },
-    { name: 'Split AC', slug: 'split-ac', description: 'Premium split ACs', image: '/images/products/split1.5.png' },
-    { name: 'Inverter AC', slug: 'inverter-ac', description: 'Energy-efficient inverter', image: '/images/products/split1.5.png' },
-    { name: 'Non-Inverter AC', slug: 'non-inverter-ac', description: 'Fixed-speed ACs', image: '/images/products/split1.png' },
-    { name: 'Tower AC', slug: 'tower-ac', description: 'Floor-standing tower', image: '/images/products/tower%202%20ton.png' },
-    { name: 'Portable AC', slug: 'portable-ac', description: 'No installation needed', image: '/images/products/Portable%20AC%201%20tone.png' },
-    { name: 'Cassette AC', slug: 'cassette-ac', description: 'Ceiling cassette', image: '/images/products/tower%202%20ton.png' },
-    { name: 'Ductable AC', slug: 'ductable-ac', description: 'Commercial ducted', image: '/images/products/tower%202%20ton.png' },
+    { name: 'Window AC', slug: 'window-ac', description: 'Affordable window ACs', image: '/images/product_images_v2/AC/1.5%20Ton%20windo.png' },
+    { name: 'Split AC', slug: 'split-ac', description: 'Premium split ACs', image: '/images/product_images_v2/AC/1.5%20ton%20split.png' },
+    { name: 'Split Inverter AC', slug: 'inverter-ac', description: 'Energy-efficient inverter', image: '/images/product_images_v2/AC/1%20Ton.png' },
+    { name: 'Tower AC', slug: 'tower-ac', description: 'Floor-standing tower', image: '/images/product_images_v2/AC/Tower%20AC%20Ton%202.5.png' },
+    { name: 'Portable AC', slug: 'portable-ac', description: 'No installation needed', image: '/images/product_images_v2/AC/Blue%20Star%20Portable%20AC%201Ton.png' },
+    { name: 'Cassette AC', slug: 'cassette-ac', description: 'Ceiling cassette', image: '/images/product_images_v2/AC/cassete%20ac%202.png' },
   ],
   'air-coolers': [
-    { name: 'Personal Cooler', slug: 'personal-cooler', description: 'Compact & portable', image: '/images/newproductimages/ac-cooler-appliance.jpeg' },
-    { name: 'Desert Cooler', slug: 'desert-cooler', description: 'High air delivery', image: '/images/newproductimages/ac-cooler-appliance.jpeg' },
-    { name: 'Tower Cooler', slug: 'tower-cooler', description: 'Slim vertical', image: '/images/newproductimages/ac-cooler-appliance.jpeg' },
-    { name: 'Window Cooler', slug: 'window-cooler', description: 'Window-mounted', image: '/images/newproductimages/ac-cooler-appliance.jpeg' },
-    { name: 'Commercial Cooler', slug: 'commercial-cooler', description: 'Heavy-duty', image: '/images/newproductimages/ac-cooler-appliance.jpeg' },
-    { name: 'Smart Cooler', slug: 'smart-air-cooler', description: 'IoT enabled', image: '/images/newproductimages/ac-cooler-appliance.jpeg' },
+    { name: 'Desert Cooler', slug: 'desert-cooler', description: 'High air delivery (20L - 80L)', image: '/images/product_images_v2/cooler/65L.png' },
+    { name: 'Jumbo Cooler', slug: 'commercial-cooler', description: 'Heavy-duty commercial (80L - 120L)', image: '/images/product_images_v2/cooler/80L.png' },
+    { name: 'Personal Cooler', slug: 'personal-cooler', description: 'Compact & portable (Coming Soon)', image: '/images/product_images_v2/cooler/15L.png' },
+    { name: 'Tower Cooler', slug: 'tower-cooler', description: 'Slim vertical (Coming Soon)', image: '/images/product_images_v2/cooler/30L.png' },
+    { name: 'Window Cooler', slug: 'window-cooler', description: 'Window-mounted (Coming Soon)', image: '/images/product_images_v2/cooler/40L.png' },
+    { name: 'Smart Cooler', slug: 'smart-air-cooler', description: 'IoT enabled (Coming Soon)', image: '/images/product_images_v2/cooler/25L.png' },
   ],
   'washing-machines': [
     { name: 'Front Load', slug: 'front-load-washer', description: 'Fully automatic', image: '/images/newproductimages/washing-machine.jpeg' },
@@ -121,10 +119,10 @@ const subCategoryMap: Record<string, Array<{ name: string; slug: string; descrip
   combo: [],
   /* ===== Legacy URLs (backwards-compat) ===== */
   ac: [
-    { name: 'Window AC', slug: 'window-ac', description: 'Affordable window ACs', image: '/images/products/windo1.5.png' },
-    { name: 'Split AC', slug: 'split-ac', description: 'Premium split ACs', image: '/images/products/split1.5.png' },
-    { name: 'Inverter AC', slug: 'inverter-ac', description: 'Energy-efficient inverter', image: '/images/products/split1.5.png' },
-    { name: 'Portable AC', slug: 'portable-ac', description: 'No installation needed', image: '/images/products/Portable%20AC%201%20tone.png' },
+    { name: 'Window AC', slug: 'window-ac', description: 'Affordable window ACs', image: '/images/product_images_v2/AC/1.5%20Ton%20windo.png' },
+    { name: 'Split AC', slug: 'split-ac', description: 'Premium split ACs', image: '/images/product_images_v2/AC/1.5%20ton%20split.png' },
+    { name: 'Split Inverter AC', slug: 'inverter-ac', description: 'Energy-efficient inverter', image: '/images/product_images_v2/AC/1%20Ton.png' },
+    { name: 'Portable AC', slug: 'portable-ac', description: 'No installation needed', image: '/images/product_images_v2/AC/Blue%20Star%20Portable%20AC%201Ton.png' },
   ],
   fridge: [
     { name: 'Single Door', slug: 'single-door-fridge', description: 'Compact single door', image: '/images/products/singledoor.png' },

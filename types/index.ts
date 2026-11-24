@@ -1,3 +1,17 @@
+/**
+ * A bookable rental plan — a duration and the total price for that whole
+ * duration. `days` is the duration length (1 = single day, 30 = month,
+ * 90 = quarter, 120 = 4 months, 365 = year). Products sourced from the
+ * client price list carry exactly the plans in that list (including
+ * day-rate and event plans); everything else falls back to the standard
+ * 1 / 3 / 6 / 12 month curve.
+ */
+export interface RentalPlan {
+  days: number;
+  price: number;
+  label: string;
+}
+
 export interface Product {
   id: string;
   slug: string;
@@ -15,10 +29,17 @@ export interface Product {
     halfYearly: number;
     yearly: number;
   };
+  /** Bookable plans — the source of truth for the pricing UI. */
+  plans: RentalPlan[];
   deposit: number;
   rating: number;
   reviewCount: number;
   inStock: boolean;
+  comingSoon?: boolean;
+  pricingNote?: string;
+  transportationNote?: string;
+  dayPrice?: number;
+  dayPriceUnit?: string;
   tags: string[];
   features: string[];
   energyRating: string;
@@ -78,6 +99,7 @@ export interface Service {
   description: string;
   longDescription: string;
   startingPrice: number;
+  comingSoon?: boolean;
   images: string[];
   features: string[];
   duration: string;

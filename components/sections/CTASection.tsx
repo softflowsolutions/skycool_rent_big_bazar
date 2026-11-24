@@ -32,7 +32,7 @@ export function CTASection() {
           </a>
           <a
             href={generateWhatsAppLink(
-              `Hi Rent BigBazar! I'd like to know more about your AC rental plans.`,
+              `Hi ${SITE_CONFIG.name}! I'd like to know more about your rental plans on ${SITE_CONFIG.name}.`,
               SITE_CONFIG.whatsapp
             )}
             target="_blank"

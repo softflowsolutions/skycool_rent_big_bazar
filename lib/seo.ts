@@ -26,7 +26,7 @@ const KW_HOME = [
   'inverter AC on rent',
   'tower AC on rent',
   'cassette AC on rent',
-  'ductable AC on rent',
+  'portable AC on rent',
   'AC without deposit',
   'AC on monthly rent',
 ];
@@ -39,7 +39,7 @@ const KW_RENT = [
   'rent inverter AC',
   'rent tower AC',
   'rent cassette AC',
-  'rent ductable AC',
+  'rent portable AC',
   'rent AC in Pune',
   'rent AC near me',
   'AC on rent without deposit',
@@ -141,7 +141,7 @@ function og(title: string, description: string): NonNullable<PageSeo['openGraph'
 export const SEO: Record<string, PageSeo> = {
   home: {
     title: `${SITE_CONFIG.name} — Rent ACs Near You from ₹599/month`,
-    description: `${SITE_CONFIG.name} — India's most trusted AC rental platform. Rent window, split, inverter, tower, cassette and ductable ACs with zero deposit. Charges applicable on delivery & installation. Available across Pune, Mumbai, Bangalore, Delhi NCR, Hyderabad and Chennai.`,
+    description: `${SITE_CONFIG.name} — India's most trusted AC rental platform. Rent window, split, inverter, tower, cassette and portable ACs with zero deposit. Charges applicable on delivery & installation. Available across Pune, Mumbai, Bangalore, Delhi NCR, Hyderabad and Chennai.`,
     keywords: KW_HOME,
     alternates: { canonical: SITE_CONFIG.url },
     openGraph: og(
@@ -156,7 +156,7 @@ export const SEO: Record<string, PageSeo> = {
   },
   rent: {
     title: `Rent AC, Fridge & Home Appliances in India — ${SITE_CONFIG.name}`,
-    description: `Rent AC, fridge, washing machine, cooler, geyser, water purifier, microwave & more home appliances across India. Window, split, inverter, tower, cassette and ductable ACs on flexible monthly plans starting at ₹599/month with zero deposit. Charges applicable on delivery & installation.`,
+    description: `Rent AC, fridge, washing machine, cooler, geyser, water purifier, microwave & more home appliances across India. Window, split, inverter, tower, cassette and portable ACs on flexible rental plans starting with zero deposit. Charges applicable on delivery & installation.`,
     keywords: KW_RENT,
     alternates: { canonical: `${SITE_CONFIG.url}/rent` },
     openGraph: og(

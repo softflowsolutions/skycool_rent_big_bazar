@@ -23,7 +23,9 @@ const SERVICE_CATEGORIES = CATEGORIES.filter(
 ).map((c) => ({ ...c, tileImage: c.image }));
 
 export default function ServicePage() {
-  const featured = SERVICES.slice(0, 6);
+  const featured = [...SERVICES]
+    .sort((a, b) => (a.comingSoon ? 1 : 0) - (b.comingSoon ? 1 : 0))
+    .slice(0, 6);
 
   return (
     <>

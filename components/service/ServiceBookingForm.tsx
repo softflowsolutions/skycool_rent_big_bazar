@@ -13,6 +13,22 @@ interface ServiceBookingFormProps {
 }
 
 export function ServiceBookingForm({ service }: ServiceBookingFormProps) {
+  if (service.comingSoon) {
+    return (
+      <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 sm:p-8 text-center space-y-3">
+        <span className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-100 text-amber-800">
+          Coming Soon
+        </span>
+        <h3 className="font-display font-bold text-2xl text-gray-900">
+          Booking Currently Unavailable
+        </h3>
+        <p className="text-sm text-gray-500 max-w-md mx-auto">
+          Online service booking for {service.name} is temporarily disabled.
+        </p>
+      </div>
+    );
+  }
+
   const { success, error: showError } = useToast();
   const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({
@@ -54,23 +70,23 @@ export function ServiceBookingForm({ service }: ServiceBookingFormProps) {
     await new Promise((r) => setTimeout(r, 1000));
     setLoading(false);
 
-    const message = `Hi Rent BigBazar! 🛠️
+    const message = `Hi ${SITE_CONFIG.name} Team! 🛠️
 
-SERVICE BOOKING
+SERVICE BOOKING INQUIRY
 
 🔧 Service: ${service.name}
 👤 Name: ${form.name}
 📞 Phone: ${form.phone}
-📧 Email: ${form.email}
+📧 Email: ${form.email || 'Not provided'}
 📍 Address: ${form.address}, ${form.city}
-📅 Date: ${form.date}
-⏰ Time: ${TIME_SLOTS.find(t => t.value === form.timeSlot)?.label}
-💬 Problem: ${form.problem || 'Not specified'}
+📅 Preferred Date: ${form.date}
+⏰ Preferred Time: ${TIME_SLOTS.find(t => t.value === form.timeSlot)?.label || form.timeSlot}
+💬 Problem: ${form.problem || 'Standard request'}
 
-Please confirm appointment.
+Please confirm appointment and technician details.
 
 ---
-Sent from: Rent BigBazar website`;
+Sent from: ${SITE_CONFIG.name} (${SITE_CONFIG.url})`;
 
     window.open(generateWhatsAppLink(message, SITE_CONFIG.whatsapp), '_blank');
     success('Booking request sent!', 'Our team will contact you soon to confirm your appointment.');

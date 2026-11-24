@@ -1,4 +1,4 @@
-import type { Product, Service, Testimonial, FAQ, Category } from '@/types';
+import type { Product, Service, Testimonial, FAQ, Category, RentalPlan } from '@/types';
 
 /**
  * Top-level rent category slugs. These are the keys that appear in
@@ -33,8 +33,8 @@ export const CATEGORIES: Category[] = [
     slug: 'air-conditioners',
     parent: 'rent',
     icon: 'Snowflake',
-    description: 'Window, Split, Inverter, Tower, Cassette & Ductable ACs',
-    image: '/images/products/split1.5.png',
+    description: 'Window, Split, Inverter, Tower & Cassette ACs',
+    image: '/images/product_images_v2/AC/1.5%20ton%20split.png',
   },
   {
     id: 'rent-air-coolers',
@@ -42,8 +42,8 @@ export const CATEGORIES: Category[] = [
     slug: 'air-coolers',
     parent: 'rent',
     icon: 'Wind',
-    description: 'Personal, Desert, Tower, Window & Commercial Coolers',
-    image: '/images/newproductimages/ac-cooler-appliance.jpeg',
+    description: 'Desert & Jumbo Commercial Coolers (20L to 120L)',
+    image: '/images/product_images_v2/cooler/80L.png',
   },
   {
     id: 'rent-washing-machines',
@@ -180,23 +180,23 @@ export const CATEGORIES: Category[] = [
  * unrelated category image.
  */
 const IMG = {
-  /* ===== AC ===== */
-  acWindow: '/images/products/windo1.5.png',
-  acSplit: '/images/products/split1.5.png',
-  acInverter: '/images/products/split1.5.png',
-  acNonInverter: '/images/products/split1.png',
-  acTower: '/images/products/tower%202%20ton.png',
-  acPortable: '/images/products/Portable%20AC%201%20tone.png',
-  acCassette: '/images/newproductimages/casstte-ac.jpeg',
-  acDuctable: '/images/newproductimages/ductable-ac.jpeg',
-  acFallback: '/images/products/split1.png',
-  /* ===== Cooler — use the appliance image from newproductimages ===== */
-  cooler: '/images/newproductimages/ac-cooler-appliance.jpeg',
+  /* ===== AC — V2 Product Images ===== */
+  acWindow: '/images/product_images_v2/AC/1.5%20Ton%20windo.png',
+  acSplit: '/images/product_images_v2/AC/1.5%20ton%20split.png',
+  acInverter: '/images/product_images_v2/AC/1%20Ton.png',
+  acTower: '/images/product_images_v2/AC/Tower%20AC%20Ton%202.5.png',
+  acPortable: '/images/product_images_v2/AC/Blue%20Star%20Portable%20AC%201Ton.png',
+  acCassette: '/images/product_images_v2/AC/cassete%20ac%202.png',
+  acFallback: '/images/product_images_v2/AC/1.5%20ton%20split.png',
+  /* ===== Cooler — V2 Product Images ===== */
+  cooler: '/images/product_images_v2/cooler/80L.png',
+  coolerDesert: '/images/product_images_v2/cooler/65L.png',
+  coolerCommercial: '/images/product_images_v2/cooler/80L.png',
   /* ===== Washing Machines ===== */
   washingFront: '/images/newproductimages/washing-machine.jpeg',
   washingTop: '/images/newproductimages/washing-machine.jpeg',
   washingSemi: '/images/newproductimages/washing-machine.jpeg',
-  /* ===== Refrigerators — kept unchanged (user-asked exclusion) ===== */
+  /* ===== Refrigerators ===== */
   fridgeSingle: '/images/products/singledoor.png',
   fridgeDouble: '/images/products/dubbledoor.png',
   fridgeTriple: '/images/products/3door.png',
@@ -217,6 +217,98 @@ const IMG = {
   /* ===== Induction Cooktops ===== */
   induction: '/images/newproductimages/induction%20cooktop.jpeg',
 } as const;
+
+/**
+ * Exact capacity-specific product images from public/images/product_images_v2/.
+ */
+export const PRODUCT_V2_IMAGES: Record<string, Record<string, string>> = {
+  'window-ac': {
+    '1 Ton': '/images/product_images_v2/AC/1%20ton%20wind.png',
+    '1.5 Ton': '/images/product_images_v2/AC/1.5%20Ton%20windo.png',
+    '2 Ton': '/images/product_images_v2/AC/2%20Ton%20windw.png',
+  },
+  'split-ac': {
+    '1 Ton': '/images/product_images_v2/AC/1%20Ton.png',
+    '1.5 Ton': '/images/product_images_v2/AC/1.5%20ton%20split.png',
+    '2 Ton': '/images/product_images_v2/AC/2%20ton%20spt.png',
+  },
+  'inverter-ac': {
+    '1 Ton': '/images/product_images_v2/AC/1%20Ton.png',
+    '1.5 Ton': '/images/product_images_v2/AC/1.5%20ton%20split.png',
+    '2 Ton': '/images/product_images_v2/AC/2%20ton%20spt.png',
+  },
+  'tower-ac': {
+    '2 Ton': '/images/product_images_v2/AC/Midea%20Tower%20AC%20Ton%202.png',
+    '2.5 Ton': '/images/product_images_v2/AC/Tower%20AC%20Ton%202.5.png',
+    '3 Ton': '/images/product_images_v2/AC/Tower%20AC%20Ton%203.png',
+    '4 Ton': '/images/product_images_v2/AC/Tower%20AC%20Ton%204.png',
+  },
+  'portable-ac': {
+    '1 Ton': '/images/product_images_v2/AC/Blue%20Star%20Portable%20AC%201Ton.png',
+    '1 Ton Smart Portable': '/images/product_images_v2/AC/Blue%20Star%20Portable%20AC%201Ton.png',
+    '1.5 Ton': '/images/product_images_v2/AC/croma%20Portable%20AC%20Ton%201.5.png',
+    '1.5 Ton Compact Portable': '/images/product_images_v2/AC/croma%20Portable%20AC%20Ton%201.5.png',
+  },
+  'cassette-ac': {
+    '2 Ton': '/images/product_images_v2/AC/cassete%20ac%202.png',
+    '3 Ton': '/images/product_images_v2/AC/cassete%20ac%203.png',
+    '4 Ton': '/images/product_images_v2/AC/cassete%20ac%204.png',
+    '4 Way Cassette': '/images/product_images_v2/AC/cassete%20ac%204.png',
+  },
+  'desert-cooler': {
+    '20L': '/images/product_images_v2/cooler/15L.png',
+    '25L': '/images/product_images_v2/cooler/25L.png',
+    '30L': '/images/product_images_v2/cooler/30L.png',
+    '40L': '/images/product_images_v2/cooler/40L.png',
+    '65L': '/images/product_images_v2/cooler/65L.png',
+    '80L': '/images/product_images_v2/cooler/80L.png',
+  },
+  'commercial-cooler': {
+    '80L Jumbo': '/images/product_images_v2/cooler/80L.png',
+    '90L Jumbo': '/images/product_images_v2/cooler/80L.png',
+    '100L Jumbo': '/images/product_images_v2/cooler/150%20litter.png',
+    '120L Jumbo': '/images/product_images_v2/cooler/150%20litter.png',
+  },
+};
+
+/**
+ * Determines whether a product is currently active based on price_sheet.xlsx
+ * and available images in public/images/product_images_v2/.
+ * All other products are marked Coming Soon with disabled enquiry buttons.
+ */
+export function isProductActive(category: string, sub: string, capacityLabel: string): boolean {
+  if (category === 'air-conditioners') {
+    if (sub === 'window-ac') {
+      return ['1 Ton', '1.5 Ton', '2 Ton'].includes(capacityLabel);
+    }
+    if (sub === 'split-ac') {
+      return ['1 Ton', '1.5 Ton', '2 Ton'].includes(capacityLabel);
+    }
+    if (sub === 'inverter-ac') {
+      return ['1 Ton', '1.5 Ton', '2 Ton'].includes(capacityLabel);
+    }
+    if (sub === 'tower-ac') {
+      return ['2.5 Ton', '3 Ton', '4 Ton'].includes(capacityLabel);
+    }
+    if (sub === 'portable-ac') {
+      return ['1 Ton', '1.5 Ton'].includes(capacityLabel);
+    }
+    if (sub === 'cassette-ac') {
+      return ['2 Ton', '3 Ton', '4 Ton'].includes(capacityLabel);
+    }
+    return false;
+  }
+  if (category === 'air-coolers') {
+    if (sub === 'desert-cooler') {
+      return ['20L', '25L', '30L', '40L', '65L', '80L'].includes(capacityLabel);
+    }
+    if (sub === 'commercial-cooler') {
+      return ['80L', '90L', '100L', '120L'].includes(capacityLabel);
+    }
+    return false;
+  }
+  return false;
+}
 
 /* ===========================================================================
  *   PRICING TIERS
@@ -253,27 +345,583 @@ const quarterlyFromMonthly = (m: number) => Math.round(m * 3 * 0.92);
 const halfYearlyFromMonthly = (m: number) => Math.round(m * 6 * 0.88);
 const yearlyFromMonthly = (m: number) => Math.round(m * 12 * 0.8);
 
-/* ===========================================================================
- *   CATALOG — drives the auto-generated PRODUCTS array.
- *   =========================================================================
- *
- *   For each (main category × sub-category), we list the capacities that the
- *   PDF specifies and the brands it sells under that sub-type. The runtime
- *   builder in `buildProducts()` walks this table and emits one Product per
- *   (capacity × brand) combination, capped at 4 brands per cell so the
- *   resulting dataset stays compact but the rent grid still feels populated.
- *
- *   Compact form below — one row per sub-category.
+interface PriceOverrideEntry {
+  monthly?: number;
+  quarterly?: number;
+  halfYearly?: number;
+  yearly?: number;
+  deposit?: number;
+  plans?: RentalPlan[];
+  pricingNote?: string;
+  transportationNote?: string;
+  dayPrice?: number;
+  dayPriceUnit?: string;
+}
+
+/**
+ * Explicit price overrides — updated directly from price_sheet.xlsx.
+ * Window & Split AC: 4 Month, 6 Month, 12 Month packages.
+ * Tower AC, Portable AC, Cassette AC, and Air Coolers include daily and multi-month packages.
  */
+const PRICE_OVERRIDES: Record<string, Record<string, PriceOverrideEntry>> = {
+  /* ===== Window AC ===== */
+  'window-ac': {
+    '1 Ton': {
+      monthly: 3125, // 12500 / 4 months package
+      quarterly: 12500,
+      halfYearly: 13500,
+      yearly: 17400,
+      deposit: 0,
+      pricingNote: 'All brands same price',
+      transportationNote: 'Transportation extra (chargeable as per actual distance)',
+      plans: [
+        { label: '4 Months Package', days: 120, price: 12500 },
+        { label: '6 Months Package', days: 180, price: 13500 },
+        { label: '12 Months Package', days: 365, price: 17400 },
+      ],
+    },
+    '1.5 Ton': {
+      monthly: 3250, // 13000 / 4 months package
+      quarterly: 13000,
+      halfYearly: 14500,
+      yearly: 18800,
+      deposit: 0,
+      pricingNote: 'All brands same price',
+      transportationNote: 'Transportation extra (chargeable as per actual distance)',
+      plans: [
+        { label: '4 Months Package', days: 120, price: 13000 },
+        { label: '6 Months Package', days: 180, price: 14500 },
+        { label: '12 Months Package', days: 365, price: 18800 },
+      ],
+    },
+    '2 Ton': {
+      monthly: 3500, // 14000 / 4 months package
+      quarterly: 14000,
+      halfYearly: 15500,
+      yearly: 19800,
+      deposit: 0,
+      pricingNote: 'All brands same price',
+      transportationNote: 'Transportation extra (chargeable as per actual distance)',
+      plans: [
+        { label: '4 Months Package', days: 120, price: 14000 },
+        { label: '6 Months Package', days: 180, price: 15500 },
+        { label: '12 Months Package', days: 365, price: 19800 },
+      ],
+    },
+  },
+
+  /* ===== Split AC ===== */
+  'split-ac': {
+    '1 Ton': {
+      monthly: 3125,
+      quarterly: 12500,
+      halfYearly: 13500,
+      yearly: 17400,
+      deposit: 0,
+      pricingNote: 'All brands same price',
+      transportationNote: 'Transportation extra (chargeable as per actual distance)',
+      plans: [
+        { label: '4 Months Package', days: 120, price: 12500 },
+        { label: '6 Months Package', days: 180, price: 13500 },
+        { label: '12 Months Package', days: 365, price: 17400 },
+      ],
+    },
+    '1.5 Ton': {
+      monthly: 3250,
+      quarterly: 13000,
+      halfYearly: 14500,
+      yearly: 18800,
+      deposit: 0,
+      pricingNote: 'All brands same price',
+      transportationNote: 'Transportation extra (chargeable as per actual distance)',
+      plans: [
+        { label: '4 Months Package', days: 120, price: 13000 },
+        { label: '6 Months Package', days: 180, price: 14500 },
+        { label: '12 Months Package', days: 365, price: 18800 },
+      ],
+    },
+    '2 Ton': {
+      monthly: 3500,
+      quarterly: 14000,
+      halfYearly: 15500,
+      yearly: 19800,
+      deposit: 0,
+      pricingNote: 'All brands same price',
+      transportationNote: 'Transportation extra (chargeable as per actual distance)',
+      plans: [
+        { label: '4 Months Package', days: 120, price: 14000 },
+        { label: '6 Months Package', days: 180, price: 15500 },
+        { label: '12 Months Package', days: 365, price: 19800 },
+      ],
+    },
+  },
+
+  /* ===== Split Inverter AC ===== */
+  'inverter-ac': {
+    '1 Ton': {
+      monthly: 4125,
+      quarterly: 16500,
+      halfYearly: 18500,
+      yearly: 20500,
+      deposit: 0,
+      pricingNote: 'Split Inverter AC - All brands same price',
+      transportationNote: 'Transportation extra (chargeable as per actual distance)',
+      plans: [
+        { label: '4 Months Package', days: 120, price: 16500 },
+        { label: '6 Months Package', days: 180, price: 18500 },
+        { label: '12 Months Package', days: 365, price: 20500 },
+      ],
+    },
+    '1.5 Ton': {
+      monthly: 4450,
+      quarterly: 17800,
+      halfYearly: 19600,
+      yearly: 21500,
+      deposit: 0,
+      pricingNote: 'Split Inverter AC - All brands same price',
+      transportationNote: 'Transportation extra (chargeable as per actual distance)',
+      plans: [
+        { label: '4 Months Package', days: 120, price: 17800 },
+        { label: '6 Months Package', days: 180, price: 19600 },
+        { label: '12 Months Package', days: 365, price: 21500 },
+      ],
+    },
+    '2 Ton': {
+      monthly: 4650,
+      quarterly: 18600,
+      halfYearly: 20700,
+      yearly: 23300,
+      deposit: 0,
+      pricingNote: 'Split Inverter AC - All brands same price',
+      transportationNote: 'Transportation extra (chargeable as per actual distance)',
+      plans: [
+        { label: '4 Months Package', days: 120, price: 18600 },
+        { label: '6 Months Package', days: 180, price: 20700 },
+        { label: '12 Months Package', days: 365, price: 23300 },
+      ],
+    },
+  },
+
+  /* ===== Tower AC ===== */
+  'tower-ac': {
+    '2.5 Ton': {
+      monthly: 24999,
+      quarterly: 58000,
+      halfYearly: 116000,
+      yearly: 232000,
+      deposit: 0,
+      dayPrice: 12500,
+      dayPriceUnit: 'per day (₹5,000/Ton/day)',
+      pricingNote: 'Short-term event rate: ₹5,000 per Ton per Day',
+      transportationNote: 'Transportation extra as per location',
+      plans: [
+        { label: '1 Day', days: 1, price: 12500 },
+        { label: '1 Month', days: 30, price: 24999 },
+        { label: '2 Months', days: 60, price: 45000 },
+        { label: '3 Months', days: 90, price: 58000 },
+      ],
+    },
+    '3 Ton': {
+      monthly: 29999,
+      quarterly: 63333,
+      halfYearly: 126666,
+      yearly: 253332,
+      deposit: 0,
+      dayPrice: 15000,
+      dayPriceUnit: 'per day (₹5,000/Ton/day)',
+      pricingNote: 'Short-term event rate: ₹5,000 per Ton per Day',
+      transportationNote: 'Transportation extra as per location',
+      plans: [
+        { label: '1 Day', days: 1, price: 15000 },
+        { label: '1 Month', days: 30, price: 29999 },
+        { label: '2 Months', days: 60, price: 49999 },
+        { label: '3 Months', days: 90, price: 63333 },
+      ],
+    },
+    '4 Ton': {
+      monthly: 33999,
+      quarterly: 65999,
+      halfYearly: 131998,
+      yearly: 263996,
+      deposit: 0,
+      dayPrice: 20000,
+      dayPriceUnit: 'per day (₹5,000/Ton/day)',
+      pricingNote: 'Short-term event rate: ₹5,000 per Ton per Day',
+      transportationNote: 'Transportation extra as per location',
+      plans: [
+        { label: '1 Day', days: 1, price: 20000 },
+        { label: '1 Month', days: 30, price: 33999 },
+        { label: '2 Months', days: 60, price: 55999 },
+        { label: '3 Months', days: 90, price: 65999 },
+      ],
+    },
+  },
+
+  /* ===== Portable AC ===== */
+  'portable-ac': {
+    '1 Ton': {
+      monthly: 3750,
+      quarterly: 15000,
+      halfYearly: 22500,
+      yearly: 28500,
+      deposit: 0,
+      dayPrice: 2000,
+      dayPriceUnit: 'per day',
+      transportationNote: 'Transportation not included',
+      plans: [
+        { label: '1 Day', days: 1, price: 2000 },
+        { label: '4 Months Package', days: 120, price: 15000 },
+        { label: '6 Months Package', days: 180, price: 22500 },
+        { label: '12 Months Package', days: 365, price: 28500 },
+      ],
+    },
+    '1.5 Ton': {
+      monthly: 4375,
+      quarterly: 17500,
+      halfYearly: 25500,
+      yearly: 29500,
+      deposit: 0,
+      dayPrice: 2500,
+      dayPriceUnit: 'per day',
+      transportationNote: 'Transportation not included',
+      plans: [
+        { label: '1 Day', days: 1, price: 2500 },
+        { label: '4 Months Package', days: 120, price: 17500 },
+        { label: '6 Months Package', days: 180, price: 25500 },
+        { label: '12 Months Package', days: 365, price: 29500 },
+      ],
+    },
+  },
+
+  /* ===== Cassette AC ===== */
+  'cassette-ac': {
+    '2 Ton': {
+      monthly: 30999,
+      quarterly: 60999,
+      halfYearly: 120000,
+      yearly: 240000,
+      deposit: 0,
+      pricingNote: 'Installation included',
+      transportationNote: 'Transportation extra as per location',
+      plans: [
+        { label: '1 Month', days: 30, price: 30999 },
+        { label: '2 Months', days: 60, price: 40000 },
+        { label: '3 Months', days: 90, price: 60999 },
+      ],
+    },
+    '3 Ton': {
+      monthly: 35999,
+      quarterly: 65999,
+      halfYearly: 130000,
+      yearly: 260000,
+      deposit: 0,
+      pricingNote: 'Installation included',
+      transportationNote: 'Transportation extra as per location',
+      plans: [
+        { label: '1 Month', days: 30, price: 35999 },
+        { label: '2 Months', days: 60, price: 45000 },
+        { label: '3 Months', days: 90, price: 65999 },
+      ],
+    },
+    '4 Ton': {
+      monthly: 40999,
+      quarterly: 69000,
+      halfYearly: 138000,
+      yearly: 276000,
+      deposit: 0,
+      pricingNote: 'Installation included',
+      transportationNote: 'Transportation extra as per location',
+      plans: [
+        { label: '1 Month', days: 30, price: 40999 },
+        { label: '2 Months', days: 60, price: 50000 },
+        { label: '3 Months', days: 90, price: 69000 },
+      ],
+    },
+  },
+
+  /* ===== Air Coolers: Desert Cooler ===== */
+  'desert-cooler': {
+    '20L': {
+      monthly: 1000,
+      quarterly: 3000,
+      halfYearly: 4800,
+      yearly: 6200,
+      deposit: 0,
+      dayPrice: 300,
+      dayPriceUnit: 'per day',
+      transportationNote: 'Transportation not included',
+      plans: [
+        { label: '1 Day', days: 1, price: 300 },
+        { label: '1 Month', days: 30, price: 1000 },
+        { label: '4 Months Package', days: 120, price: 3000 },
+        { label: '6 Months Package', days: 180, price: 4800 },
+        { label: '12 Months Package', days: 365, price: 6200 },
+      ],
+    },
+    '25L': {
+      monthly: 1200,
+      quarterly: 3500,
+      halfYearly: 5500,
+      yearly: 7200,
+      deposit: 0,
+      dayPrice: 400,
+      dayPriceUnit: 'per day',
+      transportationNote: 'Transportation not included',
+      plans: [
+        { label: '1 Day', days: 1, price: 400 },
+        { label: '1 Month', days: 30, price: 1200 },
+        { label: '4 Months Package', days: 120, price: 3500 },
+        { label: '6 Months Package', days: 180, price: 5500 },
+        { label: '12 Months Package', days: 365, price: 7200 },
+      ],
+    },
+    '30L': {
+      monthly: 1400,
+      quarterly: 4000,
+      halfYearly: 6000,
+      yearly: 7800,
+      deposit: 0,
+      dayPrice: 500,
+      dayPriceUnit: 'per day',
+      transportationNote: 'Transportation not included',
+      plans: [
+        { label: '1 Day', days: 1, price: 500 },
+        { label: '1 Month', days: 30, price: 1400 },
+        { label: '4 Months Package', days: 120, price: 4000 },
+        { label: '6 Months Package', days: 180, price: 6000 },
+        { label: '12 Months Package', days: 365, price: 7800 },
+      ],
+    },
+    '40L': {
+      monthly: 1600,
+      quarterly: 4500,
+      halfYearly: 6500,
+      yearly: 8200,
+      deposit: 0,
+      dayPrice: 600,
+      dayPriceUnit: 'per day',
+      transportationNote: 'Transportation not included',
+      plans: [
+        { label: '1 Day', days: 1, price: 600 },
+        { label: '1 Month', days: 30, price: 1600 },
+        { label: '4 Months Package', days: 120, price: 4500 },
+        { label: '6 Months Package', days: 180, price: 6500 },
+        { label: '12 Months Package', days: 365, price: 8200 },
+      ],
+    },
+    '65L': {
+      monthly: 1700,
+      quarterly: 5400,
+      halfYearly: 6900,
+      yearly: 8500,
+      deposit: 0,
+      dayPrice: 700,
+      dayPriceUnit: 'per day',
+      transportationNote: 'Transportation not included',
+      plans: [
+        { label: '1 Day', days: 1, price: 700 },
+        { label: '1 Month', days: 30, price: 1700 },
+        { label: '4 Months Package', days: 120, price: 5400 },
+        { label: '6 Months Package', days: 180, price: 6900 },
+        { label: '12 Months Package', days: 365, price: 8500 },
+      ],
+    },
+    '80L': {
+      monthly: 1800,
+      quarterly: 6500,
+      halfYearly: 7500,
+      yearly: 9500,
+      deposit: 0,
+      dayPrice: 800,
+      dayPriceUnit: 'per day',
+      transportationNote: 'Transportation not included',
+      plans: [
+        { label: '1 Day', days: 1, price: 800 },
+        { label: '1 Month', days: 30, price: 1800 },
+        { label: '4 Months Package', days: 120, price: 6500 },
+        { label: '6 Months Package', days: 180, price: 7500 },
+        { label: '12 Months Package', days: 365, price: 9500 },
+      ],
+    },
+  },
+
+  /* ===== Air Coolers: Jumbo Commercial Cooler ===== */
+  'commercial-cooler': {
+    '80L': {
+      monthly: 4000,
+      quarterly: 8000,
+      halfYearly: 10500,
+      yearly: 12500,
+      deposit: 0,
+      dayPrice: 1500,
+      dayPriceUnit: 'per day',
+      transportationNote: 'Transportation not included',
+      plans: [
+        { label: '1 Day', days: 1, price: 1500 },
+        { label: '1 Month', days: 30, price: 4000 },
+        { label: '4 Months Package', days: 120, price: 8000 },
+        { label: '6 Months Package', days: 180, price: 10500 },
+        { label: '12 Months Package', days: 365, price: 12500 },
+      ],
+    },
+    '90L': {
+      monthly: 4500,
+      quarterly: 9000,
+      halfYearly: 11000,
+      yearly: 13000,
+      deposit: 0,
+      dayPrice: 1700,
+      dayPriceUnit: 'per day',
+      transportationNote: 'Transportation not included',
+      plans: [
+        { label: '1 Day', days: 1, price: 1700 },
+        { label: '1 Month', days: 30, price: 4500 },
+        { label: '4 Months Package', days: 120, price: 9000 },
+        { label: '6 Months Package', days: 180, price: 11000 },
+        { label: '12 Months Package', days: 365, price: 13000 },
+      ],
+    },
+    '100L': {
+      monthly: 5000,
+      quarterly: 10000,
+      halfYearly: 12500,
+      yearly: 13500,
+      deposit: 0,
+      dayPrice: 2700,
+      dayPriceUnit: 'per day',
+      transportationNote: 'Transportation not included',
+      plans: [
+        { label: '1 Day', days: 1, price: 2700 },
+        { label: '1 Month', days: 30, price: 5000 },
+        { label: '4 Months Package', days: 120, price: 10000 },
+        { label: '6 Months Package', days: 180, price: 12500 },
+        { label: '12 Months Package', days: 365, price: 13500 },
+      ],
+    },
+    '120L': {
+      monthly: 5500,
+      quarterly: 11000,
+      halfYearly: 13000,
+      yearly: 14000,
+      deposit: 0,
+      dayPrice: 3000,
+      dayPriceUnit: 'per day',
+      transportationNote: 'Transportation not included',
+      plans: [
+        { label: '1 Day', days: 1, price: 3000 },
+        { label: '1 Month', days: 30, price: 5500 },
+        { label: '4 Months Package', days: 120, price: 11000 },
+        { label: '6 Months Package', days: 180, price: 13000 },
+        { label: '12 Months Package', days: 365, price: 14000 },
+      ],
+    },
+  },
+};
+
+interface ResolvedPricing {
+  monthly: number;
+  quarterly: number;
+  halfYearly: number;
+  yearly: number;
+  deposit: number;
+  plans: RentalPlan[];
+  pricingNote?: string;
+  transportationNote?: string;
+  dayPrice?: number;
+  dayPriceUnit?: string;
+}
+
+/**
+ * Resolve the final price for a product. If an override exists for the
+ * `(subCategory, capacityLabel)` pair, it wins; otherwise the formula from
+ * PRICE_TIERS is used.
+ */
+function resolvePricing(
+  category: string,
+  subCategory: string,
+  capacityLabel: string,
+  capacityValue: number
+): ResolvedPricing {
+  const override = PRICE_OVERRIDES[subCategory]?.[capacityLabel];
+
+  if (override) {
+    const monthly =
+      override.monthly !== undefined
+        ? override.monthly
+        : override.plans && override.plans.length > 0
+        ? Math.round(override.plans[0].price / Math.max(1, Math.round(override.plans[0].days / 30)))
+        : 1000;
+
+    const quarterly =
+      override.quarterly !== undefined
+        ? override.quarterly
+        : quarterlyFromMonthly(monthly);
+    const halfYearly =
+      override.halfYearly !== undefined
+        ? override.halfYearly
+        : halfYearlyFromMonthly(monthly);
+    const yearly =
+      override.yearly !== undefined
+        ? override.yearly
+        : yearlyFromMonthly(monthly);
+    const deposit =
+      override.deposit !== undefined
+        ? override.deposit
+        : category === 'refrigerators' || category === 'washing-machines'
+        ? 2000
+        : 0;
+
+    const plans =
+      override.plans && override.plans.length > 0
+        ? override.plans
+        : [
+            { label: '3 Months', days: 90, price: quarterly },
+            { label: '6 Months', days: 180, price: halfYearly },
+            { label: '12 Months', days: 365, price: yearly },
+          ];
+
+    return {
+      monthly,
+      quarterly,
+      halfYearly,
+      yearly,
+      deposit,
+      plans,
+      pricingNote: override.pricingNote,
+      transportationNote: override.transportationNote,
+      dayPrice: override.dayPrice,
+      dayPriceUnit: override.dayPriceUnit,
+    };
+  }
+
+  // Fallback: formula-based pricing.
+  const monthly = monthlyPrice(category, capacityValue);
+  const quarterly = quarterlyFromMonthly(monthly);
+  const halfYearly = halfYearlyFromMonthly(monthly);
+  const yearly = yearlyFromMonthly(monthly);
+  const deposit =
+    category === 'refrigerators' || category === 'washing-machines' ? 2000 : 0;
+  return {
+    monthly,
+    quarterly,
+    halfYearly,
+    yearly,
+    deposit,
+    plans: [
+      { label: '1 Month', days: 30, price: monthly },
+      { label: '3 Months', days: 90, price: quarterly },
+      { label: '6 Months', days: 180, price: halfYearly },
+      { label: '12 Months', days: 365, price: yearly },
+    ],
+  };
+}
 
 interface Catalog {
   category: string;
   sub: string;
   label: string;
   type: string;
-  /** Primary product image (local /images/products/... path). */
   img: string;
-  /** Fallback gallery image used as the second slide in ProductGallery. */
   img2: string;
   energy: string;
   warranty: string;
@@ -285,47 +933,37 @@ interface Catalog {
 const CATALOG: Catalog[] = [
   /* ===== 1. Air Conditioners ===== */
   { category: 'air-conditioners', sub: 'window-ac', label: 'Window AC', type: 'Window AC', img: IMG.acWindow, img2: IMG.acFallback, energy: '3 Star', warranty: '1 Year',
-    caps: [{ v: 0.75, l: '0.75 Ton' }, { v: 1, l: '1 Ton' }, { v: 1.5, l: '1.5 Ton' }, { v: 2, l: '2 Ton' }],
+    caps: [{ v: 1, l: '1 Ton' }, { v: 1.5, l: '1.5 Ton' }, { v: 2, l: '2 Ton' }],
     brands: ['Voltas', 'LG', 'Samsung', 'Daikin', 'Blue Star', 'Hitachi', 'Panasonic', 'Carrier', 'Lloyd', 'Whirlpool'],
     features: ['Turbo cooling', 'Anti-bacteria filter', 'Eco-friendly R-32 refrigerant', 'Sleep mode', 'Auto restart'] },
   { category: 'air-conditioners', sub: 'split-ac', label: 'Split AC', type: 'Split AC', img: IMG.acSplit, img2: IMG.acFallback, energy: '5 Star', warranty: '1 Year',
-    caps: [{ v: 1, l: '1 Ton' }, { v: 1.5, l: '1.5 Ton' }, { v: 2, l: '2 Ton' }, { v: 3, l: '3 Ton' }],
+    caps: [{ v: 1, l: '1 Ton' }, { v: 1.5, l: '1.5 Ton' }, { v: 2, l: '2 Ton' }],
     brands: ['Voltas', 'LG', 'Samsung', 'Daikin', 'Blue Star', 'Hitachi', 'Panasonic', 'Carrier', 'Lloyd', 'Whirlpool'],
     features: ['Wi-Fi enabled', 'Convertible modes', 'Anti-corrosion copper condenser', 'Turbo cooling', 'Self-clean'] },
-  { category: 'air-conditioners', sub: 'inverter-ac', label: 'Inverter Split AC', type: 'Inverter Split AC', img: IMG.acInverter, img2: IMG.acFallback, energy: '5 Star', warranty: '1 Year',
+  { category: 'air-conditioners', sub: 'inverter-ac', label: 'Split Inverter AC', type: 'Split Inverter AC', img: IMG.acInverter, img2: IMG.acFallback, energy: '5 Star', warranty: '1 Year',
     caps: [{ v: 1, l: '1 Ton' }, { v: 1.5, l: '1.5 Ton' }, { v: 2, l: '2 Ton' }],
     brands: ['Voltas', 'LG', 'Samsung', 'Daikin', 'Blue Star', 'Hitachi', 'Panasonic', 'Carrier', 'Lloyd', 'Whirlpool'],
     features: ['Inverter compressor', '5 Star energy rating', '10-year compressor warranty', 'Wi-Fi smart control', 'Silent operation'] },
-  { category: 'air-conditioners', sub: 'non-inverter-ac', label: 'Non-Inverter AC', type: 'Non-Inverter AC', img: IMG.acNonInverter, img2: IMG.acFallback, energy: '3 Star', warranty: '1 Year',
-    caps: [{ v: 1, l: '1 Ton' }, { v: 1.5, l: '1.5 Ton' }, { v: 2, l: '2 Ton' }],
-    brands: ['Voltas', 'LG', 'Samsung', 'Daikin', 'Blue Star', 'Hitachi'],
-    features: ['Fixed speed compressor', 'Eco mode', 'Sleep mode', 'Anti-bacteria filter', 'Turbo cooling'] },
   { category: 'air-conditioners', sub: 'tower-ac', label: 'Tower AC', type: 'Commercial Tower AC', img: IMG.acTower, img2: IMG.acFallback, energy: '3 Star', warranty: '1 Year',
-    caps: [{ v: 2, l: '2 Ton' }, { v: 2.5, l: '2.5 Ton' }, { v: 3, l: '3 Ton' }, { v: 4, l: '4 Ton' }],
+    caps: [ { v: 2.5, l: '2.5 Ton' }, { v: 3, l: '3 Ton' }, { v: 4, l: '4 Ton' }],
     brands: ['Voltas', 'LG', 'Daikin', 'Blue Star', 'Hitachi', 'Carrier'],
     features: ['Floor-standing design', 'Wide air throw', 'Cools large halls', 'Heavy-duty compressor', 'Remote control'] },
   { category: 'air-conditioners', sub: 'portable-ac', label: 'Portable AC', type: 'Portable AC', img: IMG.acPortable, img2: IMG.acFallback, energy: '3 Star', warranty: '1 Year',
-    caps: [{ v: 1, l: '1 Ton Smart Portable' }, { v: 1.5, l: '1.5 Ton Compact Portable' }],
+    caps: [{ v: 1, l: '1 Ton' }, { v: 1.5, l: '1.5 Ton' }],
     brands: ['Blue Star', 'LG', 'Voltas', 'Whirlpool'],
     features: ['No installation required', 'Self-evaporative', '4-in-1 modes', 'Easy-roll casters', 'Window kit included'] },
   { category: 'air-conditioners', sub: 'cassette-ac', label: 'Cassette AC', type: 'Cassette AC', img: IMG.acCassette, img2: IMG.acFallback, energy: '3 Star', warranty: '1 Year',
-    caps: [{ v: 2, l: '2 Ton' }, { v: 3, l: '3 Ton' }, { v: 4, l: '4 Way Cassette' }],
-    brands: ['Daikin', 'LG', 'Voltas', 'Blue Star', 'Hitachi', 'Carrier'],
-    features: ['4-way air swing', 'Ceiling-mounted', 'Wide airflow coverage', 'Inverter compressor', 'Group control'] },
-  { category: 'air-conditioners', sub: 'ductable-ac', label: 'Ductable AC', type: 'Ductable AC', img: IMG.acDuctable, img2: IMG.acFallback, energy: '3 Star', warranty: '1 Year',
     caps: [{ v: 2, l: '2 Ton' }, { v: 3, l: '3 Ton' }, { v: 4, l: '4 Ton' }],
     brands: ['Daikin', 'LG', 'Voltas', 'Blue Star', 'Hitachi', 'Carrier'],
-    features: ['Ducted installation', 'Commercial-grade', 'Quiet operation', 'Remote monitoring', 'Heavy-duty build'] },
+    features: ['4-way air swing', 'Ceiling-mounted', 'Wide airflow coverage', 'Inverter compressor', 'Group control'] },
 
   /* ===== 2. Air Coolers ===== */
   { category: 'air-coolers', sub: 'personal-cooler', label: 'Personal Cooler', type: 'Personal Air Cooler', img: IMG.cooler, img2: IMG.cooler, energy: '5 Star', warranty: '1 Year',
     caps: [{ v: 7, l: 'Mini' }, { v: 12, l: 'Portable' }, { v: 18, l: 'Personal' }],
     brands: ['Symphony', 'Bajaj', 'Crompton', 'Havells', 'Kenstar', 'Orient'],
     features: ['Compact design', 'Low power', 'Honeycomb pads', 'Castor wheels', 'Ice chamber'] },
-  { category: 'air-coolers', sub: 'desert-cooler', label: 'Desert Cooler', type: 'Desert Air Cooler', img: IMG.cooler, img2: IMG.cooler, energy: '4 Star', warranty: '1 Year',
-    caps: [{ v: 20, l: '20L' }, { v: 25, l: '25L' }, { v: 35, l: '35L' }, { v: 40, l: '40L' },
-           { v: 45, l: '45L' }, { v: 50, l: '50L' }, { v: 60, l: '60L' }, { v: 65, l: '65L' },
-           { v: 75, l: '75L' }, { v: 90, l: '90L' }, { v: 120, l: '120L' }, { v: 150, l: '150L' }],
+  { category: 'air-coolers', sub: 'desert-cooler', label: 'Desert Cooler', type: 'Desert Air Cooler', img: IMG.coolerDesert, img2: IMG.coolerDesert, energy: '4 Star', warranty: '1 Year',
+    caps: [{ v: 20, l: '20L' }, { v: 25, l: '25L' }, { v: 30, l: '30L' }, { v: 40, l: '40L' }, { v: 65, l: '65L' }, { v: 80, l: '80L' }],
     brands: ['Symphony', 'Bajaj', 'Crompton', 'Havells', 'Kenstar', 'Orient'],
     features: ['High air delivery', 'Wood-wool cooling pads', 'Large tank', 'Auto-fill option', 'Inverter compatible'] },
   { category: 'air-coolers', sub: 'tower-cooler', label: 'Tower Cooler', type: 'Tower Cooler', img: IMG.cooler, img2: IMG.cooler, energy: '4 Star', warranty: '1 Year',
@@ -336,8 +974,8 @@ const CATALOG: Catalog[] = [
     caps: [{ v: 30, l: 'Plastic Window' }, { v: 50, l: 'Metal Window' }, { v: 70, l: 'Metal Window+' }],
     brands: ['Symphony', 'Bajaj', 'Crompton', 'Havells', 'Orient'],
     features: ['Window mounting', 'Powerful airflow', 'Durable body', 'Easy maintenance', 'Multiple speed'] },
-  { category: 'air-coolers', sub: 'commercial-cooler', label: 'Commercial Cooler', type: 'Commercial Air Cooler', img: IMG.cooler, img2: IMG.cooler, energy: '3 Star', warranty: '1 Year',
-    caps: [{ v: 100, l: 'Jumbo' }, { v: 150, l: 'Industrial' }],
+  { category: 'air-coolers', sub: 'commercial-cooler', label: 'Jumbo Cooler', type: 'Jumbo Commercial Air Cooler', img: IMG.coolerCommercial, img2: IMG.coolerCommercial, energy: '3 Star', warranty: '1 Year',
+    caps: [{ v: 80, l: '80L' }, { v: 90, l: '90L' }, { v: 100, l: '100L' }, { v: 120, l: '120L' }],
     brands: ['Symphony', 'Bajaj', 'Crompton', 'Havells'],
     features: ['High-capacity cooling', 'Industrial-grade', 'Wide coverage', 'Heavy-duty motor', 'Continuous operation'] },
   { category: 'air-coolers', sub: 'smart-air-cooler', label: 'Smart Air Cooler', type: 'Smart Air Cooler', img: IMG.cooler, img2: IMG.cooler, energy: '4 Star', warranty: '1 Year',
@@ -585,19 +1223,34 @@ function buildProducts(): Product[] {
       for (const brand of brandsForCombo) {
         counter++;
         const id = `p-${String(counter).padStart(4, '0')}`;
-        const monthly = monthlyPrice(cat.category, cap.v);
-        const pricing = {
-          monthly,
-          quarterly: quarterlyFromMonthly(monthly),
-          halfYearly: halfYearlyFromMonthly(monthly),
-          yearly: yearlyFromMonthly(monthly),
-        };
+        const active = isProductActive(cat.category, cat.sub, cap.l);
+        const resolved = resolvePricing(cat.category, cat.sub, cap.l, cap.v);
+
+        const pricing = active
+          ? {
+              monthly: resolved.monthly,
+              quarterly: resolved.quarterly,
+              halfYearly: resolved.halfYearly,
+              yearly: resolved.yearly,
+            }
+          : {
+              monthly: 0,
+              quarterly: 0,
+              halfYearly: 0,
+              yearly: 0,
+            };
+        const deposit = active ? resolved.deposit : 0;
+        const plans = active ? resolved.plans : [];
 
         let slug = slugifyProduct(brand, `${cap.l} ${cat.label}`);
         if (seenSlugs.has(slug)) slug = `${slug}-${counter}`;
         seenSlugs.add(slug);
 
         const name = `${brand} ${cap.l} ${cat.label}`;
+        const depositNotice = deposit > 0 ? ` Refundable deposit: ₹${deposit}.` : ' Zero deposit.';
+
+        const v2Img = PRODUCT_V2_IMAGES[cat.sub]?.[cap.l] || cat.img;
+        const images = active ? [v2Img, v2Img] : [cat.img, cat.img2];
 
         out.push({
           id,
@@ -606,9 +1259,13 @@ function buildProducts(): Product[] {
           category: cat.category as Product['category'],
           subCategory: cat.sub,
           brand,
-          images: [cat.img, cat.img2],
-          description: `${cap.l} ${cat.type} from ${brand} — reliable rental-grade appliance with warranty. Charges applicable on delivery & installation. Zero deposit.`,
-          longDescription: `This ${brand} ${cap.l} ${cat.type.toLowerCase()} is curated for Rent BigBazar customers looking for hassle-free monthly rentals. ${cat.features.slice(0, 4).join('; ')}. Every rental includes full warranty coverage during the rental period. Charges applicable on delivery and installation.`,
+          images,
+          description: active
+            ? `${cap.l} ${cat.type} from ${brand} — reliable rental-grade appliance with warranty. Transport extra.${depositNotice}`
+            : `${cap.l} ${cat.type} from ${brand} — Coming Soon! Bookings will open shortly.`,
+          longDescription: active
+            ? `This ${brand} ${cap.l} ${cat.type.toLowerCase()} is curated for Rent BigBazar customers looking for hassle-free rentals. ${cat.features.slice(0, 4).join('; ')}. Full warranty coverage during rental. Transport extra.${depositNotice}`
+            : `This ${brand} ${cap.l} ${cat.type.toLowerCase()} will be available for rent soon. Please check back for launch pricing and booking availability.`,
           specifications: {
             Brand: brand,
             Type: cat.type,
@@ -618,10 +1275,16 @@ function buildProducts(): Product[] {
             Color: 'White',
           },
           pricing,
-          deposit: 0,
+          plans,
+          deposit,
           rating: 4.4 + ((counter * 7) % 6) * 0.1,
           reviewCount: 80 + (counter % 9) * 53,
-          inStock: true,
+          inStock: active,
+          comingSoon: !active,
+          pricingNote: active ? resolved.pricingNote : 'Coming Soon',
+          transportationNote: active ? resolved.transportationNote : 'Coming Soon',
+          dayPrice: active ? resolved.dayPrice : undefined,
+          dayPriceUnit: active ? resolved.dayPriceUnit : undefined,
           tags: [
             cat.sub.replace(/-/g, ' '),
             cap.l.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
@@ -639,7 +1302,6 @@ function buildProducts(): Product[] {
 
   return out;
 }
-
 export const PRODUCTS: Product[] = buildProducts();
 
 
@@ -662,7 +1324,7 @@ export const SERVICES: Service[] = [
       'All brands serviced',
       '30-day service warranty',
       'Genuine spare parts',
-      'Transparent pricing - no hidden charges',
+      'Transparent pricing - starting @ ₹299',
     ],
     duration: '60-90 minutes',
     warranty: '30 days',
@@ -685,7 +1347,7 @@ export const SERVICES: Service[] = [
     features: [
       'Up to 3m copper piping included',
       'Heavy-duty wall bracket',
-      'Professional installation',
+      'Professional installation @ ₹1,499',
       'Electrical safety check',
       'Free old AC uninstallation',
     ],
@@ -703,21 +1365,46 @@ export const SERVICES: Service[] = [
     description: 'AC gas refill with leak detection - R22, R32, R410A.',
     longDescription:
       'Restore your AC\'s cooling performance with our professional gas refill service. Includes comprehensive leak detection, pressure testing, and use of genuine refrigerants (R-22, R-32, R-410A).',
-    startingPrice: 1499,
+    startingPrice: 2499,
     images: [
       '/images/newproductimages/ac-gas-refill.jpeg',
     ],
     features: [
       'Genuine refrigerant used',
+      'R22 Gas refill @ ₹2,499',
+      'R32 / R410A Gas refill @ ₹2,849',
       'Leak detection included',
-      'All gas types (R22, R32, R410A)',
-      'Pressure testing',
       '30-day cooling warranty',
     ],
     duration: '45-60 minutes',
     warranty: '30 days',
     rating: 4.7,
     reviewCount: 642,
+  },
+  {
+    id: 'svc-ac-leakage',
+    slug: 'ac-water-leakage',
+    name: 'AC Water Leakage Problem Repair',
+    category: 'ac',
+    subCategory: 'repair',
+    description: 'Fix indoor AC water dripping, drain blockage, and pipe issues.',
+    longDescription:
+      'Water leaking from your AC can damage walls and flooring. Our experts resolve drain tray blockage, pipe clogs, improper leveling, and filter issues with same-day doorstep service.',
+    startingPrice: 349,
+    images: [
+      '/images/newproductimages/ac-repair.jpeg',
+    ],
+    features: [
+      'Drain line flush & cleaning @ ₹349',
+      'Drain tray inspection & sealing',
+      'Indoor unit leveling check',
+      'Same day doorstep repair',
+      '30-day service warranty',
+    ],
+    duration: '45-60 minutes',
+    warranty: '30 days',
+    rating: 4.8,
+    reviewCount: 512,
   },
   {
     id: 'svc-004',
@@ -729,6 +1416,7 @@ export const SERVICES: Service[] = [
     longDescription:
       'Restore cooling efficiency and improve air quality with our deep cleaning service. Includes complete disassembly, jet washing of coils, blower, and filters, plus anti-bacterial spray treatment.',
     startingPrice: 499,
+    comingSoon: true,
     images: [
       '/images/newproductimages/ac-deep-clean.jpeg',
     ],
@@ -750,19 +1438,19 @@ export const SERVICES: Service[] = [
     name: 'AC Annual Maintenance Contract (AMC)',
     category: 'ac',
     subCategory: 'amc',
-    description: 'Yearly AMC - unlimited service calls + free gas top-up.',
+    description: 'Yearly AMC for 1 Ton, 1.5 Ton, 2 Ton & Commercial AC.',
     longDescription:
-      'Get complete peace of mind with our Annual Maintenance Contract. Includes 4 scheduled services, unlimited breakdown calls, free gas top-up once a year, and priority service. Best value for AC owners.',
-    startingPrice: 2499,
+      'Get complete peace of mind with our 1-Year Annual Maintenance Contract. Includes regular scheduled services, breakdown visits, gas check, and priority service.',
+    startingPrice: 4750,
     images: [
       '/images/newproductimages/ac-annual-maintainace.jpeg',
     ],
     features: [
-      '4 scheduled services per year',
-      'Unlimited breakdown visits',
-      'Free gas top-up (1 time)',
-      'Priority same-day service',
-      'Up to 20% off on parts',
+      '1 Year AMC - 1 Ton AC: ₹4,750',
+      '1 Year AMC - 1.5 Ton AC: ₹5,750',
+      '1 Year AMC - 2 Ton AC: ₹6,750',
+      'Commercial & Industrial AC: Contact Us',
+      'Priority same-day service & genuine parts',
     ],
     duration: '12 months',
     warranty: 'Full year',
@@ -779,6 +1467,7 @@ export const SERVICES: Service[] = [
     longDescription:
       'Expert diagnosis and repair for all refrigerator problems - not cooling, water leakage, excessive noise, electrical issues, compressor faults. All brands serviced.',
     startingPrice: 299,
+    comingSoon: true,
     images: [
       'https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=800&q=80',
     ],
@@ -804,6 +1493,7 @@ export const SERVICES: Service[] = [
     longDescription:
       'Restore your refrigerator\'s cooling performance with our gas refill service. Includes leak detection, capillary replacement if needed, and use of genuine refrigerants.',
     startingPrice: 1999,
+    comingSoon: true,
     images: [
       'https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=800&q=80',
     ],
@@ -829,6 +1519,7 @@ export const SERVICES: Service[] = [
     longDescription:
       'Complete fridge deep cleaning service - defrost, remove all shelves, sanitize, deodorize, and reassemble. Improves hygiene and reduces electricity consumption.',
     startingPrice: 399,
+    comingSoon: true,
     images: [
       'https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=800&q=80',
     ],
@@ -856,6 +1547,7 @@ export const SERVICES: Service[] = [
     longDescription:
       'Our technicians diagnose and fix all air cooler issues — pump failure, motor issues, water leakage, cooling problems, and more. Service warranty included.',
     startingPrice: 249,
+    comingSoon: true,
     images: ['/images/newproductimages/ac-cooler-appliance.jpeg'],
     features: [
       'Same day service available',
@@ -879,6 +1571,7 @@ export const SERVICES: Service[] = [
     longDescription:
       "Restore your air cooler’s cooling efficiency with our deep cleaning service. Includes complete disassembly, pump cleaning, motor check, and pad replacement if needed.",
     startingPrice: 399,
+    comingSoon: true,
     images: ['/images/newproductimages/ac-cooler-appliance.jpeg'],
     features: [
       'Complete pump descaling',
@@ -904,6 +1597,7 @@ export const SERVICES: Service[] = [
     longDescription:
       'Diagnosis and repair for all washing machine issues — drainage problems, spin failure, water leakage, electrical faults, and more. Front-load, top-load, and semi-automatic all serviced.',
     startingPrice: 349,
+    comingSoon: true,
     images: ['/images/newproductimages/washing-machine.jpeg'],
     features: [
       'Same day service',
@@ -927,6 +1621,7 @@ export const SERVICES: Service[] = [
     longDescription:
       'Remove limescale, detergent residue, and bacteria from your washing machine drum, pipes, and filter. Improves wash quality and extends machine life.',
     startingPrice: 599,
+    comingSoon: true,
     images: ['/images/newproductimages/washing-machine.jpeg'],
     features: [
       'Drum descaling',
@@ -950,6 +1645,7 @@ export const SERVICES: Service[] = [
     longDescription:
       'Complete installation service including water inlet connection, drainage setup, leveling, electrical connection, and test run.',
     startingPrice: 299,
+    comingSoon: true,
     images: ['/images/newproductimages/washing-machine.jpeg'],
     features: [
       'Water inlet connection',
@@ -975,6 +1671,7 @@ export const SERVICES: Service[] = [
     longDescription:
       'Complete diagnosis and repair of home and commercial inverters — including power issues, charging faults, display problems, and component failures.',
     startingPrice: 399,
+    comingSoon: true,
     images: ['/images/newproductimages/inverter-appliance.jpeg'],
     features: [
       'All brands serviced',
@@ -998,6 +1695,7 @@ export const SERVICES: Service[] = [
     longDescription:
       'Complete inverter installation including battery connection, wiring, safety checks, and configuration for optimal performance.',
     startingPrice: 499,
+    comingSoon: true,
     images: ['/images/newproductimages/inverter-appliance.jpeg'],
     features: [
       'Battery installation',
@@ -1021,6 +1719,7 @@ export const SERVICES: Service[] = [
     longDescription:
       'Replace your old or weak inverter battery with a new one. Includes safe disposal of old battery, proper connections, water top-up for tubular batteries, and warranty registration.',
     startingPrice: 1499,
+    comingSoon: true,
     images: ['/images/newproductimages/inverter-appliance.jpeg'],
     features: [
       'Old battery disposal',
@@ -1046,6 +1745,7 @@ export const SERVICES: Service[] = [
     longDescription:
       'Complete repair service for instant, storage, gas, and solar geysers. Fixes heating issues, water leakage, thermostat problems, and electrical faults.',
     startingPrice: 299,
+    comingSoon: true,
     images: ['/images/newproductimages/gyser%20repair.jpeg'],
     features: [
       'All geyser types',
@@ -1069,6 +1769,7 @@ export const SERVICES: Service[] = [
     longDescription:
       'Safe wall-mount installation with proper plumbing connections, electrical wiring, and pressure relief valve setup. Includes bracket fitting and water line connections.',
     startingPrice: 599,
+    comingSoon: true,
     images: ['/images/newproductimages/geysers-appliance.jpeg'],
     features: [
       'Wall mounting',
@@ -1092,6 +1793,7 @@ export const SERVICES: Service[] = [
     longDescription:
       'Professional descaling of storage geysers to remove mineral buildup, improve heating efficiency, and extend tank life. Includes anode rod check.',
     startingPrice: 449,
+    comingSoon: true,
     images: ['/images/newproductimages/geysers-appliance.jpeg'],
     features: [
       'Tank descaling',
@@ -1117,6 +1819,7 @@ export const SERVICES: Service[] = [
     longDescription:
       'Genuine filter replacement for all water purifier brands — RO membrane, UV lamp, UF filter, sediment filter, carbon filter. Includes TDS check and sanitization.',
     startingPrice: 599,
+    comingSoon: true,
     images: ['/images/newproductimages/waterpurifier-appliance.jpeg'],
     features: [
       'Genuine filters',
@@ -1140,6 +1843,7 @@ export const SERVICES: Service[] = [
     longDescription:
       'Diagnosis and repair of common water purifier issues — no water output, leakage, low pressure, bad taste, electrical faults, pump failure.',
     startingPrice: 399,
+    comingSoon: true,
     images: ['/images/newproductimages/waterpurifier-appliance.jpeg'],
     features: [
       'All brands serviced',
@@ -1163,6 +1867,7 @@ export const SERVICES: Service[] = [
     longDescription:
       'Complete installation including wall mounting, water inlet connection, drain setup, electrical connection, and first-time filter flush.',
     startingPrice: 499,
+    comingSoon: true,
     images: ['/images/newproductimages/waterpurifier-appliance.jpeg'],
     features: [
       'Wall mounting',
@@ -1188,6 +1893,7 @@ export const SERVICES: Service[] = [
     longDescription:
       'Complete repair for solo, grill, convection microwaves, OTGs, and built-in ovens. Fixes heating issues, sparking, turntable problems, electrical faults.',
     startingPrice: 349,
+    comingSoon: true,
     images: ['/images/newproductimages/microwave-appliance.jpeg'],
     features: [
       'All brands & types',
@@ -1211,6 +1917,7 @@ export const SERVICES: Service[] = [
     longDescription:
       'Deep cleaning of microwave interior, cavity, turntable, vents, and filters. Removes grease, food residue, and odors for safe cooking.',
     startingPrice: 299,
+    comingSoon: true,
     images: ['/images/newproductimages/microwave-appliance.jpeg'],
     features: [
       'Interior degreasing',
@@ -1236,6 +1943,7 @@ export const SERVICES: Service[] = [
     longDescription:
       'Expert repair of all room heater types — fan heaters, quartz heaters, halogen heaters, oil-filled radiators, PTC heaters. Fixes heating element issues, thermostat problems, electrical faults.',
     startingPrice: 299,
+    comingSoon: true,
     images: ['/images/newproductimages/room-heater-appliance.png'],
     features: [
       'All heater types',
@@ -1259,6 +1967,7 @@ export const SERVICES: Service[] = [
     longDescription:
       'Complete pre-winter servicing including element check, thermostat calibration, safety switch testing, and deep cleaning. Get your heater winter-ready.',
     startingPrice: 399,
+    comingSoon: true,
     images: ['/images/newproductimages/room-heater-appliance.png'],
     features: [
       'Element inspection',
@@ -1284,6 +1993,7 @@ export const SERVICES: Service[] = [
     longDescription:
       'Expert repair for all induction cooktop types — single burner, double burner, infrared, built-in. Fixes heating issues, touch panel problems, electrical faults.',
     startingPrice: 349,
+    comingSoon: true,
     images: ['/images/newproductimages/induction%20cooktop.jpeg'],
     features: [
       'All induction types',
@@ -1307,6 +2017,7 @@ export const SERVICES: Service[] = [
     longDescription:
       'Complete servicing of induction cooktop — glass top polishing, fan cleaning, internal inspection, voltage check. Restores performance and extends life.',
     startingPrice: 299,
+    comingSoon: true,
     images: ['/images/newproductimages/induction%20cooktop.jpeg'],
     features: [
       'Glass top polishing',
@@ -1593,6 +2304,7 @@ export function getEnquiryTaxonomy(): EnquiryTaxonomy {
   const rentProductMap: Record<string, Set<string>> = {};
 
   for (const p of PRODUCTS) {
+    if (p.comingSoon) continue;
     const sub = p.subCategory;
     if (!rentSubMap[sub]) rentSubMap[sub] = new Set();
     const key = sub;
@@ -1604,6 +2316,7 @@ export function getEnquiryTaxonomy(): EnquiryTaxonomy {
   const serviceProductMap: Record<string, Set<string>> = {};
 
   for (const s of SERVICES) {
+    if (s.comingSoon) continue;
     const sub = s.subCategory;
     if (!serviceSubMap[sub]) serviceSubMap[sub] = new Set();
     const key = sub;

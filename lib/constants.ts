@@ -3,7 +3,7 @@ export const SITE_CONFIG = {
   shortName: 'Rent BigBazar',
   tagline: 'Rent BigBazar — Rent More, Save More',
   description:
-    'Rent ACs and home appliances across India with Rent BigBazar. Window, split, inverter, tower, cassette and ductable ACs on affordable monthly plans. Zero deposit. Charges applicable on delivery and installation.',
+    'Rent ACs and home appliances across India with Rent BigBazar. Window, split, inverter, tower, cassette, portable ACs and air coolers on affordable rental packages. Zero deposit. Charges applicable on delivery and installation.',
   url: 'https://rentbigbazar.com',
   email: 'support@rentbigbazar.com',
   adminEmail: 'support@rentbigbazar.com',
@@ -43,10 +43,11 @@ export const NAV_LINKS = [
 export const CITIES = ['Pune'];
 
 export const DURATIONS = [
-  { value: 1, label: '1 Month', savings: 0 },
-  { value: 3, label: '3 Months', savings: 8 },
-  { value: 6, label: '6 Months', savings: 12 },
-  { value: 12, label: '12 Months', savings: 20 },
+  { value: '1-day', label: '1 Day', savings: 0 },
+  { value: '1', label: '1 Month', savings: 0 },
+  { value: '4', label: '4 Months', savings: 10 },
+  { value: '6', label: '6 Months', savings: 15 },
+  { value: '12', label: '12 Months', savings: 20 },
 ];
 
 export const TIME_SLOTS = [
