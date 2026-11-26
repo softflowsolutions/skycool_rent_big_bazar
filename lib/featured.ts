@@ -155,5 +155,9 @@ export function getFeaturedPrice(product: Product): number {
   if (typeof override === 'number' && !Number.isNaN(override)) {
     return override;
   }
+  if (product.plans && product.plans.length > 0) {
+    const primary = product.plans.find((p) => p.days >= 30) || product.plans[0];
+    return primary.price;
+  }
   return product.pricing.monthly;
 }

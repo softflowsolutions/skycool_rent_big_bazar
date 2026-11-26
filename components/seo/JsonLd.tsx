@@ -47,8 +47,8 @@ export function ProductJsonLd({ product }: { product: Product }) {
     brand: { '@type': 'Brand', name: product.brand },
     offers: {
       '@type': 'AggregateOffer',
-      lowPrice: product.pricing.monthly,
-      highPrice: product.pricing.yearly,
+      lowPrice: product.plans && product.plans.length > 0 ? (product.plans.find((pl) => pl.days >= 30) || product.plans[0]).price : product.pricing.monthly,
+      highPrice: product.plans && product.plans.length > 0 ? product.plans[product.plans.length - 1].price : product.pricing.yearly,
       priceCurrency: 'INR',
       availability: product.inStock
         ? 'https://schema.org/InStock'

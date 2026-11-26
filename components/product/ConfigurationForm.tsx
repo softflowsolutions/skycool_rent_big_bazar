@@ -86,11 +86,6 @@ export function ConfigurationForm({ product }: ConfigurationFormProps) {
   const rentTotal = useMemo(() => selectedPlan.price * quantity, [selectedPlan, quantity]);
   const depositTotal = useMemo(() => (product.deposit || 0) * quantity, [product.deposit, quantity]);
 
-  const months = selectedPlan.days >= 30 ? Math.round(selectedPlan.days / 30) : 0;
-  const effectiveMonthly = months > 0 ? Math.round(rentTotal / (months * quantity)) : 0;
-  const baselineRent = product.pricing.monthly * (months || 1) * quantity;
-  const savings = baselineRent > rentTotal && months > 1 ? baselineRent - rentTotal : 0;
-
   const whatsappMessage = `Hi ${SITE_CONFIG.name} Team! 🧊
 
 I want to rent the following from ${SITE_CONFIG.name}:
@@ -211,16 +206,10 @@ Sent from: ${SITE_CONFIG.name} (${SITE_CONFIG.url})`;
           <span className="text-sm opacity-90">Rental Price ({selectedPlan.label})</span>
           <span className="font-display text-2xl sm:text-3xl font-extrabold">{formatPrice(rentTotal)}</span>
         </div>
-        {effectiveMonthly > 0 && months > 1 && (
+        {quantity > 1 && (
           <div className="flex justify-between items-center text-xs opacity-80">
-            <span>Effective rate per unit</span>
-            <span>≈ {formatPrice(effectiveMonthly)}/month</span>
-          </div>
-        )}
-        {savings > 0 && (
-          <div className="flex justify-between items-center text-xs text-green-400">
-            <span>Total plan savings</span>
-            <span className="font-bold">You save {formatPrice(savings)}</span>
+            <span>Package rate ({quantity} units)</span>
+            <span>{formatPrice(selectedPlan.price)} × {quantity}</span>
           </div>
         )}
         {depositTotal > 0 && (

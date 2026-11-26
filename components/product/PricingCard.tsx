@@ -34,20 +34,10 @@ export function PricingCard({ product }: PricingCardProps) {
           { label: '12 Months', price: product.pricing.yearly, days: 365 },
         ];
 
-  const hasFourMonthPlan = plans.some((p) => p.days === 120);
-  const hasOneMonthPlan = plans.some((p) => p.days === 30);
-  const fourMonthPlan = plans.find((p) => p.days === 120);
-  const oneMonthPlan = plans.find((p) => p.days === 30);
-
-  const mainPrice = hasFourMonthPlan && !hasOneMonthPlan && fourMonthPlan
-    ? fourMonthPlan.price
-    : oneMonthPlan
-    ? oneMonthPlan.price
-    : product.pricing.monthly;
-
-  const mainPriceLabel = hasFourMonthPlan && !hasOneMonthPlan && fourMonthPlan
-    ? `/ 4 Months Package (≈ ${formatPrice(Math.round(fourMonthPlan.price / 4))}/mo)`
-    : '/month';
+  // The primary rental package from the price sheet (defaults to first multi-month package or first plan)
+  const primaryPlan = plans.find((p) => p.days >= 30) || plans[0];
+  const mainPrice = primaryPlan.price;
+  const mainPriceLabel = `/ ${primaryPlan.label}`;
 
   return (
     <div className="bg-white border border-gray-200 rounded-lg p-4 sm:p-5 shadow-sm">
@@ -56,7 +46,7 @@ export function PricingCard({ product }: PricingCardProps) {
           <span className="text-3xl sm:text-4xl font-bold text-gray-900">
             {formatPrice(mainPrice)}
           </span>
-          <span className="text-sm text-gray-500 font-medium">
+          <span className="text-sm text-gray-600 font-semibold">
             {mainPriceLabel}
           </span>
         </div>
@@ -94,42 +84,24 @@ export function PricingCard({ product }: PricingCardProps) {
         <div className="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-1">
           Available Rental Packages
         </div>
-        {plans.map((plan, idx) => {
-          const months = plan.days >= 30 ? Math.round(plan.days / 30) : 0;
-          const effectiveMonthly = months > 0 ? Math.round(plan.price / months) : 0;
-          const baseline = product.pricing.monthly * (months || 1);
-          const save =
-            baseline > plan.price && months > 1
-              ? Math.round((1 - plan.price / baseline) * 100)
-              : 0;
-
-          return (
-            <div
-              key={idx}
-              className="flex items-center justify-between py-2 px-3 rounded-md border border-gray-100 hover:border-gray-300 hover:bg-gray-50 transition-colors"
-            >
-              <div>
-                <span className="text-sm font-semibold text-gray-900">{plan.label}</span>
-                {plan.days === 1 && (
-                  <span className="block text-[11px] text-sky-600 font-medium">
-                    Short-term / daily rate
-                  </span>
-                )}
-                {months > 1 && effectiveMonthly > 0 && (
-                  <span className="block text-[11px] text-gray-500">
-                    ≈ {formatPrice(effectiveMonthly)}/month
-                  </span>
-                )}
-              </div>
-              <div className="text-right">
-                <div className="text-sm font-bold text-gray-900">{formatPrice(plan.price)}</div>
-                {save > 0 && (
-                  <div className="text-[10px] font-semibold text-green-700">Save {save}%</div>
-                )}
-              </div>
+        {plans.map((plan, idx) => (
+          <div
+            key={idx}
+            className="flex items-center justify-between py-2.5 px-3 rounded-md border border-gray-100 hover:border-gray-300 hover:bg-gray-50 transition-colors"
+          >
+            <div>
+              <span className="text-sm font-semibold text-gray-900">{plan.label}</span>
+              {plan.days === 1 && (
+                <span className="block text-[11px] text-sky-600 font-medium">
+                  Short-term / daily rate
+                </span>
+              )}
             </div>
-          );
-        })}
+            <div className="text-right">
+              <div className="text-sm font-bold text-gray-900">{formatPrice(plan.price)}</div>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

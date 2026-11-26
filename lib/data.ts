@@ -367,13 +367,13 @@ const PRICE_OVERRIDES: Record<string, Record<string, PriceOverrideEntry>> = {
   /* ===== Window AC ===== */
   'window-ac': {
     '1 Ton': {
-      monthly: 3125, // 12500 / 4 months package
+      monthly: 12500, // 4 Months Package starting price
       quarterly: 12500,
       halfYearly: 13500,
       yearly: 17400,
       deposit: 0,
       pricingNote: 'All brands same price',
-      transportationNote: 'Transportation extra (chargeable as per actual distance)',
+      transportationNote: 'Transportation extra as per location / distance',
       plans: [
         { label: '4 Months Package', days: 120, price: 12500 },
         { label: '6 Months Package', days: 180, price: 13500 },
@@ -381,13 +381,13 @@ const PRICE_OVERRIDES: Record<string, Record<string, PriceOverrideEntry>> = {
       ],
     },
     '1.5 Ton': {
-      monthly: 3250, // 13000 / 4 months package
+      monthly: 13000,
       quarterly: 13000,
       halfYearly: 14500,
       yearly: 18800,
       deposit: 0,
       pricingNote: 'All brands same price',
-      transportationNote: 'Transportation extra (chargeable as per actual distance)',
+      transportationNote: 'Transportation extra as per location / distance',
       plans: [
         { label: '4 Months Package', days: 120, price: 13000 },
         { label: '6 Months Package', days: 180, price: 14500 },
@@ -395,13 +395,13 @@ const PRICE_OVERRIDES: Record<string, Record<string, PriceOverrideEntry>> = {
       ],
     },
     '2 Ton': {
-      monthly: 3500, // 14000 / 4 months package
+      monthly: 14000,
       quarterly: 14000,
       halfYearly: 15500,
       yearly: 19800,
       deposit: 0,
       pricingNote: 'All brands same price',
-      transportationNote: 'Transportation extra (chargeable as per actual distance)',
+      transportationNote: 'Transportation extra as per location / distance',
       plans: [
         { label: '4 Months Package', days: 120, price: 14000 },
         { label: '6 Months Package', days: 180, price: 15500 },
@@ -413,13 +413,13 @@ const PRICE_OVERRIDES: Record<string, Record<string, PriceOverrideEntry>> = {
   /* ===== Split AC ===== */
   'split-ac': {
     '1 Ton': {
-      monthly: 3125,
+      monthly: 12500,
       quarterly: 12500,
       halfYearly: 13500,
       yearly: 17400,
       deposit: 0,
       pricingNote: 'All brands same price',
-      transportationNote: 'Transportation extra (chargeable as per actual distance)',
+      transportationNote: 'Transportation extra as per location / distance',
       plans: [
         { label: '4 Months Package', days: 120, price: 12500 },
         { label: '6 Months Package', days: 180, price: 13500 },
@@ -427,13 +427,13 @@ const PRICE_OVERRIDES: Record<string, Record<string, PriceOverrideEntry>> = {
       ],
     },
     '1.5 Ton': {
-      monthly: 3250,
+      monthly: 13000,
       quarterly: 13000,
       halfYearly: 14500,
       yearly: 18800,
       deposit: 0,
       pricingNote: 'All brands same price',
-      transportationNote: 'Transportation extra (chargeable as per actual distance)',
+      transportationNote: 'Transportation extra as per location / distance',
       plans: [
         { label: '4 Months Package', days: 120, price: 13000 },
         { label: '6 Months Package', days: 180, price: 14500 },
@@ -441,13 +441,13 @@ const PRICE_OVERRIDES: Record<string, Record<string, PriceOverrideEntry>> = {
       ],
     },
     '2 Ton': {
-      monthly: 3500,
+      monthly: 14000,
       quarterly: 14000,
       halfYearly: 15500,
       yearly: 19800,
       deposit: 0,
       pricingNote: 'All brands same price',
-      transportationNote: 'Transportation extra (chargeable as per actual distance)',
+      transportationNote: 'Transportation extra as per location / distance',
       plans: [
         { label: '4 Months Package', days: 120, price: 14000 },
         { label: '6 Months Package', days: 180, price: 15500 },
@@ -459,13 +459,13 @@ const PRICE_OVERRIDES: Record<string, Record<string, PriceOverrideEntry>> = {
   /* ===== Split Inverter AC ===== */
   'inverter-ac': {
     '1 Ton': {
-      monthly: 4125,
+      monthly: 16500,
       quarterly: 16500,
       halfYearly: 18500,
       yearly: 20500,
       deposit: 0,
       pricingNote: 'Split Inverter AC - All brands same price',
-      transportationNote: 'Transportation extra (chargeable as per actual distance)',
+      transportationNote: 'Transportation extra as per location / distance',
       plans: [
         { label: '4 Months Package', days: 120, price: 16500 },
         { label: '6 Months Package', days: 180, price: 18500 },
@@ -473,13 +473,13 @@ const PRICE_OVERRIDES: Record<string, Record<string, PriceOverrideEntry>> = {
       ],
     },
     '1.5 Ton': {
-      monthly: 4450,
+      monthly: 17800,
       quarterly: 17800,
       halfYearly: 19600,
       yearly: 21500,
       deposit: 0,
       pricingNote: 'Split Inverter AC - All brands same price',
-      transportationNote: 'Transportation extra (chargeable as per actual distance)',
+      transportationNote: 'Transportation extra as per location / distance',
       plans: [
         { label: '4 Months Package', days: 120, price: 17800 },
         { label: '6 Months Package', days: 180, price: 19600 },
@@ -487,13 +487,13 @@ const PRICE_OVERRIDES: Record<string, Record<string, PriceOverrideEntry>> = {
       ],
     },
     '2 Ton': {
-      monthly: 4650,
+      monthly: 18600,
       quarterly: 18600,
       halfYearly: 20700,
       yearly: 23300,
       deposit: 0,
       pricingNote: 'Split Inverter AC - All brands same price',
-      transportationNote: 'Transportation extra (chargeable as per actual distance)',
+      transportationNote: 'Transportation extra as per location / distance',
       plans: [
         { label: '4 Months Package', days: 120, price: 18600 },
         { label: '6 Months Package', days: 180, price: 20700 },
@@ -515,10 +515,10 @@ const PRICE_OVERRIDES: Record<string, Record<string, PriceOverrideEntry>> = {
       pricingNote: 'Short-term event rate: ₹5,000 per Ton per Day',
       transportationNote: 'Transportation extra as per location',
       plans: [
-        { label: '1 Day', days: 1, price: 12500 },
-        { label: '1 Month', days: 30, price: 24999 },
-        { label: '2 Months', days: 60, price: 45000 },
-        { label: '3 Months', days: 90, price: 58000 },
+        { label: '1 Month Package', days: 30, price: 24999 },
+        { label: '2 Months Package', days: 60, price: 45000 },
+        { label: '3 Months Package', days: 90, price: 58000 },
+        { label: '1 Day (Event Rate)', days: 1, price: 12500 },
       ],
     },
     '3 Ton': {
@@ -532,10 +532,10 @@ const PRICE_OVERRIDES: Record<string, Record<string, PriceOverrideEntry>> = {
       pricingNote: 'Short-term event rate: ₹5,000 per Ton per Day',
       transportationNote: 'Transportation extra as per location',
       plans: [
-        { label: '1 Day', days: 1, price: 15000 },
-        { label: '1 Month', days: 30, price: 29999 },
-        { label: '2 Months', days: 60, price: 49999 },
-        { label: '3 Months', days: 90, price: 63333 },
+        { label: '1 Month Package', days: 30, price: 29999 },
+        { label: '2 Months Package', days: 60, price: 49999 },
+        { label: '3 Months Package', days: 90, price: 63333 },
+        { label: '1 Day (Event Rate)', days: 1, price: 15000 },
       ],
     },
     '4 Ton': {
@@ -549,10 +549,10 @@ const PRICE_OVERRIDES: Record<string, Record<string, PriceOverrideEntry>> = {
       pricingNote: 'Short-term event rate: ₹5,000 per Ton per Day',
       transportationNote: 'Transportation extra as per location',
       plans: [
-        { label: '1 Day', days: 1, price: 20000 },
-        { label: '1 Month', days: 30, price: 33999 },
-        { label: '2 Months', days: 60, price: 55999 },
-        { label: '3 Months', days: 90, price: 65999 },
+        { label: '1 Month Package', days: 30, price: 33999 },
+        { label: '2 Months Package', days: 60, price: 55999 },
+        { label: '3 Months Package', days: 90, price: 65999 },
+        { label: '1 Day (Event Rate)', days: 1, price: 20000 },
       ],
     },
   },
@@ -560,7 +560,7 @@ const PRICE_OVERRIDES: Record<string, Record<string, PriceOverrideEntry>> = {
   /* ===== Portable AC ===== */
   'portable-ac': {
     '1 Ton': {
-      monthly: 3750,
+      monthly: 15000,
       quarterly: 15000,
       halfYearly: 22500,
       yearly: 28500,
@@ -569,14 +569,14 @@ const PRICE_OVERRIDES: Record<string, Record<string, PriceOverrideEntry>> = {
       dayPriceUnit: 'per day',
       transportationNote: 'Transportation not included',
       plans: [
-        { label: '1 Day', days: 1, price: 2000 },
         { label: '4 Months Package', days: 120, price: 15000 },
         { label: '6 Months Package', days: 180, price: 22500 },
         { label: '12 Months Package', days: 365, price: 28500 },
+        { label: '1 Day Rate', days: 1, price: 2000 },
       ],
     },
     '1.5 Ton': {
-      monthly: 4375,
+      monthly: 17500,
       quarterly: 17500,
       halfYearly: 25500,
       yearly: 29500,
@@ -585,10 +585,10 @@ const PRICE_OVERRIDES: Record<string, Record<string, PriceOverrideEntry>> = {
       dayPriceUnit: 'per day',
       transportationNote: 'Transportation not included',
       plans: [
-        { label: '1 Day', days: 1, price: 2500 },
         { label: '4 Months Package', days: 120, price: 17500 },
         { label: '6 Months Package', days: 180, price: 25500 },
         { label: '12 Months Package', days: 365, price: 29500 },
+        { label: '1 Day Rate', days: 1, price: 2500 },
       ],
     },
   },
@@ -604,9 +604,9 @@ const PRICE_OVERRIDES: Record<string, Record<string, PriceOverrideEntry>> = {
       pricingNote: 'Installation included',
       transportationNote: 'Transportation extra as per location',
       plans: [
-        { label: '1 Month', days: 30, price: 30999 },
-        { label: '2 Months', days: 60, price: 40000 },
-        { label: '3 Months', days: 90, price: 60999 },
+        { label: '1 Month Package', days: 30, price: 30999 },
+        { label: '2 Months Package', days: 60, price: 40000 },
+        { label: '3 Months Package', days: 90, price: 60999 },
       ],
     },
     '3 Ton': {
@@ -618,9 +618,9 @@ const PRICE_OVERRIDES: Record<string, Record<string, PriceOverrideEntry>> = {
       pricingNote: 'Installation included',
       transportationNote: 'Transportation extra as per location',
       plans: [
-        { label: '1 Month', days: 30, price: 35999 },
-        { label: '2 Months', days: 60, price: 45000 },
-        { label: '3 Months', days: 90, price: 65999 },
+        { label: '1 Month Package', days: 30, price: 35999 },
+        { label: '2 Months Package', days: 60, price: 45000 },
+        { label: '3 Months Package', days: 90, price: 65999 },
       ],
     },
     '4 Ton': {
@@ -632,9 +632,9 @@ const PRICE_OVERRIDES: Record<string, Record<string, PriceOverrideEntry>> = {
       pricingNote: 'Installation included',
       transportationNote: 'Transportation extra as per location',
       plans: [
-        { label: '1 Month', days: 30, price: 40999 },
-        { label: '2 Months', days: 60, price: 50000 },
-        { label: '3 Months', days: 90, price: 69000 },
+        { label: '1 Month Package', days: 30, price: 40999 },
+        { label: '2 Months Package', days: 60, price: 50000 },
+        { label: '3 Months Package', days: 90, price: 69000 },
       ],
     },
   },
@@ -651,11 +651,11 @@ const PRICE_OVERRIDES: Record<string, Record<string, PriceOverrideEntry>> = {
       dayPriceUnit: 'per day',
       transportationNote: 'Transportation not included',
       plans: [
-        { label: '1 Day', days: 1, price: 300 },
-        { label: '1 Month', days: 30, price: 1000 },
+        { label: '1 Month Package', days: 30, price: 1000 },
         { label: '4 Months Package', days: 120, price: 3000 },
         { label: '6 Months Package', days: 180, price: 4800 },
         { label: '12 Months Package', days: 365, price: 6200 },
+        { label: '1 Day Rate', days: 1, price: 300 },
       ],
     },
     '25L': {
@@ -668,11 +668,11 @@ const PRICE_OVERRIDES: Record<string, Record<string, PriceOverrideEntry>> = {
       dayPriceUnit: 'per day',
       transportationNote: 'Transportation not included',
       plans: [
-        { label: '1 Day', days: 1, price: 400 },
-        { label: '1 Month', days: 30, price: 1200 },
+        { label: '1 Month Package', days: 30, price: 1200 },
         { label: '4 Months Package', days: 120, price: 3500 },
         { label: '6 Months Package', days: 180, price: 5500 },
         { label: '12 Months Package', days: 365, price: 7200 },
+        { label: '1 Day Rate', days: 1, price: 400 },
       ],
     },
     '30L': {
@@ -685,11 +685,11 @@ const PRICE_OVERRIDES: Record<string, Record<string, PriceOverrideEntry>> = {
       dayPriceUnit: 'per day',
       transportationNote: 'Transportation not included',
       plans: [
-        { label: '1 Day', days: 1, price: 500 },
-        { label: '1 Month', days: 30, price: 1400 },
+        { label: '1 Month Package', days: 30, price: 1400 },
         { label: '4 Months Package', days: 120, price: 4000 },
         { label: '6 Months Package', days: 180, price: 6000 },
         { label: '12 Months Package', days: 365, price: 7800 },
+        { label: '1 Day Rate', days: 1, price: 500 },
       ],
     },
     '40L': {
@@ -702,11 +702,11 @@ const PRICE_OVERRIDES: Record<string, Record<string, PriceOverrideEntry>> = {
       dayPriceUnit: 'per day',
       transportationNote: 'Transportation not included',
       plans: [
-        { label: '1 Day', days: 1, price: 600 },
-        { label: '1 Month', days: 30, price: 1600 },
+        { label: '1 Month Package', days: 30, price: 1600 },
         { label: '4 Months Package', days: 120, price: 4500 },
         { label: '6 Months Package', days: 180, price: 6500 },
         { label: '12 Months Package', days: 365, price: 8200 },
+        { label: '1 Day Rate', days: 1, price: 600 },
       ],
     },
     '65L': {
@@ -719,11 +719,11 @@ const PRICE_OVERRIDES: Record<string, Record<string, PriceOverrideEntry>> = {
       dayPriceUnit: 'per day',
       transportationNote: 'Transportation not included',
       plans: [
-        { label: '1 Day', days: 1, price: 700 },
-        { label: '1 Month', days: 30, price: 1700 },
+        { label: '1 Month Package', days: 30, price: 1700 },
         { label: '4 Months Package', days: 120, price: 5400 },
         { label: '6 Months Package', days: 180, price: 6900 },
         { label: '12 Months Package', days: 365, price: 8500 },
+        { label: '1 Day Rate', days: 1, price: 700 },
       ],
     },
     '80L': {
@@ -736,11 +736,11 @@ const PRICE_OVERRIDES: Record<string, Record<string, PriceOverrideEntry>> = {
       dayPriceUnit: 'per day',
       transportationNote: 'Transportation not included',
       plans: [
-        { label: '1 Day', days: 1, price: 800 },
-        { label: '1 Month', days: 30, price: 1800 },
+        { label: '1 Month Package', days: 30, price: 1800 },
         { label: '4 Months Package', days: 120, price: 6500 },
         { label: '6 Months Package', days: 180, price: 7500 },
         { label: '12 Months Package', days: 365, price: 9500 },
+        { label: '1 Day Rate', days: 1, price: 800 },
       ],
     },
   },
@@ -757,11 +757,11 @@ const PRICE_OVERRIDES: Record<string, Record<string, PriceOverrideEntry>> = {
       dayPriceUnit: 'per day',
       transportationNote: 'Transportation not included',
       plans: [
-        { label: '1 Day', days: 1, price: 1500 },
-        { label: '1 Month', days: 30, price: 4000 },
+        { label: '1 Month Package', days: 30, price: 4000 },
         { label: '4 Months Package', days: 120, price: 8000 },
         { label: '6 Months Package', days: 180, price: 10500 },
         { label: '12 Months Package', days: 365, price: 12500 },
+        { label: '1 Day Rate', days: 1, price: 1500 },
       ],
     },
     '90L': {
@@ -774,11 +774,11 @@ const PRICE_OVERRIDES: Record<string, Record<string, PriceOverrideEntry>> = {
       dayPriceUnit: 'per day',
       transportationNote: 'Transportation not included',
       plans: [
-        { label: '1 Day', days: 1, price: 1700 },
-        { label: '1 Month', days: 30, price: 4500 },
+        { label: '1 Month Package', days: 30, price: 4500 },
         { label: '4 Months Package', days: 120, price: 9000 },
         { label: '6 Months Package', days: 180, price: 11000 },
         { label: '12 Months Package', days: 365, price: 13000 },
+        { label: '1 Day Rate', days: 1, price: 1700 },
       ],
     },
     '100L': {
@@ -791,11 +791,11 @@ const PRICE_OVERRIDES: Record<string, Record<string, PriceOverrideEntry>> = {
       dayPriceUnit: 'per day',
       transportationNote: 'Transportation not included',
       plans: [
-        { label: '1 Day', days: 1, price: 2700 },
-        { label: '1 Month', days: 30, price: 5000 },
+        { label: '1 Month Package', days: 30, price: 5000 },
         { label: '4 Months Package', days: 120, price: 10000 },
         { label: '6 Months Package', days: 180, price: 12500 },
         { label: '12 Months Package', days: 365, price: 13500 },
+        { label: '1 Day Rate', days: 1, price: 2700 },
       ],
     },
     '120L': {
@@ -808,11 +808,11 @@ const PRICE_OVERRIDES: Record<string, Record<string, PriceOverrideEntry>> = {
       dayPriceUnit: 'per day',
       transportationNote: 'Transportation not included',
       plans: [
-        { label: '1 Day', days: 1, price: 3000 },
-        { label: '1 Month', days: 30, price: 5500 },
+        { label: '1 Month Package', days: 30, price: 5500 },
         { label: '4 Months Package', days: 120, price: 11000 },
         { label: '6 Months Package', days: 180, price: 13000 },
         { label: '12 Months Package', days: 365, price: 14000 },
+        { label: '1 Day Rate', days: 1, price: 3000 },
       ],
     },
   },
@@ -845,11 +845,22 @@ function resolvePricing(
   const override = PRICE_OVERRIDES[subCategory]?.[capacityLabel];
 
   if (override) {
+    const plans =
+      override.plans && override.plans.length > 0
+        ? override.plans
+        : [
+            { label: '3 Months', days: 90, price: quarterlyFromMonthly(override.monthly || 1000) },
+            { label: '6 Months', days: 180, price: halfYearlyFromMonthly(override.monthly || 1000) },
+            { label: '12 Months', days: 365, price: yearlyFromMonthly(override.monthly || 1000) },
+          ];
+
+    const primaryPlan = plans.find((p) => p.days >= 30) || plans[0];
+
     const monthly =
       override.monthly !== undefined
         ? override.monthly
-        : override.plans && override.plans.length > 0
-        ? Math.round(override.plans[0].price / Math.max(1, Math.round(override.plans[0].days / 30)))
+        : primaryPlan
+        ? primaryPlan.price
         : 1000;
 
     const quarterly =
@@ -870,15 +881,6 @@ function resolvePricing(
         : category === 'refrigerators' || category === 'washing-machines'
         ? 2000
         : 0;
-
-    const plans =
-      override.plans && override.plans.length > 0
-        ? override.plans
-        : [
-            { label: '3 Months', days: 90, price: quarterly },
-            { label: '6 Months', days: 180, price: halfYearly },
-            { label: '12 Months', days: 365, price: yearly },
-          ];
 
     return {
       monthly,

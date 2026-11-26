@@ -49,7 +49,18 @@ export default function SubCategoryPage({ params }: PageProps) {
     notFound();
   }
 
-  const minPrice = Math.min(...products.map((p) => p.pricing.monthly));
+  const activeProducts = products.filter((p) => !p.comingSoon);
+  const minPrice =
+    activeProducts.length > 0
+      ? Math.min(
+          ...activeProducts.map((p) => {
+            const primary = p.plans && p.plans.length > 0 ? (p.plans.find((plan) => plan.days >= 30) || p.plans[0]) : null;
+            return primary ? primary.price : p.pricing.monthly;
+          })
+        )
+      : products.length > 0
+      ? Math.min(...products.map((p) => p.pricing.monthly))
+      : 0;
   const subName = titleCase(params.subcategory);
   const displayCategory = titleCase(canonicalCategory);
 
@@ -68,10 +79,16 @@ export default function SubCategoryPage({ params }: PageProps) {
             <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-3">
               {subName} for Rent
             </h1>
-            <p className="text-gray-600 text-sm sm:text-base lg:text-lg">
-              {products.length} products • Starting from{' '}
-              <span className="font-bold text-sky-600">{formatPrice(minPrice)}/month</span>
-            </p>
+            {activeProducts.length > 0 ? (
+              <p className="text-gray-600 text-sm sm:text-base lg:text-lg">
+                {products.length} products • Starting from{' '}
+                <span className="font-bold text-sky-600">{formatPrice(minPrice)}</span>
+              </p>
+            ) : (
+              <p className="text-gray-600 text-sm sm:text-base lg:text-lg">
+                {products.length} products • Coming Soon
+              </p>
+            )}
           </div>
         </div>
       </section>

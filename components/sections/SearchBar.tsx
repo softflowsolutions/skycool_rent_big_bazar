@@ -29,7 +29,7 @@ export function SearchBar() {
         type: 'rent',
         name: p.name,
         href: `/rent/${p.category}/${p.subCategory}/${p.slug}`,
-        price: p.pricing.monthly,
+        price: p.plans && p.plans.length > 0 ? (p.plans.find((pl) => pl.days >= 30) || p.plans[0]).price : p.pricing.monthly,
       }));
     const serviceResults = SERVICES.filter(
       (s) =>

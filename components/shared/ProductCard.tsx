@@ -50,20 +50,31 @@ export function ProductCard({ product, className }: ProductCardProps) {
             </span>
           </div>
         ) : (() => {
-          const fourMonth = product.plans?.find((p) => p.days === 120);
-          const hasOneMonth = product.plans?.some((p) => p.days === 30);
-          if (fourMonth && !hasOneMonth) {
+          const primaryPlan = product.plans?.find((p) => p.days >= 30) || product.plans?.[0];
+          if (primaryPlan) {
+            let label = `/${primaryPlan.label}`;
+            if (primaryPlan.days === 120) label = '/ 4M pkg';
+            else if (primaryPlan.days === 30) label = '/ 1M pkg';
+            else if (primaryPlan.days === 60) label = '/ 2M pkg';
+            else if (primaryPlan.days === 90) label = '/ 3M pkg';
+            else if (primaryPlan.days === 180) label = '/ 6M pkg';
+            else if (primaryPlan.days === 365) label = '/ 12M pkg';
+            else if (primaryPlan.days === 1) label = '/ day';
             return (
               <div className="flex items-baseline gap-1 mb-2">
-                <span className="text-base font-bold text-gray-900">₹{fourMonth.price.toLocaleString('en-IN')}</span>
-                <span className="text-xs text-gray-500">/4M pkg</span>
+                <span className="text-base font-bold text-gray-900">
+                  ₹{primaryPlan.price.toLocaleString('en-IN')}
+                </span>
+                <span className="text-xs text-gray-500 font-medium">{label}</span>
               </div>
             );
           }
           return (
             <div className="flex items-baseline gap-1 mb-2">
-              <span className="text-base font-bold text-gray-900">₹{getFeaturedPrice(product)}</span>
-              <span className="text-xs text-gray-500">/month</span>
+              <span className="text-base font-bold text-gray-900">
+                ₹{getFeaturedPrice(product).toLocaleString('en-IN')}
+              </span>
+              <span className="text-xs text-gray-500 font-medium">/month</span>
             </div>
           );
         })()}
