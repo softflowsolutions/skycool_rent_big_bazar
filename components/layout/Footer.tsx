@@ -79,9 +79,9 @@ export function Footer() {
               </div>
             </Link>
             <p className="text-sm text-gray-600 mb-6 leading-relaxed">
-              India&apos;s most trusted AC & Fridge rental and service platform.
-              Affordable monthly rentals starting at ₹599/month. Charges
-              applicable on delivery & installation across 15+ cities.
+              India&apos;s most trusted AC &amp; appliance rental and service platform.
+              Affordable seasonal &amp; monthly rental packages with zero deposit. Charges
+              applicable on delivery &amp; installation as per location.
             </p>
           </div>
 

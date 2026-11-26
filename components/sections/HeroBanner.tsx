@@ -24,7 +24,7 @@ export function HeroBanner() {
             </h1>
 
             <p className="text-base sm:text-lg text-gray-600 mb-6 lg:mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-              Rent AC & Fridge starting at ₹599/month. Free delivery & installation. No hidden charges.
+              Rent ACs &amp; Air Coolers on flexible seasonal and monthly packages. Transparent pricing with zero deposit.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-6">
@@ -89,10 +89,10 @@ export function HeroBanner() {
                 className="object-cover"
                 priority
               />
-              {/* Small starting-price badge */}
+              {/* Starting-price / plan badge */}
               <div className="absolute bottom-4 left-4 bg-white border border-gray-200 rounded-md px-3 py-2 shadow-sm">
-                <div className="text-[10px] text-gray-500 uppercase tracking-wide">Starting at</div>
-                <div className="text-base font-bold text-gray-900">₹599/mo</div>
+                <div className="text-[10px] text-gray-500 uppercase tracking-wide">Rent Packages</div>
+                <div className="text-base font-bold text-gray-900">Zero Deposit</div>
               </div>
             </div>
           </div>

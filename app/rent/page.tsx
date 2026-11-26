@@ -5,6 +5,7 @@ import { Breadcrumb } from '@/components/shared/Breadcrumb';
 import { ProductCard } from '@/components/shared/ProductCard';
 import { PRODUCTS, CATEGORIES } from '@/lib/data';
 import { SEO } from '@/lib/seo';
+import { SITE_CONFIG } from '@/lib/constants';
 
 export const metadata = SEO.rent;
 
@@ -33,9 +34,9 @@ export default function RentPage() {
             </h1>
             <p className="text-gray-600 text-sm sm:text-base lg:text-lg">
               Rent ACs, Fridges, Washing Machines, Geysers &amp; more home appliances on
-              affordable monthly plans. Zero deposit. Charges applicable on
-              delivery &amp; installation. <strong> Rent BigBazar</strong> — starting
-              at ₹599/month.
+              affordable monthly and seasonal plans. Zero deposit. Charges applicable on
+              delivery &amp; installation as per location. <strong>{SITE_CONFIG.name}</strong> — transparent
+              rental packages with zero deposit.
             </p>
           </div>
         </div>

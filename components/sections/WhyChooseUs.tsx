@@ -4,7 +4,7 @@ const features = [
   {
     icon: IndianRupee,
     title: 'Affordable Pricing',
-    description: 'Starting at ₹599/month with zero deposit. No hidden charges.',
+    description: 'Flexible seasonal & monthly packages with zero deposit. Transparent pricing.',
   },
   {
     icon: Truck,

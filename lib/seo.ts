@@ -140,18 +140,18 @@ function og(title: string, description: string): NonNullable<PageSeo['openGraph'
 
 export const SEO: Record<string, PageSeo> = {
   home: {
-    title: `${SITE_CONFIG.name} — Rent ACs Near You from ₹599/month`,
-    description: `${SITE_CONFIG.name} — India's most trusted AC rental platform. Rent window, split, inverter, tower, cassette and portable ACs with zero deposit. Charges applicable on delivery & installation. Available across Pune, Mumbai, Bangalore, Delhi NCR, Hyderabad and Chennai.`,
+    title: `${SITE_CONFIG.name} — Rent ACs & Coolers Near You | Transparent Packages`,
+    description: `${SITE_CONFIG.name} — India's trusted AC and appliance rental platform. Rent window, split, inverter, tower, cassette and portable ACs with zero deposit. Charges applicable on delivery & installation. Available across Pune, Mumbai, Bangalore, Delhi NCR, Hyderabad and Chennai.`,
     keywords: KW_HOME,
     alternates: { canonical: SITE_CONFIG.url },
     openGraph: og(
-      `${SITE_CONFIG.name} — Rent ACs Near You from ₹599/month`,
+      `${SITE_CONFIG.name} — Rent ACs & Coolers Near You`,
       `Rent ACs near you with zero deposit. Charges applicable on delivery. Available across Pune, Mumbai, Bangalore, Delhi NCR, Hyderabad and Chennai.`,
     ),
     twitter: {
       card: 'summary_large_image',
       title: `${SITE_CONFIG.name} — Rent ACs Near You`,
-      description: 'Rent ACs near you from ₹599/month. Zero deposit. Charges applicable on delivery.',
+      description: 'Rent ACs and air coolers with zero deposit. Charges applicable on delivery and installation.',
     },
   },
   rent: {
